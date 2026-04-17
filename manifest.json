@@ -9201,6 +9201,142 @@
   },
   {
     "name": "favicon.ico",
+    "path": "static-site-generator/favicon.ico",
+    "project": "static-site-generator",
+    "category": "general",
+    "format": "ico",
+    "size": 43984
+  },
+  {
+    "name": "banner-static-site-generator.png",
+    "path": "static-site-generator/images/banners/banner-static-site-generator.png",
+    "project": "static-site-generator",
+    "category": "banners",
+    "format": "png",
+    "size": 72771
+  },
+  {
+    "name": "banner-static-site-generator.svg",
+    "path": "static-site-generator/images/banners/banner-static-site-generator.svg",
+    "project": "static-site-generator",
+    "category": "banners",
+    "format": "svg",
+    "size": 81900
+  },
+  {
+    "name": "favicon.ico",
+    "path": "static-site-generator/images/favicon.ico",
+    "project": "static-site-generator",
+    "category": "favicon.ico",
+    "format": "ico",
+    "size": 43984
+  },
+  {
+    "name": "github-static-site-generator.svg",
+    "path": "static-site-generator/images/github/github-static-site-generator.svg",
+    "project": "static-site-generator",
+    "category": "github",
+    "format": "svg",
+    "size": 85927
+  },
+  {
+    "name": "180x180.png",
+    "path": "static-site-generator/images/icons/180x180.png",
+    "project": "static-site-generator",
+    "category": "icons",
+    "format": "png",
+    "size": 10178
+  },
+  {
+    "name": "192x192.png",
+    "path": "static-site-generator/images/icons/192x192.png",
+    "project": "static-site-generator",
+    "category": "icons",
+    "format": "png",
+    "size": 11082
+  },
+  {
+    "name": "static-site-generator.svg",
+    "path": "static-site-generator/images/logos/static-site-generator.svg",
+    "project": "static-site-generator",
+    "category": "logos",
+    "format": "svg",
+    "size": 34178
+  },
+  {
+    "name": "title-static-site-generator.svg",
+    "path": "static-site-generator/images/titles/title-static-site-generator.svg",
+    "project": "static-site-generator",
+    "category": "titles",
+    "format": "svg",
+    "size": 5548
+  },
+  {
+    "name": "banner-static-site-generator.png",
+    "path": "static-site-generator/v1/banners/banner-static-site-generator.png",
+    "project": "static-site-generator",
+    "category": "banners",
+    "format": "png",
+    "size": 72771
+  },
+  {
+    "name": "banner-static-site-generator.svg",
+    "path": "static-site-generator/v1/banners/banner-static-site-generator.svg",
+    "project": "static-site-generator",
+    "category": "banners",
+    "format": "svg",
+    "size": 81900
+  },
+  {
+    "name": "favicon.ico",
+    "path": "static-site-generator/v1/favicon.ico",
+    "project": "static-site-generator",
+    "category": "favicon.ico",
+    "format": "ico",
+    "size": 43984
+  },
+  {
+    "name": "github-static-site-generator.svg",
+    "path": "static-site-generator/v1/github/github-static-site-generator.svg",
+    "project": "static-site-generator",
+    "category": "github",
+    "format": "svg",
+    "size": 85927
+  },
+  {
+    "name": "180x180.png",
+    "path": "static-site-generator/v1/icons/180x180.png",
+    "project": "static-site-generator",
+    "category": "icons",
+    "format": "png",
+    "size": 10178
+  },
+  {
+    "name": "192x192.png",
+    "path": "static-site-generator/v1/icons/192x192.png",
+    "project": "static-site-generator",
+    "category": "icons",
+    "format": "png",
+    "size": 11082
+  },
+  {
+    "name": "static-site-generator.svg",
+    "path": "static-site-generator/v1/logos/static-site-generator.svg",
+    "project": "static-site-generator",
+    "category": "logos",
+    "format": "svg",
+    "size": 34178
+  },
+  {
+    "name": "title-static-site-generator.svg",
+    "path": "static-site-generator/v1/titles/title-static-site-generator.svg",
+    "project": "static-site-generator",
+    "category": "titles",
+    "format": "svg",
+    "size": 5548
+  },
+  {
+    "name": "favicon.ico",
     "path": "staticdatagen/favicon.ico",
     "project": "staticdatagen",
     "category": "general",
