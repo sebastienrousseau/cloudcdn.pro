@@ -61,7 +61,7 @@
     "project": "akande",
     "category": "icons",
     "format": "svg",
-    "size": 5548
+    "size": 5532
   },
   {
     "name": "icon-configuration.svg",
@@ -2773,7 +2773,7 @@
     "project": "cmn",
     "category": "banners",
     "format": "png",
-    "size": 41711
+    "size": 40455
   },
   {
     "name": "banner-cmn.svg",
@@ -2805,7 +2805,7 @@
     "project": "cmn",
     "category": "github",
     "format": "png",
-    "size": 164713
+    "size": 160006
   },
   {
     "name": "github-cmn.svg",
@@ -2813,7 +2813,7 @@
     "project": "cmn",
     "category": "github",
     "format": "svg",
-    "size": 956935
+    "size": 956917
   },
   {
     "name": "github-cmn.webp",
@@ -2837,7 +2837,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 15816
+    "size": 15770
   },
   {
     "name": "114x114@3x.png",
@@ -2845,7 +2845,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 25379
+    "size": 25377
   },
   {
     "name": "120x120.png",
@@ -2861,7 +2861,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 16811
+    "size": 16789
   },
   {
     "name": "120x120@3x.png",
@@ -2869,7 +2869,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 27127
+    "size": 27050
   },
   {
     "name": "130x130.png",
@@ -2877,7 +2877,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 8418
+    "size": 8392
   },
   {
     "name": "130x130@2x.png",
@@ -2885,7 +2885,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 18531
+    "size": 18520
   },
   {
     "name": "130x130@3x.png",
@@ -2893,7 +2893,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 29920
+    "size": 29804
   },
   {
     "name": "144x144.png",
@@ -2917,7 +2917,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 33610
+    "size": 33376
   },
   {
     "name": "150x150.png",
@@ -2925,7 +2925,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 9871
+    "size": 9855
   },
   {
     "name": "150x150@2x.png",
@@ -2941,7 +2941,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 36278
+    "size": 35022
   },
   {
     "name": "152x152.png",
@@ -2957,7 +2957,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 22328
+    "size": 22269
   },
   {
     "name": "152x152@3x.png",
@@ -2965,7 +2965,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 36737
+    "size": 35479
   },
   {
     "name": "167x167.png",
@@ -2989,7 +2989,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 41096
+    "size": 39641
   },
   {
     "name": "16x16.png",
@@ -3029,7 +3029,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 27127
+    "size": 27050
   },
   {
     "name": "180x180@3x.png",
@@ -3037,7 +3037,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 44575
+    "size": 43084
   },
   {
     "name": "192x192.png",
@@ -3045,7 +3045,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 13102
+    "size": 13077
   },
   {
     "name": "192x192@2x.png",
@@ -3053,7 +3053,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 29352
+    "size": 29321
   },
   {
     "name": "192x192@3x.png",
@@ -3061,7 +3061,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 48161
+    "size": 46669
   },
   {
     "name": "196x196.png",
@@ -3077,7 +3077,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 29941
+    "size": 29852
   },
   {
     "name": "196x196@3x.png",
@@ -3085,7 +3085,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 49362
+    "size": 47964
   },
   {
     "name": "256x256.png",
@@ -3101,7 +3101,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 42080
+    "size": 40623
   },
   {
     "name": "256x256@3x.png",
@@ -3109,7 +3109,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 66415
+    "size": 65473
   },
   {
     "name": "310x310.png",
@@ -3117,7 +3117,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 22606
+    "size": 22578
   },
   {
     "name": "310x310@2x.png",
@@ -3125,7 +3125,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 52235
+    "size": 50602
   },
   {
     "name": "310x310@3x.png",
@@ -3133,7 +3133,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 83688
+    "size": 82010
   },
   {
     "name": "32x32.png",
@@ -3149,7 +3149,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 3815
+    "size": 3807
   },
   {
     "name": "32x32@3x.png",
@@ -3165,7 +3165,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 29352
+    "size": 29321
   },
   {
     "name": "384x384@2x.png",
@@ -3173,7 +3173,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 67187
+    "size": 65473
   },
   {
     "name": "384x384@3x.png",
@@ -3181,7 +3181,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 107732
+    "size": 106241
   },
   {
     "name": "48x48.png",
@@ -3213,7 +3213,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 42080
+    "size": 40623
   },
   {
     "name": "512x512@2x.png",
@@ -3221,7 +3221,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 93780
+    "size": 92353
   },
   {
     "name": "512x512@3x.png",
@@ -3229,7 +3229,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 151561
+    "size": 150575
   },
   {
     "name": "57x57.png",
@@ -3237,7 +3237,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 3297
+    "size": 3295
   },
   {
     "name": "57x57@2x.png",
@@ -3285,7 +3285,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 4247
+    "size": 4244
   },
   {
     "name": "70x70@2x.png",
@@ -3293,7 +3293,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 9134
+    "size": 9111
   },
   {
     "name": "70x70@3x.png",
@@ -3309,7 +3309,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 4311
+    "size": 4300
   },
   {
     "name": "72x72@2x.png",
@@ -3349,7 +3349,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 15816
+    "size": 15770
   },
   {
     "name": "96x96.png",
@@ -3365,7 +3365,7 @@
     "project": "cmn",
     "category": "icons",
     "format": "png",
-    "size": 13102
+    "size": 13077
   },
   {
     "name": "96x96@3x.png",
@@ -3381,7 +3381,7 @@
     "project": "cmn",
     "category": "logos",
     "format": "png",
-    "size": 359622
+    "size": 357479
   },
   {
     "name": "cmn.svg",
@@ -3429,7 +3429,7 @@
     "project": "common",
     "category": "buttons",
     "format": "png",
-    "size": 1028
+    "size": 729
   },
   {
     "name": "button-browser.svg",
@@ -3437,7 +3437,7 @@
     "project": "common",
     "category": "buttons",
     "format": "svg",
-    "size": 1024
+    "size": 551
   },
   {
     "name": "button-browser.webp",
@@ -3613,7 +3613,7 @@
     "project": "common",
     "category": "buttons",
     "format": "svg",
-    "size": 3742
+    "size": 3126
   },
   {
     "name": "threads-color.svg",
@@ -3621,7 +3621,7 @@
     "project": "common",
     "category": "buttons",
     "format": "svg",
-    "size": 2662
+    "size": 2616
   },
   {
     "name": "threads-white.svg",
@@ -3629,7 +3629,7 @@
     "project": "common",
     "category": "buttons",
     "format": "svg",
-    "size": 2553
+    "size": 2114
   },
   {
     "name": "whatsapp-black.svg",
@@ -5005,7 +5005,7 @@
     "project": "dtt",
     "category": "github",
     "format": "svg",
-    "size": 1312791
+    "size": 1312768
   },
   {
     "name": "180x180.png",
@@ -5221,7 +5221,7 @@
     "project": "html-generator",
     "category": "github",
     "format": "svg",
-    "size": 259789
+    "size": 259766
   },
   {
     "name": "180x180.png",
@@ -5253,7 +5253,7 @@
     "project": "html-generator",
     "category": "logos",
     "format": "svg",
-    "size": 258560
+    "size": 258537
   },
   {
     "name": "title-html-generator.svg",
@@ -5877,7 +5877,7 @@
     "project": "mdx-gen",
     "category": "github",
     "format": "svg",
-    "size": 40932
+    "size": 40849
   },
   {
     "name": "180x180.png",
@@ -5909,7 +5909,7 @@
     "project": "mdx-gen",
     "category": "logos",
     "format": "svg",
-    "size": 39711
+    "size": 39628
   },
   {
     "name": "title-mdx-gen.svg",
@@ -5949,7 +5949,7 @@
     "project": "metadata-gen",
     "category": "github",
     "format": "svg",
-    "size": 25707
+    "size": 25684
   },
   {
     "name": "180x180.png",
@@ -6037,7 +6037,7 @@
     "project": "mini-functions",
     "category": "github",
     "format": "svg",
-    "size": 294639
+    "size": 294637
   },
   {
     "name": "github-mini-functions.webp",
@@ -6781,7 +6781,7 @@
     "project": "noyalib",
     "category": "banners",
     "format": "svg",
-    "size": 174625
+    "size": 174399
   },
   {
     "name": "favicon.ico",
@@ -6797,7 +6797,7 @@
     "project": "noyalib",
     "category": "github",
     "format": "png",
-    "size": 217774
+    "size": 214064
   },
   {
     "name": "github-noyalib.svg",
@@ -6805,7 +6805,7 @@
     "project": "noyalib",
     "category": "github",
     "format": "svg",
-    "size": 159967
+    "size": 117318
   },
   {
     "name": "180x180.png",
@@ -6845,7 +6845,7 @@
     "project": "noyalib",
     "category": "logos",
     "format": "svg",
-    "size": 88463
+    "size": 88350
   },
   {
     "name": "title-noyalib.svg",
@@ -6853,7 +6853,7 @@
     "project": "noyalib",
     "category": "titles",
     "format": "svg",
-    "size": 3860
+    "size": 1974
   },
   {
     "name": "favicon.ico",
@@ -7029,7 +7029,7 @@
     "project": "pain001",
     "category": "icons",
     "format": "png",
-    "size": 22606
+    "size": 22596
   },
   {
     "name": "114x114@2x.png",
@@ -7453,7 +7453,7 @@
     "project": "pain001",
     "category": "icons",
     "format": "png",
-    "size": 7628
+    "size": 7625
   },
   {
     "name": "60x60@2x.png",
@@ -7461,7 +7461,7 @@
     "project": "pain001",
     "category": "icons",
     "format": "png",
-    "size": 25011
+    "size": 24978
   },
   {
     "name": "60x60@3x.png",
@@ -8317,7 +8317,7 @@
     "project": "pipelines",
     "category": "logos",
     "format": "svg",
-    "size": 328516
+    "size": 328463
   },
   {
     "name": "pm2md.webp",
@@ -8357,7 +8357,7 @@
     "project": "pythondev",
     "category": "github",
     "format": "svg",
-    "size": 67254
+    "size": 67201
   },
   {
     "name": "180x180.png",
@@ -8389,7 +8389,7 @@
     "project": "pythondev",
     "category": "logos",
     "format": "svg",
-    "size": 67968
+    "size": 67915
   },
   {
     "name": "title-pythondev.svg",
@@ -8765,7 +8765,7 @@
     "project": "sebastienrousseau",
     "category": "logos",
     "format": "png",
-    "size": 422526
+    "size": 366380
   },
   {
     "name": "akqa.svg",
@@ -8829,7 +8829,7 @@
     "project": "sebastienrousseau",
     "category": "logos",
     "format": "svg",
-    "size": 4387
+    "size": 4349
   },
   {
     "name": "gemma.svg",
@@ -8901,7 +8901,7 @@
     "project": "sebastienrousseau",
     "category": "logos",
     "format": "png",
-    "size": 20381
+    "size": 15616
   },
   {
     "name": "sebastienrousseau.svg",
@@ -8917,7 +8917,7 @@
     "project": "sebastienrousseau",
     "category": "logos",
     "format": "png",
-    "size": 313830
+    "size": 304915
   },
   {
     "name": "shazam.svg",
@@ -8941,7 +8941,7 @@
     "project": "sebastienrousseau",
     "category": "logos",
     "format": "png",
-    "size": 229804
+    "size": 203497
   },
   {
     "name": "virgin.svg",
@@ -9141,7 +9141,7 @@
     "project": "sinewavegenerator",
     "category": "icons",
     "format": "png",
-    "size": 5208
+    "size": 5207
   },
   {
     "name": "192x192.png",
@@ -9309,7 +9309,7 @@
     "project": "static-site-generator",
     "category": "banners",
     "format": "svg",
-    "size": 81900
+    "size": 76932
   },
   {
     "name": "favicon.ico",
@@ -9373,7 +9373,7 @@
     "project": "static-site-generator",
     "category": "banners",
     "format": "svg",
-    "size": 81900
+    "size": 76932
   },
   {
     "name": "favicon.ico",
@@ -9389,7 +9389,7 @@
     "project": "static-site-generator",
     "category": "github",
     "format": "png",
-    "size": 247574
+    "size": 141711
   },
   {
     "name": "github-static-site-generator.svg",
@@ -9565,7 +9565,7 @@
     "project": "staticrux",
     "category": "logos",
     "format": "svg",
-    "size": 7950
+    "size": 7942
   },
   {
     "name": "title-staticrux.svg",
@@ -12869,7 +12869,7 @@
     "project": "wiserone",
     "category": "banners",
     "format": "svg",
-    "size": 74284
+    "size": 74261
   },
   {
     "name": "favicon.ico",
@@ -12885,7 +12885,7 @@
     "project": "wiserone",
     "category": "github",
     "format": "svg",
-    "size": 182373
+    "size": 182350
   },
   {
     "name": "180x180.png",
@@ -12917,7 +12917,7 @@
     "project": "wiserone",
     "category": "logos",
     "format": "svg",
-    "size": 50803
+    "size": 50780
   },
   {
     "name": "title-wiserone.svg",
