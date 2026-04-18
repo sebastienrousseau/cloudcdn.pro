@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="58px" height="14px" viewBox="0 0 58 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>browser-buttons</title>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="browser-buttons" transform="translate(0.64, 0.0883)" fill-rule="nonzero">
-            <ellipse id="object-2" fill="#FD5F57" cx="6.96456739" cy="6.8450857" rx="6.96456739" ry="6.8450857"></ellipse>
-            <path d="M28.3225741,13.6901714 C32.1689985,13.6901714 35.2871415,10.6255222 35.2871415,6.8450857 C35.2871415,3.06464926 32.1689985,4.8000004e-09 28.3225741,4.8000004e-09 C24.4761497,4.8000004e-09 21.3580067,3.06464926 21.3580067,6.8450857 C21.3580067,10.6255222 24.4761497,13.6901714 28.3225741,13.6901714 Z" id="object-2" fill="#FDBC2C"></path>
-            <ellipse id="object-2" fill="#2BC840" cx="49.6805808" cy="6.8450857" rx="6.96456739" ry="6.8450857"></ellipse>
-        </g>
-    </g>
-</svg>
+<svg height="14" viewBox="0 0 58 14" width="58" xmlns="http://www.w3.org/2000/svg"><g fill="none" transform="translate(.64 .0883)"><ellipse cx="6.964567" cy="6.845086" fill="#fd5f57" rx="6.964567" ry="6.845086"/><path d="m28.3225741 13.6901714c3.8464244 0 6.9645674-3.0646492 6.9645674-6.8450857 0-3.78043644-3.118143-6.8450857-6.9645674-6.8450857s-6.9645674 3.06464926-6.9645674 6.8450857c0 3.7804365 3.118143 6.8450857 6.9645674 6.8450857z" fill="#fdbc2c"/><ellipse cx="49.680581" cy="6.845086" fill="#2bc840" rx="6.964567" ry="6.845086"/></g></svg>
