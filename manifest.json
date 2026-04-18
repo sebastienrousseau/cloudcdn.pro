@@ -6769,6 +6769,94 @@
   },
   {
     "name": "favicon.ico",
+    "path": "noyalib/favicon.ico",
+    "project": "noyalib",
+    "category": "general",
+    "format": "ico",
+    "size": 53070
+  },
+  {
+    "name": "banner-noyalib.svg",
+    "path": "noyalib/v1/banners/banner-noyalib.svg",
+    "project": "noyalib",
+    "category": "banners",
+    "format": "svg",
+    "size": 174625
+  },
+  {
+    "name": "favicon.ico",
+    "path": "noyalib/v1/favicon.ico",
+    "project": "noyalib",
+    "category": "favicon.ico",
+    "format": "ico",
+    "size": 425511
+  },
+  {
+    "name": "github-noyalib.png",
+    "path": "noyalib/v1/github/github-noyalib.png",
+    "project": "noyalib",
+    "category": "github",
+    "format": "png",
+    "size": 217774
+  },
+  {
+    "name": "github-noyalib.svg",
+    "path": "noyalib/v1/github/github-noyalib.svg",
+    "project": "noyalib",
+    "category": "github",
+    "format": "svg",
+    "size": 159967
+  },
+  {
+    "name": "180x180.png",
+    "path": "noyalib/v1/icons/180x180.png",
+    "project": "noyalib",
+    "category": "icons",
+    "format": "png",
+    "size": 30094
+  },
+  {
+    "name": "192x192.png",
+    "path": "noyalib/v1/icons/192x192.png",
+    "project": "noyalib",
+    "category": "icons",
+    "format": "png",
+    "size": 32920
+  },
+  {
+    "name": "512x512.png",
+    "path": "noyalib/v1/icons/512x512.png",
+    "project": "noyalib",
+    "category": "icons",
+    "format": "png",
+    "size": 107848
+  },
+  {
+    "name": "noyalib.png",
+    "path": "noyalib/v1/logos/noyalib.png",
+    "project": "noyalib",
+    "category": "logos",
+    "format": "png",
+    "size": 974290
+  },
+  {
+    "name": "noyalib.svg",
+    "path": "noyalib/v1/logos/noyalib.svg",
+    "project": "noyalib",
+    "category": "logos",
+    "format": "svg",
+    "size": 88463
+  },
+  {
+    "name": "title-noyalib.svg",
+    "path": "noyalib/v1/titles/title-noyalib.svg",
+    "project": "noyalib",
+    "category": "titles",
+    "format": "svg",
+    "size": 3860
+  },
+  {
+    "name": "favicon.ico",
     "path": "nucleusflow/favicon.ico",
     "project": "nucleusflow",
     "category": "general",
@@ -9294,6 +9382,14 @@
     "category": "favicon.ico",
     "format": "ico",
     "size": 43984
+  },
+  {
+    "name": "github-static-site-generator.png",
+    "path": "static-site-generator/v1/github/github-static-site-generator.png",
+    "project": "static-site-generator",
+    "category": "github",
+    "format": "png",
+    "size": 247574
   },
   {
     "name": "github-static-site-generator.svg",
