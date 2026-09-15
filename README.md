@@ -15,6 +15,7 @@
   <a href="#testing"><img src="https://img.shields.io/badge/tests-3,190%20%E2%80%A2%20100%25-15803d?style=for-the-badge" alt="Tests" /></a>
   <a href="#accessibility"><img src="https://img.shields.io/badge/WCAG-AA%20clean-4338ca?style=for-the-badge" alt="WCAG-AA" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="License" /></a>
+  <a href="https://startupscores.com/open-source/cloudcdn"><img src="https://startupscores.com/badge/cloudcdn.svg?style=shield&amp;v=combo&amp;theme=dark" alt="CloudCDN on StartupScores" /></a>
 </p>
 
 ---
