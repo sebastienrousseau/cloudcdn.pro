@@ -168,6 +168,22 @@
     "size": 311
   },
   {
+    "name": "agtmls.png",
+    "path": "agtmls/v1/logos/agtmls.png",
+    "project": "agtmls",
+    "category": "logos",
+    "format": "png",
+    "size": 94146
+  },
+  {
+    "name": "agtmls.svg",
+    "path": "agtmls/v1/logos/agtmls.svg",
+    "project": "agtmls",
+    "category": "logos",
+    "format": "svg",
+    "size": 4004
+  },
+  {
     "name": "favicon.ico",
     "path": "akande/favicon.ico",
     "project": "akande",

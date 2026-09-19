@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Sebastien Rousseau -->
+<!-- SPDX-License-Identifier: Apache-2.0 OR MIT -->
+<svg width="3600" height="3600" viewBox="0 0 3600 3600" fill="none" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AgtMLS Logo">
+  <defs>
+    <!-- Tactile Elevation Shadow -->
+    <filter id="hex-shadow" x="-12%" y="-12%" width="134%" height="134%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="32" stdDeviation="40" flood-color="#0b1728" flood-opacity="0.28" />
+    </filter>
+
+    <!-- Digital Anchor: Luminous Blue (#1B365D) - Main Focus (Top Left) -->
+    <linearGradient id="grad-luminous-blue" x1="959" y1="656" x2="2041" y2="1905" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2B4D7E" />
+      <stop offset="55%" stop-color="#1B365D" />
+      <stop offset="100%" stop-color="#122540" />
+    </linearGradient>
+
+    <!-- Digital Anchor Foundation: Luminous Blue Variant (Bottom Left) -->
+    <linearGradient id="grad-luminous-deep" x1="360" y1="1694" x2="1442" y2="2943" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#23436E" />
+      <stop offset="60%" stop-color="#172F52" />
+      <stop offset="100%" stop-color="#0E1E34" />
+    </linearGradient>
+
+    <!-- Grounded Balance: Soulful Sage (#9CAF9C) (Top Right) -->
+    <linearGradient id="grad-soulful-sage" x1="2158" y1="656" x2="3240" y2="1905" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#B2C4B2" />
+      <stop offset="50%" stop-color="#9CAF9C" />
+      <stop offset="100%" stop-color="#7B917B" />
+    </linearGradient>
+
+    <!-- High-Impact Punctuation: Energy Orange (#FF5F1F) (Bottom Right) -->
+    <linearGradient id="grad-energy-orange" x1="1558" y1="1694" x2="2641" y2="2943" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF7D45" />
+      <stop offset="50%" stop-color="#FF5F1F" />
+      <stop offset="100%" stop-color="#D94406" />
+    </linearGradient>
+
+    <!-- Refined specular edge highlights -->
+    <linearGradient id="highlight-blue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7BA7E1" stop-opacity="0.40" />
+      <stop offset="100%" stop-color="#7BA7E1" stop-opacity="0.0" />
+    </linearGradient>
+
+    <linearGradient id="highlight-sage" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E1EDE1" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#E1EDE1" stop-opacity="0.0" />
+    </linearGradient>
+
+    <linearGradient id="highlight-orange" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFE0D1" stop-opacity="0.60" />
+      <stop offset="100%" stop-color="#FFE0D1" stop-opacity="0.0" />
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#hex-shadow)">
+    <!-- Hexagon 3: Foundation Anchor (Bottom Left) -->
+    <path
+      d="m360 2631.2 541.12 312.47 540.72-312.47v-624.67l-540.72-312.05-541.12 312.05z"
+      fill="url(#grad-luminous-deep)"
+      stroke="url(#highlight-blue)"
+      stroke-width="12"
+      stroke-linejoin="round"
+    />
+
+    <!-- Hexagon 1: Digital Anchor Luminous Blue (#1B365D) (Center Top) -->
+    <path
+      d="m2041.2 968.76-540.72-312.47-541.12 312.47v624.67l541.12 312.05 540.72-312.05z"
+      fill="url(#grad-luminous-blue)"
+      stroke="url(#highlight-blue)"
+      stroke-width="14"
+      stroke-linejoin="round"
+    />
+
+    <!-- Hexagon 2: Soulful Sage (#9CAF9C) (Top Right) -->
+    <path
+      d="m3240 968.76-541.12-312.47-540.72 312.47v624.67l540.72 312.05 541.12-312.05z"
+      fill="url(#grad-soulful-sage)"
+      stroke="url(#highlight-sage)"
+      stroke-width="12"
+      stroke-linejoin="round"
+    />
+
+    <!-- Hexagon 4: High-Impact Energy Orange (#FF5F1F) (Bottom Center / Right) -->
+    <path
+      d="m2640.7 2006.6-541.12-312.05-540.72 312.05v624.67l540.72 312.47 541.12-312.47z"
+      fill="url(#grad-energy-orange)"
+      stroke="url(#highlight-orange)"
+      stroke-width="14"
+      stroke-linejoin="round"
+    />
+  </g>
+</svg>

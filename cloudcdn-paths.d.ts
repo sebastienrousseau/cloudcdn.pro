@@ -29,6 +29,8 @@ export type CdnPath =
   | "acmt001/v1/logos/acmt001.svg"
   | "acmt001/v1/logos/acmt001.webp"
   | "acmt001/v1/titles/title-acmt001.svg"
+  | "agtmls/v1/logos/agtmls.png"
+  | "agtmls/v1/logos/agtmls.svg"
   | "akande/favicon.ico"
   | "akande/v1/banners/banner-akande.svg"
   | "akande/v1/favicon.ico"
@@ -3728,7 +3730,7 @@ export type CdnPath =
   | "xtasks/v1/titles/title-xtasks.svg";
 
 /** All project namespaces */
-export type CdnProject = "acmt001" | "akande" | "alienstudio" | "audioanalyser" | "audiotextpro" | "audiowave" | "bankingonai" | "bankingoncloudnative" | "bankingonquantum" | "bankstatementparser" | "beonux" | "camt053" | "cloudcdn" | "cmn" | "common" | "crypto-service" | "cs50x" | "dotfiles" | "dtt" | "euxis" | "frontmatter-gen" | "hsh" | "html-generator" | "http-handle" | "inclusio" | "kaishi" | "kyberlib" | "l90s" | "langweave" | "libmake" | "libyml" | "llamadev" | "maccfg" | "mdx-gen" | "metadata-gen" | "mini-functions" | "nalufx" | "neferankh" | "noyalib" | "nucleusflow" | "pacs008" | "pain001" | "password-generator-pro" | "pipelines" | "pm2md" | "publications" | "pythondev" | "qrc" | "raidhos" | "rlg" | "routefinder" | "rssgen" | "rustdev" | "sebastienrousseau" | "serde_yml" | "shokunin" | "sinewavegenerator" | "sitemap-gen" | "skeletonic" | "static-site-generator" | "staticdatagen" | "staticrux" | "staticweaver" | "stocks" | "stratos" | "talkwave" | "vrd" | "wiserone" | "xtasks";
+export type CdnProject = "acmt001" | "agtmls" | "akande" | "alienstudio" | "audioanalyser" | "audiotextpro" | "audiowave" | "bankingonai" | "bankingoncloudnative" | "bankingonquantum" | "bankstatementparser" | "beonux" | "camt053" | "cloudcdn" | "cmn" | "common" | "crypto-service" | "cs50x" | "dotfiles" | "dtt" | "euxis" | "frontmatter-gen" | "hsh" | "html-generator" | "http-handle" | "inclusio" | "kaishi" | "kyberlib" | "l90s" | "langweave" | "libmake" | "libyml" | "llamadev" | "maccfg" | "mdx-gen" | "metadata-gen" | "mini-functions" | "nalufx" | "neferankh" | "noyalib" | "nucleusflow" | "pacs008" | "pain001" | "password-generator-pro" | "pipelines" | "pm2md" | "publications" | "pythondev" | "qrc" | "raidhos" | "rlg" | "routefinder" | "rssgen" | "rustdev" | "sebastienrousseau" | "serde_yml" | "shokunin" | "sinewavegenerator" | "sitemap-gen" | "skeletonic" | "static-site-generator" | "staticdatagen" | "staticrux" | "staticweaver" | "stocks" | "stratos" | "talkwave" | "vrd" | "wiserone" | "xtasks";
 
 /** All available formats */
 export type CdnFormat = "avif" | "ico" | "png" | "svg" | "webp";
