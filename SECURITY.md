@@ -95,6 +95,15 @@ The dashboard (`/dashboard/*`) authenticates via **WebAuthn passkeys** with an H
 
 `/api/signed` mints HMAC-SHA256 time-limited URLs for protected assets. Format: `path?sig={hex}&exp={unix-seconds}`. The edge verifies the signature with constant-time comparison and the expiry against the current time. Past-expired URLs return 410 Gone (not 403) so caches don't accidentally hold them. The HMAC secret is `SIGNED_URL_SECRET` — rotate it to invalidate every outstanding URL simultaneously.
 
+### Webhook signing secrets
+
+New webhook signing secrets are encrypted with AES-GCM before they are stored
+in KV. API responses expose only the last four characters, and queue messages
+carry a webhook ID rather than the destination or secret. The Pages producer
+and standalone consumer must share `WEBHOOK_SECRET_KEY`; legacy plaintext
+records remain readable so operators can rotate them through the registration
+API without interrupting delivery.
+
 ### Rate limiting
 
 Two layers:

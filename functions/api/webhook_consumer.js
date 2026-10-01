@@ -23,14 +23,15 @@
  *      in webhooks.js auto-detects the binding and starts enqueueing.
  *
  * Retry semantics:
- *   - Each message carries `attempt`. On delivery failure we re-send the
- *     message with `attempt + 1` after an exponential backoff (1s, 5s,
- *     25s, 125s) up to MAX_ATTEMPTS=4. After that we DLQ via
- *     msg.retry({ delaySeconds }) returning the message — which lets the
- *     queue infrastructure handle dead-lettering.
+ *   - Cloudflare supplies `msg.attempts`. Delivery failures use that value
+ *     for exponential backoff (1s, 5s, 25s, 125s). Once the application
+ *     threshold is reached, the queue continues its configured retry and
+ *     dead-letter policy without another application delay.
  *   - HMAC signing is identical to the inline path so receivers see the
  *     same `X-Webhook-Signature` header shape.
  */
+
+import { decryptWebhookSecret, getWebhookById } from './webhooks.js';
 
 const MAX_ATTEMPTS = 4;
 const BACKOFFS_SEC = [1, 5, 25, 125];
@@ -49,8 +50,18 @@ async function signBody(secret, body) {
   return hex;
 }
 
-async function deliver(envelope) {
-  const { url, body, secret } = envelope;
+async function resolveDelivery(envelope, env) {
+  // Support messages queued before v0.0.1 while draining the old format.
+  if (envelope.url) return envelope;
+  if (!env?.RATE_KV) throw new Error('Webhook registry is unavailable.');
+  const webhook = await getWebhookById(env.RATE_KV, envelope.webhookId);
+  if (!webhook?.active) throw new Error('Webhook is missing or inactive.');
+  const secret = await decryptWebhookSecret(env, webhook);
+  return { ...envelope, url: webhook.url, secret };
+}
+
+async function deliver(envelope, env) {
+  const { url, body, secret } = await resolveDelivery(envelope, env);
   const headers = {
     'Content-Type': 'application/json',
     'User-Agent': 'CloudCDN-Webhook/1.0',
@@ -78,31 +89,26 @@ async function deliver(envelope) {
  *   export default { queue: webhookQueueHandler };
  *
  * Each message is the envelope produced by dispatchWebhook:
- *   { webhookId, url, secret, event, body, attempt }
+ *   { webhookId, event, body }
  */
-export async function webhookQueueHandler(batch, _env, _ctx) {
+export async function webhookQueueHandler(batch, env, _ctx) {
   for (const msg of batch.messages) {
     const envelope = msg.body;
     try {
-      await deliver(envelope);
+      await deliver(envelope, env);
       msg.ack();
     } catch (err) {
-      const nextAttempt = (envelope.attempt || 0) + 1;
-      if (nextAttempt >= MAX_ATTEMPTS) {
+      const attempt = Number(msg.attempts) || 1;
+      if (attempt >= MAX_ATTEMPTS) {
         // Final failure — let the queue infrastructure DLQ it.
         msg.retry({ delaySeconds: 0 });
         continue;
       }
-      /* v8 ignore next -- nextAttempt is bounded by MAX_ATTEMPTS so the
+      /* v8 ignore next -- attempt is bounded by MAX_ATTEMPTS so the
          ?? fallback is unreachable in practice; defensive only */
-      const delaySeconds = BACKOFFS_SEC[nextAttempt] ?? BACKOFFS_SEC[BACKOFFS_SEC.length - 1];
-      // Re-enqueue with bumped attempt counter and exponential delay.
+      const delaySeconds = BACKOFFS_SEC[attempt - 1] ?? BACKOFFS_SEC[BACKOFFS_SEC.length - 1];
       msg.retry({ delaySeconds });
-      // Note: queues don't support mutating the message body on retry,
-      // so the attempt counter is effectively tracked by the
-      // delivery-attempt header on Cloudflare's side; this stays as a
-      // best-effort hint for observability.
-      void nextAttempt; void err;
+      void err;
     }
   }
 }

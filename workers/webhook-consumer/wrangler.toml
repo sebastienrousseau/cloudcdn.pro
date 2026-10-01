@@ -5,6 +5,10 @@ main = "src/index.js"
 # producer (Pages) and consumer (this Worker).
 compatibility_date = "2026-04-01"
 
+[[kv_namespaces]]
+binding = "RATE_KV"
+id = "e5688bf85dff4b16988c4a3853bb7171"
+
 # Cloudflare Queues consumer binding. The Pages project produces messages
 # to the same queue name via its `[[queues.producers]]` stanza (see
 # repo-root wrangler.toml).

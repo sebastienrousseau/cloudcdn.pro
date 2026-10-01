@@ -27,6 +27,8 @@ into the *sprints* used during development.
   credential-ID-only authentication fallback.
 - Corrected atomic usage limits so an operation cannot take an account past
   its configured cap.
+- Encrypted new webhook signing secrets, redacted them from API responses,
+  and removed them from queue messages.
 - Made visual regression failures block CI and added an explicit Cloudflare
   compatibility date.
 

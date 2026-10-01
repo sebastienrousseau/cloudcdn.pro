@@ -43,6 +43,7 @@ the Cloudflare Pages project settings (or are set via
 | `PASSKEY_CHALLENGE_SECRET` | Secret | HMAC key for signing stateless passkey challenges. Falls back to `DASHBOARD_SECRET`/`DASHBOARD_PASSWORD` when unset; setting it explicitly lets you rotate challenge signing without changing the password. |
 | `PASSKEY_USER` | Var | Display name for the registered admin user. Defaults to `admin@<rpId>`. |
 | `PASSKEY_DISPLAY_NAME` | Var | Human-readable display name shown by the authenticator UI. Defaults to `CloudCDN Admin`. |
+| `WEBHOOK_SECRET_KEY` | Secret | Encryption key for webhook signing secrets. Use at least 32 random characters and configure the same value on the Pages project and webhook-consumer Worker. |
 
 ## Workers AI
 

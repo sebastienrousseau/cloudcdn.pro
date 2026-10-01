@@ -19,14 +19,25 @@ These steps are gated on operator action because each one creates billed Cloudfl
    npx wrangler queues create cloudcdn-webhooks-dlq
    ```
 
-2. **Deploy this Worker** (binds the consumer + DLQ):
+2. **Configure one encryption key on both services.** Generate it once and
+   enter the same value at both prompts:
+
+   ```sh
+   npx wrangler pages secret put WEBHOOK_SECRET_KEY --project-name=cloudcdn-pro
+   cd workers/webhook-consumer
+   npx wrangler secret put WEBHOOK_SECRET_KEY
+   ```
+
+3. **Deploy this Worker** (binds the registry, consumer, and DLQ):
 
    ```sh
    cd workers/webhook-consumer
    npx wrangler deploy
    ```
 
-3. **Activate the producer side** by uncommenting the `[[queues.producers]]` stanza in the repo-root `wrangler.toml` and pushing. After Pages redeploys, `dispatchWebhook()` auto-detects `env.WEBHOOK_QUEUE` and starts enqueueing rather than firing-and-forgetting.
+4. **Verify the producer side.** The `[[queues.producers]]` stanza in the
+   repository-root `wrangler.toml` binds `env.WEBHOOK_QUEUE`; after Pages
+   deploys, `dispatchWebhook()` enqueues identifier-only delivery messages.
 
 ## Behaviour summary
 
