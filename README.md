@@ -5,16 +5,16 @@
 <h1 align="center">CloudCDN</h1>
 
 <p align="center">
-  <strong>The multi-tenant, AI-native CDN you can read end-to-end and deploy yourself. Sub-100ms TTFB across 300+ Cloudflare PoPs, agent-controllable over MCP, WCAG-AA accessible, light/dark themed, 100% tested.</strong>
+  <strong>A multi-tenant, AI-native CDN you can read end-to-end and deploy yourself. Agent-controllable over MCP, keyboard-accessible, light/dark themed, and covered by automated tests.</strong>
 </p>
 
 <p align="center">
   <a href="https://github.com/sebastienrousseau/cloudcdn.pro/actions"><img src="https://img.shields.io/github/actions/workflow/status/sebastienrousseau/cloudcdn.pro/deploy.yml?style=for-the-badge&logo=github" alt="Build" /></a>
   <a href="https://cloudcdn.pro"><img src="https://img.shields.io/badge/edge-300%2B%20PoPs-6366f1?style=for-the-badge&logo=cloudflare" alt="Edge" /></a>
   <a href="https://cloudcdn.pro/api-reference"><img src="https://img.shields.io/badge/api-OpenAPI%203.1-34d399?style=for-the-badge&logo=openapiinitiative" alt="API" /></a>
-  <a href="#testing"><img src="https://img.shields.io/badge/tests-3,190%20%E2%80%A2%20100%25-15803d?style=for-the-badge" alt="Tests" /></a>
-  <a href="#accessibility"><img src="https://img.shields.io/badge/WCAG-AA%20clean-4338ca?style=for-the-badge" alt="WCAG-AA" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="License" /></a>
+  <a href="#testing"><img src="https://img.shields.io/badge/tests-3,953%20passing-15803d?style=for-the-badge" alt="Tests" /></a>
+  <a href="#accessibility"><img src="https://img.shields.io/badge/axe-home%20%2B%20dashboard-4338ca?style=for-the-badge" alt="Accessibility checks" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0%20OR%20MIT-blue?style=for-the-badge" alt="License" /></a>
 </p>
 
 ---
@@ -27,25 +27,25 @@ Most CDNs are a deploy target. CloudCDN is also a **product** — multi-tenant z
 | :--- | :--- |
 | A single zone serving a single site | **Multi-tenant** — 65 isolated tenant zones, per-tenant Cache-Tags, per-asset analytics |
 | Image resizing | Resize **plus** AI alt-text, smart-crop (subject-aware gravity), background-remove, content moderation |
-| A purge button | URL purge, tag purge, full purge — plus a 90-day immutable audit log of every control-plane mutation |
+| A purge button | URL purge, tag purge, full purge — plus 90-day audit records for control-plane mutations |
 | Search-by-filename | **Semantic search** (Vectorize) with day-bucketed edge cache and fuzzy fallback when AI quota is dry |
 | Static docs | **Interactive OpenAPI explorer** ([Scalar](https://scalar.com)) with Try-It console + four pre-built client libs |
 | A dashboard you log into with a password | Dashboard with **WebAuthn passkeys** + HMAC-session fallback |
-| Whatever theme the vendor picks | **Light/dark** [Skeletonic Stylus](https://github.com/sebastienrousseau/skeletonic-stylus) theme, per-user preference, zero-FOUC boot, every page WCAG-AA clean in both modes |
+| Whatever theme the vendor picks | **Light/dark** [Skeletonic Stylus](https://github.com/sebastienrousseau/skeletonic-stylus) theme, per-user preference, zero-FOUC boot, and blocking axe checks for the homepage and dashboard |
 | "We have an SDK" | An **MCP server** — Claude Code, Claude Desktop, Cursor, Windsurf, and Cline can manage your CDN without code |
 
 ## Overview
 
-CloudCDN is a multi-tenant CDN platform built entirely on Cloudflare Workers, Pages, KV, Vectorize, and Workers AI. A single SVG upload scaffolds a complete project directory. Every image is optimized, cached at the edge, and served in under 100ms globally.
+CloudCDN is a multi-tenant CDN platform built entirely on Cloudflare Workers, Pages, KV, Vectorize, and Workers AI. A single SVG upload scaffolds a complete project directory, and static assets are cached at the edge.
 
 - **65 tenant zones** with isolated `v1/` directory structures (plus shared `cmn/` and `common/` asset libraries)
-- **1,824 optimized assets** in the live manifest — single source per image, derivatives on demand
-- **36 edge API endpoints** across 8 planes (Storage, Core, Assets, Insights, Delivery, AI, Auth, Webhooks)
-- **3,190 tests** with **100% statement / branch / function / line coverage** on 41 gated production files
-- **WCAG-AA accessible** — zero serious/critical axe-core violations on every page we own, both themes, blocking gate on every PR
+- **3,720 assets** in the generated manifest
+- **40 OpenAPI paths** across 8 planes (Storage, Core, Assets, Insights, Delivery, AI, Auth, Webhooks)
+- **3,953 tests** across the root and MCP packages; root coverage is **99.57% statements, 96.02% branches, 99.12% functions, and 100% lines**
+- **Accessibility-gated** — the homepage and dashboard have blocking axe-core checks for serious and critical violations
 - **Light + dark theme** site-wide via `[data-theme]` + CSS native `light-dark()`, pre-paint boot to prevent FOUC
 - **Quota-resilient AI** — response cache, neuron budget, circuit breaker, and curated FAQ fallback keep `/api/search` and `/api/chat` answering when Workers AI is exhausted; vision endpoints share the same guard
-- **Agent-controllable** — [`@cloudcdn/mcp-server`](mcp/README.md) exposes **42 tools + 6 resources** for Claude Code, Cursor, Windsurf, Cline, Claude Desktop, and VS Code Copilot
+- **Agent-controllable** — [`@cloudcdn/mcp-server`](mcp/README.md) exposes **50 tools + 6 resources** for Claude Code, Cursor, Windsurf, Cline, Claude Desktop, and VS Code Copilot
 - **Signed commits** enforced end-to-end — from developer machine to edge deployment via the `verify-signatures` gate
 
 ## Architecture
@@ -112,8 +112,8 @@ Leaked physical paths (`/cdn/<locale>/...`, including old bookmarks and preview-
 | **HLS Streaming** | Adaptive bitrate video delivery via HTTP Live Streaming playlists and byte-range segmentation. |
 | **Semantic Search** | Natural language asset search powered by Workers AI embeddings and Vectorize vector similarity. Day-bucketed edge cache, neuron budget, and fuzzy fallback keep results flowing when AI quota is exhausted — responses are annotated with `mode: vector \| fuzzy \| cached`. |
 | **AI Concierge** | RAG-powered chat assistant with SSE streaming, confidence scoring, and follow-up suggestions. Layered fallback: edge response cache → 30-entry curated FAQ → templated default. Failures never surface as HTTP errors; `metadata.source` is `ai \| cached \| curated`. |
-| **MCP Server** | [`@cloudcdn/mcp-server`](mcp/README.md) exposes **42 tools + 6 resources** (storage, zones, assets, insights, audit, transform, purge, signed URLs, HLS playlists, AI vision, placeholders, semantic search, scoped tokens, webhooks, operational logs) for AI agents. Drop-in compatible with Claude Code, Claude Desktop, Cursor, Windsurf, and Cline. |
-| **Audit Trail** | Every control-plane mutation (token create/revoke, webhook register/delete, zone create, purge) writes to an immutable 90-day audit log accessible via `/api/core/audit-logs`. Records carry IP, user-agent, trace ID, and action-specific metadata. |
+| **MCP Server** | [`@cloudcdn/mcp-server`](mcp/README.md) exposes **50 tools + 6 resources** (storage, zones, assets, insights, audit, transform, purge, signed URLs, HLS playlists, AI vision, placeholders, semantic search, scoped tokens, webhooks, operational logs) for AI agents. Drop-in compatible with Claude Code, Claude Desktop, Cursor, Windsurf, and Cline. |
+| **Audit Trail** | Control-plane mutations (token create/revoke, webhook register/delete, zone create, purge) emit 90-day audit records accessible via `/api/core/audit-logs`. Records carry IP, user-agent, trace ID, and action-specific metadata. |
 | **Asset Pipeline** | Upload a single SVG → automatic directory scaffold with PWA icons, banners, and favicon. |
 | **Zone Management** | Create, delete, and configure tenant zones via GitOps commits through the Core API. |
 | **Edge Analytics** | Real-time request tracking, bandwidth monitoring, cache ratio, geo distribution, and error tracking. |
@@ -121,7 +121,7 @@ Leaked physical paths (`/cdn/<locale>/...`, including old bookmarks and preview-
 | **Dashboard** | Protected asset browser with faceted search, transform builder, insights charts, and upload pipeline. |
 | **Passkey Auth** | WebAuthn / FIDO2 passkeys on the dashboard with HMAC-session fallback. Stateless signed challenges, 7-day rolling sessions, full audit trail. |
 | **Light + Dark Theme** | Site-wide `[data-theme]` system on every public page, locale page, dashboard view, login page, and the API explorer. Pre-paint synchronous boot prevents FOUC; toggle persists in `localStorage`; respects `prefers-color-scheme` on first visit. Powered by [Skeletonic Stylus](https://github.com/sebastienrousseau/skeletonic-stylus) + a thin theme.css layer. |
-| **Accessibility** | Zero serious/critical axe-core violations on every page we own, in both themes. WCAG 2.2 AA contrast, full keyboard support, `:focus-visible` rings on every interactive, `prefers-reduced-motion` respect, screen-reader-only skip links. The a11y audit is a **blocking CI gate** on every PR. |
+| **Accessibility** | The homepage and dashboard have blocking axe-core checks for serious and critical violations. The interface includes keyboard navigation, `:focus-visible` rings, reduced-motion handling, and skip links. |
 | **OpenAPI explorer** | `/api-reference` ships the [Scalar](https://scalar.com) interactive console with Try-It requests, four pre-built client libraries (JS / TS / Python / cURL), and an `OpenAPI 3.1` spec download. The widget's `darkMode` is bridged to the site-wide theme toggle. |
 | **Edge canonicalisation** | `/cdn/<locale>/...` paths (deploy-internal) 301 to the clean URL with `Cache-Control: no-store`. Same fix for `/api-reference` (no slash) and the homepage `/`. Stops Pages' `index.html` → directory 308 from looping with the canonicalisation rule. |
 
@@ -187,7 +187,7 @@ the complete command and exit-code documentation.
 # Start local development server
 npx wrangler pages dev . --port 8788
 
-# Run the full test suite (2,994 tests at 100% coverage)
+# Run the root test suite with enforced coverage thresholds
 npm test
 npm run test:coverage
 
@@ -246,7 +246,7 @@ every env var, secret, and binding the runtime consumes, with the
 | `ACCESS_KEY` | Public-read AccessKey for `/api/assets`, `/api/insights/*`, `/api/transform`, `/api/ai/*` |
 | `STORAGE_KEY` | Storage API authentication (files) |
 | `DASHBOARD_PASSWORD` | Dashboard login (password fallback) |
-| `PASSKEY_STRICT_VERIFY` | Set to `1` to reject WebAuthn assertions that fail cryptographic verification. Default: loose mode (logs but accepts), used during rollout. |
+| `WEBHOOK_SECRET_KEY` | Encrypts webhook signing secrets in Pages and the optional queue consumer |
 | `GITHUB_TOKEN` | GitOps mutations (upload/delete) |
 | `GITHUB_REPO` | Repository for Git-based storage |
 | `CLOUDFLARE_API_TOKEN` | Cache purge, domains |
@@ -266,14 +266,14 @@ required bindings are reachable; `503 degraded` otherwise.
 ## Testing
 
 ```bash
-npm test                # 3,190 tests across 72 suites
-npm run test:coverage   # 100% on statements / branches / functions / lines
+npm test                # 3,806 tests across 91 suites
+npm run test:coverage   # Enforces the repository coverage thresholds
 npm run test:visual     # Playwright visual regression
 npm run test:load       # k6 smoke against production
 npm run test:audit      # npm dependency security audit
 ```
 
-The vitest config gates **41 production files** at 100% — every Cloudflare Function endpoint, every API handler, the middleware, the build scripts, the Stratos CLI, the theme system (`theme-boot.js`, `theme-toggle.js`, `scalar-theme.js`), and the Skeletonic vendor script. CI fails fast on any coverage drop or `vitest` error; the a11y audit on the homepage and dashboard is a **blocking gate** on every PR.
+The Vitest configuration gates the Cloudflare endpoints, middleware, build scripts, Stratos CLI, theme system, and Skeletonic integration. Its current thresholds are 99% statements, 95% branches, 99% functions, and 100% lines. CI fails on any threshold drop or test error; the accessibility audit on the homepage and dashboard is a blocking gate on every pull request.
 
 The MCP package (`mcp/`) carries its own vitest suite with the same 100% gate — see [`mcp/README.md#testing`](mcp/README.md#testing).
 
@@ -290,13 +290,13 @@ The MCP package (`mcp/`) carries its own vitest suite with the same 100% gate �
 | AI fallback (cache, budget, breaker, curated, vector) | 5 | 40+ |
 | Theme system (theme-boot, theme-toggle, scalar-theme via happy-dom) | 3 | 24 |
 | Stratos CLI | 2 | 30+ |
-| **Total** | **72** | **3,190** |
+| **Total** | **91** | **3,806** |
 
 </details>
 
 ## Accessibility
 
-Zero serious/critical axe-core violations on every page we own, audited in both light and dark themes. Concrete commitments:
+The homepage and dashboard are audited for serious and critical axe-core violations. Concrete interface commitments:
 
 - **WCAG 2.2 AA** contrast on every interactive (headings use `--accent-text` for AA-passing tinting; the primary CTA uses `#4f46e5` because the brand `--accent #6366f1` lands at 4.46:1 against white, just below the 4.5 threshold)
 - **Keyboard-first** — every focusable element has a `:focus-visible` ring; the skip-link is screen-reader-visible only when focused
@@ -369,7 +369,7 @@ The npm package (`@cloudcdn/mcp-server`) follows semantic versioning. Breaking c
 
 - [`docs/theming.md`](docs/theming.md) — the light/dark token system, how to add a new page, why explicit `[data-theme]` overrides instead of relying on `color-scheme` inheritance, and the full token table.
 - [`docs/accessibility.md`](docs/accessibility.md) — WCAG 2.2 AA commitments, the axe-core CI gate, past contrast regressions, and how to audit locally.
-- [`docs/mcp.md`](docs/mcp.md) — the 42 MCP tools + 6 resources, what each plane covers, example agent prompts, and how to add a new tool.
+- [`docs/mcp.md`](docs/mcp.md) — the 50 MCP tools + 6 resources, what each plane covers, example agent prompts, and how to add a new tool.
 - [`docs/cli.md`](docs/cli.md) — Stratos CLI install, configuration, command reference, and exit codes.
 - [`docs/STATUS.md`](docs/STATUS.md) — operator transparency: the live `/api/health` endpoints, internal SLO targets, and how to read an incident.
 

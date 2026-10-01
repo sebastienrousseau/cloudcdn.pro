@@ -8,18 +8,42 @@
  * 409 conflicts from concurrent Contents API calls.
  */
 
-import { authenticateAccess, fetchWithTimeout, log, cdnOrigin } from '../_shared.js';
-import { authorizeWithScope } from '../tokens.js';
+import { fetchWithTimeout, log, cdnOrigin } from '../_shared.js';
+import { authenticateStorage, accountOwnsStoragePath } from './_auth.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'AccessKey, Content-Type',
+  'Access-Control-Allow-Headers': 'AccessKey, Authorization, Content-Type',
   'Content-Type': 'application/json',
 };
 
 const MAX_BATCH_SIZE = 50;
 const MAX_FILE_SIZE = 25 * 1024 * 1024;
+const STORAGE_ROOTS = new Set(['clients', 'stocks']);
+
+/**
+ * Canonicalise a caller-supplied asset path and confine it to the two
+ * repository directories that form the public storage hierarchy.
+ */
+export function normalizeStoragePath(path) {
+  if (typeof path !== 'string' || path.length === 0) return null;
+  if (path.includes('\\') || path.includes('\0')) return null;
+
+  let decoded;
+  try {
+    decoded = decodeURIComponent(path);
+  } catch {
+    return null;
+  }
+
+  if (decoded.startsWith('/') || decoded.endsWith('/')) return null;
+  const segments = decoded.split('/');
+  if (segments.length < 2 || segments.some(segment => !segment || segment === '.' || segment === '..')) return null;
+  if (!STORAGE_ROOTS.has(segments[0])) return null;
+  if (segments.some(segment => /[\u0000-\u001f\u007f]/.test(segment))) return null;
+  return segments.join('/');
+}
 
 function ghHeaders(token) {
   return {
@@ -32,7 +56,8 @@ function ghHeaders(token) {
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  if (!await authorizeWithScope(request, env, 'storage:write', () => authenticateAccess(request, env))) {
+  const principal = await authenticateStorage(request, env, 'storage:write');
+  if (!principal) {
     return new Response(JSON.stringify({ HttpCode: 401, Message: 'Authentication required. Provide a valid API key in the request header. Use "AccessKey" for storage and asset operations, or "AccountKey" for zone management and analytics. Scoped tokens with "storage:write" are also accepted as Bearer tokens.' }), {
       status: 401, headers: CORS_HEADERS,
     });
@@ -67,20 +92,18 @@ export async function onRequestPost(context) {
     }), { status: 400, headers: CORS_HEADERS });
   }
 
-  // Validate all files
+  // Validate all files and retain only canonical, storage-confined paths.
+  const validatedFiles = [];
   for (const file of files) {
     if (!file.path || !file.content) {
       return new Response(JSON.stringify({
         HttpCode: 400, Message: 'Each file object in the batch array must include both "path" (string, the destination path) and "content" (string, base64-encoded file data). Optional: "encoding" defaults to "base64".',
       }), { status: 400, headers: CORS_HEADERS });
     }
-    // Path traversal hardening: decode, normalize, reject dangerous patterns
-    let decodedPath;
-    try { decodedPath = decodeURIComponent(file.path); } catch { decodedPath = file.path; }
-    decodedPath = decodedPath.replace(/\\/g, '/');
-    if (decodedPath.includes('\0') || decodedPath.includes('..') || decodedPath.includes('//')) {
+    const canonicalPath = normalizeStoragePath(file.path);
+    if (!canonicalPath) {
       return new Response(JSON.stringify({
-        HttpCode: 400, Message: `Invalid path: ${file.path}. File paths must not contain path traversal sequences (".."), null bytes, backslashes, or double slashes. Use forward slashes to separate directories and ensure the path points to a valid location within the storage hierarchy.`,
+        HttpCode: 400, Message: `Invalid path: ${file.path}. File paths must be relative paths beneath clients/ or stocks/ and must not contain traversal segments, control characters, backslashes, empty segments, or malformed percent escapes.`,
       }), { status: 400, headers: CORS_HEADERS });
     }
     // Check base64 size (~4/3 of original)
@@ -90,6 +113,15 @@ export async function onRequestPost(context) {
         HttpCode: 413,
         Message: `File ${file.path} exceeds the maximum allowed size of ${MAX_FILE_SIZE / 1048576} MB. Reduce the file size by compressing or resizing the asset before uploading. For large files, consider splitting into smaller chunks or using a different storage backend.`,
       }), { status: 413, headers: CORS_HEADERS });
+    }
+    validatedFiles.push({ ...file, path: canonicalPath });
+  }
+
+  for (const file of validatedFiles) {
+    if (!await accountOwnsStoragePath(env, principal, file.path)) {
+      return new Response(JSON.stringify({ HttpCode: 403, Message: `This API key does not have access to the storage zone for ${file.path}.` }), {
+        status: 403, headers: CORS_HEADERS,
+      });
     }
   }
 
@@ -110,7 +142,7 @@ export async function onRequestPost(context) {
 
     // 3. Create blobs for each file
     const treeEntries = [];
-    for (const file of files) {
+    for (const file of validatedFiles) {
       const blobRes = await fetchWithTimeout(`https://api.github.com/repos/${repo}/git/blobs`, {
         method: 'POST',
         headers,
@@ -136,10 +168,10 @@ export async function onRequestPost(context) {
     const treeSha = (await treeRes.json()).sha;
 
     // 5. Create commit (auto-signed by GitHub)
-    const paths = files.map(f => f.path).join(', ');
-    const commitMsg = files.length === 1
+    const paths = validatedFiles.map(f => f.path).join(', ');
+    const commitMsg = validatedFiles.length === 1
       ? `chore: upload ${paths} via Storage API [skip ci]`
-      : `chore: batch upload ${files.length} files via Storage API [skip ci]`;
+      : `chore: batch upload ${validatedFiles.length} files via Storage API [skip ci]`;
 
     const newCommitRes = await fetchWithTimeout(`https://api.github.com/repos/${repo}/git/commits`, {
       method: 'POST',
@@ -160,7 +192,7 @@ export async function onRequestPost(context) {
     // 7. Async cache purge for all uploaded paths
     if (env.CLOUDFLARE_ZONE_ID && env.CLOUDFLARE_API_TOKEN) {
       const origin = cdnOrigin(request.url);
-      const urls = files.map(f => {
+      const urls = validatedFiles.map(f => {
         const publicPath = f.path.startsWith('clients/') ? f.path.slice('clients/'.length) : f.path;
         return `${origin}/${publicPath}`;
       });
@@ -175,9 +207,9 @@ export async function onRequestPost(context) {
 
     return new Response(JSON.stringify({
       HttpCode: 201,
-      Message: `${files.length} file(s) uploaded successfully in a single atomic commit. The files have been committed to the repository and will be available at the edge after the CI/CD pipeline completes deployment (approximately 60-90 seconds).`,
+      Message: `${validatedFiles.length} file(s) uploaded successfully in a single atomic commit. The files have been committed to the repository and will be available at the edge after the CI/CD pipeline completes deployment (approximately 60-90 seconds).`,
       Commit: commitSha,
-      Files: files.map(f => f.path),
+      Files: validatedFiles.map(f => f.path),
       EdgeStatus: 'pending',
       EdgeNote: 'Files committed. Available at the edge after CI/CD deploy (~60-90 seconds).',
       DateCreated: new Date().toISOString(),

@@ -36,6 +36,62 @@ const VALID_EVENTS = new Set([
 const WEBHOOKS_KEY = 'webhooks:registered';
 const MAX_WEBHOOKS = 25;
 const MAX_WEBHOOK_PAYLOAD_BYTES = 64 * 1024;
+const SECRET_VERSION = 1;
+
+function bytesToBase64(bytes) {
+  let binary = '';
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary);
+}
+
+function base64ToBytes(value) {
+  return Uint8Array.from(atob(value), char => char.charCodeAt(0));
+}
+
+async function webhookEncryptionKey(env) {
+  const material = env?.WEBHOOK_SECRET_KEY;
+  if (typeof material !== 'string' || material.length < 32) return null;
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(material));
+  return crypto.subtle.importKey('raw', digest, 'AES-GCM', false, ['encrypt', 'decrypt']);
+}
+
+async function encryptWebhookSecret(env, secret) {
+  const key = await webhookEncryptionKey(env);
+  if (!key) return null;
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const ciphertext = await crypto.subtle.encrypt(
+    { name: 'AES-GCM', iv },
+    key,
+    new TextEncoder().encode(secret),
+  );
+  return {
+    secretCiphertext: bytesToBase64(new Uint8Array(ciphertext)),
+    secretIv: bytesToBase64(iv),
+    secretVersion: SECRET_VERSION,
+    secretLastFour: secret.slice(-4),
+  };
+}
+
+export async function decryptWebhookSecret(env, webhook) {
+  // Retain delivery compatibility while existing plaintext records migrate.
+  if (typeof webhook?.secret === 'string') return webhook.secret;
+  if (webhook?.secretVersion !== SECRET_VERSION) return null;
+  const key = await webhookEncryptionKey(env);
+  if (!key) throw new Error('Webhook secret encryption key is unavailable.');
+  const plaintext = await crypto.subtle.decrypt(
+    { name: 'AES-GCM', iv: base64ToBytes(webhook.secretIv) },
+    key,
+    base64ToBytes(webhook.secretCiphertext),
+  );
+  return new TextDecoder().decode(plaintext);
+}
+
+function publicWebhook(webhook) {
+  const { secret, secretCiphertext, secretIv, ...safe } = webhook;
+  const hasSecret = typeof secret === 'string' || typeof secretCiphertext === 'string';
+  void secretIv;
+  return { ...safe, hasSecret };
+}
 
 // Hostnames that must never receive a webhook — internal services and
 // link-local IPs that an attacker could point a webhook at to coerce the
@@ -111,6 +167,11 @@ async function getWebhooks(kv) {
   return raw ? JSON.parse(raw) : [];
 }
 
+export async function getWebhookById(kv, id) {
+  const webhooks = await getWebhooks(kv);
+  return webhooks.find(webhook => webhook.id === id) || null;
+}
+
 async function saveWebhooks(kv, webhooks) {
   await kv.put(WEBHOOKS_KEY, JSON.stringify(webhooks));
 }
@@ -128,7 +189,8 @@ export async function onRequestGet(context) {
   if (!kv) return new Response(JSON.stringify({ HttpCode: 503, Message: 'KV unavailable.' }), { status: 503, headers: CORS });
 
   const webhooks = await getWebhooks(kv);
-  return new Response(JSON.stringify({ Webhooks: webhooks, Count: webhooks.length }), { headers: CORS });
+  const safeWebhooks = webhooks.map(publicWebhook);
+  return new Response(JSON.stringify({ Webhooks: safeWebhooks, Count: safeWebhooks.length }), { headers: CORS });
 }
 
 /**
@@ -176,6 +238,14 @@ export async function onRequestPost(context) {
     }), { status: 400, headers: CORS });
   }
 
+  const encryptedSecret = await encryptWebhookSecret(env, secret);
+  if (!encryptedSecret) {
+    return new Response(JSON.stringify({
+      HttpCode: 503,
+      Message: 'Webhook secret encryption is not configured.',
+    }), { status: 503, headers: CORS });
+  }
+
   if (!Array.isArray(events) || events.length === 0) {
     return new Response(JSON.stringify({ HttpCode: 400, Message: `Events array required. Valid events: ${[...VALID_EVENTS].join(', ')}` }), { status: 400, headers: CORS });
   }
@@ -194,7 +264,7 @@ export async function onRequestPost(context) {
     id: crypto.randomUUID(),
     url,
     events,
-    secret,
+    ...encryptedSecret,
     createdAt: new Date().toISOString(),
     active: true,
   };
@@ -205,7 +275,7 @@ export async function onRequestPost(context) {
   log.info('WEBHOOK_CREATED', `Webhook registered for ${events.join(', ')}`, { id: webhook.id, url });
   await appendAuditLog(env, request, 'webhook.create', { id: webhook.id, url, events });
 
-  return new Response(JSON.stringify({ HttpCode: 201, Message: 'Webhook registered.', Webhook: webhook }), { status: 201, headers: CORS });
+  return new Response(JSON.stringify({ HttpCode: 201, Message: 'Webhook registered.', Webhook: publicWebhook(webhook) }), { status: 201, headers: CORS });
 }
 
 /**
@@ -248,18 +318,15 @@ export async function onRequestOptions() {
 /**
  * Dispatch a webhook event. Called by other endpoints via waitUntil().
  *
- * Two delivery paths:
+ * Two delivery paths are supported:
  *
- *   1. When `env.WEBHOOK_QUEUE` is bound, each matching webhook is sent
- *      to the Cloudflare Queue as a separate message. A consumer Worker
- *      (see functions/api/webhook_consumer.js for the canonical shape)
- *      handles delivery with exponential backoff and dead-lettering.
- *      This is the production path — the request handler returns in
- *      microseconds regardless of webhook target latency.
+ *   1. Without `env.WEBHOOK_QUEUE`, the v0.0.1 release uses direct
+ *      background delivery through the caller's `waitUntil()`. Delivery
+ *      gets one attempt with a five-second timeout.
  *
- *   2. When the queue binding is absent (default / local dev), we fall
- *      back to fire-and-forget direct delivery. No retries, single
- *      attempt with a 5-second timeout — same behaviour as before.
+ *   2. A future release may bind `env.WEBHOOK_QUEUE`. Each matching
+ *      webhook is then sent to Cloudflare Queues as a separate message,
+ *      where the optional consumer handles retries and dead-lettering.
  *
  * @param {object} env - Worker env with RATE_KV binding (and optional WEBHOOK_QUEUE)
  * @param {string} event - Event name (e.g., 'asset.created')
@@ -282,29 +349,27 @@ export async function dispatchWebhook(env, event, payload) {
       data: payload,
     });
 
-    // ── Path 1: queue-backed delivery with retries (production) ──
+    // ── Optional path: queue-backed delivery with retries ──
     if (env.WEBHOOK_QUEUE && typeof env.WEBHOOK_QUEUE.send === 'function') {
       await Promise.allSettled(matching.map((webhook) =>
         env.WEBHOOK_QUEUE.send({
           webhookId: webhook.id,
-          url: webhook.url,
-          secret: webhook.secret,
           event,
           body,
-          attempt: 0,
         })
       ));
       return;
     }
 
-    // ── Path 2: direct fire-and-forget (legacy / dev) ──
+    // ── Release path: direct background delivery ──
     const deliveries = matching.map(async (webhook) => {
       const headers = { 'Content-Type': 'application/json', 'User-Agent': 'CloudCDN-Webhook/1.0' };
+      const secret = await decryptWebhookSecret(env, webhook);
 
       // HMAC signature if secret is configured
-      if (webhook.secret) {
+      if (secret) {
         const encoder = new TextEncoder();
-        const key = await crypto.subtle.importKey('raw', encoder.encode(webhook.secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+        const key = await crypto.subtle.importKey('raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
         const sig = await crypto.subtle.sign('HMAC', key, encoder.encode(body));
         const hex = [...new Uint8Array(sig)].map(b => b.toString(16).padStart(2, '0')).join('');
         headers['X-Webhook-Signature'] = `sha256=${hex}`;

@@ -2,7 +2,7 @@
 
 CloudCDN ships an [MCP](https://modelcontextprotocol.io) server so AI
 agents can manage the CDN without writing custom HTTP integrations.
-The server exposes the full API surface as **42 typed tools** + **6
+The server exposes the full API surface as **50 typed tools** + **6
 read-only resources** across 9 planes.
 
 ## Why MCP, not just an SDK
@@ -20,7 +20,7 @@ is the contract.
 
 ## Full inventory
 
-42 tools across 9 planes — see [`mcp/README.md`](../mcp/README.md) for
+50 tools across 9 planes — see [`mcp/README.md`](../mcp/README.md) for
 the full table with auth requirements. Summary by plane:
 
 | Plane | Tools | What |

@@ -1,6 +1,6 @@
 # Pipeline setup (`/api/pipeline`)
 
-The `/api/pipeline` endpoint accepts a generated SVG and an optional list of derivative outputs (favicon, icons, banners), commits them into the repo via the GitHub Git Database API, and optionally purges the matching Cloudflare cache entries. It's the GitOps-driven way for integrators to ship new zones without touching the repo manually.
+The `/api/pipeline` endpoint accepts a generated SVG, emits SVG logo, icon, and favicon assets plus optional directory scaffolding, commits them into the repo via the GitHub Git Database API, and optionally purges the matching Cloudflare cache entries. It does not rasterize SVG bytes into PNG or ICO files.
 
 The endpoint is dormant by default. It returns:
 
@@ -83,18 +83,18 @@ curl -sI https://cloudcdn.pro/api/pipeline -X POST | head -1
 
 ## Step 5 — Smoke-test with a real call
 
-The endpoint expects an `AccountKey` header (or a scoped Bearer token with `pipeline:write`). Use the same `ACCOUNT_KEY` you generated for `/api/core/zones`.
+The endpoint expects an `AccountKey` header or a scoped Bearer token with `pipeline:write`. An account-scoped token may write only a client slug registered to that account and cannot ingest into the shared stock namespace. Use the administrative `ACCOUNT_KEY` for stock ingestion.
 
 ```sh
-# Minimal payload — generates a zone called "demo" with no derivatives.
+# Minimal payload — generates a client scaffold called "demo" with no derivatives.
 curl -sS https://cloudcdn.pro/api/pipeline \
   -X POST \
   -H "AccountKey: $ACCOUNT_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "mode": "asset",
+    "mode": "client",
     "name": "demo",
-    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#0066cc\"/></svg>",
+    "svg": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IiMwMDY2Y2MiLz48L3N2Zz4=",
     "generateFavicon": false,
     "generateIcons": false,
     "generateBanners": false
@@ -105,7 +105,7 @@ Expected response shape:
 
 ```json
 {
-  "HttpCode": 200,
+  "HttpCode": 201,
   "Commit": "abc123…",
   "Files": ["clients/demo/v1/logos/demo.svg"],
   "DateCreated": "2026-…"

@@ -194,6 +194,26 @@ describe('Batch Upload API', () => {
       expect(json.Message).toContain('Invalid path');
     });
 
+    it.each([
+      '.github/workflows/deploy.yml',
+      'functions/api/backdoor.js',
+      'package.json',
+      '/clients/test/file.svg',
+      'clients//test/file.svg',
+      'clients/%2e%2e/package.json',
+      'clients/test\\file.svg',
+    ])('rejects a path outside the asset roots: %s', async (path) => {
+      globalThis.fetch = vi.fn();
+      const ctx = makeContext({
+        accessKey: 'test-key-123',
+        body: { files: [validFile(path)] },
+        env: { STORAGE_KEY: 'test-key-123', GITHUB_TOKEN: 'ghp_test', GITHUB_REPO: 'user/repo' },
+      });
+      const res = await onRequestPost(ctx);
+      expect(res.status).toBe(400);
+      expect(globalThis.fetch).not.toHaveBeenCalled();
+    });
+
     it('returns 400 when file missing path field', async () => {
       const ctx = makeContext({
         accessKey: 'test-key-123',
@@ -294,24 +314,16 @@ describe('Batch Upload API', () => {
       expect(json.Message).toContain('1 file(s) uploaded');
     });
 
-    it('treats a malformed percent-escape in file.path as the raw string', async () => {
-      // Exercises the catch branch around decodeURIComponent in batch.js:79.
-      // Path includes an invalid %FX escape; decode throws and the handler
-      // falls back to the raw path, which still passes the traversal checks.
-      globalThis.fetch = vi.fn()
-        .mockResolvedValueOnce(new Response(JSON.stringify({ object: { sha: 'h' } }), { status: 200 }))
-        .mockResolvedValueOnce(new Response(JSON.stringify({ tree: { sha: 't' } }), { status: 200 }))
-        .mockResolvedValueOnce(new Response(JSON.stringify({ sha: 'b' }), { status: 201 }))
-        .mockResolvedValueOnce(new Response(JSON.stringify({ sha: 'nt' }), { status: 201 }))
-        .mockResolvedValueOnce(new Response(JSON.stringify({ sha: 'c' }), { status: 201 }))
-        .mockResolvedValueOnce(new Response(JSON.stringify({ object: { sha: 'c' } }), { status: 200 }));
+    it('rejects malformed percent escapes in file paths', async () => {
+      globalThis.fetch = vi.fn();
       const ctx = makeContext({
         accessKey: 'test-key-123',
         body: { files: [{ path: 'clients/test/%FX-malformed.svg', content: 'PHN2Zz48L3N2Zz4=', encoding: 'base64' }] },
         env: { STORAGE_KEY: 'test-key-123', GITHUB_TOKEN: 'g', GITHUB_REPO: 'u/r' },
       });
       const res = await onRequestPost(ctx);
-      expect(res.status).toBe(201);
+      expect(res.status).toBe(400);
+      expect(globalThis.fetch).not.toHaveBeenCalled();
     });
 
     it('defaults to base64 encoding when file.encoding is omitted', async () => {

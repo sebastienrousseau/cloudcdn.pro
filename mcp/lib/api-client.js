@@ -14,6 +14,7 @@
  *
  *   get(path, opts)           — GET
  *   post(path, body, opts)    — POST  (JSON body if not a typed array)
+ *   patch(path, body, opts)   — PATCH
  *   put(path, body, opts)     — PUT
  *   del(path, opts)           — DELETE
  *   head(path, opts)          — HEAD
@@ -147,6 +148,17 @@ export function get(path, opts) {
  */
 export function post(path, body, opts = {}) {
   return request('POST', path, { ...opts, body });
+}
+
+/**
+ * PATCH — JSON-serialised body unless a typed array is given.
+ * @param {string} path
+ * @param {unknown} body
+ * @param {Parameters<typeof request>[2]} [opts]
+ * @returns {Promise<{ ok: boolean, status: number, data: unknown }>}
+ */
+export function patch(path, body, opts = {}) {
+  return request('PATCH', path, { ...opts, body });
 }
 
 /**

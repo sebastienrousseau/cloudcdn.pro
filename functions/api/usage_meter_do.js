@@ -90,7 +90,7 @@ export class UsageMeterDO {
       const period = utcPeriod();
       const stored = (await this.state.storage.get("snapshot")) || { units: 0, period };
       const carryOver = stored.period === period ? Number(stored.units) || 0 : 0;
-      if (carryOver >= limit) {
+      if (carryOver + amount > limit) {
         return Response.json({ accepted: false, units: carryOver, period, limit });
       }
       const next = carryOver + amount;

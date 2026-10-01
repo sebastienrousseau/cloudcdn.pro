@@ -105,6 +105,24 @@ function makeCtx(path, method = 'POST', options = {}) {
   };
 }
 
+async function validAuthentication(kv) {
+  const beginRes = await onRequestPost(makeCtx('/auth/begin', 'POST', { kv }));
+  const { challenge } = await beginRes.json();
+  const assertion = await mintAssertion({ challenge });
+  await kv.put('passkeys:credentials', JSON.stringify([{
+    credentialId: 'cred-1',
+    publicKey: assertion.storedPublicKeyB64,
+    signCount: 0,
+  }]));
+  return {
+    credentialId: 'cred-1',
+    challenge,
+    authenticatorData: assertion.authenticatorDataB64,
+    signature: assertion.signatureB64,
+    clientDataJSON: assertion.clientDataJSONB64,
+  };
+}
+
 describe('Passkeys API', () => {
   describe('POST /api/passkeys/register/begin', () => {
     it('returns 401 without AccountKey', async () => {
@@ -214,15 +232,12 @@ describe('Passkeys API', () => {
     });
 
     it('authenticates with valid credential and sets session cookie', async () => {
-      const kv = makeKV({
-        'passkeys:credentials': JSON.stringify([{ credentialId: 'cred-1', signCount: 0 }]),
-      });
-      const beginRes = await onRequestPost(makeCtx('/auth/begin', 'POST', { kv }));
-      const { challenge } = await beginRes.json();
+      const kv = makeKV();
+      const body = await validAuthentication(kv);
 
       const ctx = makeCtx('/auth/complete', 'POST', {
         kv,
-        body: { credentialId: 'cred-1', challenge },
+        body,
       });
       const res = await onRequestPost(ctx);
       expect(res.status).toBe(200);
@@ -250,10 +265,18 @@ describe('Passkeys API', () => {
 
       const beginRes = await onRequestPost(makeCtx('/auth/begin', 'POST', { kv: failingKv }));
       const { challenge } = await beginRes.json();
+      const assertion = await mintAssertion({ challenge });
+      credsList[0].publicKey = assertion.storedPublicKeyB64;
 
       const ctx = makeCtx('/auth/complete', 'POST', {
         kv: failingKv,
-        body: { credentialId: 'cred-1', challenge },
+        body: {
+          credentialId: 'cred-1',
+          challenge,
+          authenticatorData: assertion.authenticatorDataB64,
+          signature: assertion.signatureB64,
+          clientDataJSON: assertion.clientDataJSONB64,
+        },
       });
       const res = await onRequestPost(ctx);
       expect(res.status).toBe(200);
@@ -263,15 +286,12 @@ describe('Passkeys API', () => {
     });
 
     it('sets the session cookie with Path=/ so /api/passkeys/* sees it', async () => {
-      const kv = makeKV({
-        'passkeys:credentials': JSON.stringify([{ credentialId: 'cred-1', signCount: 0 }]),
-      });
-      const beginRes = await onRequestPost(makeCtx('/auth/begin', 'POST', { kv }));
-      const { challenge } = await beginRes.json();
+      const kv = makeKV();
+      const body = await validAuthentication(kv);
 
       const ctx = makeCtx('/auth/complete', 'POST', {
         kv,
-        body: { credentialId: 'cred-1', challenge },
+        body,
       });
       const res = await onRequestPost(ctx);
       expect(res.headers.get('Set-Cookie')).toContain('Path=/');
@@ -578,7 +598,7 @@ describe('Passkeys API', () => {
       expect(json.detail).toContain('origin mismatch');
     });
 
-    it('default (loose) mode accepts an origin-mismatch assertion but flags X-Passkey-Verification=loose', async () => {
+    it('rejects an origin-mismatch assertion by default', async () => {
       const v = await mintAssertion({ origin: 'https://attacker.example' });
       const kv = makeKV({
         'passkeys:credentials': JSON.stringify([{
@@ -593,7 +613,6 @@ describe('Passkeys API', () => {
         credentialId: 'cred-1', publicKey: tampered.storedPublicKeyB64, signCount: 0,
       }]));
 
-      // No `strict: true` — default loose mode.
       const ctx = makeCtx('/auth/complete', 'POST', {
         kv,
         body: {
@@ -605,15 +624,12 @@ describe('Passkeys API', () => {
         },
       });
       const res = await onRequestPost(ctx);
-      // Loose mode preserves pre-Sprint-12 behaviour for the rollout window:
-      // login succeeds even when the assertion fails verification, so admins
-      // aren't locked out before we can confirm SPKI keys are correct in KV.
-      expect(res.status).toBe(200);
-      expect(res.headers.get('X-Passkey-Verification')).toBe('loose');
-      expect(res.headers.get('X-Passkey-Verification-Reason')).toContain('origin mismatch');
+      expect(res.status).toBe(401);
+      expect(res.headers.get('X-Passkey-Verification')).toBeNull();
+      expect((await res.json()).detail).toContain('origin mismatch');
     });
 
-    it('falls through in legacy mode when assertion fields are omitted', async () => {
+    it('rejects requests when assertion fields are omitted', async () => {
       const kv = makeKV({
         'passkeys:credentials': JSON.stringify([{ credentialId: 'cred-1', signCount: 0 }]),
       });
@@ -625,11 +641,11 @@ describe('Passkeys API', () => {
         body: { credentialId: 'cred-1', challenge },
       });
       const res = await onRequestPost(ctx);
-      expect(res.status).toBe(200);
-      expect(res.headers.get('X-Passkey-Verification')).toBe('legacy');
+      expect(res.status).toBe(401);
+      expect((await res.json()).error).toContain('authenticatorData');
     });
 
-    it('accepts assertion with legacy (non-SPKI) stored publicKey and flags as legacy-spki', async () => {
+    it('rejects an assertion with a legacy non-SPKI stored public key', async () => {
       // Use 4 short random bytes — guaranteed to not parse as ES256 (P-256
       // SPKI is 91 bytes) or RS256 (much longer), so importStoredPublicKey
       // returns null and verifyAssertion reports the legacy-credential reason.
@@ -655,21 +671,19 @@ describe('Passkeys API', () => {
         },
       });
       const res = await onRequestPost(ctx);
-      expect(res.status).toBe(200);
-      expect(res.headers.get('X-Passkey-Verification')).toBe('legacy-spki');
-      expect(res.headers.get('X-Passkey-Verification-Reason')).toContain('re-registration');
+      expect(res.status).toBe(401);
+      const json = await res.json();
+      expect(json.error).toContain('verification failed');
+      expect(json.detail).toContain('re-registration');
     });
 
     it('clears the stale Path=/dashboard cookie on successful login (Slice 2)', async () => {
-      const kv = makeKV({
-        'passkeys:credentials': JSON.stringify([{ credentialId: 'cred-1', signCount: 0 }]),
-      });
-      const beginRes = await onRequestPost(makeCtx('/auth/begin', 'POST', { kv }));
-      const { challenge } = await beginRes.json();
+      const kv = makeKV();
+      const body = await validAuthentication(kv);
 
       const ctx = makeCtx('/auth/complete', 'POST', {
         kv,
-        body: { credentialId: 'cred-1', challenge },
+        body,
       });
       const res = await onRequestPost(ctx);
       // Headers.append('Set-Cookie', ...) preserves multiple values; getSetCookie

@@ -85,9 +85,9 @@ const paths = {
       operationId: 'pipelineIngest',
       summary: 'Scaffold a zone or stock asset from a single SVG',
       description:
-        'Single-SVG ingest. Generates the full directory tree (logos, banners, icons, favicon, PWA manifest) and commits it via the GitHub API. Two modes: `client` creates a new tenant zone; `stock` adds to the shared stock pool.',
+        'Single-SVG ingest. Generates SVG logo, icon, and favicon assets plus client directory scaffolding, then commits them via the GitHub API. Account-scoped tokens may write only registered zones; shared stock ingestion requires AccountKey administration.',
       tags: ['Delivery'],
-      security: [{ AccountKey: [] }],
+      security: [{ AccountKey: [] }, { BearerToken: [] }],
       requestBody: {
         required: true,
         content: {
@@ -99,7 +99,8 @@ const paths = {
                 mode: { type: 'string', enum: ['client', 'stock'], description: 'Pipeline mode.' },
                 name: { type: 'string', description: 'Zone slug (client) or asset slug (stock). lower-kebab-case.' },
                 svg:  { type: 'string', description: 'Base64-encoded SVG payload.' },
-                generateIcons:   { type: 'boolean', default: true, description: 'Emit 180/192/512 PNG icons.' },
+                generateIcons:   { type: 'boolean', default: true, description: 'Emit 180/192/512 SVG icons.' },
+                generateFavicon: { type: 'boolean', default: true, description: 'Emit an SVG favicon.' },
                 generateBanners: { type: 'boolean', default: true, description: 'Emit social-share banners.' },
               },
             },
@@ -113,7 +114,7 @@ const paths = {
         },
       },
       responses: {
-        200: {
+        201: {
           description: 'Ingest committed. Returns the commit SHA and the generated file list.',
           content: {
             'application/json': {
@@ -130,6 +131,7 @@ const paths = {
         },
         400: { $ref: '#/components/responses/BadRequest' },
         401: { $ref: '#/components/responses/Unauthorized' },
+        403: { description: 'The account-scoped token does not own the requested client zone, or attempted shared stock ingestion.' },
         409: { description: 'Zone or asset slug already exists.' },
         502: { description: 'GitHub API upstream error.' },
       },

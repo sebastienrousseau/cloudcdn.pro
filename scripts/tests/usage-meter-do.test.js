@@ -238,6 +238,24 @@ describe('UsageMeterDO addIfBelow (atomic check-and-increment)', () => {
     expect(state.storage.put).not.toHaveBeenCalled();
   });
 
+  it('refuses an increment that would cross the limit', async () => {
+    const state = makeState();
+    state.storage.get.mockResolvedValue({
+      units: 8,
+      period: new Date().toISOString().slice(0, 7),
+    });
+    const meter = new mod.UsageMeterDO(state, {});
+    const res = await meter.fetch(jsonReq(
+      'https://x.internal/addIfBelow',
+      'POST',
+      { amount: 3, limit: 10 },
+    ));
+    const body = await res.json();
+    expect(body.accepted).toBe(false);
+    expect(body.units).toBe(8);
+    expect(state.storage.put).not.toHaveBeenCalled();
+  });
+
   it('treats stale-period stored snapshot as zero carryover', async () => {
     const state = makeState();
     state.storage.get.mockImplementation(async () => ({ units: 999, period: '1999-01' }));

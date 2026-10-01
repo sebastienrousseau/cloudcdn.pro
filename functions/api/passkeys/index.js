@@ -472,50 +472,29 @@ async function authComplete(request, env) {
     return new Response(JSON.stringify({ error: 'Unknown credential.' }), { status: 401, headers: CORS });
   }
 
-  // Cryptographic verification of the WebAuthn assertion. Required when
-  // the client provides authenticatorData/signature/clientDataJSON (which
-  // the current dashboard JS does post-Sprint-12); falls back to legacy
-  // credentialId-presence-only verification for old clients that haven't
-  // been updated yet, surfacing the mode via response header so we can
-  // monitor migration progress.
   const hasAssertion = !!(authenticatorData && signature && clientDataJSON);
-  const strictMode = env.PASSKEY_STRICT_VERIFY === '1';
-  let verifyMode = 'legacy';
-  let verifyReason = null;
-  if (hasAssertion) {
-    const expectedOrigin = `https://${new URL(request.url).hostname}`;
-    const result = await verifyAssertion({
-      storedPublicKeyB64: cred.publicKey,
-      authenticatorDataB64: authenticatorData,
-      signatureB64: signature,
-      clientDataJSONB64: clientDataJSON,
-      expectedOrigin,
-      expectedChallengeB64: challenge,
-    });
-    if (result.valid) {
-      verifyMode = result.alg || 'strict';
-    } else if (result.reason && result.reason.startsWith('stored publicKey is not SPKI')) {
-      // Legacy attestation-object credential — accept (no worse than the
-      // pre-Sprint-12 status quo) but flag for re-registration.
-      verifyMode = 'legacy-spki';
-      verifyReason = result.reason;
-    } else if (strictMode) {
-      // Strict mode (opt-in via PASSKEY_STRICT_VERIFY=1): real verification
-      // failures (origin/type/challenge/signature mismatch) refuse the
-      // login.
-      return new Response(JSON.stringify({
-        error: 'Assertion verification failed.',
-        detail: result.reason,
-      }), { status: 401, headers: CORS });
-    } else {
-      // Loose mode (default): real verification failed but we still
-      // accept the login to avoid locking out admins during the
-      // strict-mode rollout. The failure reason is reported in headers
-      // so operators can see it in logs before flipping the flag.
-      verifyMode = 'loose';
-      verifyReason = result.reason;
-    }
+  if (!hasAssertion) {
+    return new Response(JSON.stringify({
+      error: 'authenticatorData, signature, and clientDataJSON required.',
+    }), { status: 401, headers: CORS });
   }
+
+  const expectedOrigin = `https://${new URL(request.url).hostname}`;
+  const result = await verifyAssertion({
+    storedPublicKeyB64: cred.publicKey,
+    authenticatorDataB64: authenticatorData,
+    signatureB64: signature,
+    clientDataJSONB64: clientDataJSON,
+    expectedOrigin,
+    expectedChallengeB64: challenge,
+  });
+  if (!result.valid) {
+    return new Response(JSON.stringify({
+      error: 'Assertion verification failed.',
+      detail: result.reason,
+    }), { status: 401, headers: CORS });
+  }
+  const verifyMode = result.alg || 'verified';
 
   // Bump signCount / lastUsedAt — best-effort. WebAuthn uses signCount for
   // replay defense, but failing the login because KV is over quota is a
@@ -553,7 +532,6 @@ async function authComplete(request, env) {
   const responseHeaders = new Headers(CORS);
   for (const c of setCookies) responseHeaders.append('Set-Cookie', c);
   responseHeaders.set('X-Passkey-Verification', verifyMode);
-  if (verifyReason) responseHeaders.set('X-Passkey-Verification-Reason', verifyReason);
   if (saveError) responseHeaders.set('X-Passkey-Counter-Save', `failed: ${saveError}`);
 
   return new Response(JSON.stringify({ ok: true, verification: verifyMode }), {

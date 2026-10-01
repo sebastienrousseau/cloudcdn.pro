@@ -89,11 +89,20 @@ The dashboard (`/dashboard/*`) authenticates via **WebAuthn passkeys** with an H
 - **Sessions** are HMAC-SHA256 signatures over `{expires_unix}.{hmac_hex}`, signed with `DASHBOARD_PASSWORD` (or `DASHBOARD_SECRET`). 7-day rolling TTL, `HttpOnly`, `Secure`, `SameSite=Strict`. The HMAC verification path is the same constant-time comparison used for API keys.
 - **Passkey challenges** are **stateless** — `{nonce}.{expires_unix}.{type}.{hmac_hex}` — so we never need a KV round-trip on every WebAuthn flow start. The `type` field (`auth` vs `register`) prevents cross-flow replay. `CHALLENGE_TTL_SECONDS = 300`.
 - **Passkey registration / authentication** writes credentials to KV indexed by credential ID. The list endpoint (`GET /api/passkeys`) exposes credential metadata but never the raw public key. Revocation is by ID — once revoked, the credential cannot reauthenticate.
-- **`PASSKEY_STRICT_VERIFY=1`** opts into strict cryptographic verification of WebAuthn assertions. The default (loose mode) was used during the rollout to log signature failures without rejecting legitimate users on edge-case authenticators; flip the env var when comfortable.
+- **Passkey assertions always fail closed.** Authentication requires `authenticatorData`, `signature`, and `clientDataJSON`, and rejects signature, origin, challenge, type, and stored-key verification failures. Credentials stored in the legacy non-SPKI format must be re-registered before they can authenticate.
 
 ### Signed URLs
 
 `/api/signed` mints HMAC-SHA256 time-limited URLs for protected assets. Format: `path?sig={hex}&exp={unix-seconds}`. The edge verifies the signature with constant-time comparison and the expiry against the current time. Past-expired URLs return 410 Gone (not 403) so caches don't accidentally hold them. The HMAC secret is `SIGNED_URL_SECRET` — rotate it to invalidate every outstanding URL simultaneously.
+
+### Webhook signing secrets
+
+New webhook signing secrets are encrypted with AES-GCM before they are stored
+in KV. API responses expose only the last four characters, and queue messages
+carry a webhook ID rather than the destination or secret. The Pages producer
+and standalone consumer must share `WEBHOOK_SECRET_KEY`; legacy plaintext
+records remain readable so operators can rotate them through the registration
+API without interrupting delivery.
 
 ### Rate limiting
 

@@ -27,7 +27,7 @@
 - [Install](#install) — npm, npx, from source
 - [Quick Start](#quick-start) — wire it into Claude Desktop in 30 seconds
 - [Programmatic usage](#programmatic-usage) — embed the server in your own host
-- [Tools (42)](#tools-42) — every callable, grouped by API plane
+- [Tools (50)](#tools-50) — every callable, grouped by API plane
 - [Resources (6)](#resources-6) — read-only context exposed to the agent
 - [Configuration](#configuration) — environment variables
 - [Host configs](#host-configs) — Claude Code, Claude Desktop, Cursor, VS Code, Windsurf
@@ -75,7 +75,7 @@ npm install @cloudcdn/mcp-server
 }
 ```
 
-Restart Claude Desktop. The agent now has 42 tools and 6 read-only resources for driving your CloudCDN tenant. The server identifies itself to the host as `cloudcdn`.
+Restart Claude Desktop. The agent now has 50 tools and 6 read-only resources for driving your CloudCDN tenant. The server identifies itself to the host as `cloudcdn`.
 
 ---
 
@@ -88,7 +88,7 @@ Embed the server in your own host — custom transport, hosted MCP gateway, inte
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { createServer } from '@cloudcdn/mcp-server/server';
 
-// 1. Build the server with all 42 tools and 6 resources registered.
+// 1. Build the server with all 50 tools and 6 resources registered.
 const server = createServer();
 
 // 2. Attach a transport. Stdio is the default for desktop MCP hosts;
@@ -117,7 +117,7 @@ if (ok) console.log(`Found ${data.results.length} assets`);
 
 ---
 
-## Tools (42)
+## Tools (50)
 
 | Tool | Plane | Auth | Description |
 |---|---|---|---|

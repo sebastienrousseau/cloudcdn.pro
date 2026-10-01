@@ -28,9 +28,12 @@ import { check, sleep } from 'k6';
 import { Rate, Trend } from 'k6/metrics';
 
 const errorRate = new Rate('errors');
-const ttfb = new Trend('ttfb', true);
+const edgeTtfb = new Trend('edge_ttfb', true);
+const apiTtfb = new Trend('api_ttfb', true);
 
 const BASE = __ENV.BASE_URL || 'http://localhost:8788';
+const IS_PRODUCTION = BASE.includes('cloudcdn.pro');
+const PROTECTED_STATUS = IS_PRODUCTION ? 401 : 200;
 
 // Refuse to hit production without explicit opt-in. Two-key seatbelt:
 // you must BOTH supply BASE_URL=https://... AND set
@@ -50,7 +53,8 @@ export const options = {
   ],
   thresholds: {
     http_req_duration: ['p(95)<500'],   // 95th percentile under 500ms
-    ttfb:             ['p(95)<200'],   // TTFB under 200ms
+    edge_ttfb:        ['p(95)<200'],   // cached public assets at the edge
+    api_ttfb:         ['p(95)<750'],   // dynamic API/auth processing
     errors:           ['rate<0.01'],   // Error rate under 1%
   },
 };
@@ -80,61 +84,68 @@ const AUTO_PATHS = [
 
 const FORMATS = ['webp', 'avif', 'png'];
 
+function record(res, expectedStatus, metric) {
+  metric.add(res.timings.waiting);
+  errorRate.add(res.status !== expectedStatus);
+}
+
+function runAsset() {
+  const asset = ASSETS[Math.floor(Math.random() * ASSETS.length)];
+  const res = http.get(`${BASE}${asset}`);
+  check(res, {
+    'asset 200': (r) => r.status === 200,
+    'immutable cache': (r) => (r.headers['Cache-Control'] || '').includes('immutable'),
+  });
+  record(res, 200, edgeTtfb);
+}
+
+function runAuto() {
+  const format = FORMATS[Math.floor(Math.random() * FORMATS.length)];
+  const accept = format === 'avif' ? 'image/avif,image/webp,*/*'
+               : format === 'webp' ? 'image/webp,*/*'
+               : '*/*';
+  const autoPath = AUTO_PATHS[Math.floor(Math.random() * AUTO_PATHS.length)];
+  const res = http.get(`${BASE}/api/auto?path=${encodeURIComponent(autoPath)}`, {
+    headers: { Accept: accept },
+  });
+  check(res, {
+    'auto expected status': (r) => r.status === PROTECTED_STATUS,
+    'successful auto responses vary on accept': (r) =>
+      r.status !== 200 || (r.headers['Vary'] || '').includes('Accept'),
+  });
+  record(res, PROTECTED_STATUS, apiTtfb);
+}
+
+function runTransform() {
+  const w = [128, 256, 512, 800, 1024][Math.floor(Math.random() * 5)];
+  const res = http.get(
+    `${BASE}/api/transform?url=/cloudcdn/v1/logos/cloudcdn.svg&w=${w}&format=webp`,
+  );
+  check(res, {
+    'transform expected status': (r) => r.status === PROTECTED_STATUS,
+  });
+  record(res, PROTECTED_STATUS, apiTtfb);
+}
+
+function runSearch() {
+  const queries = ['banner blue', 'logo dark', 'icon svg', 'banking', 'quantum'];
+  const q = queries[Math.floor(Math.random() * queries.length)];
+  const res = http.get(`${BASE}/api/search?q=${encodeURIComponent(q)}&limit=10`);
+  check(res, {
+    'search 200': (r) => r.status === 200,
+    'has results': (r) => {
+      try { return JSON.parse(r.body).results.length >= 0; } catch { return false; }
+    },
+  });
+  record(res, 200, apiTtfb);
+}
+
 export default function () {
   const scenario = Math.random();
-
-  if (scenario < 0.6) {
-    // 60% — Static asset requests
-    const asset = ASSETS[Math.floor(Math.random() * ASSETS.length)];
-    const res = http.get(`${BASE}${asset}`);
-    check(res, {
-      'asset 200': (r) => r.status === 200,
-      'immutable cache': (r) => (r.headers['Cache-Control'] || '').includes('immutable'),
-    });
-    ttfb.add(res.timings.waiting);
-    errorRate.add(res.status !== 200);
-
-  } else if (scenario < 0.8) {
-    // 20% — Auto format negotiation
-    const format = FORMATS[Math.floor(Math.random() * FORMATS.length)];
-    const accept = format === 'avif' ? 'image/avif,image/webp,*/*'
-                 : format === 'webp' ? 'image/webp,*/*'
-                 : '*/*';
-    const autoPath = AUTO_PATHS[Math.floor(Math.random() * AUTO_PATHS.length)];
-    const res = http.get(`${BASE}/api/auto?path=${encodeURIComponent(autoPath)}`, {
-      headers: { Accept: accept },
-    });
-    check(res, {
-      'auto 200': (r) => r.status === 200,
-      'has vary accept': (r) => (r.headers['Vary'] || '').includes('Accept'),
-    });
-    ttfb.add(res.timings.waiting);
-    errorRate.add(res.status >= 500);
-
-  } else if (scenario < 0.95) {
-    // 15% — Transform API
-    const w = [128, 256, 512, 800, 1024][Math.floor(Math.random() * 5)];
-    const res = http.get(`${BASE}/api/transform?url=/cloudcdn/v1/logos/cloudcdn.svg&w=${w}&format=webp`);
-    check(res, {
-      'transform 200': (r) => r.status === 200,
-    });
-    ttfb.add(res.timings.waiting);
-    errorRate.add(res.status >= 500);
-
-  } else {
-    // 5% — Search API
-    const queries = ['banner blue', 'logo dark', 'icon svg', 'banking', 'quantum'];
-    const q = queries[Math.floor(Math.random() * queries.length)];
-    const res = http.get(`${BASE}/api/search?q=${encodeURIComponent(q)}&limit=10`);
-    check(res, {
-      'search 200': (r) => r.status === 200,
-      'has results': (r) => {
-        try { return JSON.parse(r.body).results.length >= 0; } catch { return false; }
-      },
-    });
-    ttfb.add(res.timings.waiting);
-    errorRate.add(res.status >= 500);
-  }
+  if (scenario < 0.6) runAsset();
+  else if (scenario < 0.8) runAuto();
+  else if (scenario < 0.95) runTransform();
+  else runSearch();
 
   sleep(0.1 + Math.random() * 0.3);
 }

@@ -1,12 +1,17 @@
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-  testDir: 'scripts/tests/visual',
-  snapshotDir: 'scripts/tests/visual/snapshots',
+  testDir: './visual',
+  snapshotDir: './visual/snapshots',
+  webServer: {
+    command: 'node visual-server.mjs',
+    url: 'http://127.0.0.1:8788/en/',
+    reuseExistingServer: true,
+  },
   timeout: 30000,
   retries: 0,
   use: {
-    baseURL: process.env.BASE_URL || 'http://localhost:8788',
+    baseURL: process.env.BASE_URL || 'http://127.0.0.1:8788',
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
   },

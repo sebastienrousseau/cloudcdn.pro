@@ -1,16 +1,27 @@
 # cloudcdn-webhook-consumer
 
-Standalone Cloudflare Worker that consumes the `cloudcdn-webhooks` queue produced by the `cloudcdn-pro` Pages project.
+Deferred Cloudflare Worker implementation for consuming the
+`cloudcdn-webhooks` queue produced by the `cloudcdn-pro` Pages project.
+
+This consumer is not part of the v0.0.1 release path and must not be deployed
+or connected to Pages for that release. Pages delivers webhooks in the
+background through `waitUntil()` with a single five-second attempt.
 
 ## Why this exists
 
-Cloudflare Pages Functions cannot run queue consumers — only Workers can. The Pages project produces webhook-delivery jobs via `dispatchWebhook()` in `functions/api/webhooks.js`; this Worker consumes them.
+Cloudflare Pages Functions cannot run queue consumers — only Workers can. If
+queue delivery is activated, the Pages project produces webhook jobs through
+`dispatchWebhook()` in `functions/api/webhooks.js`; this Worker consumes them.
 
-The handler itself lives in [`../../functions/api/webhook_consumer.js`](../../functions/api/webhook_consumer.js) and is re-exported by [`src/index.js`](src/index.js) — single source of truth, same pattern as `workers/rate-limiter/`.
+The handler itself lives in
+[`../../functions/api/webhook_consumer.js`](../../functions/api/webhook_consumer.js)
+and is re-exported by [`src/index.js`](src/index.js), following the same
+single-source pattern as `workers/rate-limiter/`.
 
-## One-time activation
+## Future activation
 
-These steps are gated on operator action because each one creates billed Cloudflare resources:
+Activation requires an explicit release decision and operator action. These
+steps create or connect billed Cloudflare resources:
 
 1. **Create the queues** (Workers Paid plan; free-tier eligible up to 1M ops/month):
 
@@ -19,14 +30,26 @@ These steps are gated on operator action because each one creates billed Cloudfl
    npx wrangler queues create cloudcdn-webhooks-dlq
    ```
 
-2. **Deploy this Worker** (binds the consumer + DLQ):
+2. **Configure one encryption key on both services.** Generate it once and
+   enter the same value at both prompts:
+
+   ```sh
+   npx wrangler pages secret put WEBHOOK_SECRET_KEY --project-name=cloudcdn-pro
+   cd workers/webhook-consumer
+   npx wrangler secret put WEBHOOK_SECRET_KEY
+   ```
+
+3. **Deploy this Worker** (binds the registry, consumer, and DLQ):
 
    ```sh
    cd workers/webhook-consumer
    npx wrangler deploy
    ```
 
-3. **Activate the producer side** by uncommenting the `[[queues.producers]]` stanza in the repo-root `wrangler.toml` and pushing. After Pages redeploys, `dispatchWebhook()` auto-detects `env.WEBHOOK_QUEUE` and starts enqueueing rather than firing-and-forgetting.
+4. **Enable and verify the producer side.** Uncomment the
+   `[[queues.producers]]` stanza in the repository-root `wrangler.toml`.
+   After Pages deploys, `dispatchWebhook()` enqueues identifier-only delivery
+   messages.
 
 ## Behaviour summary
 
@@ -40,9 +63,11 @@ These steps are gated on operator action because each one creates billed Cloudfl
 | Delivery timeout | 5 s per receiver | `webhook_consumer.js` |
 | HMAC header | `X-Webhook-Signature: sha256=<hex>` | `webhook_consumer.js` |
 
-## Rollback
+## Deactivation
 
-Re-comment the producer stanza in the repo-root `wrangler.toml` and push. `dispatchWebhook()` falls back to its inline fire-and-forget path immediately; the consumer Worker stays deployed but receives nothing until the producer is re-enabled. Idle queues cost nothing.
+Comment out the producer stanza in the repo-root `wrangler.toml` and deploy
+Pages. `dispatchWebhook()` resumes direct background delivery. A separately
+deployed consumer then receives no new messages from Pages.
 
 ## Local dev / inspection
 

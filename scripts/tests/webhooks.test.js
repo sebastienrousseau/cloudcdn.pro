@@ -1,6 +1,13 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
 
-const { onRequestGet, onRequestPost, onRequestDelete, onRequestOptions, dispatchWebhook } = await import('../../functions/api/webhooks.js');
+const {
+  onRequestGet,
+  onRequestPost,
+  onRequestDelete,
+  onRequestOptions,
+  dispatchWebhook,
+  decryptWebhookSecret,
+} = await import('../../functions/api/webhooks.js');
 
 const originalFetch = globalThis.fetch;
 
@@ -30,6 +37,7 @@ function makeCtx(method, query = '', options = {}) {
     env: {
       ACCOUNT_KEY: options.accountKey ?? 'test-key',
       RATE_KV: kv,
+      WEBHOOK_SECRET_KEY: options.webhookSecretKey ?? 'test-webhook-encryption-key-32-bytes',
     },
   };
 }
@@ -52,12 +60,14 @@ describe('Webhooks API', () => {
     });
 
     it('returns registered webhooks', async () => {
-      const kv = makeKV({ 'webhooks:registered': JSON.stringify([{ id: '1', url: 'https://a.com', events: ['asset.created'] }]) });
+      const kv = makeKV({ 'webhooks:registered': JSON.stringify([{ id: '1', url: 'https://a.com', events: ['asset.created'], secret: 'hidden' }]) });
       const ctx = makeCtx('GET', '', { key: 'test-key', kv });
       const res = await onRequestGet(ctx);
       const json = await res.json();
       expect(json.Count).toBe(1);
       expect(json.Webhooks[0].url).toBe('https://a.com');
+      expect(json.Webhooks[0].secret).toBeUndefined();
+      expect(json.Webhooks[0].hasSecret).toBe(true);
     });
   });
 
@@ -82,7 +92,28 @@ describe('Webhooks API', () => {
       expect(json.Webhook.url).toBe('https://hook.example.com/cb');
       expect(json.Webhook.events).toEqual(['asset.created', 'asset.deleted']);
       expect(json.Webhook.id).toBeTruthy();
-      expect(json.Webhook.secret).toBe(SECRET);
+      expect(json.Webhook.secret).toBeUndefined();
+      expect(json.Webhook.secretCiphertext).toBeUndefined();
+      expect(json.Webhook.hasSecret).toBe(true);
+      expect(json.Webhook.secretLastFour).toBe('aaaa');
+      const stored = JSON.parse(kv.put.mock.calls[0][1]);
+      expect(stored[0].secret).toBeUndefined();
+      expect(stored[0].secretCiphertext).toBeTruthy();
+      expect(stored[0].secretCiphertext).not.toContain(SECRET);
+    });
+
+    it('returns 503 when webhook encryption is not configured', async () => {
+      const ctx = makeCtx('POST', '', {
+        key: 'test-key',
+        webhookSecretKey: '',
+        body: {
+          url: 'https://hook.example.com/cb',
+          events: ['asset.created'],
+          secret: SECRET,
+        },
+      });
+      const res = await onRequestPost(ctx);
+      expect(res.status).toBe(503);
     });
 
     it('rejects non-https URLs', async () => {
@@ -370,6 +401,38 @@ describe('Webhooks API', () => {
       expect(opts.headers['X-Webhook-Signature']).toMatch(/^sha256=[0-9a-f]{64}$/);
     });
 
+    it('decrypts an encrypted signing secret for direct delivery', async () => {
+      const kv = makeKV();
+      const secretKey = 'test-webhook-encryption-key-32-bytes';
+      const create = makeCtx('POST', '', {
+        key: 'test-key',
+        kv,
+        webhookSecretKey: secretKey,
+        body: {
+          url: 'https://hook.example.com/cb',
+          events: ['asset.created'],
+          secret: 'z'.repeat(64),
+        },
+      });
+      expect((await onRequestPost(create)).status).toBe(201);
+      globalThis.fetch = vi.fn().mockResolvedValue(new Response('ok'));
+      await dispatchWebhook(
+        { RATE_KV: kv, WEBHOOK_SECRET_KEY: secretKey },
+        'asset.created',
+        { path: '/encrypted.png' },
+      );
+      const [, options] = globalThis.fetch.mock.calls[0];
+      expect(options.headers['X-Webhook-Signature']).toMatch(/^sha256=/);
+    });
+
+    it('refuses to decrypt encrypted records without the encryption key', async () => {
+      await expect(decryptWebhookSecret({}, {
+        secretVersion: 1,
+        secretIv: 'AAAAAAAAAAAAAAAA',
+        secretCiphertext: 'AAAAAAAAAAAAAAAAAAAAAA==',
+      })).rejects.toThrow('encryption key');
+    });
+
     it('skips inactive webhooks', async () => {
       const kv = makeKV({ 'webhooks:registered': JSON.stringify([{ active: false, events: ['asset.created'], url: 'https://a.com' }]) });
       globalThis.fetch = vi.fn();
@@ -390,8 +453,10 @@ describe('Webhooks API', () => {
       expect(globalThis.fetch).not.toHaveBeenCalled();
       const first = send.mock.calls[0][0];
       expect(first).toMatchObject({
-        webhookId: 'w1', url: 'https://a.example.com/h', event: 'asset.created', attempt: 0,
+        webhookId: 'w1', event: 'asset.created',
       });
+      expect(first.url).toBeUndefined();
+      expect(first.secret).toBeUndefined();
       const parsedBody = JSON.parse(first.body);
       expect(parsedBody.event).toBe('asset.created');
       expect(parsedBody.data.path).toBe('/x.png');

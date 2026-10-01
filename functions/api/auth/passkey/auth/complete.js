@@ -16,9 +16,7 @@
  * Response 200: { user, account, session, verification }
  *   Set-Cookie: cdn_session=…
  *
- * On verification failure: 401 invalid_assertion (strict mode) or
- * 200 with `verification: "loose"` (default, mirrors single-tenant
- * PASSKEY_STRICT_VERIFY flag).
+ * On verification failure: 401 invalid_assertion.
  */
 
 import {
@@ -58,38 +56,23 @@ export async function onRequestPost(context) {
   const cred = await getPasskeyByCredentialId(env, credentialId);
   if (!cred) return jsonError(401, "unknown_credential", "Passkey not recognised.");
 
-  // Cryptographic verification — required when the client provides
-  // authenticatorData + signature + clientDataJSON (the modern shape).
-  // Bare credentialId-only requests (legacy) are accepted in loose
-  // mode and rejected in strict mode, mirroring the single-tenant
-  // PASSKEY_STRICT_VERIFY=1 flag.
-  const strictMode = env.PASSKEY_STRICT_VERIFY === "1";
   const hasAssertion = !!(authenticatorData && signature && clientDataJSON);
-  let verifyMode = "legacy";
-  let verifyReason = null;
-  if (hasAssertion) {
-    const result = await verifyAssertion({
-      storedPublicKeyB64: cred.publicKey,
-      authenticatorDataB64: authenticatorData,
-      signatureB64: signature,
-      clientDataJSONB64: clientDataJSON,
-      expectedOrigin: expectedOrigin(request),
-      expectedChallengeB64: challenge,
-    });
-    if (result.valid) {
-      verifyMode = result.alg || "strict";
-    } else if (result.reason && result.reason.startsWith("stored publicKey is not SPKI")) {
-      verifyMode = "legacy-spki";
-      verifyReason = result.reason;
-    } else if (strictMode) {
-      return jsonError(401, "invalid_assertion", result.reason || "Assertion verification failed.");
-    } else {
-      verifyMode = "loose";
-      verifyReason = result.reason;
-    }
-  } else if (strictMode) {
-    return jsonError(401, "missing_assertion", "Strict mode requires authenticatorData + signature + clientDataJSON.");
+  if (!hasAssertion) {
+    return jsonError(401, "missing_assertion", "authenticatorData, signature, and clientDataJSON are required.");
   }
+
+  const result = await verifyAssertion({
+    storedPublicKeyB64: cred.publicKey,
+    authenticatorDataB64: authenticatorData,
+    signatureB64: signature,
+    clientDataJSONB64: clientDataJSON,
+    expectedOrigin: expectedOrigin(request),
+    expectedChallengeB64: challenge,
+  });
+  if (!result.valid) {
+    return jsonError(401, "invalid_assertion", result.reason || "Assertion verification failed.");
+  }
+  const verifyMode = result.alg || "verified";
 
   const usage = await bumpPasskeyUsage(env, credentialId, cred.signCount + 1);
 
@@ -114,7 +97,6 @@ export async function onRequestPost(context) {
   responseHeaders.append("Set-Cookie", sessionCookieHeader(token, expiresAt));
   responseHeaders.append("Set-Cookie", loggedInIndicatorCookie(expiresAt));
   responseHeaders.set("X-Passkey-Verification", verifyMode);
-  if (verifyReason) responseHeaders.set("X-Passkey-Verification-Reason", verifyReason);
   if (!usage.ok) responseHeaders.set("X-Passkey-Counter-Save", `failed: ${usage.error}`);
 
   return new Response(JSON.stringify({

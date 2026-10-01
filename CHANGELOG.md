@@ -10,6 +10,35 @@ into the *sprints* used during development.
 
 ## [Unreleased]
 
+## [0.0.1] - 2026-10-01
+
+### Fixed
+
+- Cleared the root and MCP dependency advisories, including the `sharp`,
+  `undici`, Hono, `ip-address`, `fast-uri`, and Vitest findings.
+- Restored `account_cap_set` by adding a public PATCH helper to the MCP API
+  client and covering all account tools at the package's 100% threshold.
+- Repaired the visual regression runner so it serves every repository asset
+  root and exercises the current Assets, Upload, and Insights dashboard.
+- Pinned reusable CI workflows and GitHub Actions to immutable commits.
+- Confined batch uploads to the `clients/` and `stocks/` asset roots so
+  storage credentials cannot modify application or workflow files.
+- Made WebAuthn assertion verification mandatory and removed the legacy
+  credential-ID-only authentication fallback.
+- Corrected atomic usage limits so an operation cannot take an account past
+  its configured cap.
+- Encrypted new webhook signing secrets, redacted them from API responses,
+  and removed them from queue messages.
+- Made visual regression failures block CI and added an explicit Cloudflare
+  compatibility date.
+- Locked the accessibility test dependency and made load-test budget failures
+  block CI instead of reporting a successful job.
+
+### Changed
+
+- Reserved `v*` tags for CloudCDN releases and moved future MCP package tags
+  to the `mcp/v*` namespace.
+
 ### Sprint 17 — quota crisis, bot defenses, pre-rendered variants, hardening (2026-06-21 → 2026-06-24)
 
 The biggest sprint to date: 21 PRs (#97-#117) over four days, triggered by hitting Cloudflare's Free-tier 100k/day Worker request cap and ending with a sub-1% bot-traffic baseline + Workers Paid migration. Validated by Cloudflare analytics: midnight UTC spike dropped from 51,722 requests / 6.98 GB on Jun 23 to 204 requests / 7 MB on Jun 24 — **−99.6% / −99.9%**.

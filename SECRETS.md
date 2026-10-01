@@ -41,9 +41,9 @@ the Cloudflare Pages project settings (or are set via
 | `DASHBOARD_PASSWORD` | Secret | The dashboard's password-login secret. Verified in constant time via HMAC. **Required for dashboard access** unless you only use passkeys post-registration. |
 | `DASHBOARD_SECRET` | Secret | Alias of `DASHBOARD_PASSWORD` — the code reads either. Use this if you want a longer rotating secret separate from a human-typed password. |
 | `PASSKEY_CHALLENGE_SECRET` | Secret | HMAC key for signing stateless passkey challenges. Falls back to `DASHBOARD_SECRET`/`DASHBOARD_PASSWORD` when unset; setting it explicitly lets you rotate challenge signing without changing the password. |
-| `PASSKEY_STRICT_VERIFY` | Secret | When `"1"`, real WebAuthn signature/origin/challenge verification failures return 401. When unset (loose mode, default), the failure reason is reported via `X-Passkey-Verification-Reason` but the login proceeds — used for safe rollout. Flip to `"1"` once you've confirmed `X-Passkey-Verification: ES256` consistently in DevTools. |
 | `PASSKEY_USER` | Var | Display name for the registered admin user. Defaults to `admin@<rpId>`. |
 | `PASSKEY_DISPLAY_NAME` | Var | Human-readable display name shown by the authenticator UI. Defaults to `CloudCDN Admin`. |
+| `WEBHOOK_SECRET_KEY` | Secret | Encryption key for webhook signing secrets. Use at least 32 random characters on the Pages project. Configure the same value on the optional consumer only if queue delivery is activated in a future release. |
 
 ## Workers AI
 
@@ -75,7 +75,7 @@ without them via in-process fallbacks.
 |---|---|---|
 | `RATE_LIMITER` | Durable Object | Atomic rate limiting via `blockConcurrencyWhile`. When absent, `checkRateLimit()` in `_shared.js` falls back to KV — works fine for small fleets but races under high concurrency. Enable for production. |
 | `METRICS` | Workers Analytics Engine | Per-request metrics emitted by the global middleware (endpoint, status, latency, trace id). Without this binding, `recordMetric()` is a no-op. Queries via WAE SQL. |
-| `WEBHOOK_QUEUE` | Cloudflare Queue | Webhook delivery with exponential backoff (1s → 5s → 25s → 125s) and a DLQ. When absent, `dispatchWebhook()` delivers inline (works but blocks the request and has no retry). |
+| `WEBHOOK_QUEUE` | Cloudflare Queue | Optional webhook delivery with exponential backoff (1s → 5s → 25s → 125s) and a DLQ. It is intentionally unbound for v0.0.1; `dispatchWebhook()` instead performs one background delivery attempt through `waitUntil()`. |
 | `AUDIT_LOG_KV` | KV namespace (alias) | Distinct KV for audit log entries. When unset, audit entries co-locate in `RATE_KV` — fine in practice; separate them only if you need stricter retention or access policies on the audit trail specifically. |
 
 ## Stratos CLI environment
@@ -117,14 +117,6 @@ Returns `{ bindings: { ... }, checks: [...] }` with `configured`,
 1. Sign in once with `DASHBOARD_PASSWORD` at `/dashboard/login`.
 2. You'll land on `/dashboard/setup-passkey` — register a passkey.
 3. Future logins use the passkey; password fallback remains.
-
-**Enabling strict passkey verification:**
-```sh
-# Confirm `X-Passkey-Verification: ES256` in DevTools on the
-# /api/passkeys/auth/complete response after a real login.
-npx wrangler pages secret put PASSKEY_STRICT_VERIFY
-# → enter: 1
-```
 
 **Rotating the access key without downtime:**
 1. Add the new key to a header alias (briefly support both).
