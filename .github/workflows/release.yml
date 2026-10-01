@@ -1,7 +1,7 @@
 name: Release
 
 # Publishes @cloudcdn/mcp-server to npm with a sigstore provenance
-# attestation when a v* tag is pushed.
+# attestation when an mcp/v* tag is pushed. Repository releases use v*.
 #
 # Auth model — npm Trusted Publishing (OIDC):
 #   The package on npmjs.com is configured with this workflow as a
@@ -19,11 +19,11 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
+      - 'mcp/v*'
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Tag to publish (e.g. v0.1.0). Must already exist on origin.'
+        description: 'Tag to publish (e.g. mcp/v0.1.1). Must already exist on origin.'
         required: true
         type: string
 
@@ -81,7 +81,8 @@ jobs:
         run: |
           PKG_VERSION="v$(node -p "require('./package.json').version")"
           TAG="${{ steps.tag.outputs.ref }}"
-          if [ "$PKG_VERSION" != "$TAG" ]; then
+          TAG_VERSION="${TAG#mcp/}"
+          if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
             echo "::error::package.json version ($PKG_VERSION) does not match tag ($TAG)"
             exit 1
           fi

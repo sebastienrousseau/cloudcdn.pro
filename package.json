@@ -1,6 +1,6 @@
 {
   "name": "cloudcdn.pro",
-  "version": "0.1.1",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -26,7 +26,8 @@
     "ci:status": "gh run list --limit 3 --json databaseId,name,status,conclusion,headSha",
     "ci:alerts": "gh api 'repos/sebastienrousseau/cloudcdn.pro/code-scanning/alerts?state=open' --jq 'length'",
     "lint:csp": "echo '\\nPublic CSP:' && curl -sI https://cloudcdn.pro/ | grep -i content-security-policy && echo '\\nDashboard CSP:' && curl -sI https://cloudcdn.pro/dashboard/login | grep -i content-security-policy",
-    "prepare": "husky"
+    "prepare": "husky",
+    "release:preflight": "node scripts/release/preflight.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0",
