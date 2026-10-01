@@ -318,18 +318,15 @@ export async function onRequestOptions() {
 /**
  * Dispatch a webhook event. Called by other endpoints via waitUntil().
  *
- * Two delivery paths:
+ * Two delivery paths are supported:
  *
- *   1. When `env.WEBHOOK_QUEUE` is bound, each matching webhook is sent
- *      to the Cloudflare Queue as a separate message. A consumer Worker
- *      (see functions/api/webhook_consumer.js for the canonical shape)
- *      handles delivery with exponential backoff and dead-lettering.
- *      This is the production path — the request handler returns in
- *      microseconds regardless of webhook target latency.
+ *   1. Without `env.WEBHOOK_QUEUE`, the v0.0.1 release uses direct
+ *      background delivery through the caller's `waitUntil()`. Delivery
+ *      gets one attempt with a five-second timeout.
  *
- *   2. When the queue binding is absent (default / local dev), we fall
- *      back to fire-and-forget direct delivery. No retries, single
- *      attempt with a 5-second timeout — same behaviour as before.
+ *   2. A future release may bind `env.WEBHOOK_QUEUE`. Each matching
+ *      webhook is then sent to Cloudflare Queues as a separate message,
+ *      where the optional consumer handles retries and dead-lettering.
  *
  * @param {object} env - Worker env with RATE_KV binding (and optional WEBHOOK_QUEUE)
  * @param {string} event - Event name (e.g., 'asset.created')
@@ -352,7 +349,7 @@ export async function dispatchWebhook(env, event, payload) {
       data: payload,
     });
 
-    // ── Path 1: queue-backed delivery with retries (production) ──
+    // ── Optional path: queue-backed delivery with retries ──
     if (env.WEBHOOK_QUEUE && typeof env.WEBHOOK_QUEUE.send === 'function') {
       await Promise.allSettled(matching.map((webhook) =>
         env.WEBHOOK_QUEUE.send({
@@ -364,7 +361,7 @@ export async function dispatchWebhook(env, event, payload) {
       return;
     }
 
-    // ── Path 2: direct fire-and-forget (legacy / dev) ──
+    // ── Release path: direct background delivery ──
     const deliveries = matching.map(async (webhook) => {
       const headers = { 'Content-Type': 'application/json', 'User-Agent': 'CloudCDN-Webhook/1.0' };
       const secret = await decryptWebhookSecret(env, webhook);

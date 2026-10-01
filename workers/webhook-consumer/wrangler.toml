@@ -1,17 +1,17 @@
 name = "cloudcdn-webhook-consumer"
 main = "src/index.js"
 
-# Match the Pages project's date so behaviour is consistent across the
-# producer (Pages) and consumer (this Worker).
+# Dormant in v0.0.1. If activated in a future release, match the Pages
+# project's date so behaviour is consistent across both services.
 compatibility_date = "2026-04-01"
 
 [[kv_namespaces]]
 binding = "RATE_KV"
 id = "e5688bf85dff4b16988c4a3853bb7171"
 
-# Cloudflare Queues consumer binding. The Pages project produces messages
-# to the same queue name via its `[[queues.producers]]` stanza (see
-# repo-root wrangler.toml).
+# Cloudflare Queues consumer binding. After explicit future activation, the
+# Pages project produces messages to this queue through the commented
+# `[[queues.producers]]` stanza in the repo-root wrangler.toml.
 #
 # Batch settings tuned for low-latency webhook fan-out:
 #   - max_batch_size:    10 — keep each batch small so a single slow receiver

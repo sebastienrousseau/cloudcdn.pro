@@ -43,7 +43,7 @@ the Cloudflare Pages project settings (or are set via
 | `PASSKEY_CHALLENGE_SECRET` | Secret | HMAC key for signing stateless passkey challenges. Falls back to `DASHBOARD_SECRET`/`DASHBOARD_PASSWORD` when unset; setting it explicitly lets you rotate challenge signing without changing the password. |
 | `PASSKEY_USER` | Var | Display name for the registered admin user. Defaults to `admin@<rpId>`. |
 | `PASSKEY_DISPLAY_NAME` | Var | Human-readable display name shown by the authenticator UI. Defaults to `CloudCDN Admin`. |
-| `WEBHOOK_SECRET_KEY` | Secret | Encryption key for webhook signing secrets. Use at least 32 random characters and configure the same value on the Pages project and webhook-consumer Worker. |
+| `WEBHOOK_SECRET_KEY` | Secret | Encryption key for webhook signing secrets. Use at least 32 random characters on the Pages project. Configure the same value on the optional consumer only if queue delivery is activated in a future release. |
 
 ## Workers AI
 
@@ -75,7 +75,7 @@ without them via in-process fallbacks.
 |---|---|---|
 | `RATE_LIMITER` | Durable Object | Atomic rate limiting via `blockConcurrencyWhile`. When absent, `checkRateLimit()` in `_shared.js` falls back to KV — works fine for small fleets but races under high concurrency. Enable for production. |
 | `METRICS` | Workers Analytics Engine | Per-request metrics emitted by the global middleware (endpoint, status, latency, trace id). Without this binding, `recordMetric()` is a no-op. Queries via WAE SQL. |
-| `WEBHOOK_QUEUE` | Cloudflare Queue | Webhook delivery with exponential backoff (1s → 5s → 25s → 125s) and a DLQ. When absent, `dispatchWebhook()` delivers inline (works but blocks the request and has no retry). |
+| `WEBHOOK_QUEUE` | Cloudflare Queue | Optional webhook delivery with exponential backoff (1s → 5s → 25s → 125s) and a DLQ. It is intentionally unbound for v0.0.1; `dispatchWebhook()` instead performs one background delivery attempt through `waitUntil()`. |
 | `AUDIT_LOG_KV` | KV namespace (alias) | Distinct KV for audit log entries. When unset, audit entries co-locate in `RATE_KV` — fine in practice; separate them only if you need stricter retention or access policies on the audit trail specifically. |
 
 ## Stratos CLI environment

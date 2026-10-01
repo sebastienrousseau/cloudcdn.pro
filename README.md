@@ -246,7 +246,7 @@ every env var, secret, and binding the runtime consumes, with the
 | `ACCESS_KEY` | Public-read AccessKey for `/api/assets`, `/api/insights/*`, `/api/transform`, `/api/ai/*` |
 | `STORAGE_KEY` | Storage API authentication (files) |
 | `DASHBOARD_PASSWORD` | Dashboard login (password fallback) |
-| `WEBHOOK_SECRET_KEY` | Encrypts webhook signing secrets for producers and consumers |
+| `WEBHOOK_SECRET_KEY` | Encrypts webhook signing secrets in Pages and the optional queue consumer |
 | `GITHUB_TOKEN` | GitOps mutations (upload/delete) |
 | `GITHUB_REPO` | Repository for Git-based storage |
 | `CLOUDFLARE_API_TOKEN` | Cache purge, domains |

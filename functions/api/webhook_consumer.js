@@ -1,8 +1,9 @@
 /**
  * Webhook delivery consumer — Cloudflare Queues handler.
  *
- * This file is the canonical reference shape for a Worker that consumes
- * messages produced by dispatchWebhook in functions/api/webhooks.js.
+ * This dormant implementation is not part of the v0.0.1 release path. It is
+ * the canonical reference shape for a Worker that consumes messages produced
+ * by dispatchWebhook in functions/api/webhooks.js after explicit activation.
  * Cloudflare Pages itself does not run queue consumers — they must be
  * deployed as a separate Worker that binds the same queue.
  *
