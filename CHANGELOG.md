@@ -31,6 +31,8 @@ into the *sprints* used during development.
   and removed them from queue messages.
 - Made visual regression failures block CI and added an explicit Cloudflare
   compatibility date.
+- Locked the accessibility test dependency and made load-test budget failures
+  block CI instead of reporting a successful job.
 
 ### Changed
 

@@ -164,9 +164,7 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Install Playwright + axe-core
-        run: |
-          npx playwright install --with-deps chromium
-          npm i -D @axe-core/playwright
+        run: npx playwright install --with-deps chromium
 
       - name: Start local server
         # Serve from cdn/, not repo root. Root-anchored asset URLs in the
@@ -244,7 +242,6 @@ jobs:
           sudo apt-get update && sudo apt-get install -y k6
 
       - name: Run k6 smoke test (10 VUs, 10s)
-        continue-on-error: true
         # I_KNOW_THIS_HITS_PROD=1 is the explicit opt-in required by
         # the seatbelt added in scripts/tests/load.k6.js. CI legitimately
         # needs to verify the production edge — the seatbelt's job is
