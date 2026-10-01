@@ -10,6 +10,27 @@ into the *sprints* used during development.
 
 ## [Unreleased]
 
+## [0.0.2]
+
+### Added
+
+- Discover every owned, public, non-fork GitHub repository with a published
+  latest release and include it in the `/dist/` marketplace catalogue.
+- Show GitHub release versions and provide release download or release-page
+  commands alongside npm, crates.io, and PyPI installation options.
+
+### Changed
+
+- Authenticate scheduled GitHub catalogue lookups and synchronise newly
+  published repositories before refreshing registry versions.
+- Route automatic catalogue, image, and manifest updates through the single
+  next-version release branch.
+
+### Fixed
+
+- Keep visual regression snapshots out of automatic image conversion and
+  avoid dependency-manifest and unmatched-path failures in that workflow.
+
 ## [0.0.1] - 2026-10-01
 
 ### Fixed

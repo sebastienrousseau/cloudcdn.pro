@@ -3,8 +3,8 @@
 /**
  * generate-dist-catalogue.mjs
  *
- * Reads scripts/dist/packages-catalogue.json (the hand-curated source of
- * truth for every published software product) and emits
+ * Reads scripts/dist/packages-catalogue.json (curated metadata plus entries
+ * synchronised from GitHub Releases) and emits
  * cdn/en/dist/_dist.json with each package augmented by:
  *
  *   - The latest version from every declared registry (crates.io / npm /
@@ -52,6 +52,13 @@ const USER_AGENT = 'cloudcdn-dist-catalogue (+https://cloudcdn.pro)';
 const FETCH_TIMEOUT_MS = 12_000;
 const PER_PKG_CONCURRENCY = 8;
 
+export function normaliseReleaseVersion(raw) {
+  if (!raw) return null;
+  const value = String(raw);
+  const semantic = value.match(/(?:^|[\/_-])v?(\d+(?:\.\d+)+(?:[-+][0-9A-Za-z.-]+)?)$/);
+  return semantic?.[1] ?? value.replace(/^v/, '');
+}
+
 /** Pull the latest version from a single registry. Returns null on miss. */
 async function fetchLatestVersion({ type, name, repo }) {
   const lookup = type === 'github-releases' ? repo : name;
@@ -59,7 +66,12 @@ async function fetchLatestVersion({ type, name, repo }) {
   if (!url) return null;
   const headers = { 'user-agent': USER_AGENT };
   // GitHub API is happier with an Accept header for the releases endpoint.
-  if (type === 'github-releases') headers.Accept = 'application/vnd.github+json';
+  if (type === 'github-releases') {
+    headers.Accept = 'application/vnd.github+json';
+    if (process.env.GITHUB_TOKEN) {
+      headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    }
+  }
 
   let res;
   try {
@@ -80,8 +92,7 @@ async function fetchLatestVersion({ type, name, repo }) {
   else if (type === 'pypi')         version = data.info?.version ?? null;
   else if (type === 'github-releases') {
     const raw = data.tag_name ?? data.name ?? null;
-    // Strip a leading `v` for display consistency with other registries.
-    version = raw ? raw.replace(/^v/, '') : null;
+    version = normaliseReleaseVersion(raw);
   }
   return {
     type,

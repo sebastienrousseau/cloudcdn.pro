@@ -1,16 +1,62 @@
 {
-  "$comment": "Hand-curated catalogue of every published software product. The version field is intentionally absent — scripts/dist/generate-dist-catalogue.mjs fetches the latest version per registry at build time and emits cdn/en/dist/_dist.json. Per category id values map to discovery-page section headers.",
+  "$comment": "Catalogue of curated products and owned public repositories with published GitHub releases. Version fields are intentionally absent: scripts/dist/generate-dist-catalogue.mjs resolves the latest version per registry and emits cdn/en/dist/_dist.json. Category IDs map to discovery-page section headers.",
   "featured": "stratos",
   "categories": [
-    { "id": "iso20022",     "name": "ISO 20022 Payments",      "tagline": "Generate, validate, parse the world's financial-messaging standard." },
-    { "id": "cryptography", "name": "Cryptography",            "tagline": "Post-quantum primitives, password hashing, signed releases." },
-    { "id": "static-sites", "name": "Static Sites",            "tagline": "Secure-by-default Rust pipelines for the open web." },
-    { "id": "yaml",         "name": "YAML Ecosystem",          "tagline": "Lossless YAML 1.2 — library, CLI, LSP, MCP, WASM." },
-    { "id": "cli",          "name": "CLI Tools",               "tagline": "Single-binary developer tools." },
-    { "id": "ai",           "name": "AI & Agents",             "tagline": "MCP servers, voice assistants, transcription." },
-    { "id": "rust-libs",    "name": "Rust Libraries",          "tagline": "Domain helpers, no_std friendly, audit-ready." },
-    { "id": "web",          "name": "Web & Styling",           "tagline": "CSS frameworks, password generators, browser tools." },
-    { "id": "workstation",  "name": "Workstation",             "tagline": "Dotfiles, configuration, environment setup." }
+    {
+      "id": "iso20022",
+      "name": "ISO 20022 Payments",
+      "tagline": "Generate, validate, parse the world's financial-messaging standard."
+    },
+    {
+      "id": "cryptography",
+      "name": "Cryptography",
+      "tagline": "Post-quantum primitives, password hashing, signed releases."
+    },
+    {
+      "id": "static-sites",
+      "name": "Static Sites",
+      "tagline": "Secure-by-default Rust pipelines for the open web."
+    },
+    {
+      "id": "yaml",
+      "name": "YAML Ecosystem",
+      "tagline": "Lossless YAML 1.2 — library, CLI, LSP, MCP, WASM."
+    },
+    {
+      "id": "cli",
+      "name": "CLI Tools",
+      "tagline": "Single-binary developer tools."
+    },
+    {
+      "id": "ai",
+      "name": "AI & Agents",
+      "tagline": "MCP servers, voice assistants, transcription."
+    },
+    {
+      "id": "rust-libs",
+      "name": "Rust Libraries",
+      "tagline": "Domain helpers, no_std friendly, audit-ready."
+    },
+    {
+      "id": "web",
+      "name": "Web & Styling",
+      "tagline": "CSS frameworks, password generators, browser tools."
+    },
+    {
+      "id": "workstation",
+      "name": "Workstation",
+      "tagline": "Dotfiles, configuration, environment setup."
+    },
+    {
+      "id": "developer-tools",
+      "name": "Developer Tooling",
+      "tagline": "Shared configuration, conformance, automation, and engineering utilities."
+    },
+    {
+      "id": "apps",
+      "name": "Apps & Services",
+      "tagline": "Installable applications and published services."
+    }
   ],
   "packages": [
     {
@@ -21,11 +67,14 @@
       "repo": "sebastienrousseau/stratos",
       "logo": "/stratos/v1/logos/stratos.svg",
       "registries": [
-        { "type": "github-releases", "repo": "sebastienrousseau/stratos" }
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/stratos"
+        }
       ],
       "install": {
-        "macos":   "curl -sL https://cloudcdn.pro/dist/stratos/install.sh | bash",
-        "linux":   "curl -sL https://cloudcdn.pro/dist/stratos/install.sh | bash",
+        "macos": "curl -sL https://cloudcdn.pro/dist/stratos/install.sh | bash",
+        "linux": "curl -sL https://cloudcdn.pro/dist/stratos/install.sh | bash",
         "windows": "irm https://cloudcdn.pro/dist/stratos/install.ps1 | iex"
       }
     },
@@ -37,11 +86,18 @@
       "repo": "sebastienrousseau/cloudcdn.pro",
       "logo": "/cloudcdn/v1/logos/cloudcdn.svg",
       "registries": [
-        { "type": "npm", "name": "@cloudcdn/mcp-server" }
+        {
+          "type": "npm",
+          "name": "@cloudcdn/mcp-server"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/cloudcdn.pro"
+        }
       ],
       "install": {
-        "npx":      "npx -y @cloudcdn/mcp-server",
-        "npm":      "npm install -g @cloudcdn/mcp-server"
+        "npx": "npx -y @cloudcdn/mcp-server",
+        "npm": "npm install -g @cloudcdn/mcp-server"
       }
     },
     {
@@ -52,11 +108,18 @@
       "repo": "sebastienrousseau/pain001",
       "logo": "/pain001/v1/logos/pain001.svg",
       "registries": [
-        { "type": "pypi", "name": "pain001" }
+        {
+          "type": "pypi",
+          "name": "pain001"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pain001"
+        }
       ],
       "install": {
-        "pip":   "pip install pain001",
-        "pipx":  "pipx install pain001"
+        "pip": "pip install pain001",
+        "pipx": "pipx install pain001"
       }
     },
     {
@@ -67,11 +130,18 @@
       "repo": "sebastienrousseau/pacs008",
       "logo": "/pacs008/v1/logos/pacs008.svg",
       "registries": [
-        { "type": "pypi", "name": "pacs008" }
+        {
+          "type": "pypi",
+          "name": "pacs008"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pacs008"
+        }
       ],
       "install": {
-        "pip":   "pip install pacs008",
-        "pipx":  "pipx install pacs008"
+        "pip": "pip install pacs008",
+        "pipx": "pipx install pacs008"
       }
     },
     {
@@ -82,11 +152,18 @@
       "repo": "sebastienrousseau/acmt001",
       "logo": "/acmt001/v1/logos/acmt001.svg",
       "registries": [
-        { "type": "pypi", "name": "acmt001" }
+        {
+          "type": "pypi",
+          "name": "acmt001"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/acmt001"
+        }
       ],
       "install": {
-        "pip":   "pip install acmt001",
-        "pipx":  "pipx install acmt001"
+        "pip": "pip install acmt001",
+        "pipx": "pipx install acmt001"
       }
     },
     {
@@ -97,10 +174,17 @@
       "repo": "sebastienrousseau/acmt001-lsp",
       "logo": "/acmt001/v1/logos/acmt001.svg",
       "registries": [
-        { "type": "pypi", "name": "acmt001-lsp" }
+        {
+          "type": "pypi",
+          "name": "acmt001-lsp"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/acmt001-lsp"
+        }
       ],
       "install": {
-        "pip":  "pip install acmt001-lsp",
+        "pip": "pip install acmt001-lsp",
         "pipx": "pipx install acmt001-lsp"
       }
     },
@@ -112,11 +196,18 @@
       "repo": "sebastienrousseau/acmt001-mcp",
       "logo": "/acmt001/v1/logos/acmt001.svg",
       "registries": [
-        { "type": "pypi", "name": "acmt001-mcp" }
+        {
+          "type": "pypi",
+          "name": "acmt001-mcp"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/acmt001-mcp"
+        }
       ],
       "install": {
         "pipx": "pipx install acmt001-mcp",
-        "pip":  "pip install acmt001-mcp"
+        "pip": "pip install acmt001-mcp"
       }
     },
     {
@@ -127,11 +218,18 @@
       "repo": "sebastienrousseau/bankstatementparser",
       "logo": "/bankstatementparser/v1/logos/bankstatementparser.svg",
       "registries": [
-        { "type": "pypi", "name": "bankstatementparser" }
+        {
+          "type": "pypi",
+          "name": "bankstatementparser"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser"
+        }
       ],
       "install": {
-        "pip":   "pip install bankstatementparser",
-        "pipx":  "pipx install bankstatementparser"
+        "pip": "pip install bankstatementparser",
+        "pipx": "pipx install bankstatementparser"
       }
     },
     {
@@ -141,13 +239,15 @@
       "tagline": "Rust library to manage ISO 20022 pain.001 payment initiation messages.",
       "repo": "sebastienrousseau/pain",
       "registries": [
-        { "type": "crates.io", "name": "pain" }
+        {
+          "type": "crates.io",
+          "name": "pain"
+        }
       ],
       "install": {
         "cargo": "cargo add pain"
       }
     },
-
     {
       "name": "kyberlib",
       "slug": "kyberlib",
@@ -156,7 +256,14 @@
       "repo": "sebastienrousseau/kyberlib",
       "logo": "/kyberlib/v1/logos/kyberlib.svg",
       "registries": [
-        { "type": "crates.io", "name": "kyberlib" }
+        {
+          "type": "crates.io",
+          "name": "kyberlib"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/kyberlib"
+        }
       ],
       "install": {
         "cargo": "cargo add kyberlib"
@@ -170,7 +277,14 @@
       "repo": "sebastienrousseau/kyberlib",
       "logo": "/kyberlib/v1/logos/kyberlib.svg",
       "registries": [
-        { "type": "crates.io", "name": "kyberlib-wasm" }
+        {
+          "type": "crates.io",
+          "name": "kyberlib-wasm"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/kyberlib"
+        }
       ],
       "install": {
         "cargo": "cargo add kyberlib-wasm"
@@ -184,10 +298,17 @@
       "repo": "sebastienrousseau/hsh",
       "logo": "/hsh/v1/logos/hsh.svg",
       "registries": [
-        { "type": "crates.io", "name": "hsh" }
+        {
+          "type": "crates.io",
+          "name": "hsh"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/hsh"
+        }
       ],
       "install": {
-        "cargo":         "cargo add hsh",
+        "cargo": "cargo add hsh",
         "cargo install": "cargo install hsh"
       }
     },
@@ -198,14 +319,20 @@
       "tagline": "Memorable password generator for Node and browsers (async WebCrypto).",
       "repo": "sebastienrousseau/password-generator",
       "registries": [
-        { "type": "npm", "name": "password-generator" }
+        {
+          "type": "npm",
+          "name": "password-generator"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/password-generator"
+        }
       ],
       "install": {
         "npm": "npm install password-generator",
         "pnpm": "pnpm add password-generator"
       }
     },
-
     {
       "name": "ssg (static-site-generator)",
       "slug": "ssg",
@@ -213,12 +340,19 @@
       "tagline": "Secure-by-default Rust SSG — WCAG 2.2 AA, CSP/SRI, native minification, 28-locale i18n, WASM target.",
       "repo": "sebastienrousseau/static-site-generator",
       "registries": [
-        { "type": "crates.io", "name": "ssg" }
+        {
+          "type": "crates.io",
+          "name": "ssg"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/static-site-generator"
+        }
       ],
       "install": {
         "cargo install": "cargo install ssg",
-        "macos":   "curl -sL https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.sh | bash",
-        "linux":   "curl -sL https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.sh | bash",
+        "macos": "curl -sL https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.sh | bash",
+        "linux": "curl -sL https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.sh | bash",
         "windows": "irm https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.ps1 | iex"
       }
     },
@@ -229,9 +363,18 @@
       "tagline": "Markdown → WCAG-compliant HTML — front matter, TOC, JSON-LD, MathML, Mermaid, minification.",
       "repo": "sebastienrousseau/html-generator",
       "registries": [
-        { "type": "crates.io", "name": "html-generator" }
+        {
+          "type": "crates.io",
+          "name": "html-generator"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/html-generator"
+        }
       ],
-      "install": { "cargo": "cargo add html-generator" }
+      "install": {
+        "cargo": "cargo add html-generator"
+      }
     },
     {
       "name": "mdx-gen",
@@ -240,9 +383,18 @@
       "tagline": "AST-first Markdown → HTML library — custom blocks, syntax highlighting, ToC, mermaid.",
       "repo": "sebastienrousseau/mdx-gen",
       "registries": [
-        { "type": "crates.io", "name": "mdx-gen" }
+        {
+          "type": "crates.io",
+          "name": "mdx-gen"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/mdx-gen"
+        }
       ],
-      "install": { "cargo": "cargo add mdx-gen" }
+      "install": {
+        "cargo": "cargo add mdx-gen"
+      }
     },
     {
       "name": "nucleusflow",
@@ -251,9 +403,18 @@
       "tagline": "Rust library for content processing — static site generation, document conversion, templating.",
       "repo": "sebastienrousseau/nucleusflow",
       "registries": [
-        { "type": "crates.io", "name": "nucleusflow" }
+        {
+          "type": "crates.io",
+          "name": "nucleusflow"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/nucleusflow"
+        }
       ],
-      "install": { "cargo": "cargo add nucleusflow" }
+      "install": {
+        "cargo": "cargo add nucleusflow"
+      }
     },
     {
       "name": "frontmatter-gen",
@@ -262,9 +423,18 @@
       "tagline": "Generate and parse frontmatter in YAML, TOML, and JSON formats.",
       "repo": "sebastienrousseau/frontmatter-gen",
       "registries": [
-        { "type": "crates.io", "name": "frontmatter-gen" }
+        {
+          "type": "crates.io",
+          "name": "frontmatter-gen"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/frontmatter-gen"
+        }
       ],
-      "install": { "cargo": "cargo add frontmatter-gen" }
+      "install": {
+        "cargo": "cargo add frontmatter-gen"
+      }
     },
     {
       "name": "metadata-gen",
@@ -273,9 +443,18 @@
       "tagline": "Extract, validate, and process metadata — generates SEO / Open Graph / Twitter Cards / Apple meta tags.",
       "repo": "sebastienrousseau/metadata-gen",
       "registries": [
-        { "type": "crates.io", "name": "metadata-gen" }
+        {
+          "type": "crates.io",
+          "name": "metadata-gen"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/metadata-gen"
+        }
       ],
-      "install": { "cargo": "cargo add metadata-gen" }
+      "install": {
+        "cargo": "cargo add metadata-gen"
+      }
     },
     {
       "name": "sitemap-gen",
@@ -284,9 +463,18 @@
       "tagline": "Efficient sitemap generation and optimization for Rust — multiple formats, customizable.",
       "repo": "sebastienrousseau/sitemap-gen",
       "registries": [
-        { "type": "crates.io", "name": "sitemap-gen" }
+        {
+          "type": "crates.io",
+          "name": "sitemap-gen"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/sitemap-gen"
+        }
       ],
-      "install": { "cargo": "cargo add sitemap-gen" }
+      "install": {
+        "cargo": "cargo add sitemap-gen"
+      }
     },
     {
       "name": "staticdatagen",
@@ -295,9 +483,18 @@
       "tagline": "Generate structured data and metadata for static sites — HTML, RSS, sitemaps, SEO meta tags.",
       "repo": "sebastienrousseau/staticdatagen",
       "registries": [
-        { "type": "crates.io", "name": "staticdatagen" }
+        {
+          "type": "crates.io",
+          "name": "staticdatagen"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/staticdatagen"
+        }
       ],
-      "install": { "cargo": "cargo add staticdatagen" }
+      "install": {
+        "cargo": "cargo add staticdatagen"
+      }
     },
     {
       "name": "staticweaver",
@@ -306,11 +503,19 @@
       "tagline": "Fast, safe Rust template engine — Mustache-compatible, 23 built-in filters, SIMD HTML escape.",
       "repo": "sebastienrousseau/staticweaver",
       "registries": [
-        { "type": "crates.io", "name": "staticweaver" }
+        {
+          "type": "crates.io",
+          "name": "staticweaver"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/staticweaver"
+        }
       ],
-      "install": { "cargo": "cargo add staticweaver" }
+      "install": {
+        "cargo": "cargo add staticweaver"
+      }
     },
-
     {
       "name": "noyalib",
       "slug": "noyalib",
@@ -319,9 +524,18 @@
       "repo": "sebastienrousseau/noyalib",
       "logo": "/noyalib/v1/logos/noyalib.svg",
       "registries": [
-        { "type": "crates.io", "name": "noyalib" }
+        {
+          "type": "crates.io",
+          "name": "noyalib"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/noyalib"
+        }
       ],
-      "install": { "cargo": "cargo add noyalib" }
+      "install": {
+        "cargo": "cargo add noyalib"
+      }
     },
     {
       "name": "noya-cli",
@@ -331,9 +545,18 @@
       "repo": "sebastienrousseau/noyalib",
       "logo": "/noyalib/v1/logos/noyalib.svg",
       "registries": [
-        { "type": "crates.io", "name": "noya-cli" }
+        {
+          "type": "crates.io",
+          "name": "noya-cli"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/noya-cli"
+        }
       ],
-      "install": { "cargo install": "cargo install noya-cli" }
+      "install": {
+        "cargo install": "cargo install noya-cli"
+      }
     },
     {
       "name": "noyalib-mcp",
@@ -343,9 +566,18 @@
       "repo": "sebastienrousseau/noyalib",
       "logo": "/noyalib/v1/logos/noyalib.svg",
       "registries": [
-        { "type": "crates.io", "name": "noyalib-mcp" }
+        {
+          "type": "crates.io",
+          "name": "noyalib-mcp"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/noyalib-mcp"
+        }
       ],
-      "install": { "cargo install": "cargo install noyalib-mcp" }
+      "install": {
+        "cargo install": "cargo install noyalib-mcp"
+      }
     },
     {
       "name": "noyalib-lsp",
@@ -355,11 +587,19 @@
       "repo": "sebastienrousseau/noyalib",
       "logo": "/noyalib/v1/logos/noyalib.svg",
       "registries": [
-        { "type": "crates.io", "name": "noyalib-lsp" }
+        {
+          "type": "crates.io",
+          "name": "noyalib-lsp"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/noyalib-lsp"
+        }
       ],
-      "install": { "cargo install": "cargo install noyalib-lsp" }
+      "install": {
+        "cargo install": "cargo install noyalib-lsp"
+      }
     },
-
     {
       "name": "akande",
       "slug": "akande",
@@ -368,9 +608,19 @@
       "repo": "sebastienrousseau/akande",
       "logo": "/akande/v1/logos/akande.svg",
       "registries": [
-        { "type": "pypi", "name": "akande" }
+        {
+          "type": "pypi",
+          "name": "akande"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/akande"
+        }
       ],
-      "install": { "pipx": "pipx install akande", "pip": "pip install akande" }
+      "install": {
+        "pipx": "pipx install akande",
+        "pip": "pip install akande"
+      }
     },
     {
       "name": "audiotext",
@@ -379,9 +629,14 @@
       "tagline": "Real-time speech recognition powered by the Whisper library.",
       "repo": "sebastienrousseau/audiotext",
       "registries": [
-        { "type": "pypi", "name": "audiotext" }
+        {
+          "type": "pypi",
+          "name": "audiotext"
+        }
       ],
-      "install": { "pip": "pip install audiotext" }
+      "install": {
+        "pip": "pip install audiotext"
+      }
     },
     {
       "name": "talkwave",
@@ -390,9 +645,19 @@
       "tagline": "AI chatbot for developers written in Python.",
       "repo": "sebastienrousseau/talkwave",
       "registries": [
-        { "type": "pypi", "name": "talkwave" }
+        {
+          "type": "pypi",
+          "name": "talkwave"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/talkwave"
+        }
       ],
-      "install": { "pipx": "pipx install talkwave", "pip": "pip install talkwave" }
+      "install": {
+        "pipx": "pipx install talkwave",
+        "pip": "pip install talkwave"
+      }
     },
     {
       "name": "inclusio",
@@ -402,19 +667,39 @@
       "repo": "sebastienrousseau/inclusio",
       "logo": "/inclusio/v1/logos/inclusio.svg",
       "registries": [
-        { "type": "pypi", "name": "inclusio" }
+        {
+          "type": "pypi",
+          "name": "inclusio"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/inclusio"
+        }
       ],
-      "install": { "pipx": "pipx install inclusio", "pip": "pip install inclusio" }
+      "install": {
+        "pipx": "pipx install inclusio",
+        "pip": "pip install inclusio"
+      }
     },
-
     {
       "name": "cmn",
       "slug": "cmn",
       "category": "rust-libs",
       "tagline": "121 mathematical, physical, cryptographic constants — no_std, WASM, 15 macros.",
       "repo": "sebastienrousseau/cmn",
-      "registries": [ { "type": "crates.io", "name": "cmn" } ],
-      "install": { "cargo": "cargo add cmn" }
+      "registries": [
+        {
+          "type": "crates.io",
+          "name": "cmn"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/cmn"
+        }
+      ],
+      "install": {
+        "cargo": "cargo add cmn"
+      }
     },
     {
       "name": "dtt",
@@ -423,8 +708,19 @@
       "tagline": "Date, time, and timezone manipulation — RFC 3339 / ISO 8601 round-trip safety.",
       "repo": "sebastienrousseau/dtt",
       "logo": "/dtt/v1/logos/dtt.svg",
-      "registries": [ { "type": "crates.io", "name": "dtt" } ],
-      "install": { "cargo": "cargo add dtt" }
+      "registries": [
+        {
+          "type": "crates.io",
+          "name": "dtt"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/dtt"
+        }
+      ],
+      "install": {
+        "cargo": "cargo add dtt"
+      }
     },
     {
       "name": "http-handle",
@@ -432,8 +728,19 @@
       "category": "rust-libs",
       "tagline": "Lightweight HTTP server library — sync + async, HTTP/1.1, h2c, HTTP/3 ALPN. 180 k req/s.",
       "repo": "sebastienrousseau/http-handle",
-      "registries": [ { "type": "crates.io", "name": "http-handle" } ],
-      "install": { "cargo": "cargo add http-handle" }
+      "registries": [
+        {
+          "type": "crates.io",
+          "name": "http-handle"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/http-handle"
+        }
+      ],
+      "install": {
+        "cargo": "cargo add http-handle"
+      }
     },
     {
       "name": "langweave",
@@ -441,8 +748,19 @@
       "category": "rust-libs",
       "tagline": "Seamless internationalization (i18n) and localization for Rust.",
       "repo": "sebastienrousseau/langweave",
-      "registries": [ { "type": "crates.io", "name": "langweave" } ],
-      "install": { "cargo": "cargo add langweave" }
+      "registries": [
+        {
+          "type": "crates.io",
+          "name": "langweave"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/langweave"
+        }
+      ],
+      "install": {
+        "cargo": "cargo add langweave"
+      }
     },
     {
       "name": "libmake",
@@ -450,8 +768,19 @@
       "category": "rust-libs",
       "tagline": "Code generator to reduce repetitive tasks and build high-quality Rust libraries.",
       "repo": "sebastienrousseau/libmake",
-      "registries": [ { "type": "crates.io", "name": "libmake" } ],
-      "install": { "cargo install": "cargo install libmake" }
+      "registries": [
+        {
+          "type": "crates.io",
+          "name": "libmake"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/libmake"
+        }
+      ],
+      "install": {
+        "cargo install": "cargo install libmake"
+      }
     },
     {
       "name": "mini-functions",
@@ -459,8 +788,19 @@
       "category": "rust-libs",
       "tagline": "Highly performant utility and wrapper functions library for Rust.",
       "repo": "sebastienrousseau/mini-functions",
-      "registries": [ { "type": "crates.io", "name": "mini-functions" } ],
-      "install": { "cargo": "cargo add mini-functions" }
+      "registries": [
+        {
+          "type": "crates.io",
+          "name": "mini-functions"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/mini-functions"
+        }
+      ],
+      "install": {
+        "cargo": "cargo add mini-functions"
+      }
     },
     {
       "name": "qrc",
@@ -468,8 +808,19 @@
       "category": "rust-libs",
       "tagline": "Generate and manipulate QR-code images in various formats.",
       "repo": "sebastienrousseau/qrc",
-      "registries": [ { "type": "crates.io", "name": "qrc" } ],
-      "install": { "cargo": "cargo add qrc" }
+      "registries": [
+        {
+          "type": "crates.io",
+          "name": "qrc"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/qrc"
+        }
+      ],
+      "install": {
+        "cargo": "cargo add qrc"
+      }
     },
     {
       "name": "rlg",
@@ -477,8 +828,19 @@
       "category": "rust-libs",
       "tagline": "Near-lock-free structured logging — sub-microsecond ingestion path.",
       "repo": "sebastienrousseau/rlg",
-      "registries": [ { "type": "crates.io", "name": "rlg" } ],
-      "install": { "cargo": "cargo add rlg" }
+      "registries": [
+        {
+          "type": "crates.io",
+          "name": "rlg"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/rlg"
+        }
+      ],
+      "install": {
+        "cargo": "cargo add rlg"
+      }
     },
     {
       "name": "vrd",
@@ -486,8 +848,19 @@
       "category": "rust-libs",
       "tagline": "no_std-friendly RNG — Xoshiro256++ default, optional Mersenne Twister, ChaCha20, SIMD bulk-byte.",
       "repo": "sebastienrousseau/vrd",
-      "registries": [ { "type": "crates.io", "name": "vrd" } ],
-      "install": { "cargo": "cargo add vrd" }
+      "registries": [
+        {
+          "type": "crates.io",
+          "name": "vrd"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/vrd"
+        }
+      ],
+      "install": {
+        "cargo": "cargo add vrd"
+      }
     },
     {
       "name": "wiserone",
@@ -496,8 +869,19 @@
       "tagline": "Daily nuggets of wisdom in a clean, minimalist design.",
       "repo": "sebastienrousseau/wiserone",
       "logo": "/wiserone/v1/logos/wiserone.svg",
-      "registries": [ { "type": "crates.io", "name": "wiserone" } ],
-      "install": { "cargo install": "cargo install wiserone" }
+      "registries": [
+        {
+          "type": "crates.io",
+          "name": "wiserone"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/wiserone"
+        }
+      ],
+      "install": {
+        "cargo install": "cargo install wiserone"
+      }
     },
     {
       "name": "xtasks",
@@ -505,10 +889,20 @@
       "category": "rust-libs",
       "tagline": "Essential tools and tasks for Rust projects using the xtask pattern.",
       "repo": "sebastienrousseau/xtasks",
-      "registries": [ { "type": "crates.io", "name": "xtasks" } ],
-      "install": { "cargo": "cargo add xtasks" }
+      "registries": [
+        {
+          "type": "crates.io",
+          "name": "xtasks"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/xtasks"
+        }
+      ],
+      "install": {
+        "cargo": "cargo add xtasks"
+      }
     },
-
     {
       "name": "skeletonic-stylus",
       "slug": "skeletonic-stylus",
@@ -517,7 +911,14 @@
       "repo": "sebastienrousseau/skeletonic-stylus",
       "logo": "/skeletonic/v1/logos/skeletonic.svg",
       "registries": [
-        { "type": "npm", "name": "@sebastienrousseau/skeletonic-stylus" }
+        {
+          "type": "npm",
+          "name": "@sebastienrousseau/skeletonic-stylus"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/skeletonic-stylus"
+        }
       ],
       "install": {
         "npm": "npm install @sebastienrousseau/skeletonic-stylus",
@@ -532,14 +933,20 @@
       "repo": "sebastienrousseau/crypto-service",
       "logo": "/crypto-service/v1/logos/crypto-service.svg",
       "registries": [
-        { "type": "npm", "name": "crypto-service" }
+        {
+          "type": "npm",
+          "name": "crypto-service"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service"
+        }
       ],
       "install": {
         "npm": "npm install crypto-service",
         "pnpm": "pnpm add crypto-service"
       }
     },
-
     {
       "name": "dotfiles",
       "slug": "dotfiles",
@@ -547,11 +954,2105 @@
       "tagline": "Declarative dotfiles for macOS, Linux, WSL — multi-shell parity, wallpaper-driven themes, SLSA-signed releases.",
       "repo": "sebastienrousseau/dotfiles",
       "registries": [
-        { "type": "github-releases", "repo": "sebastienrousseau/dotfiles" }
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/dotfiles"
+        }
       ],
       "install": {
-        "macos":   "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash",
-        "linux":   "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash"
+        "macos": "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash",
+        "linux": "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash"
+      }
+    },
+    {
+      "name": "agtmls",
+      "slug": "agtmls",
+      "category": "ai",
+      "tagline": "Signed, audited registry of agent skills (SKILL.md) for Claude Code, OpenAI Codex, Aider and Antigravity: verified installs, a prompt-injection and supply-ch...",
+      "repo": "sebastienrousseau/agtmls",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/agtmls"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/agtmls"
+      }
+    },
+    {
+      "name": "ap2-iso20022",
+      "slug": "ap2-iso20022",
+      "category": "iso20022",
+      "tagline": "Bridge AP2 / x402 agent-payment mandates into wire-valid ISO 20022 pain.001 / pacs.008 records, with guardrails. MCP server.",
+      "repo": "sebastienrousseau/ap2-iso20022",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/ap2-iso20022"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/ap2-iso20022"
+      }
+    },
+    {
+      "name": "askiso",
+      "slug": "askiso",
+      "category": "iso20022",
+      "tagline": "Every ISO 20022 message. Just ask. Search, validate, lint, generate and convert ISO 20022 from your terminal, editor or AI assistant.",
+      "repo": "sebastienrousseau/askiso",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/askiso"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/askiso"
+      }
+    },
+    {
+      "name": "audioanalyser.github.io",
+      "slug": "audioanalyser-github-io",
+      "category": "web",
+      "tagline": "Audio Analyser, a cutting-edge application designed to transform audio recordings into actionable insights using Microsoft Azure AI. It offers audio recordin...",
+      "repo": "sebastienrousseau/audioanalyser.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/audioanalyser.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/audioanalyser.github.io --web"
+      }
+    },
+    {
+      "name": "AudioWaveLib",
+      "slug": "audiowavelib",
+      "category": "apps",
+      "tagline": "AudioWaveLib is a Swift library for loading and processing audio sample data to generate waveform visualizations.",
+      "repo": "sebastienrousseau/AudioWaveLib",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/AudioWaveLib"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/AudioWaveLib --web"
+      }
+    },
+    {
+      "name": "bankstatementparser-loader-bacs",
+      "slug": "bankstatementparser-loader-bacs",
+      "category": "iso20022",
+      "tagline": "Latest published GitHub release for bankstatementparser-loader-bacs.",
+      "repo": "sebastienrousseau/bankstatementparser-loader-bacs",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-loader-bacs"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/bankstatementparser-loader-bacs --web"
+      }
+    },
+    {
+      "name": "bankstatementparser-loader-bai2",
+      "slug": "bankstatementparser-loader-bai2",
+      "category": "iso20022",
+      "tagline": "Load BAI2 cash-management files into bankstatementparser Transactions",
+      "repo": "sebastienrousseau/bankstatementparser-loader-bai2",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-loader-bai2"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/bankstatementparser-loader-bai2"
+      }
+    },
+    {
+      "name": "bankstatementparser-loader-camt054",
+      "slug": "bankstatementparser-loader-camt054",
+      "category": "iso20022",
+      "tagline": "Latest published GitHub release for bankstatementparser-loader-camt054.",
+      "repo": "sebastienrousseau/bankstatementparser-loader-camt054",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-loader-camt054"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/bankstatementparser-loader-camt054 --web"
+      }
+    },
+    {
+      "name": "bankstatementparser-loader-cfonb",
+      "slug": "bankstatementparser-loader-cfonb",
+      "category": "iso20022",
+      "tagline": "Latest published GitHub release for bankstatementparser-loader-cfonb.",
+      "repo": "sebastienrousseau/bankstatementparser-loader-cfonb",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-loader-cfonb"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/bankstatementparser-loader-cfonb --web"
+      }
+    },
+    {
+      "name": "bankstatementparser-loader-mt942",
+      "slug": "bankstatementparser-loader-mt942",
+      "category": "iso20022",
+      "tagline": "Load SWIFT MT942 interim transaction reports into bankstatementparser Transactions",
+      "repo": "sebastienrousseau/bankstatementparser-loader-mt942",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-loader-mt942"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/bankstatementparser-loader-mt942"
+      }
+    },
+    {
+      "name": "bankstatementparser-loader-sepa",
+      "slug": "bankstatementparser-loader-sepa",
+      "category": "iso20022",
+      "tagline": "Latest published GitHub release for bankstatementparser-loader-sepa.",
+      "repo": "sebastienrousseau/bankstatementparser-loader-sepa",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-loader-sepa"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/bankstatementparser-loader-sepa --web"
+      }
+    },
+    {
+      "name": "bankstatementparser-lsp",
+      "slug": "bankstatementparser-lsp",
+      "category": "iso20022",
+      "tagline": "Language Server (LSP) providing live MT940 bank-statement diagnostics for editors",
+      "repo": "sebastienrousseau/bankstatementparser-lsp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-lsp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/bankstatementparser-lsp"
+      }
+    },
+    {
+      "name": "bankstatementparser-mcp",
+      "slug": "bankstatementparser-mcp",
+      "category": "iso20022",
+      "tagline": "Parse bank statements (BAI2, MT940/MT942, CAMT.053, OFX, CSV) into structured transactions from Claude Desktop, Cursor & other MCP clients. Part of the ISO 2...",
+      "repo": "sebastienrousseau/bankstatementparser-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/bankstatementparser-mcp"
+      }
+    },
+    {
+      "name": "bankstatementparser-transport-ebics",
+      "slug": "bankstatementparser-transport-ebics",
+      "category": "iso20022",
+      "tagline": "Latest published GitHub release for bankstatementparser-transport-ebics.",
+      "repo": "sebastienrousseau/bankstatementparser-transport-ebics",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-transport-ebics"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/bankstatementparser-transport-ebics --web"
+      }
+    },
+    {
+      "name": "bankstatementparser-writer-ofx",
+      "slug": "bankstatementparser-writer-ofx",
+      "category": "iso20022",
+      "tagline": "Latest published GitHub release for bankstatementparser-writer-ofx.",
+      "repo": "sebastienrousseau/bankstatementparser-writer-ofx",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-writer-ofx"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/bankstatementparser-writer-ofx --web"
+      }
+    },
+    {
+      "name": "bankstatementparser-writer-qif",
+      "slug": "bankstatementparser-writer-qif",
+      "category": "iso20022",
+      "tagline": "Latest published GitHub release for bankstatementparser-writer-qif.",
+      "repo": "sebastienrousseau/bankstatementparser-writer-qif",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-writer-qif"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/bankstatementparser-writer-qif --web"
+      }
+    },
+    {
+      "name": "bankstatementparser-writer-swift",
+      "slug": "bankstatementparser-writer-swift",
+      "category": "iso20022",
+      "tagline": "Latest published GitHub release for bankstatementparser-writer-swift.",
+      "repo": "sebastienrousseau/bankstatementparser-writer-swift",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-writer-swift"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/bankstatementparser-writer-swift --web"
+      }
+    },
+    {
+      "name": "bankstatementparser-writer-xlsx",
+      "slug": "bankstatementparser-writer-xlsx",
+      "category": "iso20022",
+      "tagline": "Write parsed bankstatementparser transactions to Excel .xlsx workbooks",
+      "repo": "sebastienrousseau/bankstatementparser-writer-xlsx",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser-writer-xlsx"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/bankstatementparser-writer-xlsx"
+      }
+    },
+    {
+      "name": "bankstatementparser.github.io",
+      "slug": "bankstatementparser-github-io",
+      "category": "iso20022",
+      "tagline": "Source code of BankStatementParser.com, the official website of the Bank Statement Parser is a Python library built for Finance and Treasury Professional",
+      "repo": "sebastienrousseau/bankstatementparser.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/bankstatementparser.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/bankstatementparser.github.io"
+      }
+    },
+    {
+      "name": "biome-config",
+      "slug": "biome-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Biome configuration rules for ultra-fast Rust-based linting, formatting, and import organization.",
+      "repo": "sebastienrousseau/biome-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/biome-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/biome-config --web"
+      }
+    },
+    {
+      "name": "browserslist-config",
+      "slug": "browserslist-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Browserslist target configuration rules for modern browsers, ES modules, and Node.js runtimes.",
+      "repo": "sebastienrousseau/browserslist-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/browserslist-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/browserslist-config --web"
+      }
+    },
+    {
+      "name": "c-config",
+      "slug": "c-config",
+      "category": "developer-tools",
+      "tagline": "Shareable C configuration standards providing modern C23 clang-format and strict clang-tidy rules.",
+      "repo": "sebastienrousseau/c-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/c-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/c-config --web"
+      }
+    },
+    {
+      "name": "c8-config",
+      "slug": "c8-config",
+      "category": "developer-tools",
+      "tagline": "Shareable c8 code coverage configuration files and rules with strict >=98% threshold enforcement.",
+      "repo": "sebastienrousseau/c8-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/c8-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/c8-config --web"
+      }
+    },
+    {
+      "name": "camt-exceptions",
+      "slug": "camt-exceptions",
+      "category": "iso20022",
+      "tagline": "XSD-valid ISO 20022 Exceptions & Investigations (E&I) generation -- camt.056 FI-to-FI Payment Cancellation Request -- with an MCP server.",
+      "repo": "sebastienrousseau/camt-exceptions",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/camt-exceptions"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/camt-exceptions"
+      }
+    },
+    {
+      "name": "camt053",
+      "slug": "camt053",
+      "category": "iso20022",
+      "tagline": "Read ISO 20022 camt Bank-to-Customer Statements (camt.052/053/054) and generate validated reversing entries by return reason code such as AC04 Closed Account...",
+      "repo": "sebastienrousseau/camt053",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/camt053"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/camt053"
+      }
+    },
+    {
+      "name": "camt053-loader-mt940",
+      "slug": "camt053-loader-mt940",
+      "category": "iso20022",
+      "tagline": "Convert legacy SWIFT MT940 bank statements into camt.053 ParsedDocument. Companion to the camt053 suite.",
+      "repo": "sebastienrousseau/camt053-loader-mt940",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/camt053-loader-mt940"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/camt053-loader-mt940"
+      }
+    },
+    {
+      "name": "camt053-lsp",
+      "slug": "camt053-lsp",
+      "category": "iso20022",
+      "tagline": "Language Server Protocol (LSP) server for authoring camt053 ISO 20022 reversing-entry data files, with diagnostics, completion, and hover. Works in VS Code,...",
+      "repo": "sebastienrousseau/camt053-lsp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/camt053-lsp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/camt053-lsp"
+      }
+    },
+    {
+      "name": "camt053-mcp",
+      "slug": "camt053-mcp",
+      "category": "iso20022",
+      "tagline": "Parse & reconcile ISO 20022 camt.053 bank-to-customer statements from Claude Desktop, Cursor & other MCP clients — 19 tools, CBPR+/HVPS+ readiness, SLSA-L3 p...",
+      "repo": "sebastienrousseau/camt053-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/camt053-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/camt053-mcp"
+      }
+    },
+    {
+      "name": "camt053-writer-xlsx",
+      "slug": "camt053-writer-xlsx",
+      "category": "iso20022",
+      "tagline": "Excel (.xlsx) writer for camt053-parsed ISO 20022 bank statements. Companion to the camt053 suite.",
+      "repo": "sebastienrousseau/camt053-writer-xlsx",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/camt053-writer-xlsx"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/camt053-writer-xlsx"
+      }
+    },
+    {
+      "name": "codex",
+      "slug": "codex",
+      "category": "developer-tools",
+      "tagline": "🏛️ Central architecture documentation and design system. The definitive source for engineering standards, patterns, and architectural decisions.",
+      "repo": "sebastienrousseau/codex",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/codex"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/codex --web"
+      }
+    },
+    {
+      "name": "commitlint-config",
+      "slug": "commitlint-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Conventional Commits commitlint configuration rules enforcing standardized git commit history.",
+      "repo": "sebastienrousseau/commitlint-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/commitlint-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/commitlint-config --web"
+      }
+    },
+    {
+      "name": "commons",
+      "slug": "commons",
+      "category": "developer-tools",
+      "tagline": "🧰 Shared utilities library. Reusable components, helpers, and foundation code for the entire ecosystem.",
+      "repo": "sebastienrousseau/commons",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/commons"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/commons --web"
+      }
+    },
+    {
+      "name": "config",
+      "slug": "config",
+      "category": "developer-tools",
+      "tagline": "Master configuration suite providing 14 standardized lint, format, coverage, build, test, and release configurations.",
+      "repo": "sebastienrousseau/config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/config --web"
+      }
+    },
+    {
+      "name": "config-kit",
+      "slug": "config-kit",
+      "category": "developer-tools",
+      "tagline": "Shared conformance test kit for the @sebastienrousseau configuration family",
+      "repo": "sebastienrousseau/config-kit",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/config-kit"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/config-kit --web"
+      }
+    },
+    {
+      "name": "corral-sync",
+      "slug": "corral-sync",
+      "category": "cli",
+      "tagline": "Mirror a corral-organised local repository tree to GitLab and Gitea with absolute-parity semantics.",
+      "repo": "sebastienrousseau/corral-sync",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/corral-sync"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/corral-sync"
+      }
+    },
+    {
+      "name": "corralctl",
+      "slug": "corralctl",
+      "category": "ai",
+      "tagline": "Clone and organise repositories from GitHub, GitLab, Gitea, Forgejo, Codeberg and Bitbucket by visibility and language, then let your AI coding agent search...",
+      "repo": "sebastienrousseau/corralctl",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/corralctl"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/corralctl"
+      }
+    },
+    {
+      "name": "cpp-config",
+      "slug": "cpp-config",
+      "category": "developer-tools",
+      "tagline": "Shareable C++ configuration standards providing modern C++23 clang-format, clang-tidy, and cmake-format rules.",
+      "repo": "sebastienrousseau/cpp-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/cpp-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/cpp-config --web"
+      }
+    },
+    {
+      "name": "csharp-config",
+      "slug": "csharp-config",
+      "category": "developer-tools",
+      "tagline": "Shareable C# and .NET configuration standards providing Roslyn analyzers, EditorConfig, and OmniSharp rules.",
+      "repo": "sebastienrousseau/csharp-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/csharp-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/csharp-config --web"
+      }
+    },
+    {
+      "name": "dart-config",
+      "slug": "dart-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Dart and Flutter configuration standards providing strict analysis_options.yaml linter presets.",
+      "repo": "sebastienrousseau/dart-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/dart-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/dart-config --web"
+      }
+    },
+    {
+      "name": "devkit",
+      "slug": "devkit",
+      "category": "developer-tools",
+      "tagline": "🛠️ Developer tooling and IDE configurations. Essential tools, scripts, and configurations for developer productivity.",
+      "repo": "sebastienrousseau/devkit",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/devkit"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/devkit --web"
+      }
+    },
+    {
+      "name": "docker-config",
+      "slug": "docker-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Docker container configurations providing hardened, minimal multi-stage builds and security rules.",
+      "repo": "sebastienrousseau/docker-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/docker-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/docker-config --web"
+      }
+    },
+    {
+      "name": "dotfiles.github.io",
+      "slug": "dotfiles-github-io",
+      "category": "web",
+      "tagline": "Documentation website for Dotfiles.io",
+      "repo": "sebastienrousseau/dotfiles.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/dotfiles.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/dotfiles.github.io --web"
+      }
+    },
+    {
+      "name": "draft",
+      "slug": "draft",
+      "category": "ai",
+      "tagline": "Turn research PDFs into grounded Markdown drafts — driven by any token-free AI coding-agent session (Claude, Codex, Gemini, Copilot, Cursor, Amp, Crush, Goos...",
+      "repo": "sebastienrousseau/draft",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/draft"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/draft"
+      }
+    },
+    {
+      "name": "eslint-config",
+      "slug": "eslint-config",
+      "category": "developer-tools",
+      "tagline": "Shareable ESLint configuration adhering to modern JavaScript, TypeScript, and 2026 code quality standards.",
+      "repo": "sebastienrousseau/eslint-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/eslint-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/eslint-config --web"
+      }
+    },
+    {
+      "name": "euxis",
+      "slug": "euxis",
+      "category": "ai",
+      "tagline": "Ultra-fast open-source code security scanner. Finds vulnerabilities across 8 languages (Rust, Go, Python, JS, TS, Java, C, C++) using SAST + taint analysis +...",
+      "repo": "sebastienrousseau/euxis",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/euxis"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/euxis"
+      }
+    },
+    {
+      "name": "generator-avionic",
+      "slug": "generator-avionic",
+      "category": "web",
+      "tagline": "✈ AVIONIC - A Yeoman generator using AngularJS, Express, ngCordova, Gulp and Bower that helps you kickstart highly sophisticated Ionic projects to evolve and...",
+      "repo": "sebastienrousseau/generator-avionic",
+      "archived": true,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/generator-avionic"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/generator-avionic --web"
+      }
+    },
+    {
+      "name": "generator-melionic",
+      "slug": "generator-melionic",
+      "category": "web",
+      "tagline": "🐺 MELIONIC - A fast, simple and powerful Yeoman Static Site, Blog and GitHub Pages generator designed for Jekyll",
+      "repo": "sebastienrousseau/generator-melionic",
+      "archived": true,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/generator-melionic"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/generator-melionic --web"
+      }
+    },
+    {
+      "name": "go-config",
+      "slug": "go-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Go configuration standards providing hardened golangci-lint, staticcheck, and revive rules.",
+      "repo": "sebastienrousseau/go-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/go-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/go-config --web"
+      }
+    },
+    {
+      "name": "iso20022-bank-profile-mcp",
+      "slug": "iso20022-bank-profile-mcp",
+      "category": "iso20022",
+      "tagline": "Local MCP server that manages, validates, and serves bank-specific ISO 20022 clearing profiles. Part of the ISO 20022 MCP Suite.",
+      "repo": "sebastienrousseau/iso20022-bank-profile-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/iso20022-bank-profile-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/iso20022-bank-profile-mcp"
+      }
+    },
+    {
+      "name": "iso20022-evidence-pack-mcp",
+      "slug": "iso20022-evidence-pack-mcp",
+      "category": "iso20022",
+      "tagline": "Local MCP server that compiles ISO 20022 readiness findings into sealed, tamper-evident audit evidence packs. Part of the ISO 20022 MCP Suite.",
+      "repo": "sebastienrousseau/iso20022-evidence-pack-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/iso20022-evidence-pack-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/iso20022-evidence-pack-mcp"
+      }
+    },
+    {
+      "name": "iso20022-mcp",
+      "slug": "iso20022-mcp",
+      "category": "iso20022",
+      "tagline": "Unified MCP gateway for ISO 20022: one meta-tool surface (search/describe/validate/generate/parse) routing across pain, pacs, camt and acmt.",
+      "repo": "sebastienrousseau/iso20022-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/iso20022-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/iso20022-mcp"
+      }
+    },
+    {
+      "name": "iso20022-readiness-suite-mcp",
+      "slug": "iso20022-readiness-suite-mcp",
+      "category": "iso20022",
+      "tagline": "Orchestration MCP server for ISO 20022 readiness scoring, remediation, and bank-response simulation. Part of the ISO 20022 MCP Suite.",
+      "repo": "sebastienrousseau/iso20022-readiness-suite-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/iso20022-readiness-suite-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/iso20022-readiness-suite-mcp"
+      }
+    },
+    {
+      "name": "java-config",
+      "slug": "java-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Java configuration standards providing enterprise Checkstyle, SpotBugs, and PMD rulesets.",
+      "repo": "sebastienrousseau/java-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/java-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/java-config --web"
+      }
+    },
+    {
+      "name": "jsdoc-config",
+      "slug": "jsdoc-config",
+      "category": "developer-tools",
+      "tagline": "Shareable JSDoc documentation generator configuration files and rules for clean API reference docs.",
+      "repo": "sebastienrousseau/jsdoc-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jsdoc-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/jsdoc-config --web"
+      }
+    },
+    {
+      "name": "knip-config",
+      "slug": "knip-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Knip configuration rules for finding unused files, unused dependencies, and dead code exports.",
+      "repo": "sebastienrousseau/knip-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/knip-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/knip-config --web"
+      }
+    },
+    {
+      "name": "kotlin-config",
+      "slug": "kotlin-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Kotlin configuration standards providing official ktlint formatting and Detekt static analysis.",
+      "repo": "sebastienrousseau/kotlin-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/kotlin-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/kotlin-config --web"
+      }
+    },
+    {
+      "name": "lefthook-config",
+      "slug": "lefthook-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Lefthook git hook configuration rules replacing legacy hook managers with fast parallel execution.",
+      "repo": "sebastienrousseau/lefthook-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/lefthook-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/lefthook-config --web"
+      }
+    },
+    {
+      "name": "lua-config",
+      "slug": "lua-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Lua configuration standards providing Lua 5.4 and Neovim LuaCheck and StyLua presets.",
+      "repo": "sebastienrousseau/lua-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/lua-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/lua-config --web"
+      }
+    },
+    {
+      "name": "maccfg",
+      "slug": "maccfg",
+      "category": "cli",
+      "tagline": "A guide to getting your MacBook Pro M1 ready for Software Development.",
+      "repo": "sebastienrousseau/maccfg",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/maccfg"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/maccfg --web"
+      }
+    },
+    {
+      "name": "markdownlint-config",
+      "slug": "markdownlint-config",
+      "category": "developer-tools",
+      "tagline": "Shareable markdownlint configuration rules adhering to modern documentation and Markdown standards.",
+      "repo": "sebastienrousseau/markdownlint-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/markdownlint-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/markdownlint-config --web"
+      }
+    },
+    {
+      "name": "mocha-config",
+      "slug": "mocha-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Mocha test runner configuration files and rules supporting modern ESM and CJS test suites.",
+      "repo": "sebastienrousseau/mocha-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/mocha-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/mocha-config --web"
+      }
+    },
+    {
+      "name": "nalufx",
+      "slug": "nalufx",
+      "category": "rust-libs",
+      "tagline": "A Rust application for optimising cash allocation across complex fund structures using AI-driven predictions and suggestions. 🦀",
+      "repo": "sebastienrousseau/nalufx",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/nalufx"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/nalufx --web"
+      }
+    },
+    {
+      "name": "northlondonboxingtraining.github.io",
+      "slug": "northlondonboxingtraining-github-io",
+      "category": "web",
+      "tagline": "🥊 northlondonboxingtraining.com website template 🐍",
+      "repo": "sebastienrousseau/northlondonboxingtraining.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/northlondonboxingtraining.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/northlondonboxingtraining.github.io --web"
+      }
+    },
+    {
+      "name": "noyalib-serde-yaml",
+      "slug": "noyalib-serde-yaml",
+      "category": "rust-libs",
+      "tagline": "Drop-in serde_yaml replacement backed by noyalib — rename the package in Cargo.toml, change zero source lines",
+      "repo": "sebastienrousseau/noyalib-serde-yaml",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/noyalib-serde-yaml"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/noyalib-serde-yaml"
+      }
+    },
+    {
+      "name": "noyalib-wasm",
+      "slug": "noyalib-wasm",
+      "category": "rust-libs",
+      "tagline": "WebAssembly (wasm-bindgen) bindings for the noyalib YAML library — browser-ready parse / serialise / lossless edit.",
+      "repo": "sebastienrousseau/noyalib-wasm",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/noyalib-wasm"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/noyalib-wasm"
+      }
+    },
+    {
+      "name": "noyalib.github.io",
+      "slug": "noyalib-github-io",
+      "category": "web",
+      "tagline": "Official website for Noya (NOYA)",
+      "repo": "sebastienrousseau/noyalib.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/noyalib.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/noyalib.github.io --web"
+      }
+    },
+    {
+      "name": "open-sans.github.io",
+      "slug": "open-sans-github-io",
+      "category": "web",
+      "tagline": "🔠 Open Sans is a humanist sans serif typeface designed by Steve Matteson",
+      "repo": "sebastienrousseau/open-sans.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/open-sans.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/open-sans.github.io --web"
+      }
+    },
+    {
+      "name": "oxlint-config",
+      "slug": "oxlint-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Oxlint configuration rules for 50x–100x faster Rust-powered JavaScript and TypeScript linting.",
+      "repo": "sebastienrousseau/oxlint-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/oxlint-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/oxlint-config --web"
+      }
+    },
+    {
+      "name": "oxml",
+      "slug": "oxml",
+      "category": "rust-libs",
+      "tagline": "A pure Rust XML toolkit with zero unsafe code: parsing, an ergonomic tree, and XPath 1.0",
+      "repo": "sebastienrousseau/oxml",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/oxml"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/oxml --web"
+      }
+    },
+    {
+      "name": "oxml-cli",
+      "slug": "oxml-cli",
+      "category": "cli",
+      "tagline": "Command-line XML query, validation and inspection, powered by oxml",
+      "repo": "sebastienrousseau/oxml-cli",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/oxml-cli"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/oxml-cli --web"
+      }
+    },
+    {
+      "name": "oxml-lsp",
+      "slug": "oxml-lsp",
+      "category": "rust-libs",
+      "tagline": "Language-server diagnostics for XML documents, powered by oxml",
+      "repo": "sebastienrousseau/oxml-lsp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/oxml-lsp"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/oxml-lsp --web"
+      }
+    },
+    {
+      "name": "oxml-mcp",
+      "slug": "oxml-mcp",
+      "category": "ai",
+      "tagline": "Model Context Protocol server exposing oxml to language models",
+      "repo": "sebastienrousseau/oxml-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/oxml-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/oxml-mcp --web"
+      }
+    },
+    {
+      "name": "oxml-wasm",
+      "slug": "oxml-wasm",
+      "category": "rust-libs",
+      "tagline": "WebAssembly bindings for oxml: XML parsing and XPath in the browser",
+      "repo": "sebastienrousseau/oxml-wasm",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/oxml-wasm"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/oxml-wasm --web"
+      }
+    },
+    {
+      "name": "pacs008-loader-mt103",
+      "slug": "pacs008-loader-mt103",
+      "category": "iso20022",
+      "tagline": "Convert legacy SWIFT MT103 single customer credit transfers into ISO 20022 pacs.008 records — schema-validated. Companion to the pacs008 suite.",
+      "repo": "sebastienrousseau/pacs008-loader-mt103",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pacs008-loader-mt103"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/pacs008-loader-mt103"
+      }
+    },
+    {
+      "name": "pacs008-mcp",
+      "slug": "pacs008-mcp",
+      "category": "iso20022",
+      "tagline": "Generate, validate, parse & audit ISO 20022 pacs.008 FI-to-FI Customer Credit Transfer messages from Claude Desktop, Cursor & other MCP clients — 10 tools, s...",
+      "repo": "sebastienrousseau/pacs008-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pacs008-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/pacs008-mcp"
+      }
+    },
+    {
+      "name": "pain001-loader-mt101",
+      "slug": "pain001-loader-mt101",
+      "category": "iso20022",
+      "tagline": "Convert legacy SWIFT MT101 Request for Transfer messages into ISO 20022 pain.001 records. Companion to the pain001 suite.",
+      "repo": "sebastienrousseau/pain001-loader-mt101",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pain001-loader-mt101"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/pain001-loader-mt101"
+      }
+    },
+    {
+      "name": "pain001-loader-xlsx",
+      "slug": "pain001-loader-xlsx",
+      "category": "iso20022",
+      "tagline": "Excel (.xlsx / .xlsm) loader plugin for the pain001 ISO 20022 library.",
+      "repo": "sebastienrousseau/pain001-loader-xlsx",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pain001-loader-xlsx"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/pain001-loader-xlsx"
+      }
+    },
+    {
+      "name": "pain001-lsp",
+      "slug": "pain001-lsp",
+      "category": "iso20022",
+      "tagline": "Language Server Protocol server for authoring pain001 ISO 20022 Customer Credit Transfer Initiation data files (JSON and CSV diagnostics, completion, hover,...",
+      "repo": "sebastienrousseau/pain001-lsp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pain001-lsp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/pain001-lsp"
+      }
+    },
+    {
+      "name": "pain001-mcp",
+      "slug": "pain001-mcp",
+      "category": "iso20022",
+      "tagline": "Generate & validate ISO 20022 pain.001 payment files from Claude Desktop, Cursor & other MCP clients — pain.001 v03-v12, pain.008, SEPA SCT/SDD/INST, cross-b...",
+      "repo": "sebastienrousseau/pain001-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pain001-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/pain001-mcp"
+      }
+    },
+    {
+      "name": "pain001.github.io",
+      "slug": "pain001-github-io",
+      "category": "iso20022",
+      "tagline": "Source of pain001.com, the website of the Pain001 open-source ISO 20022 payment initiation suite: library, MCP and LSP servers, MT101 and Excel loaders.",
+      "repo": "sebastienrousseau/pain001.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pain001.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/pain001.github.io"
+      }
+    },
+    {
+      "name": "passmcp",
+      "slug": "passmcp",
+      "category": "cli",
+      "tagline": "Test any Model Context Protocol server and find out, in plain language, whether it is ready for your agents — and exactly what to fix if it is not.",
+      "repo": "sebastienrousseau/passmcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/passmcp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/passmcp"
+      }
+    },
+    {
+      "name": "passmcp-action",
+      "slug": "passmcp-action",
+      "category": "ai",
+      "tagline": "Run passmcp, the MCP server diagnostic, in GitHub Actions and GitLab CI from the release image pinned by digest.",
+      "repo": "sebastienrousseau/passmcp-action",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/passmcp-action"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/passmcp-action --web"
+      }
+    },
+    {
+      "name": "passmcp-census",
+      "slug": "passmcp-census",
+      "category": "cli",
+      "tagline": "The published reliability census: the dataset, the methodology, the disclosure log and the reproduction command.",
+      "repo": "sebastienrousseau/passmcp-census",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/passmcp-census"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/passmcp-census --web"
+      }
+    },
+    {
+      "name": "passmcp-graph",
+      "slug": "passmcp-graph",
+      "category": "ai",
+      "tagline": "A local graph of agents, MCP servers, tools and identities, built from passmcp's attestations and queried offline, with a policy gate for CI.",
+      "repo": "sebastienrousseau/passmcp-graph",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/passmcp-graph"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/passmcp-graph"
+      }
+    },
+    {
+      "name": "passmcp-lsp",
+      "slug": "passmcp-lsp",
+      "category": "ai",
+      "tagline": "A language server over MCP artefacts — server.json, tool schemas, client configuration, passmcp policy and attestation files — with check-id hover from the g...",
+      "repo": "sebastienrousseau/passmcp-lsp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/passmcp-lsp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/passmcp-lsp"
+      }
+    },
+    {
+      "name": "passmcp-registry",
+      "slug": "passmcp-registry",
+      "category": "ai",
+      "tagline": "A signed public scorecard of the remote servers in the MCP Registry, each checked read-only and without credentials by a pinned passmcp.",
+      "repo": "sebastienrousseau/passmcp-registry",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/passmcp-registry"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/passmcp-registry --web"
+      }
+    },
+    {
+      "name": "passmcp-reporting",
+      "slug": "passmcp-reporting",
+      "category": "ai",
+      "tagline": "The passmcp attestation format for MCP servers, its JSON Schemas and offline verifier, the security graph model, and an agentgateway processor that enforces it.",
+      "repo": "sebastienrousseau/passmcp-reporting",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/passmcp-reporting"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/passmcp-reporting --web"
+      }
+    },
+    {
+      "name": "passmcp-server",
+      "slug": "passmcp-server",
+      "category": "ai",
+      "tagline": "An MCP server exposing passmcp's diagnostics as read-only tools: evaluate an MCP server, or verify an attestation, from inside the agent.",
+      "repo": "sebastienrousseau/passmcp-server",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/passmcp-server"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/passmcp-server"
+      }
+    },
+    {
+      "name": "password-generator-pro",
+      "slug": "password-generator-pro",
+      "category": "rust-libs",
+      "tagline": "A fast, simple and powerful open-source cross platform utility tool for generating strong, unique and random passwords 🦀",
+      "repo": "sebastienrousseau/password-generator-pro",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/password-generator-pro"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/password-generator-pro"
+      }
+    },
+    {
+      "name": "php-config",
+      "slug": "php-config",
+      "category": "developer-tools",
+      "tagline": "Shareable PHP configuration standards providing PER-CS 2.0 / PSR-12 formatting and Level 8 PHPStan analysis.",
+      "repo": "sebastienrousseau/php-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/php-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/php-config --web"
+      }
+    },
+    {
+      "name": "pipelines",
+      "slug": "pipelines",
+      "category": "developer-tools",
+      "tagline": "⚙️ CI/CD templates and automation workflows. Standardized build, test, and deployment pipelines for consistent delivery.",
+      "repo": "sebastienrousseau/pipelines",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pipelines"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/pipelines --web"
+      }
+    },
+    {
+      "name": "playwright-config",
+      "slug": "playwright-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Playwright configuration rules for cross-browser end-to-end (E2E) testing and parallel execution.",
+      "repo": "sebastienrousseau/playwright-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/playwright-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/playwright-config --web"
+      }
+    },
+    {
+      "name": "pm2md",
+      "slug": "pm2md",
+      "category": "web",
+      "tagline": "Postman2Markdown (PM2MD) is a package that generates markdown documentation from a Postman collection file",
+      "repo": "sebastienrousseau/pm2md",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pm2md"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/pm2md --web"
+      }
+    },
+    {
+      "name": "prettier-config",
+      "slug": "prettier-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Prettier configuration rules adhering to clean, opinionated formatting standards.",
+      "repo": "sebastienrousseau/prettier-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/prettier-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/prettier-config --web"
+      }
+    },
+    {
+      "name": "pulse",
+      "slug": "pulse",
+      "category": "developer-tools",
+      "tagline": "📊 Ecosystem monitoring and analytics. Health metrics, performance tracking, and operational insights across all repositories.",
+      "repo": "sebastienrousseau/pulse",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pulse"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/pulse --web"
+      }
+    },
+    {
+      "name": "python-config",
+      "slug": "python-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Python configuration standards providing hardened Ruff, Black, Flake8, and MyPy rules.",
+      "repo": "sebastienrousseau/python-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/python-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/python-config --web"
+      }
+    },
+    {
+      "name": "r-config",
+      "slug": "r-config",
+      "category": "developer-tools",
+      "tagline": "Shareable R configuration standards providing lintr and styler presets for statistical computing and data science.",
+      "repo": "sebastienrousseau/r-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/r-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/r-config --web"
+      }
+    },
+    {
+      "name": "reconcile-mcp",
+      "slug": "reconcile-mcp",
+      "category": "iso20022",
+      "tagline": "MCP server: reconcile ISO 20022 camt.053 statements against expected pain.001 payments -- explainable exact, partial, one-to-many and many-to-one matching.",
+      "repo": "sebastienrousseau/reconcile-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/reconcile-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/reconcile-mcp"
+      }
+    },
+    {
+      "name": "remark-config",
+      "slug": "remark-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Remark lint configuration files and rules adhering to unified Markdown AST linting standards.",
+      "repo": "sebastienrousseau/remark-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/remark-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/remark-config --web"
+      }
+    },
+    {
+      "name": "rousseau-agent",
+      "slug": "rousseau-agent",
+      "category": "ai",
+      "tagline": "Self-hosted coding agent — 9 chat transports, 5 LLM providers, MCP + A2A protocols, SLSA-3 provenance, cosign-signed. Open-core, zero telemetry.",
+      "repo": "sebastienrousseau/rousseau-agent",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/rousseau-agent"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/rousseau-agent"
+      }
+    },
+    {
+      "name": "rssgen",
+      "slug": "rssgen",
+      "category": "rust-libs",
+      "tagline": "An RSS and Atom 1.0 syndication library for Rust — generate, parse, and validate feeds with structured errors, format auto-detection, and #![forbid(unsafe_co...",
+      "repo": "sebastienrousseau/rssgen",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/rssgen"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/rssgen"
+      }
+    },
+    {
+      "name": "ruby-config",
+      "slug": "ruby-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Ruby configuration standards providing RuboCop and StandardRB rules for Ruby 3.3+.",
+      "repo": "sebastienrousseau/ruby-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/ruby-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/ruby-config --web"
+      }
+    },
+    {
+      "name": "rust-config",
+      "slug": "rust-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Rust configuration standards providing hardened rustfmt formatting and pedantic Clippy lints.",
+      "repo": "sebastienrousseau/rust-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/rust-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/rust-config --web"
+      }
+    },
+    {
+      "name": "satellion.github.io",
+      "slug": "satellion-github-io",
+      "category": "web",
+      "tagline": "The source of satellion.com: Satellion's site, passmcp's pages, the Go module paths and the attestation format URIs.",
+      "repo": "sebastienrousseau/satellion.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/satellion.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/satellion.github.io --web"
+      }
+    },
+    {
+      "name": "sebastienrousseau.github.io",
+      "slug": "sebastienrousseau-github-io",
+      "category": "iso20022",
+      "tagline": "Static-site pipeline behind sebastienrousseau.com — long-form research on applied AI, ISO 20022 payments and post-quantum cryptography for financial services...",
+      "repo": "sebastienrousseau/sebastienrousseau.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/sebastienrousseau.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/sebastienrousseau.github.io --web"
+      }
+    },
+    {
+      "name": "semantic-release-config",
+      "slug": "semantic-release-config",
+      "category": "developer-tools",
+      "tagline": "Shareable semantic-release configuration rules for fully automated SemVer releases, changelogs, and publishing.",
+      "repo": "sebastienrousseau/semantic-release-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/semantic-release-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/semantic-release-config --web"
+      }
+    },
+    {
+      "name": "shell-config",
+      "slug": "shell-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Shell configuration standards providing strict ShellCheck static analysis and deterministic shfmt presets.",
+      "repo": "sebastienrousseau/shell-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/shell-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/shell-config --web"
+      }
+    },
+    {
+      "name": "sine-wave-generator",
+      "slug": "sine-wave-generator",
+      "category": "web",
+      "tagline": "An enhanced sine wave generator tailored for web applications, offering advanced features for creating dynamic, visually captivating sine waves. Ideal for ed...",
+      "repo": "sebastienrousseau/sine-wave-generator",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/sine-wave-generator"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/sine-wave-generator --web"
+      }
+    },
+    {
+      "name": "size-limit-config",
+      "slug": "size-limit-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Size Limit configuration rules enforcing strict performance budgets and bundle size thresholds.",
+      "repo": "sebastienrousseau/size-limit-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/size-limit-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/size-limit-config --web"
+      }
+    },
+    {
+      "name": "skeletonic.github.io",
+      "slug": "skeletonic-github-io",
+      "category": "web",
+      "tagline": "Multilingual marketing & docs site for Skeletonic Stylus generated by Shokunin SSG (Rust) and styled exclusively with Skeletonic Stylus itself (no Bootstrap,...",
+      "repo": "sebastienrousseau/skeletonic.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/skeletonic.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/skeletonic.github.io --web"
+      }
+    },
+    {
+      "name": "sql-config",
+      "slug": "sql-config",
+      "category": "developer-tools",
+      "tagline": "Shareable SQL configuration standards providing dialect-aware SQLFluff linting and SQL formatting presets.",
+      "repo": "sebastienrousseau/sql-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/sql-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/sql-config --web"
+      }
+    },
+    {
+      "name": "ssg-themes.github.io",
+      "slug": "ssg-themes-github-io",
+      "category": "web",
+      "tagline": "Latest published GitHub release for ssg-themes.github.io.",
+      "repo": "sebastienrousseau/ssg-themes.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/ssg-themes.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/ssg-themes.github.io --web"
+      }
+    },
+    {
+      "name": "structured-address-fix",
+      "slug": "structured-address-fix",
+      "category": "iso20022",
+      "tagline": "ISO 20022 structured-address remediation and payment-rejection prevention for the November 2026 cliff. Detects, scores, and remediates non-compliant postal a...",
+      "repo": "sebastienrousseau/structured-address-fix",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/structured-address-fix"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/structured-address-fix"
+      }
+    },
+    {
+      "name": "structured-address-fix-mcp",
+      "slug": "structured-address-fix-mcp",
+      "category": "iso20022",
+      "tagline": "MCP server exposing the structured-address-fix ISO 20022 address-remediation library as agent tools. Part of the ISO 20022 MCP Suite.",
+      "repo": "sebastienrousseau/structured-address-fix-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/structured-address-fix-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/structured-address-fix-mcp"
+      }
+    },
+    {
+      "name": "stylelint-config",
+      "slug": "stylelint-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Stylelint configuration rules for CSS, SCSS, and modern stylesheet linting.",
+      "repo": "sebastienrousseau/stylelint-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/stylelint-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/stylelint-config --web"
+      }
+    },
+    {
+      "name": "swift-config",
+      "slug": "swift-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Swift configuration standards providing strict SwiftLint rules and deterministic SwiftFormat presets.",
+      "repo": "sebastienrousseau/swift-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/swift-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/swift-config --web"
+      }
+    },
+    {
+      "name": "tailwindcss-config",
+      "slug": "tailwindcss-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Tailwind CSS configuration providing standardized theme design tokens, color palettes, and typography.",
+      "repo": "sebastienrousseau/tailwindcss-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/tailwindcss-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/tailwindcss-config --web"
+      }
+    },
+    {
+      "name": "tsconfig-config",
+      "slug": "tsconfig-config",
+      "category": "developer-tools",
+      "tagline": "Shared TypeScript compiler configuration rules adhering to strict type safety and modern standards.",
+      "repo": "sebastienrousseau/tsconfig-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/tsconfig-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/tsconfig-config --web"
+      }
+    },
+    {
+      "name": "uon",
+      "slug": "uon",
+      "category": "apps",
+      "tagline": "Latest published GitHub release for uon.",
+      "repo": "sebastienrousseau/uon",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/uon"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/uon --web"
+      }
+    },
+    {
+      "name": "vitest-config",
+      "slug": "vitest-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Vitest testing configuration adhering to modern ESM-first unit, benchmark, and coverage standards.",
+      "repo": "sebastienrousseau/vitest-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/vitest-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/vitest-config --web"
+      }
+    },
+    {
+      "name": "WiserOneApp",
+      "slug": "wiseroneapp",
+      "category": "apps",
+      "tagline": "Daily nuggets of wisdom in a clean, minimalist design, inspiring deeper thought and personal growth with every visit Daily nuggets of wisdom in a clean, mini...",
+      "repo": "sebastienrousseau/WiserOneApp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/WiserOneApp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/WiserOneApp"
+      }
+    },
+    {
+      "name": "xmlschema",
+      "slug": "xmlschema",
+      "category": "rust-libs",
+      "tagline": "Latest published GitHub release for xmlschema.",
+      "repo": "sebastienrousseau/xmlschema",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/xmlschema"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/xmlschema --web"
+      }
+    },
+    {
+      "name": "zig-config",
+      "slug": "zig-config",
+      "category": "developer-tools",
+      "tagline": "Shareable Zig configuration standards providing Zig Language Server (ZLS) options and build formatting presets.",
+      "repo": "sebastienrousseau/zig-config",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/zig-config"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/zig-config --web"
       }
     }
   ]
