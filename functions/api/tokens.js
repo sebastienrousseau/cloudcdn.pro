@@ -208,11 +208,11 @@ export async function onRequestOptions() {
  * @param {object} env - Worker env with RATE_KV binding
  * @param {Request} request - Incoming request
  * @param {string} requiredScope - The scope to check (e.g., 'storage:write')
- * @returns {Promise<boolean>}
+ * @returns {Promise<object|null>} Authenticated principal, or null.
  */
-export async function validateToken(env, request, requiredScope) {
+export async function authenticateToken(env, request, requiredScope) {
   const token = request.headers.get('Authorization')?.replace('Bearer ', '');
-  if (!token) return false;
+  if (!token) return null;
 
   // Phase 1: D1-backed account API keys (`cdn_test_*` / `cdn_live_*`).
   // Dispatched to the new validator in functions/api/account/api-keys.js
@@ -221,32 +221,51 @@ export async function validateToken(env, request, requiredScope) {
   if (token.startsWith('cdn_test_') || token.startsWith('cdn_live_')) {
     const { validateD1ApiKey } = await import('./account/api-keys.js');
     const r = await validateD1ApiKey(env, token, requiredScope);
-    return !!r.valid;
+    return r.valid
+      ? { kind: 'account', accountId: r.accountId, scopes: r.scopes }
+      : null;
   }
 
   // Legacy single-tenant admin tokens (KV-backed, `cdnsk_*`).
-  if (!token.startsWith('cdnsk_')) return false;
+  if (!token.startsWith('cdnsk_')) return null;
 
   const kv = env.RATE_KV;
-  if (!kv) return false;
+  if (!kv) return null;
 
   const hash = await hashToken(token);
   const tokens = await getTokenRegistry(kv);
   const entry = tokens.find(t => t.hash === hash);
-  if (!entry) return false;
+  if (!entry) return null;
 
   // Check expiration
-  if (new Date(entry.expiresAt) < new Date()) return false;
+  if (new Date(entry.expiresAt) < new Date()) return null;
 
   // Check scope
-  if (!entry.scopes.includes(requiredScope)) return false;
+  if (!entry.scopes.includes(requiredScope)) return null;
 
   // Update last used (non-blocking)
   entry.lastUsedAt = new Date().toISOString();
   /* v8 ignore next -- swallow KV write failure; lastUsedAt is best-effort */
   saveTokenRegistry(kv, tokens).catch(() => {});
 
-  return true;
+  return { kind: 'admin', tokenId: entry.id, scopes: entry.scopes };
+}
+
+/**
+ * Backwards-compatible boolean token validator.
+ */
+export async function validateToken(env, request, requiredScope) {
+  return !!(await authenticateToken(env, request, requiredScope));
+}
+
+/**
+ * Authorize a scoped token or a caller-supplied legacy fallback while keeping
+ * the authenticated principal available to endpoints that enforce ownership.
+ */
+export async function authenticateWithScope(request, env, scope, fallback) {
+  const principal = await authenticateToken(env, request, scope);
+  if (principal) return principal;
+  return await fallback() ? { kind: 'admin' } : null;
 }
 
 /**
@@ -260,6 +279,5 @@ export async function validateToken(env, request, requiredScope) {
  * Returns boolean. The fallback may be sync or async.
  */
 export async function authorizeWithScope(request, env, scope, fallback) {
-  if (await validateToken(env, request, scope)) return true;
-  return Promise.resolve(fallback()).then(Boolean);
+  return !!(await authenticateWithScope(request, env, scope, fallback));
 }

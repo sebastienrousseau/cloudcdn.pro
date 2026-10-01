@@ -12,7 +12,7 @@
   <a href="https://github.com/sebastienrousseau/cloudcdn.pro/actions"><img src="https://img.shields.io/github/actions/workflow/status/sebastienrousseau/cloudcdn.pro/deploy.yml?style=for-the-badge&logo=github" alt="Build" /></a>
   <a href="https://cloudcdn.pro"><img src="https://img.shields.io/badge/edge-300%2B%20PoPs-6366f1?style=for-the-badge&logo=cloudflare" alt="Edge" /></a>
   <a href="https://cloudcdn.pro/api-reference"><img src="https://img.shields.io/badge/api-OpenAPI%203.1-34d399?style=for-the-badge&logo=openapiinitiative" alt="API" /></a>
-  <a href="#testing"><img src="https://img.shields.io/badge/tests-3,942%20passing-15803d?style=for-the-badge" alt="Tests" /></a>
+  <a href="#testing"><img src="https://img.shields.io/badge/tests-3,953%20passing-15803d?style=for-the-badge" alt="Tests" /></a>
   <a href="#accessibility"><img src="https://img.shields.io/badge/axe-home%20%2B%20dashboard-4338ca?style=for-the-badge" alt="Accessibility checks" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0%20OR%20MIT-blue?style=for-the-badge" alt="License" /></a>
 </p>
@@ -41,7 +41,7 @@ CloudCDN is a multi-tenant CDN platform built entirely on Cloudflare Workers, Pa
 - **65 tenant zones** with isolated `v1/` directory structures (plus shared `cmn/` and `common/` asset libraries)
 - **3,720 assets** in the generated manifest
 - **40 OpenAPI paths** across 8 planes (Storage, Core, Assets, Insights, Delivery, AI, Auth, Webhooks)
-- **3,942 tests** across the root and MCP packages; root coverage is **99.62% statements, 96.20% branches, 99.11% functions, and 100% lines**
+- **3,953 tests** across the root and MCP packages; root coverage is **99.57% statements, 96.02% branches, 99.12% functions, and 100% lines**
 - **Accessibility-gated** — the homepage and dashboard have blocking axe-core checks for serious and critical violations
 - **Light + dark theme** site-wide via `[data-theme]` + CSS native `light-dark()`, pre-paint boot to prevent FOUC
 - **Quota-resilient AI** — response cache, neuron budget, circuit breaker, and curated FAQ fallback keep `/api/search` and `/api/chat` answering when Workers AI is exhausted; vision endpoints share the same guard
@@ -266,7 +266,7 @@ required bindings are reachable; `503 degraded` otherwise.
 ## Testing
 
 ```bash
-npm test                # 3,795 tests across 90 suites
+npm test                # 3,806 tests across 91 suites
 npm run test:coverage   # Enforces the repository coverage thresholds
 npm run test:visual     # Playwright visual regression
 npm run test:load       # k6 smoke against production
@@ -290,7 +290,7 @@ The MCP package (`mcp/`) carries its own vitest suite with the same 100% gate �
 | AI fallback (cache, budget, breaker, curated, vector) | 5 | 40+ |
 | Theme system (theme-boot, theme-toggle, scalar-theme via happy-dom) | 3 | 24 |
 | Stratos CLI | 2 | 30+ |
-| **Total** | **90** | **3,795** |
+| **Total** | **91** | **3,806** |
 
 </details>
 

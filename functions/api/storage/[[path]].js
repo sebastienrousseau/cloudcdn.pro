@@ -12,14 +12,14 @@
  * Response format: ISO 8601 dates, Bunny.net-compatible JSON schema.
  */
 
-import { authenticateAccess, fetchWithTimeout, log, cdnOrigin } from '../_shared.js';
-import { authorizeWithScope } from '../tokens.js';
+import { fetchWithTimeout, log, cdnOrigin } from '../_shared.js';
+import { authenticateStorage, accountOwnsStoragePath, accountStorageSlugs } from './_auth.js';
 import { dispatchWebhook } from '../webhooks.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, PUT, DELETE, HEAD, OPTIONS',
-  'Access-Control-Allow-Headers': 'AccessKey, Content-Type, Checksum',
+  'Access-Control-Allow-Headers': 'AccessKey, Authorization, Content-Type, Checksum',
   'Content-Type': 'application/json',
 };
 
@@ -30,6 +30,13 @@ const GITHUB_API_LIMIT = 50 * 1024 * 1024; // 50 MB (GitHub Contents API limit)
 function unauthorized() {
   return new Response(JSON.stringify({ HttpCode: 401, Message: 'Authentication required. Provide a valid API key in the request header. Use "AccessKey" for storage and asset operations, or "AccountKey" for zone management and analytics.' }), {
     status: 401,
+    headers: CORS_HEADERS,
+  });
+}
+
+function forbidden() {
+  return new Response(JSON.stringify({ HttpCode: 403, Message: 'This API key does not have access to the requested storage zone.' }), {
+    status: 403,
     headers: CORS_HEADERS,
   });
 }
@@ -100,7 +107,8 @@ function buildFileEntry(name, path, size, isDir, dateCreated, lastChanged) {
 export async function onRequestGet(context) {
   const { request, env, params } = context;
 
-  if (!await authorizeWithScope(request, env, 'storage:read', () => authenticateAccess(request, env))) return unauthorized();
+  const principal = await authenticateStorage(request, env, 'storage:read');
+  if (!principal) return unauthorized();
 
   const pathSegments = params.path || [];
   const storagePath = resolveStoragePath(pathSegments);
@@ -114,14 +122,28 @@ export async function onRequestGet(context) {
 
   // If path ends with / or has no extension → list directory
   if (url.pathname.endsWith('/') || isDirectory(storagePath)) {
-    return listDirectory(env, storagePath);
+    if (principal.kind === 'account') {
+      const slug = storagePath ? storageZoneSlugForAuthorization(storagePath) : null;
+      if (slug && !await accountOwnsStoragePath(env, principal, storagePath)) return forbidden();
+      const allowedSlugs = await accountStorageSlugs(env, principal);
+      return listDirectory(env, storagePath, allowedSlugs);
+    }
+    return listDirectory(env, storagePath, null);
   }
 
   // Otherwise → download file
+  if (!await accountOwnsStoragePath(env, principal, storagePath)) return forbidden();
   return downloadFile(env, request, storagePath);
 }
 
-async function listDirectory(env, dirPath) {
+function storageZoneSlugForAuthorization(path) {
+  const segments = path.split('/').filter(Boolean);
+  if (segments[0] === 'clients') return segments[1] || null;
+  if (segments[0] === 'stocks') return 'stocks';
+  return segments[0] || null;
+}
+
+async function listDirectory(env, dirPath, allowedSlugs) {
   // Read manifest to find files in this directory
   let manifest;
   try {
@@ -145,6 +167,9 @@ async function listDirectory(env, dirPath) {
   const seenDirs = new Set();
 
   for (const asset of manifest) {
+    if (allowedSlugs) {
+      if (asset.project === 'stocks' || asset.project === 'shared' || !allowedSlugs.has(asset.project)) continue;
+    }
     // Map manifest paths to storage paths
     // manifest has: akande/v1/logos/logo.svg
     // storage has: clients/akande/v1/logos/logo.svg or stocks/images/photo.webp
@@ -239,7 +264,8 @@ async function downloadFile(env, request, filePath) {
 export async function onRequestPut(context) {
   const { request, env, params } = context;
 
-  if (!await authorizeWithScope(request, env, 'storage:write', () => authenticateAccess(request, env))) return unauthorized();
+  const principal = await authenticateStorage(request, env, 'storage:write');
+  if (!principal) return unauthorized();
 
   const pathSegments = params.path || [];
   const storagePath = resolveStoragePath(pathSegments);
@@ -248,6 +274,7 @@ export async function onRequestPut(context) {
       status: 400, headers: CORS_HEADERS,
     });
   }
+  if (!await accountOwnsStoragePath(env, principal, storagePath)) return forbidden();
 
   // Check Content-Length before reading body
   const contentLength = parseInt(request.headers.get('Content-Length') || '0', 10);
@@ -389,7 +416,8 @@ export async function onRequestPut(context) {
 export async function onRequestDelete(context) {
   const { request, env, params } = context;
 
-  if (!await authorizeWithScope(request, env, 'storage:write', () => authenticateAccess(request, env))) return unauthorized();
+  const principal = await authenticateStorage(request, env, 'storage:write');
+  if (!principal) return unauthorized();
 
   const pathSegments = params.path || [];
   const storagePath = resolveStoragePath(pathSegments);
@@ -398,6 +426,7 @@ export async function onRequestDelete(context) {
       status: 400, headers: CORS_HEADERS,
     });
   }
+  if (!await accountOwnsStoragePath(env, principal, storagePath)) return forbidden();
 
   let physicalPath = storagePath;
   if (!storagePath.startsWith('stocks/') && !storagePath.startsWith('clients/')) {
@@ -487,13 +516,15 @@ export async function onRequestDelete(context) {
 export async function onRequestHead(context) {
   const { request, env, params } = context;
 
-  if (!await authorizeWithScope(request, env, 'storage:read', () => authenticateAccess(request, env))) return unauthorized();
+  const principal = await authenticateStorage(request, env, 'storage:read');
+  if (!principal) return unauthorized();
 
   const pathSegments = params.path || [];
   const storagePath = resolveStoragePath(pathSegments);
   if (storagePath === null) {
     return new Response(null, { status: 400 });
   }
+  if (!await accountOwnsStoragePath(env, principal, storagePath)) return forbidden();
 
   let physicalPath = storagePath;
   if (!storagePath.startsWith('stocks/') && !storagePath.startsWith('clients/')) {

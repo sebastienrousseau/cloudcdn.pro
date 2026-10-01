@@ -2,19 +2,20 @@
  * Asset ingestion pipeline — single SVG upload generates a full asset scaffold.
  *
  * POST /api/pipeline
- * Auth: AccountKey (control-plane operation)
+ * Auth: AccountKey or account-scoped Bearer token (control-plane operation)
  *
  * Accepts JSON body with mode, name, svg (base64), and optional generation flags.
  * Creates logos, icons, and directory scaffolding via the GitHub Git Database API.
  */
 
 import { authenticateAccount, errorResponse, jsonResponse, fetchWithTimeout, log, cdnOrigin } from './_shared.js';
-import { authorizeWithScope } from './tokens.js';
+import { authenticateWithScope } from './tokens.js';
+import { accountOwnsStoragePath } from './storage/_auth.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'AccountKey, Content-Type',
+  'Access-Control-Allow-Headers': 'AccountKey, Authorization, Content-Type',
   'Content-Type': 'application/json',
 };
 
@@ -340,7 +341,8 @@ export async function onRequestPost(context) {
   const { request, env } = context;
 
   // Auth: AccountKey OR a scoped Bearer token with "pipeline:write"
-  if (!await authorizeWithScope(request, env, 'pipeline:write', () => authenticateAccount(request, env))) {
+  const principal = await authenticateWithScope(request, env, 'pipeline:write', () => authenticateAccount(request, env));
+  if (!principal) {
     return errorResponse(401, 'Unauthorized', 'AccountKey header or a scoped Bearer token with "pipeline:write" is required for pipeline operations. This is a control-plane endpoint that creates infrastructure assets.');
   }
 
@@ -370,6 +372,15 @@ export async function onRequestPost(context) {
     }
     if (!NAME_RE.test(name)) {
       return errorResponse(400, 'InvalidName', `Name "${name}" is invalid. Must be 2-64 characters, lowercase alphanumeric and hyphens only, starting and ending with an alphanumeric character.`);
+    }
+  }
+
+  // Account API keys can scaffold only zones registered to their account.
+  // Stock ingestion remains an administrator-only operation.
+  if (principal.kind === 'account') {
+    const targetPath = mode === 'client' ? `clients/${name}` : 'stocks';
+    if (!await accountOwnsStoragePath(env, principal, targetPath)) {
+      return errorResponse(403, 'Forbidden', 'This API key does not have access to the requested pipeline destination.');
     }
   }
 
@@ -407,28 +418,29 @@ export async function onRequestPost(context) {
     encoding: 'base64',
   });
 
-  // 2. Icon variants (stored as SVG since we can't rasterize at edge without Image Resizing on upload)
+  // 2. Vector icon variants. Raster output requires a real image encoder;
+  // keep the SVG media type and extension aligned instead of mislabelling bytes.
   if (generateIcons !== false) {
     files.push({
-      path: `${prefix}icons/180x180.png`,
+      path: `${prefix}icons/180x180.svg`,
       content: sanitizedB64,
       encoding: 'base64',
     });
     files.push({
-      path: `${prefix}icons/192x192.png`,
+      path: `${prefix}icons/192x192.svg`,
       content: sanitizedB64,
       encoding: 'base64',
     });
     files.push({
-      path: `${prefix}icons/512x512.png`,
+      path: `${prefix}icons/512x512.svg`,
       content: sanitizedB64,
       encoding: 'base64',
     });
   }
 
-  // 3. Favicon (at project root, not inside v1/)
+  // 3. SVG favicon (at project root, not inside v1/)
   if (generateFavicon !== false) {
-    const faviconPath = mode === 'client' ? `clients/${name}/favicon.ico` : 'stocks/favicon.ico';
+    const faviconPath = mode === 'client' ? `clients/${name}/favicon.svg` : 'stocks/favicon.svg';
     files.push({
       path: faviconPath,
       content: sanitizedB64,

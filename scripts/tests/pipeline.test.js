@@ -267,6 +267,58 @@ describe('POST /api/pipeline', () => {
       const res = await onRequestPost(ctx);
       expect(res.status).toBe(401);
     });
+
+    it('prevents an account token from scaffolding another account zone', async () => {
+      const token = 'cdn_test_PREFIXAA_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+      const db = {
+        prepare: vi.fn((sql) => ({
+          bind: vi.fn(() => ({
+            first: vi.fn(async () => sql.includes('FROM api_keys') ? {
+              id: 'key-1', account_id: 'account-1', scopes: '["pipeline:write"]',
+              expires_at: null, revoked_at: null,
+            } : null),
+            run: vi.fn(async () => ({ success: true })),
+          })),
+        })),
+      };
+      const ctx = makeCtx({
+        body: { mode: 'client', name: 'foreign', svg: TEST_SVG_B64 },
+        accountKey: undefined,
+        env: { ACCOUNTS_DB: db },
+      });
+      ctx.request = makeRequest({
+        body: { mode: 'client', name: 'foreign', svg: TEST_SVG_B64 },
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const res = await onRequestPost(ctx);
+      expect(res.status).toBe(403);
+    });
+
+    it('prevents account tokens from writing shared stock assets', async () => {
+      const token = 'cdn_test_PREFIXAA_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+      const db = {
+        prepare: vi.fn(() => ({
+          bind: vi.fn(() => ({
+            first: vi.fn(async () => ({
+              id: 'key-1', account_id: 'account-1', scopes: '["pipeline:write"]',
+              expires_at: null, revoked_at: null,
+            })),
+            run: vi.fn(async () => ({ success: true })),
+          })),
+        })),
+      };
+      const ctx = makeCtx({
+        body: { mode: 'stock', svg: TEST_SVG_B64 },
+        accountKey: undefined,
+        env: { ACCOUNTS_DB: db },
+      });
+      ctx.request = makeRequest({
+        body: { mode: 'stock', svg: TEST_SVG_B64 },
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const res = await onRequestPost(ctx);
+      expect(res.status).toBe(403);
+    });
   });
 
   describe('configuration', () => {
@@ -369,9 +421,10 @@ describe('POST /api/pipeline', () => {
       // 8 files: 1 source SVG + 3 icons + 1 favicon + 3 gitkeep dirs
       expect(json.Files).toHaveLength(8);
       expect(json.Files).toContain('clients/acme/v1/logos/acme.svg');
-      expect(json.Files).toContain('clients/acme/v1/icons/192x192.png');
-      expect(json.Files).toContain('clients/acme/favicon.ico');
+      expect(json.Files).toContain('clients/acme/v1/icons/192x192.svg');
+      expect(json.Files).toContain('clients/acme/favicon.svg');
       expect(json.Files).toContain('clients/acme/v1/banners/.gitkeep');
+      expect(json.Files.filter((path) => !path.endsWith('.gitkeep')).every((path) => path.endsWith('.svg'))).toBe(true);
     });
 
     it('stock mode uses the stocks/images prefix and skips client scaffolding', async () => {
@@ -408,7 +461,7 @@ describe('POST /api/pipeline', () => {
       ctx.request = makeRequest({ accountKey: 'admin-key', body: { mode: 'client', name: 'nofav', svg: TEST_SVG_B64, generateFavicon: false } });
       const res = await onRequestPost(ctx);
       const json = await res.json();
-      expect(json.Files.some((f) => f.endsWith('favicon.ico'))).toBe(false);
+      expect(json.Files.some((f) => f.endsWith('favicon.svg'))).toBe(false);
     });
 
     it('respects generateBanners=false for client mode', async () => {

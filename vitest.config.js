@@ -42,6 +42,7 @@ export default defineConfig({
         'functions/api/core/rules.js',
         'functions/api/analytics.js',
         'functions/api/storage/batch.js',
+        'functions/api/storage/_auth.js',
         'functions/_middleware.js',
         'functions/api/_shared.js',
         'functions/api/auth/_lib.js',

@@ -8,13 +8,13 @@
  * 409 conflicts from concurrent Contents API calls.
  */
 
-import { authenticateAccess, fetchWithTimeout, log, cdnOrigin } from '../_shared.js';
-import { authorizeWithScope } from '../tokens.js';
+import { fetchWithTimeout, log, cdnOrigin } from '../_shared.js';
+import { authenticateStorage, accountOwnsStoragePath } from './_auth.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'AccessKey, Content-Type',
+  'Access-Control-Allow-Headers': 'AccessKey, Authorization, Content-Type',
   'Content-Type': 'application/json',
 };
 
@@ -56,7 +56,8 @@ function ghHeaders(token) {
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  if (!await authorizeWithScope(request, env, 'storage:write', () => authenticateAccess(request, env))) {
+  const principal = await authenticateStorage(request, env, 'storage:write');
+  if (!principal) {
     return new Response(JSON.stringify({ HttpCode: 401, Message: 'Authentication required. Provide a valid API key in the request header. Use "AccessKey" for storage and asset operations, or "AccountKey" for zone management and analytics. Scoped tokens with "storage:write" are also accepted as Bearer tokens.' }), {
       status: 401, headers: CORS_HEADERS,
     });
@@ -114,6 +115,14 @@ export async function onRequestPost(context) {
       }), { status: 413, headers: CORS_HEADERS });
     }
     validatedFiles.push({ ...file, path: canonicalPath });
+  }
+
+  for (const file of validatedFiles) {
+    if (!await accountOwnsStoragePath(env, principal, file.path)) {
+      return new Response(JSON.stringify({ HttpCode: 403, Message: `This API key does not have access to the storage zone for ${file.path}.` }), {
+        status: 403, headers: CORS_HEADERS,
+      });
+    }
   }
 
   const repo = env.GITHUB_REPO;
