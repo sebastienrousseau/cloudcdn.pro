@@ -53,7 +53,7 @@ export function registerAccountTools(server) {
       monthlyCapUsd: z.number().int().min(0).max(1_000_000).describe('Whole USD per calendar month. 0 = never bill overage.'),
     },
     async ({ monthlyCapUsd }) => {
-      const res = await api.request('/api/account/cap', { method: 'PATCH', body: { monthlyCapUsd } });
+      const res = await api.patch('/api/account/cap', { monthlyCapUsd });
       return { content: [{ type: 'text', text: JSON.stringify(res.data, null, 2) }] };
     }
   );

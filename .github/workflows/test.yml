@@ -36,7 +36,7 @@ permissions:
 
 jobs:
   ci:
-    uses: sebastienrousseau/pipelines/.github/workflows/node-ci.yml@main
+    uses: sebastienrousseau/pipelines/.github/workflows/node-ci.yml@7061363af0a1da9d60c5901bd2874ac83ff7e34e # main 2026-10-01
     with:
       node-version: '20'
       package-manager: 'npm'
@@ -48,7 +48,7 @@ jobs:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   security:
-    uses: sebastienrousseau/pipelines/.github/workflows/security.yml@main
+    uses: sebastienrousseau/pipelines/.github/workflows/security.yml@7061363af0a1da9d60c5901bd2874ac83ff7e34e # main 2026-10-01
     with:
       language: node
       severity-threshold: high
@@ -76,7 +76,7 @@ jobs:
           show-progress: false
 
       - name: Initialize CodeQL (actions)
-        uses: github/codeql-action/init@db488ddef3bf6cb639b32c2e9a7c0a7ea8271d28 # v4.37.8
+        uses: github/codeql-action/init@2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2 # v4.38.2
         with:
           languages: actions
           # security-extended adds the GitHub Actions query pack for known
@@ -84,7 +84,7 @@ jobs:
           queries: security-extended
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@db488ddef3bf6cb639b32c2e9a7c0a7ea8271d28 # v4.37.8
+        uses: github/codeql-action/analyze@2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2 # v4.38.2
         with:
           category: '/language:actions'
 
@@ -282,13 +282,13 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Start local server
-        run: python3 -m http.server 8788 &
+        run: node scripts/tests/visual-server.mjs &
 
       - name: Wait for server
-        run: sleep 2 && curl -sf http://localhost:8788/ > /dev/null
+        run: sleep 2 && curl -sf http://127.0.0.1:8788/en/ > /dev/null
 
       - name: Run visual regression tests
-        run: npx playwright test --config scripts/tests/playwright.config.js
+        run: BASE_URL=http://127.0.0.1:8788/en npx playwright test --config scripts/tests/playwright.config.js
         continue-on-error: true
 
       - name: Upload visual diff artifacts

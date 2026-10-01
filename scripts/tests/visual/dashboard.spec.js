@@ -9,7 +9,7 @@
 
 import { test, expect } from '@playwright/test';
 
-const BASE = process.env.BASE_URL || 'http://localhost:8788';
+const BASE = process.env.BASE_URL || 'http://127.0.0.1:8788/en';
 
 test.describe('Dashboard Visual Regression', () => {
   test.beforeEach(async ({ page }) => {
@@ -27,9 +27,9 @@ test.describe('Dashboard Visual Regression', () => {
   });
 
   test('assets tab — search filters results', async ({ page }) => {
-    await page.fill('#search', 'bankingonai');
-    // Wait for debounce + re-render
-    await page.waitForTimeout(300);
+    await page.click('#search-trigger');
+    await page.fill('#search-modal-input', 'bankingonai');
+    await page.locator('#search-modal-results [data-result]').first().waitFor();
     await expect(page).toHaveScreenshot('dashboard-search.png', {
       maxDiffPixelRatio: 0.02,
     });
@@ -43,22 +43,11 @@ test.describe('Dashboard Visual Regression', () => {
     });
   });
 
-  test('transform tab — url builder layout', async ({ page }) => {
-    await page.click('[data-tab="transform"]');
-    await page.waitForSelector('#tf-output');
-    await expect(page).toHaveScreenshot('dashboard-transform.png', {
+  test('upload tab — form layout', async ({ page }) => {
+    await page.click('[data-tab="upload"]');
+    await page.locator('#panel-upload').waitFor();
+    await expect(page).toHaveScreenshot('dashboard-upload.png', {
       maxDiffPixelRatio: 0.01,
-    });
-  });
-
-  test('transform tab — slider interaction', async ({ page }) => {
-    await page.click('[data-tab="transform"]');
-    // Change width slider
-    await page.fill('#tf-w', '400');
-    await page.fill('#tf-blur', '10');
-    await page.waitForTimeout(200);
-    await expect(page).toHaveScreenshot('dashboard-transform-adjusted.png', {
-      maxDiffPixelRatio: 0.02,
     });
   });
 
