@@ -89,7 +89,7 @@ The dashboard (`/dashboard/*`) authenticates via **WebAuthn passkeys** with an H
 - **Sessions** are HMAC-SHA256 signatures over `{expires_unix}.{hmac_hex}`, signed with `DASHBOARD_PASSWORD` (or `DASHBOARD_SECRET`). 7-day rolling TTL, `HttpOnly`, `Secure`, `SameSite=Strict`. The HMAC verification path is the same constant-time comparison used for API keys.
 - **Passkey challenges** are **stateless** — `{nonce}.{expires_unix}.{type}.{hmac_hex}` — so we never need a KV round-trip on every WebAuthn flow start. The `type` field (`auth` vs `register`) prevents cross-flow replay. `CHALLENGE_TTL_SECONDS = 300`.
 - **Passkey registration / authentication** writes credentials to KV indexed by credential ID. The list endpoint (`GET /api/passkeys`) exposes credential metadata but never the raw public key. Revocation is by ID — once revoked, the credential cannot reauthenticate.
-- **`PASSKEY_STRICT_VERIFY=1`** opts into strict cryptographic verification of WebAuthn assertions. The default (loose mode) was used during the rollout to log signature failures without rejecting legitimate users on edge-case authenticators; flip the env var when comfortable.
+- **Passkey assertions always fail closed.** Authentication requires `authenticatorData`, `signature`, and `clientDataJSON`, and rejects signature, origin, challenge, type, and stored-key verification failures. Credentials stored in the legacy non-SPKI format must be re-registered before they can authenticate.
 
 ### Signed URLs
 

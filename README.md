@@ -246,7 +246,6 @@ every env var, secret, and binding the runtime consumes, with the
 | `ACCESS_KEY` | Public-read AccessKey for `/api/assets`, `/api/insights/*`, `/api/transform`, `/api/ai/*` |
 | `STORAGE_KEY` | Storage API authentication (files) |
 | `DASHBOARD_PASSWORD` | Dashboard login (password fallback) |
-| `PASSKEY_STRICT_VERIFY` | Set to `1` to reject WebAuthn assertions that fail cryptographic verification. Default: loose mode (logs but accepts), used during rollout. |
 | `GITHUB_TOKEN` | GitOps mutations (upload/delete) |
 | `GITHUB_REPO` | Repository for Git-based storage |
 | `CLOUDFLARE_API_TOKEN` | Cache purge, domains |

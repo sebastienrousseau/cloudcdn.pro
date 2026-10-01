@@ -559,10 +559,9 @@ describe('POST /api/auth/passkey/auth/complete', () => {
     expect(res.headers.get('X-Passkey-Verification')).toBe('ES256');
   });
 
-  it('strict mode — 401 when verifyAssertion fails', async () => {
+  it('returns 401 when verifyAssertion fails', async () => {
     vi.mocked(passkeysSourceModule.verifyAssertion).mockResolvedValueOnce({ valid: false, reason: 'origin mismatch' });
     const env = freshEnv({
-      PASSKEY_STRICT_VERIFY: '1',
       ACCOUNTS_DB: makeD1({
         first: async () => ({ id: 'p1', user_id: 'u1', public_key: new Uint8Array([1]).buffer, sign_count: 0, name: 'k', email: 'p@ex.com', user_name: 'P' }),
       }),
@@ -579,7 +578,7 @@ describe('POST /api/auth/passkey/auth/complete', () => {
     expect((await res.json()).error.code).toBe('invalid_assertion');
   });
 
-  it('loose mode — accepts when verifyAssertion fails, surfaces reason via header', async () => {
+  it('fails closed when signature verification fails', async () => {
     vi.mocked(passkeysSourceModule.verifyAssertion).mockResolvedValueOnce({ valid: false, reason: 'sig mismatch' });
     let n = 0;
     const env = freshEnv({
@@ -599,12 +598,12 @@ describe('POST /api/auth/passkey/auth/complete', () => {
       } }),
       env,
     });
-    expect(res.status).toBe(200);
-    expect(res.headers.get('X-Passkey-Verification')).toBe('loose');
-    expect(res.headers.get('X-Passkey-Verification-Reason')).toBe('sig mismatch');
+    expect(res.status).toBe(401);
+    expect((await res.json()).error.code).toBe('invalid_assertion');
+    expect(res.headers.get('X-Passkey-Verification')).toBeNull();
   });
 
-  it('legacy-spki fallback — accepts old credentials with reason header', async () => {
+  it('rejects credentials whose stored public key cannot be verified', async () => {
     vi.mocked(passkeysSourceModule.verifyAssertion).mockResolvedValueOnce({
       valid: false, reason: 'stored publicKey is not SPKI - legacy attestation object',
     });
@@ -626,13 +625,12 @@ describe('POST /api/auth/passkey/auth/complete', () => {
       } }),
       env,
     });
-    expect(res.status).toBe(200);
-    expect(res.headers.get('X-Passkey-Verification')).toBe('legacy-spki');
+    expect(res.status).toBe(401);
+    expect((await res.json()).error.code).toBe('invalid_assertion');
   });
 
-  it('strict mode — 401 when assertion fields are absent (legacy bare-credentialId request)', async () => {
+  it('returns 401 when assertion fields are absent', async () => {
     const env = freshEnv({
-      PASSKEY_STRICT_VERIFY: '1',
       ACCOUNTS_DB: makeD1({
         first: async () => ({ id: 'p1', user_id: 'u1', public_key: new Uint8Array([1]).buffer, sign_count: 0, name: 'k', email: 'p@ex.com', user_name: 'P' }),
       }),
@@ -645,23 +643,18 @@ describe('POST /api/auth/passkey/auth/complete', () => {
     expect((await res.json()).error.code).toBe('missing_assertion');
   });
 
-  it('legacy bare-credentialId in loose mode — accepted with verification=legacy', async () => {
-    let n = 0;
+  it('rejects a legacy bare-credentialId request', async () => {
     const env = freshEnv({
       ACCOUNTS_DB: makeD1({
-        first: async () => {
-          n++;
-          if (n === 1) return { id: 'p1', user_id: 'u1', public_key: new Uint8Array([1]).buffer, sign_count: 0, name: 'k', email: 'p@ex.com', user_name: 'P' };
-          return null;
-        },
+        first: async () => ({ id: 'p1', user_id: 'u1', public_key: new Uint8Array([1]).buffer, sign_count: 0, name: 'k', email: 'p@ex.com', user_name: 'P' }),
       }),
     });
     const challenge = await passkeysSourceModule.issueChallenge(env.DASHBOARD_SECRET, 'auth');
     const res = await authCompleteModule.onRequestPost({
       request: makeRequest({ body: { credentialId: 'AAAA', challenge } }), env,
     });
-    expect(res.status).toBe(200);
-    expect(res.headers.get('X-Passkey-Verification')).toBe('legacy');
+    expect(res.status).toBe(401);
+    expect((await res.json()).error.code).toBe('missing_assertion');
   });
 
   it('surfaces sign-counter save failure via response header', async () => {

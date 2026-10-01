@@ -41,7 +41,6 @@ the Cloudflare Pages project settings (or are set via
 | `DASHBOARD_PASSWORD` | Secret | The dashboard's password-login secret. Verified in constant time via HMAC. **Required for dashboard access** unless you only use passkeys post-registration. |
 | `DASHBOARD_SECRET` | Secret | Alias of `DASHBOARD_PASSWORD` — the code reads either. Use this if you want a longer rotating secret separate from a human-typed password. |
 | `PASSKEY_CHALLENGE_SECRET` | Secret | HMAC key for signing stateless passkey challenges. Falls back to `DASHBOARD_SECRET`/`DASHBOARD_PASSWORD` when unset; setting it explicitly lets you rotate challenge signing without changing the password. |
-| `PASSKEY_STRICT_VERIFY` | Secret | When `"1"`, real WebAuthn signature/origin/challenge verification failures return 401. When unset (loose mode, default), the failure reason is reported via `X-Passkey-Verification-Reason` but the login proceeds — used for safe rollout. Flip to `"1"` once you've confirmed `X-Passkey-Verification: ES256` consistently in DevTools. |
 | `PASSKEY_USER` | Var | Display name for the registered admin user. Defaults to `admin@<rpId>`. |
 | `PASSKEY_DISPLAY_NAME` | Var | Human-readable display name shown by the authenticator UI. Defaults to `CloudCDN Admin`. |
 
@@ -117,14 +116,6 @@ Returns `{ bindings: { ... }, checks: [...] }` with `configured`,
 1. Sign in once with `DASHBOARD_PASSWORD` at `/dashboard/login`.
 2. You'll land on `/dashboard/setup-passkey` — register a passkey.
 3. Future logins use the passkey; password fallback remains.
-
-**Enabling strict passkey verification:**
-```sh
-# Confirm `X-Passkey-Verification: ES256` in DevTools on the
-# /api/passkeys/auth/complete response after a real login.
-npx wrangler pages secret put PASSKEY_STRICT_VERIFY
-# → enter: 1
-```
 
 **Rotating the access key without downtime:**
 1. Add the new key to a header alias (briefly support both).
