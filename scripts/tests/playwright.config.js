@@ -3,7 +3,6 @@ import { defineConfig } from '@playwright/test';
 export default defineConfig({
   testDir: './visual',
   snapshotDir: './visual/snapshots',
-  snapshotPathTemplate: '{snapshotDir}/{testFilePath}-snapshots/{arg}-{projectName}{ext}',
   webServer: {
     command: 'node visual-server.mjs',
     url: 'http://127.0.0.1:8788/en/',
