@@ -27,9 +27,9 @@
   };
   // Install-command key → recommended OS for OS-aware ordering.
   const OS_PRIORITY_KEYS = {
-    macos:   ['macos', 'npx', 'pipx', 'cargo install', 'cargo', 'pip', 'npm', 'pnpm'],
-    linux:   ['linux', 'npx', 'pipx', 'cargo install', 'cargo', 'pip', 'npm', 'pnpm'],
-    windows: ['windows', 'npx', 'cargo install', 'cargo', 'pip', 'pipx', 'npm', 'pnpm'],
+    macos:   ['macos', 'npx', 'pipx', 'cargo install', 'cargo', 'pip', 'npm', 'pnpm', 'github'],
+    linux:   ['linux', 'npx', 'pipx', 'cargo install', 'cargo', 'pip', 'npm', 'pnpm', 'github'],
+    windows: ['windows', 'npx', 'cargo install', 'cargo', 'pip', 'pipx', 'npm', 'pnpm', 'github'],
   };
 
   /** Cheap, dependency-free escapers — we never inject untrusted HTML. */
@@ -78,7 +78,8 @@
   }
 
   function regBadge(reg) {
-    const label = REGISTRY_LABELS[reg.type] || reg.type;
+    const name = REGISTRY_LABELS[reg.type] || reg.type;
+    const label = reg.version ? `${name} ${reg.version}` : name;
     const cls = 'registry registry-' + reg.type.replace(/[^a-z0-9]/gi, '-');
     if (reg.ok && reg.page) {
       return `<a class="${cls}" href="${escapeAttr(reg.page)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`;

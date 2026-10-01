@@ -140,6 +140,13 @@ describe('generate-dist-catalogue.mjs', () => {
     expect(out.packages.find((p) => p.slug === 'c').primary_version).toBe('3.0.0');
   });
 
+  it('normalises repository-prefixed GitHub release tags', async () => {
+    const { normaliseReleaseVersion } = await import('../dist/generate-dist-catalogue.mjs');
+    expect(normaliseReleaseVersion('password-generator-pro-v0.0.7')).toBe('0.0.7');
+    expect(normaliseReleaseVersion('mcp/v0.0.1')).toBe('0.0.1');
+    expect(normaliseReleaseVersion('release-candidate')).toBe('release-candidate');
+  });
+
   it('records primary_version=null when no registry returns a hit', async () => {
     fs.writeFileSync(tmpSpec, JSON.stringify({
       featured: 'missing',
@@ -235,5 +242,56 @@ describe('generate-dist-catalogue.mjs', () => {
     expect(out.categories).toHaveLength(2);
     expect(out.categories[0].id).toBe('one');
     expect(out.generated_at).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+  });
+});
+
+describe('sync-github-releases.mjs', () => {
+  it('adds every published non-fork release without duplicating curated entries', async () => {
+    const catalogue = {
+      featured: 'demo',
+      categories: [{ id: 'cli', name: 'CLI', tagline: 'Tools' }],
+      packages: [{
+        name: 'Demo', slug: 'demo', category: 'cli', tagline: 'Curated',
+        repo: 'owner/demo', registries: [{ type: 'npm', name: 'demo' }],
+        install: { npm: 'npm install demo' },
+      }],
+    };
+    const release = (name, assets = 0) => ({
+      name,
+      nameWithOwner: `owner/${name}`,
+      description: `${name} description`,
+      isArchived: false,
+      isFork: false,
+      primaryLanguage: { name: 'Go' },
+      latestRelease: { tagName: 'v0.0.1', releaseAssets: { totalCount: assets } },
+    });
+    const repositories = [
+      release('demo', 1),
+      release('new-tool'),
+      { ...release('forked'), isFork: true },
+      { ...release('unreleased'), latestRelease: null },
+    ];
+
+    const { mergeGithubReleases } = await import('../dist/sync-github-releases.mjs');
+    const once = mergeGithubReleases(catalogue, repositories);
+    const twice = mergeGithubReleases(once, repositories);
+
+    expect(twice.packages).toHaveLength(2);
+    expect(twice.packages[0].registries).toEqual([
+      { type: 'npm', name: 'demo' },
+      { type: 'github-releases', repo: 'owner/demo' },
+    ]);
+    expect(twice.packages[1]).toMatchObject({
+      slug: 'new-tool', category: 'cli', archived: false,
+      install: { github: 'gh release view --repo owner/new-tool --web' },
+    });
+    expect(twice.categories.map((category) => category.id)).toContain('developer-tools');
+  });
+
+  it('limits generated taglines to the catalogue contract', async () => {
+    const { taglineFor } = await import('../dist/sync-github-releases.mjs');
+    const tagline = taglineFor({ name: 'long', description: 'a'.repeat(200) });
+    expect(tagline).toHaveLength(160);
+    expect(tagline.endsWith('...')).toBe(true);
   });
 });

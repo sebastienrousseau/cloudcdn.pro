@@ -76,16 +76,38 @@ Keep PRs small. If your change spans more than ~500 LOC, look for a way to split
 
 ## Adding a package to the `/dist/` marketplace
 
-The Setapp-style discovery surface at https://cloudcdn.pro/dist/ is driven by a hand-curated catalogue:
+The Setapp-style discovery surface at https://cloudcdn.pro/dist/ combines
+curated package metadata with the owner's published GitHub releases:
 
-- **Source of truth**: [`scripts/dist/packages-catalogue.json`](scripts/dist/packages-catalogue.json) — every published package, hand-edited.
-- **Generated artefact**: [`cdn/en/dist/_dist.json`](cdn/en/dist/_dist.json) — version-augmented output the marketplace page reads.
-- **Generator**: [`scripts/dist/generate-dist-catalogue.mjs`](scripts/dist/generate-dist-catalogue.mjs) — fetches the latest version from every declared registry in parallel.
-- **Refresh**: a Monday-morning cron at [`.github/workflows/cron-refresh-dist.yml`](.github/workflows/cron-refresh-dist.yml) re-runs the generator weekly and opens a PR if any version drifted. You can also trigger it manually from Actions → "Refresh /dist/ marketplace catalogue" → Run workflow.
+- **Source of truth**:
+  [`scripts/dist/packages-catalogue.json`](scripts/dist/packages-catalogue.json)
+  contains curated packages and entries synchronised from GitHub metadata.
+- **GitHub synchroniser**:
+  [`scripts/dist/sync-github-releases.mjs`](scripts/dist/sync-github-releases.mjs)
+  adds every owned, public, non-fork repository with a latest release while
+  preserving curated metadata.
+- **Generated artefact**:
+  [`cdn/en/dist/_dist.json`](cdn/en/dist/_dist.json) contains the resolved
+  versions read by the marketplace page.
+- **Generator**:
+  [`scripts/dist/generate-dist-catalogue.mjs`](scripts/dist/generate-dist-catalogue.mjs)
+  fetches the latest version from every declared registry in parallel.
+- **Refresh**: the Monday 06:00 UTC workflow in
+  [`.github/workflows/cron-refresh-dist.yml`](.github/workflows/cron-refresh-dist.yml)
+  synchronises GitHub releases, refreshes registry versions, and opens a PR
+  for drift. It also supports manual runs from GitHub Actions.
 
 ### Adding a new package — 5-minute flow
 
-1. **Open `scripts/dist/packages-catalogue.json`** and append a new entry to `packages[]`. The minimal shape:
+1. **Synchronise GitHub Releases** when the repository has a published release:
+
+   ```bash
+   GITHUB_TOKEN="$(gh auth token)" npm run dist:sync-github
+   ```
+
+   Then refine the generated category, tagline, logo, registry, or install
+   commands when the defaults do not capture the product accurately. For a
+   registry-only package, append an entry to `packages[]`. The minimal shape:
 
    ```jsonc
    {
@@ -103,9 +125,9 @@ The Setapp-style discovery surface at https://cloudcdn.pro/dist/ is driven by a 
      ],
      "install": {
        // OS-aware install picker order:
-       //   macos:   ['macos','npx','pipx','cargo install','cargo','pip','npm','pnpm']
-       //   linux:   ['linux','npx','pipx','cargo install','cargo','pip','npm','pnpm']
-       //   windows: ['windows','npx','cargo install','cargo','pip','pipx','npm','pnpm']
+       //   macos:   ['macos','npx','pipx','cargo install','cargo','pip','npm','pnpm','github']
+       //   linux:   ['linux','npx','pipx','cargo install','cargo','pip','npm','pnpm','github']
+       //   windows: ['windows','npx','cargo install','cargo','pip','pipx','npm','pnpm','github']
        "npm":  "npm install foo",
        "pnpm": "pnpm add foo"
      }
