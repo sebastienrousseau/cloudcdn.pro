@@ -289,10 +289,9 @@ jobs:
 
       - name: Run visual regression tests
         run: BASE_URL=http://127.0.0.1:8788/en npx playwright test --config scripts/tests/playwright.config.js
-        continue-on-error: true
 
       - name: Upload visual diff artifacts
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: visual-regression-report

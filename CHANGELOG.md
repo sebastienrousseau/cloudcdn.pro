@@ -21,6 +21,14 @@ into the *sprints* used during development.
 - Repaired the visual regression runner so it serves every repository asset
   root and exercises the current Assets, Upload, and Insights dashboard.
 - Pinned reusable CI workflows and GitHub Actions to immutable commits.
+- Confined batch uploads to the `clients/` and `stocks/` asset roots so
+  storage credentials cannot modify application or workflow files.
+- Made WebAuthn assertion verification mandatory and removed the legacy
+  credential-ID-only authentication fallback.
+- Corrected atomic usage limits so an operation cannot take an account past
+  its configured cap.
+- Made visual regression failures block CI and added an explicit Cloudflare
+  compatibility date.
 
 ### Changed
 

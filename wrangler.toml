@@ -1,5 +1,6 @@
 name = "cloudcdn-pro"
 pages_build_output_dir = "."
+compatibility_date = "2026-04-01"
 
 # Vars baked into the deploy. Distinct from `wrangler pages secret put`
 # (which stores actual secrets in Cloudflare's encrypted store).
