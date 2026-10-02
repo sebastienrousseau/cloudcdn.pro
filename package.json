@@ -1,6 +1,6 @@
 {
   "name": "cloudcdn.pro",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "type": "module",
   "scripts": {
@@ -17,7 +17,8 @@
     "build:manifest": "node scripts/generate-manifest.mjs",
     "build:locales": "node scripts/i18n/build-locales.mjs",
     "build:skeletonic": "node scripts/build-skeletonic.mjs",
-    "build:all": "npm run build:manifest && npm run build:locales && npm run build:css && npm run build:skeletonic",
+    "build:all": "npm run build:social && npm run build:manifest && npm run build:locales && npm run build:css && npm run build:skeletonic",
+    "build:social": "node scripts/generate-social-card.mjs",
     "dist:responsive": "node scripts/dist/generate-responsive-stocks.mjs",
     "dist:responsive:check": "node scripts/dist/generate-responsive-stocks.mjs --check",
     "dist:sync-github": "node scripts/dist/sync-github-releases.mjs",

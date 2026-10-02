@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CloudCDN — 글로벌 엣지 콘텐츠 전송</title>
-  <meta name="description" content="Cloudflare의 글로벌 엣지 네트워크로 구동되는 고성능 정적 자산 전송. 300개 이상의 PoP에서 100ms 미만의 지연시간.">
+  <meta name="description" content="Cloudflare의 글로벌 엣지 네트워크로 구동되는 고성능 정적 자산 전송.">
   <meta name="theme-color" content="#08090d">
   <link rel="canonical" href="https://cloudcdn.pro/ko/">
   <link rel="alternate" hreflang="en" href="https://cloudcdn.pro/">
@@ -39,15 +39,46 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cloudcdn.pro/">
+  <meta property="og:url" content="https://cloudcdn.pro/ko/">
   <meta property="og:title" content="CloudCDN — 글로벌 엣지 콘텐츠 전송">
-  <meta property="og:description" content="Cloudflare의 글로벌 엣지 네트워크로 구동되는 고성능 정적 자산 전송. 300개 이상의 PoP에서 100ms 미만의 지연시간.">
+  <meta property="og:description" content="Cloudflare의 글로벌 엣지 네트워크로 구동되는 고성능 정적 자산 전송.">
   <meta property="og:site_name" content="CloudCDN">
+  <meta property="og:image" content="https://cloudcdn.pro/shared/social/cloudcdn-social-card.png">
+  <meta property="og:image:secure_url" content="https://cloudcdn.pro/shared/social/cloudcdn-social-card.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CloudCDN — self-hosted edge delivery and digital asset management">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CloudCDN — 글로벌 엣지 콘텐츠 전송">
-  <meta name="twitter:description" content="Cloudflare의 글로벌 엣지 네트워크로 구동되는 고성능 정적 자산 전송. 300개 이상의 PoP에서 100ms 미만의 지연시간.">
+  <meta name="twitter:description" content="Cloudflare의 글로벌 엣지 네트워크로 구동되는 고성능 정적 자산 전송.">
+  <meta name="twitter:image" content="https://cloudcdn.pro/shared/social/cloudcdn-social-card.png">
+  <meta name="twitter:image:alt" content="CloudCDN — self-hosted edge delivery and digital asset management">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "CloudCDN",
+    "description": "Open-source, self-hosted CDN and digital asset management on Cloudflare Workers, with image optimization, signed URLs, AI search, analytics, and MCP.",
+    "url": "https://cloudcdn.pro/",
+    "codeRepository": "https://github.com/sebastienrousseau/cloudcdn.pro",
+    "license": [
+      "https://github.com/sebastienrousseau/cloudcdn.pro/blob/main/LICENSE-APACHE",
+      "https://github.com/sebastienrousseau/cloudcdn.pro/blob/main/LICENSE-MIT"
+    ],
+    "programmingLanguage": ["JavaScript", "HTML", "CSS"],
+    "runtimePlatform": "Cloudflare Workers and Cloudflare Pages",
+    "keywords": "self-hosted CDN, digital asset management, image optimization, Cloudflare Workers, semantic search, Model Context Protocol",
+    "author": {
+      "@type": "Person",
+      "name": "Sebastien Rousseau",
+      "url": "https://github.com/sebastienrousseau"
+    }
+  }
+  </script>
 
   <link rel="icon" href="/favicon.ico">
   <script src="/shared/theme-boot.js"></script>
@@ -141,28 +172,6 @@
       color: var(--text-muted);
       line-height: 1.6;
       margin-bottom: 3rem;
-    }
-
-    .stats {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
-    }
-    .stat { text-align: center; }
-    .stat-value {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--heading);
-      font-variant-numeric: tabular-nums;
-    }
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: 0.25rem;
     }
 
     .status {
@@ -849,22 +858,7 @@
   <main id="main">
     <img src="/clients/cloudcdn/v1/logos/cloudcdn.svg" alt="CloudCDN" class="logo" fetchpriority="high">
     <h1>Cloud<span>CDN</span></h1>
-    <p class="tagline">Cloudflare의 글로벌 엣지 네트워크로 구동되는 고성능 정적 자산 전송. 300개 이상의 프레즌스 포인트에서 100ms 미만의 지연시간.</p>
-
-    <div class="stats" role="list">
-      <div class="stat" role="listitem">
-        <div class="stat-value">300+</div>
-        <div class="stat-label">엣지 위치</div>
-      </div>
-      <div class="stat" role="listitem">
-        <div class="stat-value">&lt;100ms</div>
-        <div class="stat-label">글로벌 TTFB</div>
-      </div>
-      <div class="stat" role="listitem">
-        <div class="stat-value">99.9%</div>
-        <div class="stat-label">가동 시간 SLA</div>
-      </div>
-    </div>
+    <p class="tagline">Cloudflare의 글로벌 엣지 네트워크로 구동되는 고성능 정적 자산 전송.</p>
 
     <div class="status">
       <div class="status-dot" aria-hidden="true"></div>

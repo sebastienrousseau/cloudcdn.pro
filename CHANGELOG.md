@@ -10,6 +10,23 @@ into the *sprints* used during development.
 
 ## [Unreleased]
 
+## [0.0.3]
+
+### Added
+
+- Publish deterministic social-preview artwork in PNG, WebP, and AVIF.
+- Describe CloudCDN as `SoftwareSourceCode` with structured JSON-LD metadata.
+- Generate reciprocal sitemap entries for every localized homepage.
+- Document sitemap registration and repeatable branded and category search
+  measurement in Google Search Console and Bing Webmaster Tools.
+
+### Changed
+
+- Position the homepage around self-hosted CDN and digital asset management
+  capabilities without volatile infrastructure or test counts.
+- Clarify the dual Apache-2.0 or MIT licensing terms and make Apache-2.0 the
+  repository's GitHub-detectable primary licence.
+
 ## [0.0.2]
 
 ### Added

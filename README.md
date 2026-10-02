@@ -10,9 +10,8 @@
 
 <p align="center">
   <a href="https://github.com/sebastienrousseau/cloudcdn.pro/actions"><img src="https://img.shields.io/github/actions/workflow/status/sebastienrousseau/cloudcdn.pro/deploy.yml?style=for-the-badge&logo=github" alt="Build" /></a>
-  <a href="https://cloudcdn.pro"><img src="https://img.shields.io/badge/edge-300%2B%20PoPs-6366f1?style=for-the-badge&logo=cloudflare" alt="Edge" /></a>
+  <a href="https://cloudcdn.pro"><img src="https://img.shields.io/badge/edge-Cloudflare%20Global%20Network-6366f1?style=for-the-badge&logo=cloudflare" alt="Cloudflare global network" /></a>
   <a href="https://cloudcdn.pro/api-reference"><img src="https://img.shields.io/badge/api-OpenAPI%203.1-34d399?style=for-the-badge&logo=openapiinitiative" alt="API" /></a>
-  <a href="#testing"><img src="https://img.shields.io/badge/tests-3,953%20passing-15803d?style=for-the-badge" alt="Tests" /></a>
   <a href="#accessibility"><img src="https://img.shields.io/badge/axe-home%20%2B%20dashboard-4338ca?style=for-the-badge" alt="Accessibility checks" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0%20OR%20MIT-blue?style=for-the-badge" alt="License" /></a>
 </p>
@@ -21,11 +20,15 @@
 
 ## Why CloudCDN
 
-Most CDNs are a deploy target. CloudCDN is also a **product** — multi-tenant zones, isolated cache tags, per-asset analytics, AI vision and search, a passkey-protected dashboard, and an [MCP server](mcp/README.md) so AI agents can drive zones, transforms, and cache autonomously. Open source, MIT, runs on free-tier Cloudflare with no SaaS dependency.
+Most CDNs are a deploy target. CloudCDN is also a **product** — multi-tenant
+zones, isolated cache tags, per-asset analytics, AI vision and search, a
+passkey-protected dashboard, and an [MCP server](mcp/README.md) so AI agents
+can drive zones, transforms, and cache autonomously. It is self-hosted, has
+no SaaS dependency, and is available under your choice of Apache-2.0 or MIT.
 
 | What you usually get | What CloudCDN ships |
 | :--- | :--- |
-| A single zone serving a single site | **Multi-tenant** — 65 isolated tenant zones, per-tenant Cache-Tags, per-asset analytics |
+| A single zone serving a single site | **Multi-tenant** — isolated tenant zones, per-tenant Cache-Tags, per-asset analytics |
 | Image resizing | Resize **plus** AI alt-text, smart-crop (subject-aware gravity), background-remove, content moderation |
 | A purge button | URL purge, tag purge, full purge — plus 90-day audit records for control-plane mutations |
 | Search-by-filename | **Semantic search** (Vectorize) with day-bucketed edge cache and fuzzy fallback when AI quota is dry |
@@ -38,14 +41,14 @@ Most CDNs are a deploy target. CloudCDN is also a **product** — multi-tenant z
 
 CloudCDN is a multi-tenant CDN platform built entirely on Cloudflare Workers, Pages, KV, Vectorize, and Workers AI. A single SVG upload scaffolds a complete project directory, and static assets are cached at the edge.
 
-- **65 tenant zones** with isolated `v1/` directory structures (plus shared `cmn/` and `common/` asset libraries)
-- **3,720 assets** in the generated manifest
-- **40 OpenAPI paths** across 8 planes (Storage, Core, Assets, Insights, Delivery, AI, Auth, Webhooks)
-- **3,953 tests** across the root and MCP packages; root coverage is **99.57% statements, 96.02% branches, 99.12% functions, and 100% lines**
+- **Tenant-isolated zones** with versioned directory structures and shared asset libraries
+- **Generated asset manifest** with matching TypeScript path definitions
+- **OpenAPI 3.1 contract** across Storage, Core, Assets, Insights, Delivery, AI, Auth, and Webhooks
+- **Root and MCP test suites** with blocking coverage thresholds defined in version control
 - **Accessibility-gated** — the homepage and dashboard have blocking axe-core checks for serious and critical violations
 - **Light + dark theme** site-wide via `[data-theme]` + CSS native `light-dark()`, pre-paint boot to prevent FOUC
 - **Quota-resilient AI** — response cache, neuron budget, circuit breaker, and curated FAQ fallback keep `/api/search` and `/api/chat` answering when Workers AI is exhausted; vision endpoints share the same guard
-- **Agent-controllable** — [`@cloudcdn/mcp-server`](mcp/README.md) exposes **50 tools + 6 resources** for Claude Code, Cursor, Windsurf, Cline, Claude Desktop, and VS Code Copilot
+- **Agent-controllable** — [`@cloudcdn/mcp-server`](mcp/README.md) exposes tools and resources for Claude Code, Cursor, Windsurf, Cline, Claude Desktop, and VS Code Copilot
 - **Signed commits** enforced end-to-end — from developer machine to edge deployment via the `verify-signatures` gate
 
 ## Architecture
@@ -69,7 +72,7 @@ graph TD
 
 ```
 /
-├── clients/          65 tenant asset directories + 2 shared libraries (cmn, common)
+├── clients/          Tenant asset directories and shared libraries
 ├── stocks/           Global stock media (images, diagrams, videos)
 ├── cdn/              Application layer (localized pages, dashboard, docs)
 │   ├── en/           English homepage (canonical)
@@ -102,7 +105,7 @@ Leaked physical paths (`/cdn/<locale>/...`, including old bookmarks and preview-
 
 | | |
 | :--- | :--- |
-| **Edge Delivery** | Static assets served from 300+ Cloudflare data centers with immutable 1-year cache headers and automatic CORS. |
+| **Edge Delivery** | Static assets served through Cloudflare's global network with immutable 1-year cache headers and automatic CORS. |
 | **Image Transforms** | On-the-fly resize, format conversion, blur, and sharpen via `/api/transform`. Supports WebP, AVIF, PNG, JPEG. Auto-degrades quality + format on slow networks when `Save-Data` or `Sec-CH-Effective-Connection-Type` indicate a constrained client. |
 | **Format Negotiation** | `/api/auto` reads the browser `Accept` header and serves the optimal format (AVIF > WebP > PNG) automatically. Skips heavier decoders (JPEG XL / AVIF) on `Save-Data` or slow ECT clients. |
 | **AI Vision Endpoints** | `/api/ai/alt-text` generates accessibility descriptions, `/api/ai/smart-crop` returns a subject-aware `gravity` directive, `/api/ai/moderate` classifies images across five safety categories. All three use the shared Workers AI budget guard so a quota dip degrades to the cache, not to an error. |
@@ -112,7 +115,7 @@ Leaked physical paths (`/cdn/<locale>/...`, including old bookmarks and preview-
 | **HLS Streaming** | Adaptive bitrate video delivery via HTTP Live Streaming playlists and byte-range segmentation. |
 | **Semantic Search** | Natural language asset search powered by Workers AI embeddings and Vectorize vector similarity. Day-bucketed edge cache, neuron budget, and fuzzy fallback keep results flowing when AI quota is exhausted — responses are annotated with `mode: vector \| fuzzy \| cached`. |
 | **AI Concierge** | RAG-powered chat assistant with SSE streaming, confidence scoring, and follow-up suggestions. Layered fallback: edge response cache → 30-entry curated FAQ → templated default. Failures never surface as HTTP errors; `metadata.source` is `ai \| cached \| curated`. |
-| **MCP Server** | [`@cloudcdn/mcp-server`](mcp/README.md) exposes **50 tools + 6 resources** (storage, zones, assets, insights, audit, transform, purge, signed URLs, HLS playlists, AI vision, placeholders, semantic search, scoped tokens, webhooks, operational logs) for AI agents. Drop-in compatible with Claude Code, Claude Desktop, Cursor, Windsurf, and Cline. |
+| **MCP Server** | [`@cloudcdn/mcp-server`](mcp/README.md) exposes storage, zones, assets, insights, audit, transform, purge, signed URLs, HLS playlists, AI vision, placeholders, semantic search, scoped tokens, webhooks, and operational logs to AI agents. Drop-in compatible with Claude Code, Claude Desktop, Cursor, Windsurf, and Cline. |
 | **Audit Trail** | Control-plane mutations (token create/revoke, webhook register/delete, zone create, purge) emit 90-day audit records accessible via `/api/core/audit-logs`. Records carry IP, user-agent, trace ID, and action-specific metadata. |
 | **Asset Pipeline** | Upload a single SVG → automatic directory scaffold with PWA icons, banners, and favicon. |
 | **Zone Management** | Create, delete, and configure tenant zones via GitOps commits through the Core API. |
@@ -348,7 +351,7 @@ Search annotates its mode (`vector | fuzzy | cached`) on every response. AI fail
 Pushes to `main` trigger automatic deployment via Cloudflare Pages:
 
 1. **Verify signatures** — every commit must be cryptographically signed
-2. **Deploy to edge** — `wrangler pages deploy` across 300+ PoPs
+2. **Deploy to edge** — `wrangler pages deploy` to Cloudflare's global network
 3. **Compress images** — auto-generate WebP/AVIF from new PNGs (signed commit)
 4. **Regenerate manifest** — update asset registry via GitHub API (signed commit)
 
@@ -369,13 +372,16 @@ The npm package (`@cloudcdn/mcp-server`) follows semantic versioning. Breaking c
 
 - [`docs/theming.md`](docs/theming.md) — the light/dark token system, how to add a new page, why explicit `[data-theme]` overrides instead of relying on `color-scheme` inheritance, and the full token table.
 - [`docs/accessibility.md`](docs/accessibility.md) — WCAG 2.2 AA commitments, the axe-core CI gate, past contrast regressions, and how to audit locally.
-- [`docs/mcp.md`](docs/mcp.md) — the 50 MCP tools + 6 resources, what each plane covers, example agent prompts, and how to add a new tool.
+- [`docs/mcp.md`](docs/mcp.md) — the MCP tools and resources, what each plane covers, example agent prompts, and how to add a new tool.
 - [`docs/cli.md`](docs/cli.md) — Stratos CLI install, configuration, command reference, and exit codes.
 - [`docs/STATUS.md`](docs/STATUS.md) — operator transparency: the live `/api/health` endpoints, internal SLO targets, and how to read an incident.
+- [`docs/seo.md`](docs/seo.md) — sitemap registration and the branded and
+  category search measurement cadence.
 
 ## License
 
-The project is dual-licensed under the terms of both the [MIT license](LICENSE) and the [Apache License (Version 2.0)](http://www.apache.org/licenses/LICENSE-2.0).
+The project is dual-licensed under your choice of the
+[Apache License 2.0](LICENSE-APACHE) or [MIT license](LICENSE-MIT).
 
 ## Acknowledgements
 

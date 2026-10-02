@@ -9,7 +9,7 @@
 <p align="center">
   Model Context Protocol server for <a href="https://cloudcdn.pro">CloudCDN</a> —
   lets AI agents autonomously manage static assets, zones, transforms,
-  analytics, and cache across 300+ edge locations.
+  analytics, and cache across Cloudflare's global edge network.
 </p>
 
 <p align="center">
@@ -75,7 +75,7 @@ npm install @cloudcdn/mcp-server
 }
 ```
 
-Restart Claude Desktop. The agent now has 50 tools and 6 read-only resources for driving your CloudCDN tenant. The server identifies itself to the host as `cloudcdn`.
+Restart Claude Desktop. The agent now has tools and read-only resources for driving your CloudCDN tenant. The server identifies itself to the host as `cloudcdn`.
 
 ---
 
@@ -88,7 +88,7 @@ Embed the server in your own host — custom transport, hosted MCP gateway, inte
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { createServer } from '@cloudcdn/mcp-server/server';
 
-// 1. Build the server with all 50 tools and 6 resources registered.
+// 1. Build the server with all tools and resources registered.
 const server = createServer();
 
 // 2. Attach a transport. Stdio is the default for desktop MCP hosts;
