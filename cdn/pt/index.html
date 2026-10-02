@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CloudCDN — Entrega global de conteúdo na edge</title>
-  <meta name="description" content="Entrega de alto desempenho de ativos estáticos, impulsionada pela rede edge global da Cloudflare. Latência inferior a 100 ms em mais de 300 PoPs.">
+  <meta name="description" content="Entrega de alto desempenho de ativos estáticos, impulsionada pela rede edge global da Cloudflare.">
   <meta name="theme-color" content="#08090d">
   <link rel="canonical" href="https://cloudcdn.pro/pt/">
   <link rel="alternate" hreflang="en" href="https://cloudcdn.pro/">
@@ -39,15 +39,46 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cloudcdn.pro/">
+  <meta property="og:url" content="https://cloudcdn.pro/pt/">
   <meta property="og:title" content="CloudCDN — Entrega global de conteúdo na edge">
-  <meta property="og:description" content="Entrega de alto desempenho de ativos estáticos, impulsionada pela rede edge global da Cloudflare. Latência inferior a 100 ms em mais de 300 PoPs.">
+  <meta property="og:description" content="Entrega de alto desempenho de ativos estáticos, impulsionada pela rede edge global da Cloudflare.">
   <meta property="og:site_name" content="CloudCDN">
+  <meta property="og:image" content="https://cloudcdn.pro/shared/social/cloudcdn-social-card.png">
+  <meta property="og:image:secure_url" content="https://cloudcdn.pro/shared/social/cloudcdn-social-card.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CloudCDN — self-hosted edge delivery and digital asset management">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CloudCDN — Entrega global de conteúdo na edge">
-  <meta name="twitter:description" content="Entrega de alto desempenho de ativos estáticos, impulsionada pela rede edge global da Cloudflare. Latência inferior a 100 ms em mais de 300 PoPs.">
+  <meta name="twitter:description" content="Entrega de alto desempenho de ativos estáticos, impulsionada pela rede edge global da Cloudflare.">
+  <meta name="twitter:image" content="https://cloudcdn.pro/shared/social/cloudcdn-social-card.png">
+  <meta name="twitter:image:alt" content="CloudCDN — self-hosted edge delivery and digital asset management">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "CloudCDN",
+    "description": "Open-source, self-hosted CDN and digital asset management on Cloudflare Workers, with image optimization, signed URLs, AI search, analytics, and MCP.",
+    "url": "https://cloudcdn.pro/",
+    "codeRepository": "https://github.com/sebastienrousseau/cloudcdn.pro",
+    "license": [
+      "https://github.com/sebastienrousseau/cloudcdn.pro/blob/main/LICENSE-APACHE",
+      "https://github.com/sebastienrousseau/cloudcdn.pro/blob/main/LICENSE-MIT"
+    ],
+    "programmingLanguage": ["JavaScript", "HTML", "CSS"],
+    "runtimePlatform": "Cloudflare Workers and Cloudflare Pages",
+    "keywords": "self-hosted CDN, digital asset management, image optimization, Cloudflare Workers, semantic search, Model Context Protocol",
+    "author": {
+      "@type": "Person",
+      "name": "Sebastien Rousseau",
+      "url": "https://github.com/sebastienrousseau"
+    }
+  }
+  </script>
 
   <link rel="icon" href="/favicon.ico">
   <script src="/shared/theme-boot.js"></script>
@@ -141,28 +172,6 @@
       color: var(--text-muted);
       line-height: 1.6;
       margin-bottom: 3rem;
-    }
-
-    .stats {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
-    }
-    .stat { text-align: center; }
-    .stat-value {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--heading);
-      font-variant-numeric: tabular-nums;
-    }
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: 0.25rem;
     }
 
     .status {
@@ -849,22 +858,7 @@
   <main id="main">
     <img src="/clients/cloudcdn/v1/logos/cloudcdn.svg" alt="CloudCDN" class="logo" fetchpriority="high">
     <h1>Cloud<span>CDN</span></h1>
-    <p class="tagline">Entrega de alto desempenho de ativos estáticos, impulsionada pela rede edge global da Cloudflare. Latência inferior a 100 ms em mais de 300 pontos de presença.</p>
-
-    <div class="stats" role="list">
-      <div class="stat" role="listitem">
-        <div class="stat-value">300+</div>
-        <div class="stat-label">Locais edge</div>
-      </div>
-      <div class="stat" role="listitem">
-        <div class="stat-value">&lt;100ms</div>
-        <div class="stat-label">TTFB global</div>
-      </div>
-      <div class="stat" role="listitem">
-        <div class="stat-value">99.9%</div>
-        <div class="stat-label">SLA de disponibilidade</div>
-      </div>
-    </div>
+    <p class="tagline">Entrega de alto desempenho de ativos estáticos, impulsionada pela rede edge global da Cloudflare.</p>
 
     <div class="status">
       <div class="status-dot" aria-hidden="true"></div>

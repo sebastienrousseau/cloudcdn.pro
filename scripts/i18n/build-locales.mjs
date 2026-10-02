@@ -50,111 +50,164 @@ ${items}
  */
 function renderHreflangs() {
   return LANGUAGES.map(l => {
-    const href = l.code === 'en' ? 'https://cloudcdn.pro/' : `https://cloudcdn.pro/${l.code}/`;
+    const href = l.code === 'en'
+      ? 'https://cloudcdn.pro/'
+      : `https://cloudcdn.pro/${l.code}/`;
     return `  <link rel="alternate" hreflang="${l.hreflang}" href="${href}">`;
-  }).join('\n') + '\n  <link rel="alternate" hreflang="x-default" href="https://cloudcdn.pro/">';
+  }).join('\n')
+    + '\n  <link rel="alternate" hreflang="x-default" href="https://cloudcdn.pro/">';
 }
 
-/**
- * Apply a translation dictionary to the template by replacing marker comments.
- *
- * Markers in the template:
- *   <!-- i18n:key --> text <!-- /i18n:key -->
- *   aria-label="<!-- i18n:key -->text"
- *   data-i18n="key"  (for JS messages)
- *
- * This build script processes the first form for text content and replaces
- * attribute values via explicit regex.
- */
-function render(template, lang, t) {
+function publicUrl(language) {
+  return language.code === 'en'
+    ? 'https://cloudcdn.pro/'
+    : `https://cloudcdn.pro/${language.code}/`;
+}
+
+function renderSitemapAlternates() {
+  const localized = LANGUAGES.map(language => {
+    const url = publicUrl(language);
+    return `    <xhtml:link rel="alternate" hreflang="${language.hreflang}" href="${url}"/>`;
+  });
+  localized.push('    <xhtml:link rel="alternate" hreflang="x-default" href="https://cloudcdn.pro/"/>');
+  return localized.join('\n');
+}
+
+function renderSitemap() {
+  const alternates = renderSitemapAlternates();
+  const localized = LANGUAGES.map(language => `  <url>
+    <loc>${publicUrl(language)}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>${language.code === 'en' ? '1.0' : '0.8'}</priority>
+${alternates}
+  </url>`).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${localized}
+  <url>
+    <loc>https://cloudcdn.pro/api-reference</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>
+`;
+}
+
+function renderHead(template, lang, t) {
   const langInfo = LANGUAGES.find(l => l.code === lang);
   let html = template;
-
-  // <html lang="..." dir="...">
-  html = html.replace(/<html lang="en">/, `<html lang="${langInfo.hreflang}"${langInfo.dir === 'rtl' ? ' dir="rtl"' : ''}>`);
-
-  // <title>
-  html = html.replace(/<title>[^<]+<\/title>/, `<title>${t.title}</title>`);
-
-  // <meta name="description" content="...">
-  html = html.replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${escAttr(t.description)}">`);
-
-  // og:title, og:description, twitter:*
-  html = html.replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${escAttr(t.title)}">`);
-  html = html.replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${escAttr(t.description)}">`);
-  html = html.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${escAttr(t.title)}">`);
-  html = html.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${escAttr(t.description)}">`);
-
-  // Canonical
-  const canonicalHref = lang === 'en' ? 'https://cloudcdn.pro/' : `https://cloudcdn.pro/${lang}/`;
-  html = html.replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${canonicalHref}">`);
-
-  // Inject hreflang alternates after canonical
+  const direction = langInfo.dir === 'rtl' ? ' dir="rtl"' : '';
+  html = html.replace(
+    /<html lang="en">/,
+    `<html lang="${langInfo.hreflang}"${direction}>`
+  );
+  html = html.replace(/<title>[^<]+<\/title>/, `<title>${escHtml(t.title)}</title>`);
+  const description = escAttr(t.description);
+  const title = escAttr(t.title);
+  html = html.replace(
+    /<meta name="description" content="[^"]*">/,
+    `<meta name="description" content="${description}">`
+  );
+  html = html.replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${title}">`);
+  html = html.replace(
+    /<meta property="og:description" content="[^"]*">/,
+    `<meta property="og:description" content="${description}">`
+  );
+  html = html.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${title}">`);
+  html = html.replace(
+    /<meta name="twitter:description" content="[^"]*">/,
+    `<meta name="twitter:description" content="${description}">`
+  );
+  const canonicalHref = publicUrl(langInfo);
+  html = html.replace(
+    /<link rel="canonical" href="[^"]*">/,
+    `<link rel="canonical" href="${canonicalHref}">`
+  );
+  html = html.replace(
+    /<meta property="og:url" content="[^"]*">/,
+    `<meta property="og:url" content="${canonicalHref}">`
+  );
   if (!html.includes('hreflang="en"')) {
     html = html.replace(/<link rel="canonical"[^>]*>/, match => match + '\n' + renderHreflangs());
   }
+  return html;
+}
 
-  // Skip link
+function renderNavigation(template, lang, t) {
+  let html = template;
   html = html.replace(/>Skip to Concierge</, `>${escHtml(t.skipToConcierge)}<`);
-
-  // Nav links
-  html = html.replace(/<li><a href="\/">Home<\/a><\/li>/, `<li><a href="${lang === 'en' ? '/' : '/' + lang + '/'}">${escHtml(t.navHome)}</a></li>`);
-  html = html.replace(/<li><a href="\/api-reference">API<\/a><\/li>/, `<li><a href="/api-reference">${escHtml(t.navApi)}</a></li>`);
-  html = html.replace(/<li><a href="\/dashboard\/">Dashboard<\/a><\/li>/, `<li><a href="/dashboard/">${escHtml(t.navDashboard)}</a></li>`);
-  html = html.replace(/<li><a href="\/dist\/">Downloads<\/a><\/li>/, `<li><a href="/dist/">${escHtml(t.navDownloads)}</a></li>`);
-
-  // Login CTA
+  const home = lang === 'en' ? '/' : `/${lang}/`;
+  html = html.replace(
+    /<li><a href="\/">Home<\/a><\/li>/,
+    `<li><a href="${home}">${escHtml(t.navHome)}</a></li>`
+  );
+  html = html.replace(/>API<\/a>/, `>${escHtml(t.navApi)}</a>`);
+  html = html.replace(/>Dashboard<\/a>/, `>${escHtml(t.navDashboard)}</a>`);
+  html = html.replace(/>Downloads<\/a>/, `>${escHtml(t.navDownloads)}</a>`);
   html = html.replace(/>Login</, `>${escHtml(t.navLogin)}<`);
-
-  // Nav toggle aria-label
   html = html.replace(/aria-label="Toggle menu"/, `aria-label="${escAttr(t.navToggleMenu)}"`);
-
-  // Inject language switcher before nav-hamburger
-  const langSwitcher = renderLangSwitcher(lang, t);
   if (!html.includes('class="lang-switcher"')) {
     html = html.replace(
       /<button class="nav-hamburger"/,
-      `${langSwitcher}\n      <button class="nav-hamburger"`
+      `${renderLangSwitcher(lang, t)}\n      <button class="nav-hamburger"`
     );
   }
+  return html;
+}
 
-  // Hero tagline
-  html = html.replace(
+function renderHero(template, t) {
+  let html = template.replace(
     /<p class="tagline">[^<]+<\/p>/,
     `<p class="tagline">${escHtml(t.tagline)}</p>`
   );
-
-  // Stat labels
-  html = html.replace(/<div class="stat-label">Edge Locations<\/div>/, `<div class="stat-label">${escHtml(t.statEdgeLocations)}</div>`);
-  html = html.replace(/<div class="stat-label">Global TTFB<\/div>/, `<div class="stat-label">${escHtml(t.statGlobalTtfb)}</div>`);
-  html = html.replace(/<div class="stat-label">Uptime SLA<\/div>/, `<div class="stat-label">${escHtml(t.statUptime)}</div>`);
-
-  // Status text
   html = html.replace(/All systems operational/, escHtml(t.statusOperational));
+  return html;
+}
 
-  // Concierge widget
-  html = html.replace(/aria-label="Open CloudCDN Concierge"/, `aria-label="${escAttr(t.conciergeOpen)}"`);
-  html = html.replace(/<h3>CloudCDN Concierge<\/h3>/, `<h3>${escHtml(t.conciergeTitle)}</h3>`);
-  html = html.replace(/<p>AI-powered edge assistant<\/p>/, `<p>${escHtml(t.conciergeSubtitle)}</p>`);
-  html = html.replace(/aria-label="New conversation" title="New conversation"/, `aria-label="${escAttr(t.conciergeNewChat)}" title="${escAttr(t.conciergeNewChat)}"`);
-  html = html.replace(/aria-label="Close chat" title="Close \(Esc\)"/, `aria-label="${escAttr(t.conciergeClose)}" title="${escAttr(t.conciergeCloseTitle)}"`);
-  html = html.replace(/data-msg="How do I set up CloudCDN\?">Setup guide/, `data-msg="${escAttr(t.quickMsgSetup)}">${escHtml(t.quickReplySetup)}`);
-  html = html.replace(/data-msg="Compare your pricing plans">Pricing/, `data-msg="${escAttr(t.quickMsgPricing)}">${escHtml(t.quickReplyPricing)}`);
-  html = html.replace(/data-msg="Is CloudCDN free for open source\?">Free for OSS\?/, `data-msg="${escAttr(t.quickMsgFreeOss)}">${escHtml(t.quickReplyFreeOss)}`);
-  html = html.replace(/data-msg="What image formats do you support\?">Formats/, `data-msg="${escAttr(t.quickMsgFormats)}">${escHtml(t.quickReplyFormats)}`);
-  html = html.replace(/Hi! I'm the CloudCDN Concierge\. Ask me about pricing, setup, performance, or anything about our edge CDN\./, escHtml(t.conciergeGreeting));
-  html = html.replace(/placeholder="Ask anything about CloudCDN\.\.\."/, `placeholder="${escAttr(t.chatInputPlaceholder)}"`);
-  html = html.replace(/aria-label="Type your question"/, `aria-label="${escAttr(t.chatInputLabel)}"`);
-  html = html.replace(/aria-label="Send message"/, `aria-label="${escAttr(t.chatSend)}"`);
-  html = html.replace(/<div class="chat-footer-meta">Powered by Cloudflare Workers AI<\/div>/, `<div class="chat-footer-meta">${escHtml(t.chatPoweredBy)}</div>`);
+function renderConcierge(template, t) {
+  let html = template;
+  const replacements = [
+    [/aria-label="Open CloudCDN Concierge"/, `aria-label="${escAttr(t.conciergeOpen)}"`],
+    [/<h3>CloudCDN Concierge<\/h3>/, `<h3>${escHtml(t.conciergeTitle)}</h3>`],
+    [/<p>AI-powered edge assistant<\/p>/, `<p>${escHtml(t.conciergeSubtitle)}</p>`],
+    [/aria-label="New conversation" title="New conversation"/,
+      `aria-label="${escAttr(t.conciergeNewChat)}" title="${escAttr(t.conciergeNewChat)}"`],
+    [/aria-label="Close chat" title="Close \(Esc\)"/,
+      `aria-label="${escAttr(t.conciergeClose)}" title="${escAttr(t.conciergeCloseTitle)}"`],
+    [/data-msg="How do I set up CloudCDN\?">Setup guide/,
+      `data-msg="${escAttr(t.quickMsgSetup)}">${escHtml(t.quickReplySetup)}`],
+    [/data-msg="Compare your pricing plans">Pricing/,
+      `data-msg="${escAttr(t.quickMsgPricing)}">${escHtml(t.quickReplyPricing)}`],
+    [/data-msg="Is CloudCDN free for open source\?">Free for OSS\?/,
+      `data-msg="${escAttr(t.quickMsgFreeOss)}">${escHtml(t.quickReplyFreeOss)}`],
+    [/data-msg="What image formats do you support\?">Formats/,
+      `data-msg="${escAttr(t.quickMsgFormats)}">${escHtml(t.quickReplyFormats)}`],
+    [/Hi! I'm the CloudCDN Concierge\. Ask me about pricing, setup, performance, or anything about our edge CDN\./,
+      escHtml(t.conciergeGreeting)],
+    [/placeholder="Ask anything about CloudCDN\.\.\."/,
+      `placeholder="${escAttr(t.chatInputPlaceholder)}"`],
+    [/aria-label="Type your question"/, `aria-label="${escAttr(t.chatInputLabel)}"`],
+    [/aria-label="Send message"/, `aria-label="${escAttr(t.chatSend)}"`],
+    [/<div class="chat-footer-meta">Powered by Cloudflare Workers AI<\/div>/,
+      `<div class="chat-footer-meta">${escHtml(t.chatPoweredBy)}</div>`],
+  ];
+  for (const [pattern, replacement] of replacements) {
+    html = html.replace(pattern, replacement);
+  }
+  return html;
+}
 
-  // Update the auth link text for localized login
-  html = html.replace(
+/** Apply a translation dictionary to the English homepage template. */
+function render(template, lang, t) {
+  let html = renderHead(template, lang, t);
+  html = renderNavigation(html, lang, t);
+  html = renderHero(html, t);
+  html = renderConcierge(html, t);
+  return html.replace(
     /el\.textContent = 'Logout';/,
     `el.textContent = '${escJs(t.navLogout)}';`
   );
-
-  return html;
 }
 
 function escHtml(s) {
@@ -191,6 +244,9 @@ function main() {
     fs.writeFileSync(path.join(outDir, 'index.html'), localized);
     console.log(`✓ Generated ${lang.code}: cdn/${lang.code}/index.html`);
   }
+
+  fs.writeFileSync(path.join(CDN, 'sitemap.xml'), renderSitemap());
+  console.log('✓ Generated cdn/sitemap.xml');
 
   console.log(`\n${LANGUAGES.length} languages built.`);
 }

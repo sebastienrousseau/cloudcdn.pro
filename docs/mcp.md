@@ -20,7 +20,7 @@ is the contract.
 
 ## Full inventory
 
-50 tools across 9 planes — see [`mcp/README.md`](../mcp/README.md) for
+Tools across the service planes — see [`mcp/README.md`](../mcp/README.md) for
 the full table with auth requirements. Summary by plane:
 
 | Plane | Tools | What |
