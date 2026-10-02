@@ -10,6 +10,13 @@ into the *sprints* used during development.
 
 ## [Unreleased]
 
+## [0.0.4]
+
+### Added
+
+- Publish the Bing Webmaster Tools ownership-verification file so the site can
+  submit and monitor its sitemap without sharing Google Search Console data.
+
 ## [0.0.3]
 
 ### Added
