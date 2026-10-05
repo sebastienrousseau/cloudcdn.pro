@@ -36,7 +36,7 @@
     "@playwright/test": "1.63.0",
     "@sebastienrousseau/skeletonic-stylus": "2.0.0",
     "@tailwindcss/cli": "4.3.3",
-    "@vitest/coverage-v8": "4.1.11",
+    "@vitest/coverage-v8": "5.0.3",
     "happy-dom": "20.14.5",
     "husky": "9.1.7",
     "tailwindcss": "4.3.3",
