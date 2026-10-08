@@ -10,6 +10,25 @@ into the *sprints* used during development.
 
 ## [Unreleased]
 
+## [0.0.5]
+
+### Added
+
+- Synchronise newly published GitHub releases and refresh marketplace versions.
+
+### Changed
+
+- Upgrade dependencies: wrangler to 4.146.0, @sebastienrousseau/skeletonic-stylus
+  to 3.0.0 with refreshed vendored CSS assets, and vitest & @vitest/coverage-v8
+  to 5.0.3.
+- Update Playwright visual regression baselines for dashboard views to align
+  with Skeletonic Stylus 3.0.0 styling.
+
+### Security
+
+- Resolve high-severity audit vulnerabilities via dependency overrides for
+  @parcel/watcher, sharp, and source-map-js.
+
 ## [0.0.4]
 
 ### Added
