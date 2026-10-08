@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T20:28:37.901Z",
+  "generated_at": "2026-10-05T06:33:01.811Z",
   "featured": "stratos",
   "categories": [
     {
@@ -103,7 +103,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/cloudcdn.pro",
-          "version": "0.0.1",
+          "version": "0.0.4",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/cloudcdn.pro/releases/latest",
           "error": null
@@ -255,7 +255,7 @@
         {
           "type": "pypi",
           "name": "acmt001-mcp",
-          "version": "0.0.9",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://pypi.org/project/acmt001-mcp/",
           "error": null
@@ -263,7 +263,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/acmt001-mcp",
-          "version": "0.0.9",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/acmt001-mcp/releases/latest",
           "error": null
@@ -273,7 +273,7 @@
         "pipx": "pipx install acmt001-mcp",
         "pip": "pip install acmt001-mcp"
       },
-      "primary_version": "0.0.9",
+      "primary_version": "0.0.11",
       "primary_registry": "pypi"
     },
     {
@@ -465,7 +465,7 @@
         {
           "type": "crates.io",
           "name": "ssg",
-          "version": "0.0.65",
+          "version": "0.0.66",
           "ok": true,
           "page": "https://crates.io/crates/ssg",
           "error": null
@@ -473,7 +473,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/static-site-generator",
-          "version": "0.0.65",
+          "version": "0.0.66",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/static-site-generator/releases/latest",
           "error": null
@@ -485,7 +485,7 @@
         "linux": "curl -sL https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.sh | bash",
         "windows": "irm https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.ps1 | iex"
       },
-      "primary_version": "0.0.65",
+      "primary_version": "0.0.66",
       "primary_registry": "crates.io"
     },
     {
@@ -739,7 +739,7 @@
         {
           "type": "crates.io",
           "name": "noyalib",
-          "version": "0.0.51",
+          "version": "0.0.52",
           "ok": true,
           "page": "https://crates.io/crates/noyalib",
           "error": null
@@ -747,7 +747,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib",
-          "version": "0.0.51",
+          "version": "0.0.52",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib/releases/latest",
           "error": null
@@ -756,7 +756,7 @@
       "install": {
         "cargo": "cargo add noyalib"
       },
-      "primary_version": "0.0.51",
+      "primary_version": "0.0.52",
       "primary_registry": "crates.io"
     },
     {
@@ -801,7 +801,7 @@
         {
           "type": "crates.io",
           "name": "noyalib-mcp",
-          "version": "0.0.51",
+          "version": "0.0.52",
           "ok": true,
           "page": "https://crates.io/crates/noyalib-mcp",
           "error": null
@@ -809,7 +809,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-mcp",
-          "version": "0.0.51",
+          "version": "0.0.52",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-mcp/releases/latest",
           "error": null
@@ -818,7 +818,7 @@
       "install": {
         "cargo install": "cargo install noyalib-mcp"
       },
-      "primary_version": "0.0.51",
+      "primary_version": "0.0.52",
       "primary_registry": "crates.io"
     },
     {
@@ -948,7 +948,7 @@
         {
           "type": "pypi",
           "name": "inclusio",
-          "version": "0.0.6",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://pypi.org/project/inclusio/",
           "error": null
@@ -956,7 +956,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/inclusio",
-          "version": "0.0.6",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/inclusio/releases/latest",
           "error": null
@@ -966,7 +966,7 @@
         "pipx": "pipx install inclusio",
         "pip": "pip install inclusio"
       },
-      "primary_version": "0.0.6",
+      "primary_version": "0.0.8",
       "primary_registry": "pypi"
     },
     {
@@ -1352,7 +1352,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/crypto-service",
-          "version": "0.0.8",
+          "version": "0.0.19",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/crypto-service/releases/latest",
           "error": null
@@ -1375,7 +1375,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/dotfiles",
-          "version": "0.2.530",
+          "version": "0.2.531",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/dotfiles/releases/latest",
           "error": null
@@ -1385,7 +1385,7 @@
         "macos": "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash",
         "linux": "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash"
       },
-      "primary_version": "0.2.530",
+      "primary_version": "0.2.531",
       "primary_registry": "github-releases"
     },
     {
@@ -1422,7 +1422,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/ap2-iso20022",
-          "version": "0.0.5",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/ap2-iso20022/releases/latest",
           "error": null
@@ -1431,7 +1431,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/ap2-iso20022"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.7",
       "primary_registry": "github-releases"
     },
     {
@@ -1675,7 +1675,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser-mcp",
-          "version": "0.0.19",
+          "version": "0.0.21",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser-mcp/releases/latest",
           "error": null
@@ -1684,7 +1684,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser-mcp"
       },
-      "primary_version": "0.0.19",
+      "primary_version": "0.0.21",
       "primary_registry": "github-releases"
     },
     {
@@ -1928,7 +1928,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/camt-exceptions",
-          "version": "0.0.18",
+          "version": "0.0.20",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/camt-exceptions/releases/latest",
           "error": null
@@ -1937,7 +1937,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/camt-exceptions"
       },
-      "primary_version": "0.0.18",
+      "primary_version": "0.0.20",
       "primary_registry": "github-releases"
     },
     {
@@ -2020,7 +2020,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/camt053-mcp",
-          "version": "0.0.20",
+          "version": "0.0.22",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/camt053-mcp/releases/latest",
           "error": null
@@ -2029,7 +2029,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/camt053-mcp"
       },
-      "primary_version": "0.0.20",
+      "primary_version": "0.0.22",
       "primary_registry": "github-releases"
     },
     {
@@ -2204,7 +2204,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/corralctl",
-          "version": "0.0.36",
+          "version": "0.0.44",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/corralctl/releases/latest",
           "error": null
@@ -2213,7 +2213,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/corralctl"
       },
-      "primary_version": "0.0.36",
+      "primary_version": "0.0.44",
       "primary_registry": "github-releases"
     },
     {
@@ -2503,7 +2503,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/iso20022-bank-profile-mcp",
-          "version": "0.0.5",
+          "version": "0.0.6",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/iso20022-bank-profile-mcp/releases/latest",
           "error": null
@@ -2512,7 +2512,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/iso20022-bank-profile-mcp"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.6",
       "primary_registry": "github-releases"
     },
     {
@@ -2526,7 +2526,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/iso20022-evidence-pack-mcp",
-          "version": "0.0.5",
+          "version": "0.0.6",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/iso20022-evidence-pack-mcp/releases/latest",
           "error": null
@@ -2535,7 +2535,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/iso20022-evidence-pack-mcp"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.6",
       "primary_registry": "github-releases"
     },
     {
@@ -2549,7 +2549,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/iso20022-mcp",
-          "version": "0.0.11",
+          "version": "0.0.13",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/iso20022-mcp/releases/latest",
           "error": null
@@ -2558,7 +2558,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/iso20022-mcp"
       },
-      "primary_version": "0.0.11",
+      "primary_version": "0.0.13",
       "primary_registry": "github-releases"
     },
     {
@@ -2572,7 +2572,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/iso20022-readiness-suite-mcp",
-          "version": "0.0.5",
+          "version": "0.0.6",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/iso20022-readiness-suite-mcp/releases/latest",
           "error": null
@@ -2581,7 +2581,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/iso20022-readiness-suite-mcp"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.6",
       "primary_registry": "github-releases"
     },
     {
@@ -2963,7 +2963,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml/releases/latest",
           "error": null
@@ -2972,7 +2972,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2986,7 +2986,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-cli",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-cli/releases/latest",
           "error": null
@@ -2995,7 +2995,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-cli --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3009,7 +3009,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-lsp",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-lsp/releases/latest",
           "error": null
@@ -3018,7 +3018,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-lsp --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3032,7 +3032,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-mcp",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-mcp/releases/latest",
           "error": null
@@ -3041,7 +3041,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-mcp --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3055,7 +3055,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-wasm",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-wasm/releases/latest",
           "error": null
@@ -3064,7 +3064,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-wasm --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3101,7 +3101,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pacs008-mcp",
-          "version": "0.0.12",
+          "version": "0.0.14",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pacs008-mcp/releases/latest",
           "error": null
@@ -3110,7 +3110,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pacs008-mcp"
       },
-      "primary_version": "0.0.12",
+      "primary_version": "0.0.14",
       "primary_registry": "github-releases"
     },
     {
@@ -3193,7 +3193,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-mcp",
-          "version": "0.0.72",
+          "version": "0.0.73",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-mcp/releases/latest",
           "error": null
@@ -3202,7 +3202,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-mcp"
       },
-      "primary_version": "0.0.72",
+      "primary_version": "0.0.73",
       "primary_registry": "github-releases"
     },
     {
@@ -3400,7 +3400,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/passmcp-server",
-          "version": "0.0.4",
+          "version": "0.0.5",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/passmcp-server/releases/latest",
           "error": null
@@ -3409,7 +3409,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/passmcp-server"
       },
-      "primary_version": "0.0.4",
+      "primary_version": "0.0.5",
       "primary_registry": "github-releases"
     },
     {
@@ -3630,7 +3630,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/reconcile-mcp",
-          "version": "0.0.5",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/reconcile-mcp/releases/latest",
           "error": null
@@ -3639,7 +3639,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/reconcile-mcp"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.7",
       "primary_registry": "github-releases"
     },
     {
@@ -3998,7 +3998,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/structured-address-fix-mcp",
-          "version": "0.0.4",
+          "version": "0.0.6",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/structured-address-fix-mcp/releases/latest",
           "error": null
@@ -4007,7 +4007,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/structured-address-fix-mcp"
       },
-      "primary_version": "0.0.4",
+      "primary_version": "0.0.6",
       "primary_registry": "github-releases"
     },
     {
@@ -4182,7 +4182,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/xmlschema",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/xmlschema/releases/latest",
           "error": null
@@ -4191,7 +4191,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/xmlschema --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -4215,6 +4215,29 @@
         "github": "gh release view --repo sebastienrousseau/zig-config --web"
       },
       "primary_version": "0.0.7",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "oxml-json",
+      "slug": "oxml-json",
+      "category": "rust-libs",
+      "tagline": "Lightweight, zero-unsafe JSON parser, serializer, and value representation for JSON-RPC in the oxml ecosystem",
+      "repo": "sebastienrousseau/oxml-json",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/oxml-json",
+          "version": "0.0.9",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/oxml-json/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/oxml-json --web"
+      },
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     }
   ]

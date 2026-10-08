@@ -3054,6 +3054,23 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/zig-config --web"
       }
+    },
+    {
+      "name": "oxml-json",
+      "slug": "oxml-json",
+      "category": "rust-libs",
+      "tagline": "Lightweight, zero-unsafe JSON parser, serializer, and value representation for JSON-RPC in the oxml ecosystem",
+      "repo": "sebastienrousseau/oxml-json",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/oxml-json"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/oxml-json --web"
+      }
     }
   ]
 }
