@@ -242,6 +242,10 @@
         {
           "type": "crates.io",
           "name": "pain"
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pain"
         }
       ],
       "install": {
@@ -3070,6 +3074,244 @@
       ],
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-json --web"
+      }
+    },
+    {
+      "name": "agtmls-action",
+      "slug": "agtmls-action",
+      "category": "ai",
+      "tagline": "GitHub Action: static security analysis for agent skills. Prompt injection, invisible-character smuggling, capability escalation and unsafe execution, as SARIF.",
+      "repo": "sebastienrousseau/agtmls-action",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/agtmls-action"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/agtmls-action --web"
+      }
+    },
+    {
+      "name": "agtmls-mcp",
+      "slug": "agtmls-mcp",
+      "category": "ai",
+      "tagline": "Model Context Protocol server for the AgtMLS agent skills registry: search, read, audit and verify skills over JSON-RPC.",
+      "repo": "sebastienrousseau/agtmls-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/agtmls-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/agtmls-mcp --web"
+      }
+    },
+    {
+      "name": "akande.github.io",
+      "slug": "akande-github-io",
+      "category": "web",
+      "tagline": "Source code of akande.co. Àkàndé Voice Assistant: A Personal and Executive Assistance.",
+      "repo": "sebastienrousseau/akande.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/akande.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/akande.github.io --web"
+      }
+    },
+    {
+      "name": "alienstudio.github.io",
+      "slug": "alienstudio-github-io",
+      "category": "web",
+      "tagline": "Source code of alienstudio.com. Redefining visual storytelling in the digital age.",
+      "repo": "sebastienrousseau/alienstudio.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/alienstudio.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/alienstudio.github.io --web"
+      }
+    },
+    {
+      "name": "amandakaye.github.io",
+      "slug": "amandakaye-github-io",
+      "category": "web",
+      "tagline": "Latest published GitHub release for amandakaye.github.io.",
+      "repo": "sebastienrousseau/amandakaye.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/amandakaye.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/amandakaye.github.io --web"
+      }
+    },
+    {
+      "name": "camt053-loader-mt942",
+      "slug": "camt053-loader-mt942",
+      "category": "iso20022",
+      "tagline": "Convert legacy SWIFT MT942 interim transaction reports into ISO 20022 camt.052 documents. Companion to the camt053 suite.",
+      "repo": "sebastienrousseau/camt053-loader-mt942",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/camt053-loader-mt942"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/camt053-loader-mt942 --web"
+      }
+    },
+    {
+      "name": "crypto-service.github.io",
+      "slug": "crypto-service-github-io",
+      "category": "web",
+      "tagline": "Official website for Crypto Service Suite — Open-source, self-hosted post-quantum cryptographic infrastructure, sovereign CaaS daemon, multi-cloud KMS interf...",
+      "repo": "sebastienrousseau/crypto-service.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/crypto-service.github.io --web"
+      }
+    },
+    {
+      "name": "GameEngineLib",
+      "slug": "gameenginelib",
+      "category": "apps",
+      "tagline": "A deterministic, renderer-independent game engine written in pure Swift.",
+      "repo": "sebastienrousseau/GameEngineLib",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/GameEngineLib"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/GameEngineLib --web"
+      }
+    },
+    {
+      "name": "jsdev",
+      "slug": "jsdev",
+      "category": "ai",
+      "tagline": "Portable, hardened JavaScript development container with TMUX IDE, MCP AI agent tooling, Node.js 22 LTS, Biome, ESLint, Prettier, mobile WebTTY, and dotfiles...",
+      "repo": "sebastienrousseau/jsdev",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jsdev"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/jsdev --web"
+      }
+    },
+    {
+      "name": "jspassgen",
+      "slug": "jspassgen",
+      "category": "web",
+      "tagline": "Fast, simple, and powerful utility for generating cryptographically secure passwords and passphrases across Node.js, CLI, and Web environments.",
+      "repo": "sebastienrousseau/jspassgen",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/jspassgen --web"
+      }
+    },
+    {
+      "name": "pain001-fast",
+      "slug": "pain001-fast",
+      "category": "iso20022",
+      "tagline": "High-throughput native validation and serialization core for the pain001 ISO 20022 ecosystem.",
+      "repo": "sebastienrousseau/pain001-fast",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pain001-fast"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/pain001-fast --web"
+      }
+    },
+    {
+      "name": "raidhos",
+      "slug": "raidhos",
+      "category": "rust-libs",
+      "tagline": "The USB imager you can audit. Multi-ISO, memory-safe Rust, cosign + SLSA L3 signed releases. Linux / macOS / Windows.",
+      "repo": "sebastienrousseau/raidhos",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/raidhos"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/raidhos --web"
+      }
+    },
+    {
+      "name": "standards",
+      "slug": "standards",
+      "category": "apps",
+      "tagline": "Global code standards, specifications, and repository governance conventions.",
+      "repo": "sebastienrousseau/standards",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/standards"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/standards --web"
+      }
+    },
+    {
+      "name": "tsdev",
+      "slug": "tsdev",
+      "category": "ai",
+      "tagline": "Portable, hardened TypeScript development container with TMUX IDE, MCP AI agent tooling, pnpm, vtsls, Biome, Vitest, mobile WebTTY, and dotfiles bootstrap. 🚀",
+      "repo": "sebastienrousseau/tsdev",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/tsdev"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/tsdev --web"
       }
     }
   ]

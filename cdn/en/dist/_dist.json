@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T06:33:01.811Z",
+  "generated_at": "2026-10-12T06:26:34.013Z",
   "featured": "stratos",
   "categories": [
     {
@@ -103,7 +103,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/cloudcdn.pro",
-          "version": "0.0.4",
+          "version": "0.0.5",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/cloudcdn.pro/releases/latest",
           "error": null
@@ -287,7 +287,7 @@
         {
           "type": "pypi",
           "name": "bankstatementparser",
-          "version": "0.0.20",
+          "version": "0.0.28",
           "ok": true,
           "page": "https://pypi.org/project/bankstatementparser/",
           "error": null
@@ -295,7 +295,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser",
-          "version": "0.0.20",
+          "version": "0.0.28",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser/releases/latest",
           "error": null
@@ -305,7 +305,7 @@
         "pip": "pip install bankstatementparser",
         "pipx": "pipx install bankstatementparser"
       },
-      "primary_version": "0.0.20",
+      "primary_version": "0.0.28",
       "primary_registry": "pypi"
     },
     {
@@ -321,6 +321,14 @@
           "version": "0.0.1",
           "ok": true,
           "page": "https://crates.io/crates/pain",
+          "error": null
+        },
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pain",
+          "version": "0.0.2",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/pain/releases/latest",
           "error": null
         }
       ],
@@ -341,7 +349,7 @@
         {
           "type": "crates.io",
           "name": "kyberlib",
-          "version": "0.0.7",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://crates.io/crates/kyberlib",
           "error": null
@@ -349,7 +357,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/kyberlib",
-          "version": "0.0.7",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/kyberlib/releases/latest",
           "error": null
@@ -358,7 +366,7 @@
       "install": {
         "cargo": "cargo add kyberlib"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.10",
       "primary_registry": "crates.io"
     },
     {
@@ -372,7 +380,7 @@
         {
           "type": "crates.io",
           "name": "kyberlib-wasm",
-          "version": "0.0.7",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://crates.io/crates/kyberlib-wasm",
           "error": null
@@ -380,7 +388,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/kyberlib",
-          "version": "0.0.7",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/kyberlib/releases/latest",
           "error": null
@@ -389,7 +397,7 @@
       "install": {
         "cargo": "cargo add kyberlib-wasm"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.10",
       "primary_registry": "crates.io"
     },
     {
@@ -411,7 +419,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/hsh",
-          "version": "0.0.10",
+          "version": "0.0.12",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/hsh/releases/latest",
           "error": null
@@ -442,7 +450,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/password-generator",
-          "version": "1.1.4",
+          "version": "0.0.19",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/password-generator/releases/latest",
           "error": null
@@ -465,7 +473,7 @@
         {
           "type": "crates.io",
           "name": "ssg",
-          "version": "0.0.66",
+          "version": "0.0.67",
           "ok": true,
           "page": "https://crates.io/crates/ssg",
           "error": null
@@ -473,7 +481,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/static-site-generator",
-          "version": "0.0.66",
+          "version": "0.0.67",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/static-site-generator/releases/latest",
           "error": null
@@ -485,7 +493,7 @@
         "linux": "curl -sL https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.sh | bash",
         "windows": "irm https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.ps1 | iex"
       },
-      "primary_version": "0.0.66",
+      "primary_version": "0.0.67",
       "primary_registry": "crates.io"
     },
     {
@@ -498,7 +506,7 @@
         {
           "type": "crates.io",
           "name": "html-generator",
-          "version": "0.0.11",
+          "version": "0.0.12",
           "ok": true,
           "page": "https://crates.io/crates/html-generator",
           "error": null
@@ -506,7 +514,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/html-generator",
-          "version": "0.0.11",
+          "version": "0.0.13",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/html-generator/releases/latest",
           "error": null
@@ -515,7 +523,7 @@
       "install": {
         "cargo": "cargo add html-generator"
       },
-      "primary_version": "0.0.11",
+      "primary_version": "0.0.12",
       "primary_registry": "crates.io"
     },
     {
@@ -528,7 +536,7 @@
         {
           "type": "crates.io",
           "name": "mdx-gen",
-          "version": "0.0.5",
+          "version": "0.0.6",
           "ok": true,
           "page": "https://crates.io/crates/mdx-gen",
           "error": null
@@ -536,7 +544,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/mdx-gen",
-          "version": "0.0.4",
+          "version": "0.0.6",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/mdx-gen/releases/latest",
           "error": null
@@ -545,7 +553,7 @@
       "install": {
         "cargo": "cargo add mdx-gen"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.6",
       "primary_registry": "crates.io"
     },
     {
@@ -566,7 +574,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/nucleusflow",
-          "version": "0.0.1",
+          "version": "0.0.2",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/nucleusflow/releases/latest",
           "error": null
@@ -588,7 +596,7 @@
         {
           "type": "crates.io",
           "name": "frontmatter-gen",
-          "version": "0.0.11",
+          "version": "0.0.12",
           "ok": true,
           "page": "https://crates.io/crates/frontmatter-gen",
           "error": null
@@ -596,7 +604,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/frontmatter-gen",
-          "version": "0.0.11",
+          "version": "0.0.13",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/frontmatter-gen/releases/latest",
           "error": null
@@ -605,7 +613,7 @@
       "install": {
         "cargo": "cargo add frontmatter-gen"
       },
-      "primary_version": "0.0.11",
+      "primary_version": "0.0.12",
       "primary_registry": "crates.io"
     },
     {
@@ -618,7 +626,7 @@
         {
           "type": "crates.io",
           "name": "metadata-gen",
-          "version": "0.0.7",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://crates.io/crates/metadata-gen",
           "error": null
@@ -626,7 +634,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/metadata-gen",
-          "version": "0.0.7",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/metadata-gen/releases/latest",
           "error": null
@@ -635,7 +643,7 @@
       "install": {
         "cargo": "cargo add metadata-gen"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.8",
       "primary_registry": "crates.io"
     },
     {
@@ -656,7 +664,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/sitemap-gen",
-          "version": "0.0.2",
+          "version": "0.0.6",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/sitemap-gen/releases/latest",
           "error": null
@@ -678,7 +686,7 @@
         {
           "type": "crates.io",
           "name": "staticdatagen",
-          "version": "0.0.21",
+          "version": "0.0.23",
           "ok": true,
           "page": "https://crates.io/crates/staticdatagen",
           "error": null
@@ -686,7 +694,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/staticdatagen",
-          "version": "0.0.19",
+          "version": "0.0.23",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/staticdatagen/releases/latest",
           "error": null
@@ -695,7 +703,7 @@
       "install": {
         "cargo": "cargo add staticdatagen"
       },
-      "primary_version": "0.0.21",
+      "primary_version": "0.0.23",
       "primary_registry": "crates.io"
     },
     {
@@ -708,7 +716,7 @@
         {
           "type": "crates.io",
           "name": "staticweaver",
-          "version": "0.0.5",
+          "version": "0.0.6",
           "ok": true,
           "page": "https://crates.io/crates/staticweaver",
           "error": null
@@ -716,7 +724,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/staticweaver",
-          "version": "0.0.4",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/staticweaver/releases/latest",
           "error": null
@@ -725,7 +733,7 @@
       "install": {
         "cargo": "cargo add staticweaver"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.6",
       "primary_registry": "crates.io"
     },
     {
@@ -739,7 +747,7 @@
         {
           "type": "crates.io",
           "name": "noyalib",
-          "version": "0.0.52",
+          "version": "0.0.57",
           "ok": true,
           "page": "https://crates.io/crates/noyalib",
           "error": null
@@ -747,7 +755,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib",
-          "version": "0.0.52",
+          "version": "0.0.57",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib/releases/latest",
           "error": null
@@ -756,7 +764,7 @@
       "install": {
         "cargo": "cargo add noyalib"
       },
-      "primary_version": "0.0.52",
+      "primary_version": "0.0.57",
       "primary_registry": "crates.io"
     },
     {
@@ -770,7 +778,7 @@
         {
           "type": "crates.io",
           "name": "noya-cli",
-          "version": "0.0.51",
+          "version": "0.0.57",
           "ok": true,
           "page": "https://crates.io/crates/noya-cli",
           "error": null
@@ -778,7 +786,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noya-cli",
-          "version": "0.0.51",
+          "version": "0.0.57",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noya-cli/releases/latest",
           "error": null
@@ -787,7 +795,7 @@
       "install": {
         "cargo install": "cargo install noya-cli"
       },
-      "primary_version": "0.0.51",
+      "primary_version": "0.0.57",
       "primary_registry": "crates.io"
     },
     {
@@ -801,7 +809,7 @@
         {
           "type": "crates.io",
           "name": "noyalib-mcp",
-          "version": "0.0.52",
+          "version": "0.0.57",
           "ok": true,
           "page": "https://crates.io/crates/noyalib-mcp",
           "error": null
@@ -809,7 +817,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-mcp",
-          "version": "0.0.52",
+          "version": "0.0.57",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-mcp/releases/latest",
           "error": null
@@ -818,7 +826,7 @@
       "install": {
         "cargo install": "cargo install noyalib-mcp"
       },
-      "primary_version": "0.0.52",
+      "primary_version": "0.0.57",
       "primary_registry": "crates.io"
     },
     {
@@ -832,7 +840,7 @@
         {
           "type": "crates.io",
           "name": "noyalib-lsp",
-          "version": "0.0.51",
+          "version": "0.0.57",
           "ok": true,
           "page": "https://crates.io/crates/noyalib-lsp",
           "error": null
@@ -840,7 +848,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-lsp",
-          "version": "0.0.51",
+          "version": "0.0.57",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-lsp/releases/latest",
           "error": null
@@ -849,7 +857,7 @@
       "install": {
         "cargo install": "cargo install noyalib-lsp"
       },
-      "primary_version": "0.0.51",
+      "primary_version": "0.0.57",
       "primary_registry": "crates.io"
     },
     {
@@ -863,7 +871,7 @@
         {
           "type": "pypi",
           "name": "akande",
-          "version": "0.0.6",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://pypi.org/project/akande/",
           "error": null
@@ -871,7 +879,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/akande",
-          "version": "0.0.6",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/akande/releases/latest",
           "error": null
@@ -881,7 +889,7 @@
         "pipx": "pipx install akande",
         "pip": "pip install akande"
       },
-      "primary_version": "0.0.6",
+      "primary_version": "0.0.10",
       "primary_registry": "pypi"
     },
     {
@@ -1018,7 +1026,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/dtt",
-          "version": "0.0.10",
+          "version": "0.0.13",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/dtt/releases/latest",
           "error": null
@@ -1048,7 +1056,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/http-handle",
-          "version": "0.0.5",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/http-handle/releases/latest",
           "error": null
@@ -1078,7 +1086,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/langweave",
-          "version": "0.0.2",
+          "version": "0.0.3",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/langweave/releases/latest",
           "error": null
@@ -1108,7 +1116,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/libmake",
-          "version": "0.2.6",
+          "version": "0.2.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/libmake/releases/latest",
           "error": null
@@ -1190,7 +1198,7 @@
         {
           "type": "crates.io",
           "name": "rlg",
-          "version": "0.0.14",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://crates.io/crates/rlg",
           "error": null
@@ -1198,7 +1206,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/rlg",
-          "version": "0.0.14",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/rlg/releases/latest",
           "error": null
@@ -1207,7 +1215,7 @@
       "install": {
         "cargo": "cargo add rlg"
       },
-      "primary_version": "0.0.14",
+      "primary_version": "0.0.15",
       "primary_registry": "crates.io"
     },
     {
@@ -1228,7 +1236,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/vrd",
-          "version": "0.0.12",
+          "version": "0.0.14",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/vrd/releases/latest",
           "error": null
@@ -1259,7 +1267,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/wiserone",
-          "version": "0.0.12",
+          "version": "0.0.13",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/wiserone/releases/latest",
           "error": null
@@ -1289,7 +1297,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/xtasks",
-          "version": "0.0.2",
+          "version": "0.0.3",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/xtasks/releases/latest",
           "error": null
@@ -1352,7 +1360,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/crypto-service",
-          "version": "0.0.19",
+          "version": "0.0.31",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/crypto-service/releases/latest",
           "error": null
@@ -1375,7 +1383,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/dotfiles",
-          "version": "0.2.531",
+          "version": "0.2.532",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/dotfiles/releases/latest",
           "error": null
@@ -1385,7 +1393,7 @@
         "macos": "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash",
         "linux": "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash"
       },
-      "primary_version": "0.2.531",
+      "primary_version": "0.2.532",
       "primary_registry": "github-releases"
     },
     {
@@ -1399,7 +1407,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/agtmls",
-          "version": "0.0.20",
+          "version": "0.0.22",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/agtmls/releases/latest",
           "error": null
@@ -1408,7 +1416,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/agtmls"
       },
-      "primary_version": "0.0.20",
+      "primary_version": "0.0.22",
       "primary_registry": "github-releases"
     },
     {
@@ -1468,7 +1476,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/audioanalyser.github.io",
-          "version": "0.0.6",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/audioanalyser.github.io/releases/latest",
           "error": null
@@ -1477,7 +1485,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/audioanalyser.github.io --web"
       },
-      "primary_version": "0.0.6",
+      "primary_version": "0.0.7",
       "primary_registry": "github-releases"
     },
     {
@@ -1537,7 +1545,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser-loader-bai2",
-          "version": "0.0.19",
+          "version": "0.0.28",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser-loader-bai2/releases/latest",
           "error": null
@@ -1546,7 +1554,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser-loader-bai2"
       },
-      "primary_version": "0.0.19",
+      "primary_version": "0.0.28",
       "primary_registry": "github-releases"
     },
     {
@@ -1606,7 +1614,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser-loader-mt942",
-          "version": "0.0.19",
+          "version": "0.0.28",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser-loader-mt942/releases/latest",
           "error": null
@@ -1615,7 +1623,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser-loader-mt942"
       },
-      "primary_version": "0.0.19",
+      "primary_version": "0.0.28",
       "primary_registry": "github-releases"
     },
     {
@@ -1652,7 +1660,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser-lsp",
-          "version": "0.0.19",
+          "version": "0.0.28",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser-lsp/releases/latest",
           "error": null
@@ -1661,7 +1669,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser-lsp"
       },
-      "primary_version": "0.0.19",
+      "primary_version": "0.0.28",
       "primary_registry": "github-releases"
     },
     {
@@ -1675,7 +1683,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser-mcp",
-          "version": "0.0.21",
+          "version": "0.0.28",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser-mcp/releases/latest",
           "error": null
@@ -1684,7 +1692,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser-mcp"
       },
-      "primary_version": "0.0.21",
+      "primary_version": "0.0.28",
       "primary_registry": "github-releases"
     },
     {
@@ -1790,7 +1798,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser-writer-xlsx",
-          "version": "0.0.19",
+          "version": "0.0.28",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser-writer-xlsx/releases/latest",
           "error": null
@@ -1799,7 +1807,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser-writer-xlsx"
       },
-      "primary_version": "0.0.19",
+      "primary_version": "0.0.28",
       "primary_registry": "github-releases"
     },
     {
@@ -1813,7 +1821,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser.github.io",
-          "version": "0.0.2",
+          "version": "0.0.5",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser.github.io/releases/latest",
           "error": null
@@ -1822,7 +1830,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser.github.io"
       },
-      "primary_version": "0.0.2",
+      "primary_version": "0.0.5",
       "primary_registry": "github-releases"
     },
     {
@@ -2112,7 +2120,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/commons",
-          "version": "0.0.2",
+          "version": "0.0.5",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/commons/releases/latest",
           "error": null
@@ -2121,7 +2129,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/commons --web"
       },
-      "primary_version": "0.0.2",
+      "primary_version": "0.0.5",
       "primary_registry": "github-releases"
     },
     {
@@ -2204,7 +2212,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/corralctl",
-          "version": "0.0.44",
+          "version": "0.0.50",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/corralctl/releases/latest",
           "error": null
@@ -2213,7 +2221,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/corralctl"
       },
-      "primary_version": "0.0.44",
+      "primary_version": "0.0.50",
       "primary_registry": "github-releases"
     },
     {
@@ -2802,7 +2810,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/nalufx",
-          "version": "0.0.1",
+          "version": "0.0.2",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/nalufx/releases/latest",
           "error": null
@@ -2811,7 +2819,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/nalufx --web"
       },
-      "primary_version": "0.0.1",
+      "primary_version": "0.0.2",
       "primary_registry": "github-releases"
     },
     {
@@ -2848,7 +2856,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-serde-yaml",
-          "version": "0.0.51",
+          "version": "0.0.57",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-serde-yaml/releases/latest",
           "error": null
@@ -2857,7 +2865,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/noyalib-serde-yaml"
       },
-      "primary_version": "0.0.51",
+      "primary_version": "0.0.57",
       "primary_registry": "github-releases"
     },
     {
@@ -2871,7 +2879,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-wasm",
-          "version": "0.0.51",
+          "version": "0.0.57",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-wasm/releases/latest",
           "error": null
@@ -2880,7 +2888,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/noyalib-wasm"
       },
-      "primary_version": "0.0.51",
+      "primary_version": "0.0.57",
       "primary_registry": "github-releases"
     },
     {
@@ -2963,7 +2971,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml",
-          "version": "0.0.9",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml/releases/latest",
           "error": null
@@ -2972,7 +2980,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml --web"
       },
-      "primary_version": "0.0.9",
+      "primary_version": "0.0.10",
       "primary_registry": "github-releases"
     },
     {
@@ -2986,7 +2994,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-cli",
-          "version": "0.0.9",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-cli/releases/latest",
           "error": null
@@ -2995,7 +3003,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-cli --web"
       },
-      "primary_version": "0.0.9",
+      "primary_version": "0.0.10",
       "primary_registry": "github-releases"
     },
     {
@@ -3009,7 +3017,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-lsp",
-          "version": "0.0.9",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-lsp/releases/latest",
           "error": null
@@ -3018,7 +3026,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-lsp --web"
       },
-      "primary_version": "0.0.9",
+      "primary_version": "0.0.10",
       "primary_registry": "github-releases"
     },
     {
@@ -3032,7 +3040,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-mcp",
-          "version": "0.0.9",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-mcp/releases/latest",
           "error": null
@@ -3041,7 +3049,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-mcp --web"
       },
-      "primary_version": "0.0.9",
+      "primary_version": "0.0.10",
       "primary_registry": "github-releases"
     },
     {
@@ -3055,7 +3063,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-wasm",
-          "version": "0.0.9",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-wasm/releases/latest",
           "error": null
@@ -3064,7 +3072,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-wasm --web"
       },
-      "primary_version": "0.0.9",
+      "primary_version": "0.0.10",
       "primary_registry": "github-releases"
     },
     {
@@ -3423,7 +3431,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/password-generator-pro",
-          "version": "0.0.7",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/password-generator-pro/releases/latest",
           "error": null
@@ -3432,7 +3440,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/password-generator-pro"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.8",
       "primary_registry": "github-releases"
     },
     {
@@ -3676,7 +3684,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/rousseau-agent",
-          "version": "0.0.11",
+          "version": "0.0.14",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/rousseau-agent/releases/latest",
           "error": null
@@ -3685,7 +3693,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/rousseau-agent"
       },
-      "primary_version": "0.0.11",
+      "primary_version": "0.0.14",
       "primary_registry": "github-releases"
     },
     {
@@ -3699,7 +3707,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/rssgen",
-          "version": "0.0.11",
+          "version": "0.0.12",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/rssgen/releases/latest",
           "error": null
@@ -3708,7 +3716,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/rssgen"
       },
-      "primary_version": "0.0.11",
+      "primary_version": "0.0.12",
       "primary_registry": "github-releases"
     },
     {
@@ -4182,7 +4190,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/xmlschema",
-          "version": "0.0.9",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/xmlschema/releases/latest",
           "error": null
@@ -4191,7 +4199,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/xmlschema --web"
       },
-      "primary_version": "0.0.9",
+      "primary_version": "0.0.10",
       "primary_registry": "github-releases"
     },
     {
@@ -4228,7 +4236,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-json",
-          "version": "0.0.9",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-json/releases/latest",
           "error": null
@@ -4237,7 +4245,329 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-json --web"
       },
-      "primary_version": "0.0.9",
+      "primary_version": "0.0.10",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "agtmls-action",
+      "slug": "agtmls-action",
+      "category": "ai",
+      "tagline": "GitHub Action: static security analysis for agent skills. Prompt injection, invisible-character smuggling, capability escalation and unsafe execution, as SARIF.",
+      "repo": "sebastienrousseau/agtmls-action",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/agtmls-action",
+          "version": "0.0.2",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/agtmls-action/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/agtmls-action --web"
+      },
+      "primary_version": "0.0.2",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "agtmls-mcp",
+      "slug": "agtmls-mcp",
+      "category": "ai",
+      "tagline": "Model Context Protocol server for the AgtMLS agent skills registry: search, read, audit and verify skills over JSON-RPC.",
+      "repo": "sebastienrousseau/agtmls-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/agtmls-mcp",
+          "version": "0.0.2",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/agtmls-mcp/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/agtmls-mcp --web"
+      },
+      "primary_version": "0.0.2",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "akande.github.io",
+      "slug": "akande-github-io",
+      "category": "web",
+      "tagline": "Source code of akande.co. Àkàndé Voice Assistant: A Personal and Executive Assistance.",
+      "repo": "sebastienrousseau/akande.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/akande.github.io",
+          "version": "0.0.1",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/akande.github.io/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/akande.github.io --web"
+      },
+      "primary_version": "0.0.1",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "alienstudio.github.io",
+      "slug": "alienstudio-github-io",
+      "category": "web",
+      "tagline": "Source code of alienstudio.com. Redefining visual storytelling in the digital age.",
+      "repo": "sebastienrousseau/alienstudio.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/alienstudio.github.io",
+          "version": "0.0.1",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/alienstudio.github.io/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/alienstudio.github.io --web"
+      },
+      "primary_version": "0.0.1",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "amandakaye.github.io",
+      "slug": "amandakaye-github-io",
+      "category": "web",
+      "tagline": "Latest published GitHub release for amandakaye.github.io.",
+      "repo": "sebastienrousseau/amandakaye.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/amandakaye.github.io",
+          "version": "0.0.1",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/amandakaye.github.io/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/amandakaye.github.io --web"
+      },
+      "primary_version": "0.0.1",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "camt053-loader-mt942",
+      "slug": "camt053-loader-mt942",
+      "category": "iso20022",
+      "tagline": "Convert legacy SWIFT MT942 interim transaction reports into ISO 20022 camt.052 documents. Companion to the camt053 suite.",
+      "repo": "sebastienrousseau/camt053-loader-mt942",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/camt053-loader-mt942",
+          "version": "0.0.20",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/camt053-loader-mt942/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/camt053-loader-mt942 --web"
+      },
+      "primary_version": "0.0.20",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "crypto-service.github.io",
+      "slug": "crypto-service-github-io",
+      "category": "web",
+      "tagline": "Official website for Crypto Service Suite — Open-source, self-hosted post-quantum cryptographic infrastructure, sovereign CaaS daemon, multi-cloud KMS interf...",
+      "repo": "sebastienrousseau/crypto-service.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service.github.io",
+          "version": "0.0.21",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/crypto-service.github.io/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/crypto-service.github.io --web"
+      },
+      "primary_version": "0.0.21",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "GameEngineLib",
+      "slug": "gameenginelib",
+      "category": "apps",
+      "tagline": "A deterministic, renderer-independent game engine written in pure Swift.",
+      "repo": "sebastienrousseau/GameEngineLib",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/GameEngineLib",
+          "version": "0.4.2",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/GameEngineLib/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/GameEngineLib --web"
+      },
+      "primary_version": "0.4.2",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "jsdev",
+      "slug": "jsdev",
+      "category": "ai",
+      "tagline": "Portable, hardened JavaScript development container with TMUX IDE, MCP AI agent tooling, Node.js 22 LTS, Biome, ESLint, Prettier, mobile WebTTY, and dotfiles...",
+      "repo": "sebastienrousseau/jsdev",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jsdev",
+          "version": "0.0.1",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/jsdev/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/jsdev --web"
+      },
+      "primary_version": "0.0.1",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "jspassgen",
+      "slug": "jspassgen",
+      "category": "web",
+      "tagline": "Fast, simple, and powerful utility for generating cryptographically secure passwords and passphrases across Node.js, CLI, and Web environments.",
+      "repo": "sebastienrousseau/jspassgen",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen",
+          "version": "0.0.19",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/jspassgen/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/jspassgen --web"
+      },
+      "primary_version": "0.0.19",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "pain001-fast",
+      "slug": "pain001-fast",
+      "category": "iso20022",
+      "tagline": "High-throughput native validation and serialization core for the pain001 ISO 20022 ecosystem.",
+      "repo": "sebastienrousseau/pain001-fast",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pain001-fast",
+          "version": "0.0.1",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/pain001-fast/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/pain001-fast --web"
+      },
+      "primary_version": "0.0.1",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "raidhos",
+      "slug": "raidhos",
+      "category": "rust-libs",
+      "tagline": "The USB imager you can audit. Multi-ISO, memory-safe Rust, cosign + SLSA L3 signed releases. Linux / macOS / Windows.",
+      "repo": "sebastienrousseau/raidhos",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/raidhos",
+          "version": "0.0.4",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/raidhos/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/raidhos --web"
+      },
+      "primary_version": "0.0.4",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "standards",
+      "slug": "standards",
+      "category": "apps",
+      "tagline": "Global code standards, specifications, and repository governance conventions.",
+      "repo": "sebastienrousseau/standards",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/standards",
+          "version": "0.0.1",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/standards/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/standards --web"
+      },
+      "primary_version": "0.0.1",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "tsdev",
+      "slug": "tsdev",
+      "category": "ai",
+      "tagline": "Portable, hardened TypeScript development container with TMUX IDE, MCP AI agent tooling, pnpm, vtsls, Biome, Vitest, mobile WebTTY, and dotfiles bootstrap. 🚀",
+      "repo": "sebastienrousseau/tsdev",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/tsdev",
+          "version": "0.0.1",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/tsdev/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/tsdev --web"
+      },
+      "primary_version": "0.0.1",
       "primary_registry": "github-releases"
     }
   ]
