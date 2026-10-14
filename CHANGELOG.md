@@ -22,6 +22,7 @@ into the *sprints* used during development.
   labels, and conference staging across responsive viewport variants.
 - Upgrade development dependencies: @playwright/test to 1.64.0, happy-dom to 20.14.6, and wrangler to 4.149.0.
 - Update GitHub Actions workflow dependencies across CI pipelines.
+- Align repository documentation, OpenAPI specification, and localized homepages across 28 languages with digital asset management (DAM) and autonomous agent positioning.
 
 ## [0.0.5]
 

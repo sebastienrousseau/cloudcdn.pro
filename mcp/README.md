@@ -8,7 +8,7 @@
 
 <p align="center">
   Model Context Protocol server for <a href="https://cloudcdn.pro">CloudCDN</a> —
-  lets AI agents autonomously manage static assets, zones, transforms,
+  lets AI agents autonomously manage digital assets (DAM), zones, transforms,
   analytics, and cache across Cloudflare's global edge network.
 </p>
 
