@@ -10,11 +10,18 @@ into the *sprints* used during development.
 
 ## [Unreleased]
 
+### Security
+
+- Upgrade proxy-addr to 2.0.8 in MCP server to remediate GHSA-jqcg-44mw-7w3h (CVE-2026-90711).
+- Upgrade @modelcontextprotocol/sdk to 1.32.1 and source-map-js to 1.2.2 in MCP server to clear security advisories.
+
 ### Changed
 
 - Reframe and re-crop Economist Enterprise Physical AI Summit 2026 photography
   and technical diagrams for editorial clarity, preserving complete diagrams,
   labels, and conference staging across responsive viewport variants.
+- Upgrade development dependencies: @playwright/test to 1.64.0, happy-dom to 20.14.6, and wrangler to 4.149.0.
+- Update GitHub Actions workflow dependencies across CI pipelines.
 
 ## [0.0.5]
 
