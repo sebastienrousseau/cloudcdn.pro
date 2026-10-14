@@ -10,6 +10,12 @@ into the *sprints* used during development.
 
 ## [Unreleased]
 
+### Changed
+
+- Reframe and re-crop Economist Enterprise Physical AI Summit 2026 photography
+  and technical diagrams for editorial clarity, preserving complete diagrams,
+  labels, and conference staging across responsive viewport variants.
+
 ## [0.0.5]
 
 ### Added
