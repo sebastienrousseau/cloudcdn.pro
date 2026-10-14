@@ -1,7 +1,7 @@
 {
   "name": "@cloudcdn/mcp-server",
   "version": "0.1.0",
-  "description": "MCP server for CloudCDN \u2014 lets AI agents manage static assets, zones, transforms, and analytics.",
+  "description": "MCP server for CloudCDN \u2014 lets AI agents autonomously manage digital assets, zones, image transforms, cache, and edge analytics.",
   "type": "module",
   "main": "./index.js",
   "exports": {

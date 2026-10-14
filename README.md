@@ -5,7 +5,7 @@
 <h1 align="center">CloudCDN</h1>
 
 <p align="center">
-  <strong>A multi-tenant, AI-native CDN you can read end-to-end and deploy yourself. Agent-controllable over MCP, keyboard-accessible, light/dark themed, and covered by automated tests.</strong>
+  <strong>A self-hosted, multi-tenant CDN and digital asset management (DAM) platform built on Cloudflare Workers and Pages. Agent-controllable over MCP, keyboard-accessible, light/dark themed, and covered by automated tests.</strong>
 </p>
 
 <p align="center">
@@ -29,6 +29,7 @@ no SaaS dependency, and is available under your choice of Apache-2.0 or MIT.
 | What you usually get | What CloudCDN ships |
 | :--- | :--- |
 | A single zone serving a single site | **Multi-tenant** — isolated tenant zones, per-tenant Cache-Tags, per-asset analytics |
+| Basic file storage | **Digital asset management (DAM)** — versioned directory structures, auto-generated TypeScript manifests, and global stock libraries |
 | Image resizing | Resize **plus** AI alt-text, smart-crop (subject-aware gravity), background-remove, content moderation |
 | A purge button | URL purge, tag purge, full purge — plus 90-day audit records for control-plane mutations |
 | Search-by-filename | **Semantic search** (Vectorize) with day-bucketed edge cache and fuzzy fallback when AI quota is dry |
@@ -39,7 +40,7 @@ no SaaS dependency, and is available under your choice of Apache-2.0 or MIT.
 
 ## Overview
 
-CloudCDN is a multi-tenant CDN platform built entirely on Cloudflare Workers, Pages, KV, Vectorize, and Workers AI. A single SVG upload scaffolds a complete project directory, and static assets are cached at the edge.
+CloudCDN is a self-hosted, multi-tenant CDN and digital asset management (DAM) platform built entirely on Cloudflare Workers, Pages, KV, Vectorize, and Workers AI. A single SVG upload scaffolds a complete project directory, and static assets are cached at the edge.
 
 - **Tenant-isolated zones** with versioned directory structures and shared asset libraries
 - **Generated asset manifest** with matching TypeScript path definitions
