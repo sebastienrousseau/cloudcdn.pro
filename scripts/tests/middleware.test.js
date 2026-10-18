@@ -949,3 +949,89 @@ describe('Middleware: onRequest', () => {
     });
   });
 });
+
+// The Pages project's default address (cloudcdn-pro.pages.dev) serves the
+// same deployment as cloudcdn.pro. The middleware folds that one host onto
+// the canonical origin; per-deployment preview hosts and customer custom
+// domains (which CNAME to cloudcdn-pro.pages.dev but keep their own Host)
+// must pass through untouched.
+describe('Middleware: canonical host redirect', () => {
+  function makeHostContext(url, method = 'GET') {
+    return {
+      request: new Request(url, { method, body: method === 'POST' ? '{}' : undefined }),
+      env: {
+        ASSETS: { fetch: vi.fn().mockResolvedValue(new Response('asset', { status: 200 })) },
+      },
+      next: vi.fn().mockResolvedValue(new Response('ok', { status: 200 })),
+      waitUntil: vi.fn(),
+    };
+  }
+
+  it('301s the pages.dev host to cloudcdn.pro, keeping path and query', async () => {
+    const ctx = makeHostContext('https://cloudcdn-pro.pages.dev/stocks/images/a.webp?w=640&fmt=avif');
+    const res = await onRequest(ctx);
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe('https://cloudcdn.pro/stocks/images/a.webp?w=640&fmt=avif');
+    expect(ctx.next).not.toHaveBeenCalled();
+    expect(ctx.env.ASSETS.fetch).not.toHaveBeenCalled();
+  });
+
+  it('301s the bare pages.dev root to the canonical root', async () => {
+    const res = await onRequest(makeHostContext('https://cloudcdn-pro.pages.dev/'));
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe('https://cloudcdn.pro/');
+  });
+
+  it('redirects /api/* on the pages.dev host before the API fast exit', async () => {
+    const ctx = makeHostContext('https://cloudcdn-pro.pages.dev/api/health?deep=1');
+    const res = await onRequest(ctx);
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe('https://cloudcdn.pro/api/health?deep=1');
+    expect(ctx.next).not.toHaveBeenCalled();
+  });
+
+  it('uses 301 for HEAD', async () => {
+    const res = await onRequest(makeHostContext('https://cloudcdn-pro.pages.dev/en/', 'HEAD'));
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe('https://cloudcdn.pro/en/');
+  });
+
+  it('uses 308 for POST so the method and body survive the redirect', async () => {
+    const ctx = makeHostContext('https://cloudcdn-pro.pages.dev/api/storage/upload?zone=x', 'POST');
+    const res = await onRequest(ctx);
+    expect(res.status).toBe(308);
+    expect(res.headers.get('Location')).toBe('https://cloudcdn.pro/api/storage/upload?zone=x');
+    expect(ctx.next).not.toHaveBeenCalled();
+  });
+
+  it('does not redirect the canonical host', async () => {
+    const ctx = makeHostContext('https://cloudcdn.pro/api/health');
+    const res = await onRequest(ctx);
+    expect(res.status).toBe(200);
+    expect(res.headers.get('Location')).toBeNull();
+    expect(ctx.next).toHaveBeenCalled();
+  });
+
+  it('does not redirect a per-deployment preview host', async () => {
+    const ctx = makeHostContext('https://5d0a373f.cloudcdn-pro.pages.dev/api/health');
+    const res = await onRequest(ctx);
+    expect(res.status).toBe(200);
+    expect(res.headers.get('Location')).toBeNull();
+    expect(ctx.next).toHaveBeenCalled();
+  });
+
+  it('does not redirect a customer custom domain', async () => {
+    const ctx = makeHostContext('https://cdn.example.com/acme/v1/logo.svg?v=3');
+    const res = await onRequest(ctx);
+    expect(res.status).toBe(200);
+    expect(res.headers.get('Location')).toBeNull();
+    expect(ctx.env.ASSETS.fetch.mock.calls[0][0].url).toBe('https://cdn.example.com/clients/acme/v1/logo.svg?v=3');
+  });
+
+  it('does not redirect a host that only contains the pages.dev name', async () => {
+    const ctx = makeHostContext('https://cloudcdn-pro.pages.dev.example.com/api/health');
+    const res = await onRequest(ctx);
+    expect(res.status).toBe(200);
+    expect(ctx.next).toHaveBeenCalled();
+  });
+});

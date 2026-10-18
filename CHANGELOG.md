@@ -12,6 +12,12 @@ into the *sprints* used during development.
 
 ### Security
 
+- Redirect the Pages default host `cloudcdn-pro.pages.dev` to
+  `https://cloudcdn.pro`, keeping the path and query string, so it no
+  longer serves a public duplicate of the site and live API. GET and HEAD
+  get a 301; other methods get a 308 so API writes keep their method and
+  body. Per-deployment hosts (`<hash>.cloudcdn-pro.pages.dev`) and
+  customer custom domains are not redirected.
 - Upgrade proxy-addr to 2.0.8 in MCP server to remediate GHSA-jqcg-44mw-7w3h (CVE-2026-90711).
 - Upgrade @modelcontextprotocol/sdk to 1.32.1 and source-map-js to 1.2.2 in MCP server to clear security advisories.
 

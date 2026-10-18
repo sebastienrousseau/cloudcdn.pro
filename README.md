@@ -127,7 +127,7 @@ Leaked physical paths (`/cdn/<locale>/...`, including old bookmarks and preview-
 | **Light + Dark Theme** | Site-wide `[data-theme]` system on every public page, locale page, dashboard view, login page, and the API explorer. Pre-paint synchronous boot prevents FOUC; toggle persists in `localStorage`; respects `prefers-color-scheme` on first visit. Powered by [Skeletonic Stylus](https://github.com/sebastienrousseau/skeletonic-stylus) + a thin theme.css layer. |
 | **Accessibility** | The homepage and dashboard have blocking axe-core checks for serious and critical violations. The interface includes keyboard navigation, `:focus-visible` rings, reduced-motion handling, and skip links. |
 | **OpenAPI explorer** | `/api-reference` ships the [Scalar](https://scalar.com) interactive console with Try-It requests, four pre-built client libraries (JS / TS / Python / cURL), and an `OpenAPI 3.1` spec download. The widget's `darkMode` is bridged to the site-wide theme toggle. |
-| **Edge canonicalisation** | `/cdn/<locale>/...` paths (deploy-internal) 301 to the clean URL with `Cache-Control: no-store`. Same fix for `/api-reference` (no slash) and the homepage `/`. Stops Pages' `index.html` → directory 308 from looping with the canonicalisation rule. |
+| **Edge canonicalisation** | `/cdn/<locale>/...` paths (deploy-internal) 301 to the clean URL with `Cache-Control: no-store`. Same fix for `/api-reference` (no slash) and the homepage `/`. Stops Pages' `index.html` → directory 308 from looping with the canonicalisation rule. The Pages default host `cloudcdn-pro.pages.dev` redirects to `https://cloudcdn.pro` (301 for GET/HEAD, 308 otherwise); preview hosts and custom domains are untouched. |
 
 ## API
 

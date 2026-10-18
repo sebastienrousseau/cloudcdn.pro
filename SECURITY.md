@@ -38,7 +38,7 @@ We will credit reporters in the release notes for the fix unless you ask us not 
 In scope:
 
 - The CloudCDN API and its endpoints (`/api/*`)
-- The asset delivery surface served from `cloudcdn.pro` and configured custom domains
+- The asset delivery surface served from `cloudcdn.pro` and configured custom domains (the Pages default host `cloudcdn-pro.pages.dev` redirects to `cloudcdn.pro`; see [Canonical host](#canonical-host))
 - The MCP server (`@cloudcdn/mcp-server`) published to npm
 - The asset dashboard (`/dashboard/*`) and supporting client libraries
 - The CI/CD pipeline and its supply chain (signed commits, SLSA provenance)
@@ -152,6 +152,18 @@ Three CSP profiles by route:
 ### Cache hardening
 
 `/cdn/<locale>/...` canonicalisation 301s ship with `Cache-Control: no-store`. The redirect is logically permanent, but during rollouts the target has churned (308 loops, strict-CSP HTML, no-slash forms), so we keep the redirect itself out of browser caches. This stops a future rule iteration from poisoning cached 301s and trapping returning users in a loop.
+
+### Canonical host
+
+`https://cloudcdn.pro` is the only public origin for the site and the API. The Pages project's default address, `cloudcdn-pro.pages.dev`, serves the same deployment, so the edge middleware (`functions/_middleware.js`) redirects any request whose host is exactly `cloudcdn-pro.pages.dev` to `https://cloudcdn.pro` with the same path and query string, before any routing or `/api/*` handling:
+
+- GET and HEAD: `301 Moved Permanently`.
+- Every other method: `308 Permanent Redirect`, which keeps the method and body. Most HTTP clients drop the `Authorization` header when a redirect changes host, so API callers should use `https://cloudcdn.pro` directly rather than rely on the redirect.
+
+Not redirected:
+
+- Per-deployment hosts (`<hash>.cloudcdn-pro.pages.dev`). These are protected separately with Cloudflare Access.
+- Customer custom domains. They CNAME to `cloudcdn-pro.pages.dev` but arrive with their own `Host`, so they never match.
 
 ### What's intentionally not done
 
