@@ -11,6 +11,16 @@
 import { trackRequest } from "./api/analytics.js";
 import { createTrace, recordMetric } from "./api/_shared.js";
 
+// ── Canonical host ──
+// The Pages project's default address serves the same deployment as the
+// canonical origin, so it is a full public duplicate (pages and live API).
+// Requests whose host is exactly PAGES_DEV_HOST are redirected to
+// CANONICAL_ORIGIN. Per-deployment hosts (<hash>.cloudcdn-pro.pages.dev)
+// and customer custom domains (which CNAME to cloudcdn-pro.pages.dev but
+// arrive with their own Host) never match and pass through.
+const CANONICAL_ORIGIN = "https://cloudcdn.pro";
+const PAGES_DEV_HOST = "cloudcdn-pro.pages.dev";
+
 // Pre-compiled extension check — faster than regex for hot path
 const ASSET_EXT = new Set(["webp", "avif", "jxl", "png", "svg", "ico", "mp4"]);
 
@@ -244,7 +254,34 @@ function applyResponseEnvelope(response, trace) {
   });
 }
 
+/**
+ * Redirect the Pages default host to the canonical origin, keeping the
+ * path and query string. Returns null for every other host.
+ *
+ * GET and HEAD get a 301 so crawlers consolidate on the canonical URL.
+ * Every other method gets a 308: a 301 lets clients rewrite POST to GET
+ * and drop the body, which would silently break API writes; 308 keeps
+ * the method and body. Host comparison is on the parsed request URL,
+ * which Workers hands over lowercased and without a default port.
+ */
+function canonicalHostRedirect(request) {
+  const rawUrl = request.url;
+  const hostStart = rawUrl.indexOf("//") + 2;
+  const pathStart = rawUrl.indexOf("/", hostStart);
+  if (rawUrl.slice(hostStart, pathStart) !== PAGES_DEV_HOST) return null;
+  const method = request.method;
+  return new Response(null, {
+    status: method === "GET" || method === "HEAD" ? 301 : 308,
+    headers: { Location: CANONICAL_ORIGIN + rawUrl.slice(pathStart) },
+  });
+}
+
 export async function onRequest(context) {
+  // Runs before anything else, including the /api/* fast exit, so the
+  // duplicate host never serves content or reaches a handler.
+  const redirect = canonicalHostRedirect(context.request);
+  if (redirect) return redirect;
+
   // Mint a trace at request entry. Downstream handlers can pick it up via
   // context.data.trace (Cloudflare passes context.data between handlers)
   // or read traceparent off the request headers; existing handlers keep

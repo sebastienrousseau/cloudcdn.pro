@@ -2,7 +2,10 @@
 
 CloudCDN measures organic discovery in Google Search Console and Bing
 Webmaster Tools. The canonical property is `https://cloudcdn.pro/`, and the
-submitted sitemap is `https://cloudcdn.pro/sitemap.xml`.
+submitted sitemap is `https://cloudcdn.pro/sitemap.xml`. The Pages default
+host `cloudcdn-pro.pages.dev` 301-redirects to `https://cloudcdn.pro` with the
+same path and query, so search engines consolidate on the canonical property
+instead of indexing a duplicate.
 
 ## Registration
 
