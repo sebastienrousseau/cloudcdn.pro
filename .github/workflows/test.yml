@@ -36,7 +36,7 @@ permissions:
 
 jobs:
   ci:
-    uses: sebastienrousseau/pipelines/.github/workflows/node-ci.yml@7061363af0a1da9d60c5901bd2874ac83ff7e34e # main 2026-10-01
+    uses: sebastienrousseau/pipelines/.github/workflows/node-ci.yml@980375f1d96368885ff65cc4c7f1ff355a5a4095 # main 2026-10-01
     with:
       node-version: '20'
       package-manager: 'npm'
@@ -48,7 +48,7 @@ jobs:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   security:
-    uses: sebastienrousseau/pipelines/.github/workflows/security.yml@7061363af0a1da9d60c5901bd2874ac83ff7e34e # main 2026-10-01
+    uses: sebastienrousseau/pipelines/.github/workflows/security.yml@980375f1d96368885ff65cc4c7f1ff355a5a4095 # main 2026-10-01
     with:
       language: node
       severity-threshold: high
@@ -76,7 +76,7 @@ jobs:
           show-progress: false
 
       - name: Initialize CodeQL (actions)
-        uses: github/codeql-action/init@24c54180a607b1449ed407dd24f251e4e9147c8d # v4.38.3
+        uses: github/codeql-action/init@6f2ac81f5cd81fe351a197ba0b00d91d03cd2aee # v4.39.0
         with:
           languages: actions
           # security-extended adds the GitHub Actions query pack for known
@@ -84,7 +84,7 @@ jobs:
           queries: security-extended
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@24c54180a607b1449ed407dd24f251e4e9147c8d # v4.38.3
+        uses: github/codeql-action/analyze@6f2ac81f5cd81fe351a197ba0b00d91d03cd2aee # v4.39.0
         with:
           category: '/language:actions'
 
