@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T06:26:34.013Z",
+  "generated_at": "2026-10-19T06:45:03.874Z",
   "featured": "stratos",
   "categories": [
     {
@@ -473,7 +473,7 @@
         {
           "type": "crates.io",
           "name": "ssg",
-          "version": "0.0.67",
+          "version": "0.0.68",
           "ok": true,
           "page": "https://crates.io/crates/ssg",
           "error": null
@@ -481,7 +481,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/static-site-generator",
-          "version": "0.0.67",
+          "version": "0.0.68",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/static-site-generator/releases/latest",
           "error": null
@@ -493,7 +493,7 @@
         "linux": "curl -sL https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.sh | bash",
         "windows": "irm https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.ps1 | iex"
       },
-      "primary_version": "0.0.67",
+      "primary_version": "0.0.68",
       "primary_registry": "crates.io"
     },
     {
@@ -686,7 +686,7 @@
         {
           "type": "crates.io",
           "name": "staticdatagen",
-          "version": "0.0.23",
+          "version": "0.0.25",
           "ok": true,
           "page": "https://crates.io/crates/staticdatagen",
           "error": null
@@ -694,7 +694,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/staticdatagen",
-          "version": "0.0.23",
+          "version": "0.0.25",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/staticdatagen/releases/latest",
           "error": null
@@ -703,7 +703,7 @@
       "install": {
         "cargo": "cargo add staticdatagen"
       },
-      "primary_version": "0.0.23",
+      "primary_version": "0.0.25",
       "primary_registry": "crates.io"
     },
     {
@@ -747,7 +747,7 @@
         {
           "type": "crates.io",
           "name": "noyalib",
-          "version": "0.0.57",
+          "version": "0.0.58",
           "ok": true,
           "page": "https://crates.io/crates/noyalib",
           "error": null
@@ -755,7 +755,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib",
-          "version": "0.0.57",
+          "version": "0.0.58",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib/releases/latest",
           "error": null
@@ -764,7 +764,7 @@
       "install": {
         "cargo": "cargo add noyalib"
       },
-      "primary_version": "0.0.57",
+      "primary_version": "0.0.58",
       "primary_registry": "crates.io"
     },
     {
@@ -778,7 +778,7 @@
         {
           "type": "crates.io",
           "name": "noya-cli",
-          "version": "0.0.57",
+          "version": "0.0.58",
           "ok": true,
           "page": "https://crates.io/crates/noya-cli",
           "error": null
@@ -786,7 +786,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noya-cli",
-          "version": "0.0.57",
+          "version": "0.0.58",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noya-cli/releases/latest",
           "error": null
@@ -795,7 +795,7 @@
       "install": {
         "cargo install": "cargo install noya-cli"
       },
-      "primary_version": "0.0.57",
+      "primary_version": "0.0.58",
       "primary_registry": "crates.io"
     },
     {
@@ -809,7 +809,7 @@
         {
           "type": "crates.io",
           "name": "noyalib-mcp",
-          "version": "0.0.57",
+          "version": "0.0.58",
           "ok": true,
           "page": "https://crates.io/crates/noyalib-mcp",
           "error": null
@@ -817,7 +817,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-mcp",
-          "version": "0.0.57",
+          "version": "0.0.58",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-mcp/releases/latest",
           "error": null
@@ -826,7 +826,7 @@
       "install": {
         "cargo install": "cargo install noyalib-mcp"
       },
-      "primary_version": "0.0.57",
+      "primary_version": "0.0.58",
       "primary_registry": "crates.io"
     },
     {
@@ -840,7 +840,7 @@
         {
           "type": "crates.io",
           "name": "noyalib-lsp",
-          "version": "0.0.57",
+          "version": "0.0.58",
           "ok": true,
           "page": "https://crates.io/crates/noyalib-lsp",
           "error": null
@@ -848,7 +848,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-lsp",
-          "version": "0.0.57",
+          "version": "0.0.58",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-lsp/releases/latest",
           "error": null
@@ -857,7 +857,7 @@
       "install": {
         "cargo install": "cargo install noyalib-lsp"
       },
-      "primary_version": "0.0.57",
+      "primary_version": "0.0.58",
       "primary_registry": "crates.io"
     },
     {
@@ -1360,7 +1360,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/crypto-service",
-          "version": "0.0.31",
+          "version": "0.0.32",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/crypto-service/releases/latest",
           "error": null
@@ -1383,7 +1383,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/dotfiles",
-          "version": "0.2.532",
+          "version": "0.2.536",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/dotfiles/releases/latest",
           "error": null
@@ -1393,7 +1393,7 @@
         "macos": "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash",
         "linux": "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash"
       },
-      "primary_version": "0.2.532",
+      "primary_version": "0.2.536",
       "primary_registry": "github-releases"
     },
     {
@@ -1407,7 +1407,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/agtmls",
-          "version": "0.0.22",
+          "version": "0.0.26",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/agtmls/releases/latest",
           "error": null
@@ -1416,7 +1416,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/agtmls"
       },
-      "primary_version": "0.0.22",
+      "primary_version": "0.0.26",
       "primary_registry": "github-releases"
     },
     {
@@ -1453,7 +1453,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/askiso",
-          "version": "0.0.3",
+          "version": "0.0.4",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/askiso/releases/latest",
           "error": null
@@ -1462,7 +1462,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/askiso"
       },
-      "primary_version": "0.0.3",
+      "primary_version": "0.0.4",
       "primary_registry": "github-releases"
     },
     {
@@ -1499,7 +1499,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/AudioWaveLib",
-          "version": "0.0.1",
+          "version": "0.0.3",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/AudioWaveLib/releases/latest",
           "error": null
@@ -1508,7 +1508,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/AudioWaveLib --web"
       },
-      "primary_version": "0.0.1",
+      "primary_version": "0.0.3",
       "primary_registry": "github-releases"
     },
     {
@@ -2189,7 +2189,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/corral-sync",
-          "version": "0.0.4",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/corral-sync/releases/latest",
           "error": null
@@ -2198,7 +2198,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/corral-sync"
       },
-      "primary_version": "0.0.4",
+      "primary_version": "0.0.7",
       "primary_registry": "github-releases"
     },
     {
@@ -2212,7 +2212,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/corralctl",
-          "version": "0.0.50",
+          "version": "0.0.52",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/corralctl/releases/latest",
           "error": null
@@ -2221,7 +2221,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/corralctl"
       },
-      "primary_version": "0.0.50",
+      "primary_version": "0.0.52",
       "primary_registry": "github-releases"
     },
     {
@@ -2373,7 +2373,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/draft",
-          "version": "0.0.35",
+          "version": "0.0.39",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/draft/releases/latest",
           "error": null
@@ -2382,7 +2382,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/draft"
       },
-      "primary_version": "0.0.35",
+      "primary_version": "0.0.39",
       "primary_registry": "github-releases"
     },
     {
@@ -2856,7 +2856,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-serde-yaml",
-          "version": "0.0.57",
+          "version": "0.0.58",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-serde-yaml/releases/latest",
           "error": null
@@ -2865,7 +2865,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/noyalib-serde-yaml"
       },
-      "primary_version": "0.0.57",
+      "primary_version": "0.0.58",
       "primary_registry": "github-releases"
     },
     {
@@ -2879,7 +2879,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-wasm",
-          "version": "0.0.57",
+          "version": "0.0.58",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-wasm/releases/latest",
           "error": null
@@ -2888,7 +2888,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/noyalib-wasm"
       },
-      "primary_version": "0.0.57",
+      "primary_version": "0.0.58",
       "primary_registry": "github-releases"
     },
     {
@@ -2971,7 +2971,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml/releases/latest",
           "error": null
@@ -2980,7 +2980,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml --web"
       },
-      "primary_version": "0.0.10",
+      "primary_version": "0.0.11",
       "primary_registry": "github-releases"
     },
     {
@@ -2994,7 +2994,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-cli",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-cli/releases/latest",
           "error": null
@@ -3003,7 +3003,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-cli --web"
       },
-      "primary_version": "0.0.10",
+      "primary_version": "0.0.11",
       "primary_registry": "github-releases"
     },
     {
@@ -3017,7 +3017,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-lsp",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-lsp/releases/latest",
           "error": null
@@ -3026,7 +3026,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-lsp --web"
       },
-      "primary_version": "0.0.10",
+      "primary_version": "0.0.11",
       "primary_registry": "github-releases"
     },
     {
@@ -3040,7 +3040,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-mcp",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-mcp/releases/latest",
           "error": null
@@ -3049,7 +3049,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-mcp --web"
       },
-      "primary_version": "0.0.10",
+      "primary_version": "0.0.11",
       "primary_registry": "github-releases"
     },
     {
@@ -3063,7 +3063,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-wasm",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-wasm/releases/latest",
           "error": null
@@ -3072,7 +3072,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-wasm --web"
       },
-      "primary_version": "0.0.10",
+      "primary_version": "0.0.11",
       "primary_registry": "github-releases"
     },
     {
@@ -3247,7 +3247,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/passmcp",
-          "version": "0.0.5",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/passmcp/releases/latest",
           "error": null
@@ -3256,7 +3256,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/passmcp"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.8",
       "primary_registry": "github-releases"
     },
     {
@@ -3270,7 +3270,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/passmcp-action",
-          "version": "0.0.4",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/passmcp-action/releases/latest",
           "error": null
@@ -3279,7 +3279,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/passmcp-action --web"
       },
-      "primary_version": "0.0.4",
+      "primary_version": "0.0.8",
       "primary_registry": "github-releases"
     },
     {
@@ -3293,7 +3293,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/passmcp-census",
-          "version": "0.0.4",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/passmcp-census/releases/latest",
           "error": null
@@ -3302,7 +3302,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/passmcp-census --web"
       },
-      "primary_version": "0.0.4",
+      "primary_version": "0.0.7",
       "primary_registry": "github-releases"
     },
     {
@@ -3316,7 +3316,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/passmcp-graph",
-          "version": "0.0.4",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/passmcp-graph/releases/latest",
           "error": null
@@ -3325,7 +3325,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/passmcp-graph"
       },
-      "primary_version": "0.0.4",
+      "primary_version": "0.0.8",
       "primary_registry": "github-releases"
     },
     {
@@ -3339,7 +3339,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/passmcp-lsp",
-          "version": "0.0.4",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/passmcp-lsp/releases/latest",
           "error": null
@@ -3348,7 +3348,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/passmcp-lsp"
       },
-      "primary_version": "0.0.4",
+      "primary_version": "0.0.8",
       "primary_registry": "github-releases"
     },
     {
@@ -3362,7 +3362,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/passmcp-registry",
-          "version": "0.0.4",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/passmcp-registry/releases/latest",
           "error": null
@@ -3371,7 +3371,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/passmcp-registry --web"
       },
-      "primary_version": "0.0.4",
+      "primary_version": "0.0.7",
       "primary_registry": "github-releases"
     },
     {
@@ -3385,7 +3385,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/passmcp-reporting",
-          "version": "0.0.5",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/passmcp-reporting/releases/latest",
           "error": null
@@ -3394,7 +3394,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/passmcp-reporting --web"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.8",
       "primary_registry": "github-releases"
     },
     {
@@ -3408,7 +3408,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/passmcp-server",
-          "version": "0.0.5",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/passmcp-server/releases/latest",
           "error": null
@@ -3417,7 +3417,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/passmcp-server"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.8",
       "primary_registry": "github-releases"
     },
     {
@@ -3523,7 +3523,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pm2md",
-          "version": "0.0.2",
+          "version": "0.0.3",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pm2md/releases/latest",
           "error": null
@@ -3532,7 +3532,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/pm2md --web"
       },
-      "primary_version": "0.0.2",
+      "primary_version": "0.0.3",
       "primary_registry": "github-releases"
     },
     {
@@ -3684,7 +3684,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/rousseau-agent",
-          "version": "0.0.14",
+          "version": "0.0.16",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/rousseau-agent/releases/latest",
           "error": null
@@ -3693,7 +3693,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/rousseau-agent"
       },
-      "primary_version": "0.0.14",
+      "primary_version": "0.0.16",
       "primary_registry": "github-releases"
     },
     {
@@ -3776,7 +3776,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/satellion.github.io",
-          "version": "0.0.4",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/satellion.github.io/releases/latest",
           "error": null
@@ -3785,7 +3785,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/satellion.github.io --web"
       },
-      "primary_version": "0.0.4",
+      "primary_version": "0.0.7",
       "primary_registry": "github-releases"
     },
     {
@@ -3799,7 +3799,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/sebastienrousseau.github.io",
-          "version": "1.2.0",
+          "version": "0.0.21",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/sebastienrousseau.github.io/releases/latest",
           "error": null
@@ -3808,7 +3808,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/sebastienrousseau.github.io --web"
       },
-      "primary_version": "1.2.0",
+      "primary_version": "0.0.21",
       "primary_registry": "github-releases"
     },
     {
@@ -4190,7 +4190,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/xmlschema",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/xmlschema/releases/latest",
           "error": null
@@ -4199,7 +4199,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/xmlschema --web"
       },
-      "primary_version": "0.0.10",
+      "primary_version": "0.0.11",
       "primary_registry": "github-releases"
     },
     {
@@ -4236,7 +4236,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-json",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-json/releases/latest",
           "error": null
@@ -4245,7 +4245,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-json --web"
       },
-      "primary_version": "0.0.10",
+      "primary_version": "0.0.11",
       "primary_registry": "github-releases"
     },
     {
@@ -4420,7 +4420,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/GameEngineLib",
-          "version": "0.4.2",
+          "version": "0.4.4",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/GameEngineLib/releases/latest",
           "error": null
@@ -4429,7 +4429,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/GameEngineLib --web"
       },
-      "primary_version": "0.4.2",
+      "primary_version": "0.4.4",
       "primary_registry": "github-releases"
     },
     {
@@ -4568,6 +4568,29 @@
         "github": "gh release view --repo sebastienrousseau/tsdev --web"
       },
       "primary_version": "0.0.1",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "PumkinRaidApp",
+      "slug": "pumkinraidapp",
+      "category": "apps",
+      "tagline": "A cross-platform arcade game for iOS, iPadOS, tvOS, macOS and Web, built in Swift.",
+      "repo": "sebastienrousseau/PumkinRaidApp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/PumkinRaidApp",
+          "version": "0.0.2",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/PumkinRaidApp/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/PumkinRaidApp --web"
+      },
+      "primary_version": "0.0.2",
       "primary_registry": "github-releases"
     }
   ]

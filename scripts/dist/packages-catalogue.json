@@ -3313,6 +3313,23 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/tsdev --web"
       }
+    },
+    {
+      "name": "PumkinRaidApp",
+      "slug": "pumkinraidapp",
+      "category": "apps",
+      "tagline": "A cross-platform arcade game for iOS, iPadOS, tvOS, macOS and Web, built in Swift.",
+      "repo": "sebastienrousseau/PumkinRaidApp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/PumkinRaidApp"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/PumkinRaidApp --web"
+      }
     }
   ]
 }
