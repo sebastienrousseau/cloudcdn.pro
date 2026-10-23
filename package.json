@@ -40,7 +40,7 @@
     "happy-dom": "20.14.6",
     "husky": "9.1.7",
     "tailwindcss": "4.3.3",
-    "vitest": "5.0.3",
+    "vitest": "5.0.5",
     "wrangler": "4.151.0"
   },
   "dependencies": {
@@ -51,7 +51,7 @@
     "nanoid@^3.3.0": "file:vendor/nanoid-3.3.18.tgz",
     "sharp": "0.35.5",
     "source-map-js": "1.2.2",
-    "vite": "8.0.16"
+    "vite": ">=8.1.6 <9.0.0"
   },
   "license": "Apache-2.0 OR MIT"
 }
