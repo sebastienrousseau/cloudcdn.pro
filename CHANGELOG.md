@@ -20,13 +20,30 @@ into the *sprints* used during development.
   customer custom domains are not redirected.
 - Upgrade proxy-addr to 2.0.8 in MCP server to remediate GHSA-jqcg-44mw-7w3h (CVE-2026-90711).
 - Upgrade @modelcontextprotocol/sdk to 1.32.1 and source-map-js to 1.2.2 in MCP server to clear security advisories.
+- Hold vite at 8.1.6 or later in the site and the MCP server (8.3.5 now
+  resolves), hono at 4.13.11 or later in the MCP server (4.13.13), and
+  ip-address at 10.7.4 or later in the MCP server, so no version affected
+  by their advisories can install. The MCP server's vitest moves to 4.1.12
+  for GHSA-qxg6-89mg-rqv8 and GHSA-xp26-3454-mjgp.
 
 ### Changed
 
 - Reframe and re-crop Economist Enterprise Physical AI Summit 2026 photography
   and technical diagrams for editorial clarity, preserving complete diagrams,
   labels, and conference staging across responsive viewport variants.
-- Upgrade development dependencies: @playwright/test to 1.64.0, happy-dom to 20.14.6, and wrangler to 4.149.0.
+- The MCP server is published as `@sebastienrousseau/cloudcdn-mcp` from
+  0.1.1, so every package by the author sits under one npm scope.
+  `@cloudcdn/mcp-server` stops at 0.1.0 and is deprecated. The
+  `cloudcdn-mcp` command, the exports and the tools are unchanged; MCP
+  host configs change `@cloudcdn/mcp-server` to
+  `@sebastienrousseau/cloudcdn-mcp`.
+- The MCP server reports its `package.json` version to clients instead
+  of a hard-coded `0.1.0`.
+- The MCP release workflow runs on Node 24 (npm 11, needed for trusted
+  publishing) and skips the npm publish for a version npm already has.
+- Upgrade development dependencies: @axe-core/playwright to 4.14.0,
+  @playwright/test to 1.64.1, @vitest/coverage-v8 and vitest to 5.0.5,
+  happy-dom to 21.0.3, and wrangler to 4.151.0.
 - Update GitHub Actions workflow dependencies across CI pipelines.
 - Align repository documentation, OpenAPI specification, and localized homepages across 28 languages with digital asset management (DAM) and autonomous agent positioning.
 
