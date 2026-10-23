@@ -17,7 +17,7 @@
   <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/node-%E2%89%A518-339933?style=for-the-badge&logo=node.js" alt="Node >= 18" /></a>
   <a href="https://modelcontextprotocol.io"><img src="https://img.shields.io/badge/MCP-1.12%2B-6366f1?style=for-the-badge" alt="MCP SDK" /></a>
   <a href="#testing"><img src="https://img.shields.io/badge/coverage-100%25-15803d?style=for-the-badge" alt="Coverage" /></a>
-  <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue?style=for-the-badge" alt="License" /></a>
+  <a href="#license"><img src="https://img.shields.io/badge/license-Apache--2.0%20OR%20MIT-blue?style=for-the-badge" alt="License" /></a>
 </p>
 
 ---
@@ -302,4 +302,5 @@ in `vitest.config.js`. CI fails on any drop.
 
 ## License
 
-Dual-licensed under [MIT](../LICENSE) and [Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0), at your option.
+Dual-licensed under your choice of the [Apache License 2.0](LICENSE-APACHE) or
+the [MIT license](LICENSE-MIT).

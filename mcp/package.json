@@ -18,7 +18,8 @@
     "server.js",
     "lib/",
     "README.md",
-    "LICENSE"
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
   ],
   "scripts": {
     "start": "node index.js",
@@ -68,5 +69,5 @@
     "url": "https://github.com/sebastienrousseau/cloudcdn.pro/issues"
   },
   "author": "Sebastien Rousseau",
-  "license": "MIT AND Apache-2.0"
+  "license": "Apache-2.0 OR MIT"
 }

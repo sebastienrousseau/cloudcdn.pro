@@ -39,6 +39,9 @@ into the *sprints* used during development.
   `@sebastienrousseau/cloudcdn-mcp`.
 - The MCP server reports its `package.json` version to clients instead
   of a hard-coded `0.1.0`.
+- The MCP package declares `Apache-2.0 OR MIT`, the repository's licence,
+  instead of `MIT AND Apache-2.0`, and ships both licence texts; 0.1.0
+  listed a LICENSE file that was never packed.
 - The MCP release workflow runs on Node 24 (npm 11, needed for trusted
   publishing) and skips the npm publish for a version npm already has.
 - Upgrade development dependencies: @axe-core/playwright to 4.14.0,
