@@ -25,6 +25,10 @@ into the *sprints* used during development.
   ip-address at 10.7.4 or later in the MCP server, so no version affected
   by their advisories can install. The MCP server's vitest moves to 4.1.12
   for GHSA-qxg6-89mg-rqv8 and GHSA-xp26-3454-mjgp.
+- Upgrade zod to 4.6.7 in the MCP server for GHSA-mrhx-c7xc-m3w5, where
+  a large array could exhaust memory during validation. Tool behaviour
+  is unchanged; the advertised input schemas no longer state
+  `additionalProperties: false`, and unknown arguments are still dropped.
 
 ### Changed
 
