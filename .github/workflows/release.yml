@@ -1,6 +1,6 @@
 name: Release
 
-# Publishes @cloudcdn/mcp-server to npm with a sigstore provenance
+# Publishes @sebastienrousseau/cloudcdn-mcp to npm with a sigstore provenance
 # attestation when an mcp/v* tag is pushed. Repository releases use v*.
 #
 # Auth model — npm Trusted Publishing (OIDC):
@@ -33,7 +33,7 @@ concurrency:
 
 jobs:
   publish-mcp:
-    name: Publish @cloudcdn/mcp-server
+    name: Publish @sebastienrousseau/cloudcdn-mcp
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -62,7 +62,8 @@ jobs:
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v6
         with:
-          node-version: '20'
+          # Node 24 bundles npm 11, which trusted publishing (OIDC) needs.
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install root deps (gives us a workspace lockfile)
@@ -92,15 +93,26 @@ jobs:
         # No NODE_AUTH_TOKEN — auth is via Trusted Publishing OIDC.
         # The npm CLI exchanges the GHA OIDC token (id-token: write)
         # for a short-lived npm publish token automatically.
+        # npm attaches a trusted publisher only to a package that already
+        # exists, so the first version under a new name is published by
+        # hand before its tag is pushed; skip a version npm already has.
         working-directory: mcp
-        run: npm publish --provenance --access public
+        run: |
+          set -euo pipefail
+          name="$(node -p "require('./package.json').name")"
+          version="$(node -p "require('./package.json').version")"
+          if npm view "${name}@${version}" version >/dev/null 2>&1; then
+            echo "::notice::${name}@${version} is already on npm; skipping publish"
+          else
+            npm publish --provenance --access public
+          fi
 
       - name: Summary
         run: |
           {
-            echo "## :package: Published @cloudcdn/mcp-server@${{ steps.tag.outputs.ref }}";
+            echo "## :package: Published @sebastienrousseau/cloudcdn-mcp@${{ steps.tag.outputs.ref }}";
             echo "";
-            echo "- Registry: https://www.npmjs.com/package/@cloudcdn/mcp-server";
+            echo "- Registry: https://www.npmjs.com/package/@sebastienrousseau/cloudcdn-mcp";
             echo "- Provenance: attached via sigstore (Settings → Provenance on the package page)";
             echo "- Tag: \`${{ steps.tag.outputs.ref }}\`";
           } >> "$GITHUB_STEP_SUMMARY"

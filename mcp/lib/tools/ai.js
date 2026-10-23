@@ -6,7 +6,7 @@
  * daily quota trips, responses flip to cached / fuzzy / curated mode and
  * mark themselves with `degraded: true` so agents don't need to branch.
  *
- * @module @cloudcdn/mcp-server/lib/tools/ai
+ * @module @sebastienrousseau/cloudcdn-mcp/lib/tools/ai
  */
 
 import { z } from 'zod';

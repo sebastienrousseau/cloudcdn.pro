@@ -2,7 +2,7 @@
 /**
  * quickstart-stdio.mjs — boot the MCP server on stdio.
  *
- * This is the exact code path `npx @cloudcdn/mcp-server` runs. An MCP
+ * This is the exact code path `npx @sebastienrousseau/cloudcdn-mcp` runs. An MCP
  * host (Claude Desktop / Cursor / Windsurf / VS Code Copilot) spawns the
  * process and speaks the MCP protocol over the child's stdin / stdout.
  *
@@ -12,7 +12,7 @@
  *   node examples/quickstart-stdio.mjs
  *
  * In a real config you wouldn't invoke this directly; instead point the
- * host's MCP config at `npx -y @cloudcdn/mcp-server`.
+ * host's MCP config at `npx -y @sebastienrousseau/cloudcdn-mcp`.
  */
 
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';

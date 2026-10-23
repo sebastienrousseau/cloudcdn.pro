@@ -2,7 +2,7 @@
  * Core control-plane MCP tools — zones, domains, edge rules, account stats.
  * AccountKey auth on every call.
  *
- * @module @cloudcdn/mcp-server/lib/tools/core
+ * @module @sebastienrousseau/cloudcdn-mcp/lib/tools/core
  */
 
 import { z } from 'zod';

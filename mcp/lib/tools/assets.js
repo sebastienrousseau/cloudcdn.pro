@@ -2,7 +2,7 @@
  * Asset-catalog MCP tools — browse, fetch metadata, and search the
  * read-side asset index. AccessKey auth on every call.
  *
- * @module @cloudcdn/mcp-server/lib/tools/assets
+ * @module @sebastienrousseau/cloudcdn-mcp/lib/tools/assets
  */
 
 import { z } from 'zod';

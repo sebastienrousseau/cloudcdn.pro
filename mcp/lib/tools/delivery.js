@@ -6,7 +6,7 @@
  * `cache_purge` uses PurgeKey, `signed_url_generate` and `pipeline_ingest`
  * use AccountKey.
  *
- * @module @cloudcdn/mcp-server/lib/tools/delivery
+ * @module @sebastienrousseau/cloudcdn-mcp/lib/tools/delivery
  */
 
 import { z } from 'zod';

@@ -79,7 +79,7 @@
       }
     },
     {
-      "name": "@cloudcdn/mcp-server",
+      "name": "@sebastienrousseau/cloudcdn-mcp",
       "slug": "cloudcdn-mcp-server",
       "category": "ai",
       "tagline": "MCP server for CloudCDN — lets AI agents drive 42 tools across 9 API planes.",
@@ -88,7 +88,7 @@
       "registries": [
         {
           "type": "npm",
-          "name": "@cloudcdn/mcp-server"
+          "name": "@sebastienrousseau/cloudcdn-mcp"
         },
         {
           "type": "github-releases",
@@ -96,8 +96,8 @@
         }
       ],
       "install": {
-        "npx": "npx -y @cloudcdn/mcp-server",
-        "npm": "npm install -g @cloudcdn/mcp-server"
+        "npx": "npx -y @sebastienrousseau/cloudcdn-mcp",
+        "npm": "npm install -g @sebastienrousseau/cloudcdn-mcp"
       }
     },
     {
@@ -3312,6 +3312,23 @@
       ],
       "install": {
         "github": "gh release view --repo sebastienrousseau/tsdev --web"
+      }
+    },
+    {
+      "name": "PumkinRaidApp",
+      "slug": "pumkinraidapp",
+      "category": "apps",
+      "tagline": "A cross-platform arcade game for iOS, iPadOS, tvOS, macOS and Web, built in Swift.",
+      "repo": "sebastienrousseau/PumkinRaidApp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/PumkinRaidApp"
+        }
+      ],
+      "install": {
+        "github": "gh release view --repo sebastienrousseau/PumkinRaidApp --web"
       }
     }
   ]

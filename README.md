@@ -49,7 +49,7 @@ CloudCDN is a self-hosted, multi-tenant CDN and digital asset management (DAM) p
 - **Accessibility-gated** — the homepage and dashboard have blocking axe-core checks for serious and critical violations
 - **Light + dark theme** site-wide via `[data-theme]` + CSS native `light-dark()`, pre-paint boot to prevent FOUC
 - **Quota-resilient AI** — response cache, neuron budget, circuit breaker, and curated FAQ fallback keep `/api/search` and `/api/chat` answering when Workers AI is exhausted; vision endpoints share the same guard
-- **Agent-controllable** — [`@cloudcdn/mcp-server`](mcp/README.md) exposes tools and resources for Claude Code, Cursor, Windsurf, Cline, Claude Desktop, and VS Code Copilot
+- **Agent-controllable** — [`@sebastienrousseau/cloudcdn-mcp`](mcp/README.md) exposes tools and resources for Claude Code, Cursor, Windsurf, Cline, Claude Desktop, and VS Code Copilot
 - **Signed commits** enforced end-to-end — from developer machine to edge deployment via the `verify-signatures` gate
 
 ## Architecture
@@ -116,7 +116,7 @@ Leaked physical paths (`/cdn/<locale>/...`, including old bookmarks and preview-
 | **HLS Streaming** | Adaptive bitrate video delivery via HTTP Live Streaming playlists and byte-range segmentation. |
 | **Semantic Search** | Natural language asset search powered by Workers AI embeddings and Vectorize vector similarity. Day-bucketed edge cache, neuron budget, and fuzzy fallback keep results flowing when AI quota is exhausted — responses are annotated with `mode: vector \| fuzzy \| cached`. |
 | **AI Concierge** | RAG-powered chat assistant with SSE streaming, confidence scoring, and follow-up suggestions. Layered fallback: edge response cache → 30-entry curated FAQ → templated default. Failures never surface as HTTP errors; `metadata.source` is `ai \| cached \| curated`. |
-| **MCP Server** | [`@cloudcdn/mcp-server`](mcp/README.md) exposes storage, zones, assets, insights, audit, transform, purge, signed URLs, HLS playlists, AI vision, placeholders, semantic search, scoped tokens, webhooks, and operational logs to AI agents. Drop-in compatible with Claude Code, Claude Desktop, Cursor, Windsurf, and Cline. |
+| **MCP Server** | [`@sebastienrousseau/cloudcdn-mcp`](mcp/README.md) exposes storage, zones, assets, insights, audit, transform, purge, signed URLs, HLS playlists, AI vision, placeholders, semantic search, scoped tokens, webhooks, and operational logs to AI agents. Drop-in compatible with Claude Code, Claude Desktop, Cursor, Windsurf, and Cline. |
 | **Audit Trail** | Control-plane mutations (token create/revoke, webhook register/delete, zone create, purge) emit 90-day audit records accessible via `/api/core/audit-logs`. Records carry IP, user-agent, trace ID, and action-specific metadata. |
 | **Asset Pipeline** | Upload a single SVG → automatic directory scaffold with PWA icons, banners, and favicon. |
 | **Zone Management** | Create, delete, and configure tenant zones via GitOps commits through the Core API. |
@@ -360,7 +360,7 @@ Pushes to `main` trigger automatic deployment via Cloudflare Pages:
 
 The HTTP API is versioned by date. The current version is surfaced on every response as `X-API-Version` (currently `2026-04-01`). When a new version ships, the previous version is supported for **at least 12 months**. Sunset dates are announced via the `Deprecation` and `Sunset` response headers (RFC 8594) at least 90 days in advance.
 
-The npm package (`@cloudcdn/mcp-server`) follows semantic versioning. Breaking changes ship in major versions only.
+The npm package (`@sebastienrousseau/cloudcdn-mcp`) follows semantic versioning. Breaking changes ship in major versions only.
 
 ## Contributing and security
 

@@ -3,7 +3,7 @@
  * Deliveries are HMAC-SHA256 signed; the consumer Worker takes care of
  * the retry + DLQ flow. AccountKey auth on every call.
  *
- * @module @cloudcdn/mcp-server/lib/tools/webhooks
+ * @module @sebastienrousseau/cloudcdn-mcp/lib/tools/webhooks
  */
 
 import { z } from 'zod';

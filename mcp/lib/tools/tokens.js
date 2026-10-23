@@ -3,7 +3,7 @@
  * are SHA-256 hashed at rest and returned to the caller exactly once at
  * creation time. AccountKey auth on every call.
  *
- * @module @cloudcdn/mcp-server/lib/tools/tokens
+ * @module @sebastienrousseau/cloudcdn-mcp/lib/tools/tokens
  */
 
 import { z } from 'zod';

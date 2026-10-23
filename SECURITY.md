@@ -39,7 +39,7 @@ In scope:
 
 - The CloudCDN API and its endpoints (`/api/*`)
 - The asset delivery surface served from `cloudcdn.pro` and configured custom domains (the Pages default host `cloudcdn-pro.pages.dev` redirects to `cloudcdn.pro`; see [Canonical host](#canonical-host))
-- The MCP server (`@cloudcdn/mcp-server`) published to npm
+- The MCP server (`@sebastienrousseau/cloudcdn-mcp`) published to npm
 - The asset dashboard (`/dashboard/*`) and supporting client libraries
 - The CI/CD pipeline and its supply chain (signed commits, SLSA provenance)
 

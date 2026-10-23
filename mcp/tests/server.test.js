@@ -1,4 +1,7 @@
+import { readFileSync } from 'node:fs';
 import { describe, it, expect, vi, beforeAll } from 'vitest';
+
+const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 
 // Mock fetch globally before any imports
 globalThis.fetch = vi.fn().mockResolvedValue(
@@ -21,8 +24,8 @@ describe('MCP Server', () => {
   });
 
   it('has correct server name and version', () => {
-    // The server object should have been constructed
-    expect(server).toBeDefined();
+    // The version reported to MCP clients is the published package version.
+    expect(server.server._serverInfo).toEqual({ name: 'cloudcdn', version: pkg.version });
   });
 
   // Verify all expected tools are registered by checking the server internals

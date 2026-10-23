@@ -24,7 +24,7 @@
  * For non-JSON responses, `data` is `{ contentType, contentLength, url }`
  * (no body parsing — useful for binary endpoints like /api/transform).
  *
- * @module @cloudcdn/mcp-server/api-client
+ * @module @sebastienrousseau/cloudcdn-mcp/api-client
  */
 
 const BASE_URL = process.env.CLOUDCDN_BASE_URL || 'https://cloudcdn.pro';

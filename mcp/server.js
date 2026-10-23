@@ -26,9 +26,10 @@
  *
  * Each tool maps to a CloudCDN HTTP endpoint via the shared API client.
  *
- * @module @cloudcdn/mcp-server/server
+ * @module @sebastienrousseau/cloudcdn-mcp/server
  */
 
+import { createRequire } from 'node:module';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 
@@ -44,6 +45,10 @@ import { registerLogTools } from './lib/tools/logs.js';
 import { registerAccountTools } from './lib/tools/account.js';
 import { registerResources } from './lib/resources/index.js';
 
+// Report the published package version to MCP clients, so it cannot
+// drift from package.json.
+const { version } = createRequire(import.meta.url)('./package.json');
+
 /**
  * Build a fully-wired MCP server with every CloudCDN tool and resource
  * registered. The caller is responsible for attaching a transport
@@ -53,7 +58,7 @@ import { registerResources } from './lib/resources/index.js';
  *
  * @example
  *   import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
- *   import { createServer } from '@cloudcdn/mcp-server/server';
+ *   import { createServer } from '@sebastienrousseau/cloudcdn-mcp/server';
  *
  *   const server = createServer();
  *   await server.connect(new StdioServerTransport());
@@ -61,7 +66,7 @@ import { registerResources } from './lib/resources/index.js';
 export function createServer() {
   const server = new McpServer({
     name: 'cloudcdn',
-    version: '0.1.0',
+    version,
   });
 
   registerStorageTools(server);
