@@ -1,7 +1,7 @@
 /**
  * Operations / log-query MCP tools.
  *
- * @module @cloudcdn/mcp-server/lib/tools/logs
+ * @module @sebastienrousseau/cloudcdn-mcp/lib/tools/logs
  */
 
 import { z } from 'zod';

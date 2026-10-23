@@ -17,7 +17,7 @@
  * the agent sees it (401 unauthenticated when no cookie present) —
  * useful for the agent to learn what flow to ask the user to run.
  *
- * @module @cloudcdn/mcp-server/lib/tools/account
+ * @module @sebastienrousseau/cloudcdn-mcp/lib/tools/account
  */
 
 import { z } from 'zod';

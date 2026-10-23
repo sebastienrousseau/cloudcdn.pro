@@ -5,7 +5,7 @@
  * each handler just forwards to a REST endpoint and serialises the JSON
  * body back. All six refresh on every read.
  *
- * @module @cloudcdn/mcp-server/lib/resources
+ * @module @sebastienrousseau/cloudcdn-mcp/lib/resources
  */
 
 import * as api from '../api-client.js';

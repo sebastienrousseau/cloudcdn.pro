@@ -2,7 +2,7 @@
  * Storage-plane MCP tools — read/write the Bunny.net-compatible object store
  * that backs CloudCDN. AccessKey auth on every call.
  *
- * @module @cloudcdn/mcp-server/lib/tools/storage
+ * @module @sebastienrousseau/cloudcdn-mcp/lib/tools/storage
  */
 
 import { z } from 'zod';

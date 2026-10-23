@@ -5,7 +5,7 @@
  * The first five are AccessKey-gated (observability data); `audit_logs`
  * is AccountKey-gated (control-plane history).
  *
- * @module @cloudcdn/mcp-server/lib/tools/insights
+ * @module @sebastienrousseau/cloudcdn-mcp/lib/tools/insights
  */
 
 import { z } from 'zod';

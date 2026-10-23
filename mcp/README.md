@@ -4,7 +4,7 @@
   <img src="https://cloudcdn.pro/cloudcdn/v1/logos/cloudcdn.svg" alt="CloudCDN logo" width="128" />
 </p>
 
-<h1 align="center">@cloudcdn/mcp-server</h1>
+<h1 align="center">@sebastienrousseau/cloudcdn-mcp</h1>
 
 <p align="center">
   Model Context Protocol server for <a href="https://cloudcdn.pro">CloudCDN</a> —
@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@cloudcdn/mcp-server"><img src="https://img.shields.io/npm/v/@cloudcdn/mcp-server?style=for-the-badge&logo=npm" alt="npm" /></a>
+  <a href="https://www.npmjs.com/package/@sebastienrousseau/cloudcdn-mcp"><img src="https://img.shields.io/npm/v/@sebastienrousseau/cloudcdn-mcp?style=for-the-badge&logo=npm" alt="npm" /></a>
   <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/node-%E2%89%A518-339933?style=for-the-badge&logo=node.js" alt="Node >= 18" /></a>
   <a href="https://modelcontextprotocol.io"><img src="https://img.shields.io/badge/MCP-1.12%2B-6366f1?style=for-the-badge" alt="MCP SDK" /></a>
   <a href="#testing"><img src="https://img.shields.io/badge/coverage-100%25-15803d?style=for-the-badge" alt="Coverage" /></a>
@@ -42,15 +42,15 @@
 
 ```bash
 # Run directly (no install — recommended for MCP hosts)
-npx @cloudcdn/mcp-server
+npx @sebastienrousseau/cloudcdn-mcp
 
 # Or install globally to get a `cloudcdn-mcp` binary on $PATH
-npm install -g @cloudcdn/mcp-server
+npm install -g @sebastienrousseau/cloudcdn-mcp
 
 # Or as a project dependency
-npm install @cloudcdn/mcp-server
-# yarn add @cloudcdn/mcp-server
-# pnpm add @cloudcdn/mcp-server
+npm install @sebastienrousseau/cloudcdn-mcp
+# yarn add @sebastienrousseau/cloudcdn-mcp
+# pnpm add @sebastienrousseau/cloudcdn-mcp
 ```
 
 **Minimum runtime:** Node.js >= 18 (ESM-only).
@@ -65,7 +65,7 @@ npm install @cloudcdn/mcp-server
   "mcpServers": {
     "cloudcdn": {
       "command": "npx",
-      "args": ["-y", "@cloudcdn/mcp-server"],
+      "args": ["-y", "@sebastienrousseau/cloudcdn-mcp"],
       "env": {
         "CLOUDCDN_ACCESS_KEY": "sk_live_...",
         "CLOUDCDN_ACCOUNT_KEY": "ak_live_..."
@@ -86,7 +86,7 @@ Embed the server in your own host — custom transport, hosted MCP gateway, inte
 ```js
 // host.mjs
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import { createServer } from '@cloudcdn/mcp-server/server';
+import { createServer } from '@sebastienrousseau/cloudcdn-mcp/server';
 
 // 1. Build the server with all tools and resources registered.
 const server = createServer();
@@ -104,7 +104,7 @@ The thin HTTP client is also exported if you want to talk to the CloudCDN
 REST API directly from outside an MCP context:
 
 ```js
-import { get, post } from '@cloudcdn/mcp-server/api-client';
+import { get, post } from '@sebastienrousseau/cloudcdn-mcp/api-client';
 
 // AccessKey-gated read.
 const { ok, data } = await get('/api/assets', {
@@ -204,7 +204,7 @@ with a structured MCP error if a key required for the call is unset.
   "mcpServers": {
     "cloudcdn": {
       "command": "npx",
-      "args": ["-y", "@cloudcdn/mcp-server"],
+      "args": ["-y", "@sebastienrousseau/cloudcdn-mcp"],
       "env": {
         "CLOUDCDN_ACCESS_KEY": "sk_live_...",
         "CLOUDCDN_ACCOUNT_KEY": "ak_live_..."
@@ -223,7 +223,7 @@ with a structured MCP error if a key required for the call is unset.
   "mcpServers": {
     "cloudcdn": {
       "command": "npx",
-      "args": ["-y", "@cloudcdn/mcp-server"],
+      "args": ["-y", "@sebastienrousseau/cloudcdn-mcp"],
       "env": {
         "CLOUDCDN_ACCESS_KEY": "sk_live_...",
         "CLOUDCDN_ACCOUNT_KEY": "ak_live_..."
@@ -242,7 +242,7 @@ with a structured MCP error if a key required for the call is unset.
   "servers": {
     "cloudcdn": {
       "command": "npx",
-      "args": ["-y", "@cloudcdn/mcp-server"],
+      "args": ["-y", "@sebastienrousseau/cloudcdn-mcp"],
       "env": {
         "CLOUDCDN_ACCESS_KEY": "sk_live_...",
         "CLOUDCDN_ACCOUNT_KEY": "ak_live_..."

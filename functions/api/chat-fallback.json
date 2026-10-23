@@ -311,7 +311,7 @@
         "claude integration",
         "ai agent integration"
       ],
-      "answer": "Yes — the **`@cloudcdn/mcp-server`** package exposes 20 tools (storage, assets, transforms, analytics, search, purge, webhooks, tokens, logs) via the Model Context Protocol. Compatible with Claude Code, Claude Desktop, Cursor, Windsurf, and any MCP-aware client. Install with `npm i -g @cloudcdn/mcp-server` and point the binary at your `CLOUDCDN_ACCESS_KEY`.",
+      "answer": "Yes — the **`@sebastienrousseau/cloudcdn-mcp`** package exposes 20 tools (storage, assets, transforms, analytics, search, purge, webhooks, tokens, logs) via the Model Context Protocol. Compatible with Claude Code, Claude Desktop, Cursor, Windsurf, and any MCP-aware client. Install with `npm i -g @sebastienrousseau/cloudcdn-mcp` and point the binary at your `CLOUDCDN_ACCESS_KEY`.",
       "sources": ["api-reference.md"],
       "followUps": ["How do I get an access key?", "What tools are exposed?", "How do I authenticate?"]
     },

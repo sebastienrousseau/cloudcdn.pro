@@ -49,7 +49,7 @@ The Git repo is the only source of truth for both code and assets. The deploy pi
 │   └─ shared/       language-agnostic shared assets
 ├─ functions/        Pages Functions (the API)
 ├─ scripts/          build, manifest, knowledge sync, generators, tests
-├─ mcp/              @cloudcdn/mcp-server — agent-facing tool surface
+├─ mcp/              @sebastienrousseau/cloudcdn-mcp — agent-facing tool surface
 ├─ manifest.json     auto-generated catalog of every deliverable asset
 └─ wrangler.toml     Cloudflare bindings + deploy config
 ```
