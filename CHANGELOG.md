@@ -37,6 +37,19 @@ into the *sprints* used during development.
   GHSA-w74x-v6f9-j3xg, GHSA-xhq7-xmqj-769h, GHSA-wjr9-j795-jxcr,
   GHSA-333x-w4r6-6crp and GHSA-27r3-jxmh-p828.
 
+### Added
+
+- Four photographs from the Oracle Financial Services Summit, London,
+  2026-10-20, under `stocks/images/`: Dr Leda Glyptis on stage
+  (`leda-glyptis-oracle-financial-services-summit-2026`), her keynote
+  title slide (`leda-glyptis-modernisation-paradox-keynote-slide-2026`),
+  the KPMG-sponsored panel (`oracle-financial-services-summit-panel-2026`)
+  and the summit signage (`oracle-financial-services-summit-london-2026`).
+  Each ships as WebP with -320, -640, -1200 and -1920 variants and no
+  EXIF or GPS data. The stage and panel shots come from 1200 px phone
+  exports, so their -1920 variants are Lanczos resamples with no added
+  detail.
+
 ### Changed
 
 - Reframe and re-crop Economist Enterprise Physical AI Summit 2026 photography
