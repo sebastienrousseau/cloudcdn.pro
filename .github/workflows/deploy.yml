@@ -50,7 +50,7 @@ jobs:
               echo "Force push detected — verifying HEAD only"
               COMMITS="${{ github.sha }}"
             else
-              COMMITS=$(git rev-list "$BEFORE".."${{ github.sha }}")
+              COMMITS=$(git rev-list "$BEFORE..${{ github.sha }}")
             fi
           else
             COMMITS="${{ github.sha }}"
@@ -121,12 +121,12 @@ jobs:
         id: commit_msg
         run: |
           # Strip non-ASCII (Cloudflare API rejects U+2014, U+2192 etc.) AND
-          # strip double-quote + backslash so the message can be safely
+          # strip double-quote + backslash (octal 042, 134) so the message can be safely
           # interpolated into the shell-quoted --commit-message=... below.
           # Without the quote-strip, revert commits with embedded quotes
           # (e.g. Revert "feat(...)") break the shell expansion and wrangler
           # fails to parse its arguments. Cap at 100 chars.
-          msg=$(git log -1 --pretty=%s | LC_ALL=C tr -cd '[:print:][:space:]' | tr -d '"\\' | head -c 100)
+          msg=$(git log -1 --pretty=%s | LC_ALL=C tr -cd '[:print:][:space:]' | tr -d '\042\134' | head -c 100)
           # Fallback if stripping leaves us empty
           [ -z "$msg" ] && msg="deploy ${GITHUB_SHA::7}"
           echo "msg=$msg" >> "$GITHUB_OUTPUT"
