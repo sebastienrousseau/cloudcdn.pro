@@ -8,7 +8,7 @@ Versioning is calendar-based on the **`apiVersion`** field returned by
 every API envelope (currently `2026-04-01`). This file groups commits
 into the *sprints* used during development.
 
-## [Unreleased]
+## [0.0.6]
 
 ### Security
 
@@ -29,6 +29,13 @@ into the *sprints* used during development.
   a large array could exhaust memory during validation. Tool behaviour
   is unchanged; the advertised input schemas no longer state
   `additionalProperties: false`, and unknown arguments are still dropped.
+- Hold undici at 7.30.1 or later in the site (it arrives through
+  wrangler and miniflare) for GHSA-4qv8-2p9j-2685, GHSA-f72v-6w45-q472
+  and GHSA-xjj6-f33q-929c, and upgrade happy-dom to 21.0.4 for
+  GHSA-834v-8h66-3h79. Hold fast-uri at 3.1.9 or later (it was pinned
+  to 3.1.8) and body-parser at 2.4.0 or later in the MCP server for
+  GHSA-w74x-v6f9-j3xg, GHSA-xhq7-xmqj-769h, GHSA-wjr9-j795-jxcr,
+  GHSA-333x-w4r6-6crp and GHSA-27r3-jxmh-p828.
 
 ### Changed
 
@@ -53,6 +60,13 @@ into the *sprints* used during development.
   happy-dom to 21.0.3, and wrangler to 4.151.0.
 - Update GitHub Actions workflow dependencies across CI pipelines.
 - Align repository documentation, OpenAPI specification, and localized homepages across 28 languages with digital asset management (DAM) and autonomous agent positioning.
+
+### Fixed
+
+- Clear the three shellcheck findings actionlint reported in the deploy
+  and UA-blocklist workflows. The blocklist report now reads the
+  missing count from an environment variable, so an empty count skips
+  the "How to act" section instead of failing the comparison.
 
 ## [0.0.5]
 

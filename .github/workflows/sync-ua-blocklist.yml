@@ -43,6 +43,8 @@ jobs:
           echo "missing=$MISSING" >> "$GITHUB_OUTPUT"
 
       - name: Attach report to step summary
+        env:
+          MISSING: ${{ steps.sync.outputs.missing }}
         run: |
           {
             echo "## AI-crawler UA blocklist drift"
@@ -53,7 +55,7 @@ jobs:
             cat human.txt
             echo '```'
             echo ""
-            if [ "${{ steps.sync.outputs.missing }}" -gt "0" ]; then
+            if [ "${MISSING:-0}" -gt 0 ]; then
               echo "### How to act"
               echo ""
               echo "1. Review each candidate above for false-positive risk (see audit notes in \`functions/api/transform.js\`)"
