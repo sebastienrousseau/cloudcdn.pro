@@ -8,7 +8,7 @@ Versioning is calendar-based on the **`apiVersion`** field returned by
 every API envelope (currently `2026-04-01`). This file groups commits
 into the *sprints* used during development.
 
-## [Unreleased]
+## [0.0.6]
 
 ### Security
 
@@ -60,6 +60,13 @@ into the *sprints* used during development.
   happy-dom to 21.0.3, and wrangler to 4.151.0.
 - Update GitHub Actions workflow dependencies across CI pipelines.
 - Align repository documentation, OpenAPI specification, and localized homepages across 28 languages with digital asset management (DAM) and autonomous agent positioning.
+
+### Fixed
+
+- Clear the three shellcheck findings actionlint reported in the deploy
+  and UA-blocklist workflows. The blocklist report now reads the
+  missing count from an environment variable, so an empty count skips
+  the "How to act" section instead of failing the comparison.
 
 ## [0.0.5]
 
