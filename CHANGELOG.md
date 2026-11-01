@@ -8,6 +8,14 @@ Versioning is calendar-based on the **`apiVersion`** field returned by
 every API envelope (currently `2026-04-01`). This file groups commits
 into the *sprints* used during development.
 
+## [0.0.8]
+
+### Security
+
+- Clear `javascript:`, `vbscript:` and unsafe `data:` URIs in unquoted
+  SVG attribute values, not only quoted ones, so an uploaded SVG cannot
+  carry a script link (GHSA-83v7-xc9g-5frf).
+
 ## [0.0.7]
 
 ### Fixed
