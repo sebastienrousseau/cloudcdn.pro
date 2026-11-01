@@ -1,0 +1,823 @@
+{
+  "cdn/en/api-reference/clients/javascript.js": {
+    "complexity": {
+      "count": 2
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "cdn/en/dashboard/_upload-page.js": {
+    "complexity": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "cdn/en/dashboard/_upload-tab.js": {
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "cdn/en/dashboard/app.js": {
+    "complexity": {
+      "count": 3
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 3
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "cdn/en/dist/_dist.js": {
+    "complexity": {
+      "count": 3
+    }
+  },
+  "cdn/en/dist/stratos/stratos.mjs": {
+    "complexity": {
+      "count": 1
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    }
+  },
+  "cdn/en/onboarding/_onboarding.js": {
+    "complexity": {
+      "count": 2
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "cdn/en/sign-up/_signup.js": {
+    "complexity": {
+      "count": 2
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 2
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    }
+  },
+  "cdn/shared/site-nav.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "cdn/shared/widgets/chat.js": {
+    "complexity": {
+      "count": 2
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/_middleware.js": {
+    "complexity": {
+      "count": 1
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/_shared.js": {
+    "complexity": {
+      "count": 5
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/account/_quota.js": {
+    "complexity": {
+      "count": 2
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/account/api-keys.js": {
+    "complexity": {
+      "count": 2
+    }
+  },
+  "functions/api/account/cap.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/ai/alt-text.js": {
+    "complexity": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "functions/api/ai/moderate.js": {
+    "complexity": {
+      "count": 2
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "functions/api/ai/smart-crop.js": {
+    "complexity": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/analytics.js": {
+    "complexity": {
+      "count": 2
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    }
+  },
+  "functions/api/assets.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/assets/process.js": {
+    "complexity": {
+      "count": 2
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/auth/_email.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/auth/_lib.js": {
+    "complexity": {
+      "count": 3
+    }
+  },
+  "functions/api/auth/email/otp/send.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/auth/email/otp/verify.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/auth/oauth/[provider]/callback.js": {
+    "complexity": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/auth/onboarding/zone.js": {
+    "complexity": {
+      "count": 2
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/auth/passkey/auth/complete.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/auth/passkey/register/complete.js": {
+    "complexity": {
+      "count": 1
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/auth/password/login.js": {
+    "complexity": {
+      "count": 1
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/auth/signup.js": {
+    "complexity": {
+      "count": 1
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/auto.js": {
+    "complexity": {
+      "count": 1
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/blurhash.js": {
+    "complexity": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "functions/api/chat.js": {
+    "complexity": {
+      "count": 3
+    },
+    "local/halstead-difficulty": {
+      "count": 2
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 3
+    }
+  },
+  "functions/api/core/rules.js": {
+    "complexity": {
+      "count": 1
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    }
+  },
+  "functions/api/core/statistics.js": {
+    "complexity": {
+      "count": 1
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/core/zones.js": {
+    "complexity": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "functions/api/core/zones/[[id]].js": {
+    "complexity": {
+      "count": 2
+    },
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "functions/api/insights/asset.js": {
+    "complexity": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "functions/api/insights/cache-explain.js": {
+    "complexity": {
+      "count": 3
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    }
+  },
+  "functions/api/insights/errors.js": {
+    "complexity": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/insights/geography.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/insights/summary.js": {
+    "complexity": {
+      "count": 1
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/insights/top-assets.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/logs/_workers_logs_bridge.js": {
+    "complexity": {
+      "count": 3
+    }
+  },
+  "functions/api/logs/tail.js": {
+    "complexity": {
+      "count": 1
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/lqip.js": {
+    "complexity": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "functions/api/passkeys/index.js": {
+    "complexity": {
+      "count": 3
+    },
+    "local/halstead-difficulty": {
+      "count": 2
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/pipeline.js": {
+    "complexity": {
+      "count": 3
+    },
+    "local/halstead-difficulty": {
+      "count": 4
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 3
+    }
+  },
+  "functions/api/purge.js": {
+    "complexity": {
+      "count": 1
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/search.js": {
+    "complexity": {
+      "count": 2
+    },
+    "local/halstead-difficulty": {
+      "count": 3
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    }
+  },
+  "functions/api/signed.js": {
+    "complexity": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "functions/api/storage/[[path]].js": {
+    "complexity": {
+      "count": 5
+    },
+    "local/halstead-difficulty": {
+      "count": 2
+    },
+    "max-lines-per-function": {
+      "count": 3
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    }
+  },
+  "functions/api/storage/batch.js": {
+    "complexity": {
+      "count": 2
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/stream.js": {
+    "complexity": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/tokens.js": {
+    "complexity": {
+      "count": 2
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    }
+  },
+  "functions/api/transform.js": {
+    "complexity": {
+      "count": 2
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/api/webhooks.js": {
+    "complexity": {
+      "count": 2
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/dashboard/_middleware.js": {
+    "complexity": {
+      "count": 1
+    },
+    "local/halstead-difficulty": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "functions/dist/_middleware.js": {
+    "complexity": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "mcp/lib/resources/index.js": {
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "mcp/lib/tools/account.js": {
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "mcp/lib/tools/ai.js": {
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "mcp/lib/tools/core.js": {
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "mcp/lib/tools/delivery.js": {
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "mcp/lib/tools/insights.js": {
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "scripts/add-missing-openapi.mjs": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/dist/generate-dist-catalogue.mjs": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "scripts/dist/generate-responsive-stocks.mjs": {
+    "complexity": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "scripts/dist/sync-github-releases.mjs": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "scripts/generate-client-libs.mjs": {
+    "complexity": {
+      "count": 5
+    },
+    "local/halstead-difficulty": {
+      "count": 3
+    },
+    "max-lines": {
+      "count": 1
+    },
+    "max-lines-per-function": {
+      "count": 4
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 5
+    }
+  },
+  "scripts/generate-manifest.mjs": {
+    "complexity": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "scripts/i18n/translations.mjs": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/index-assets.mjs": {
+    "max-lines-per-function": {
+      "count": 1
+    }
+  },
+  "scripts/migrate-legacy-tokens-to-d1.mjs": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "scripts/patch-openapi.mjs": {
+    "complexity": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "scripts/prune-formats.mjs": {
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "scripts/prune-icons.mjs": {
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "scripts/sync-knowledge.mjs": {
+    "local/halstead-difficulty": {
+      "count": 1
+    }
+  },
+  "scripts/sync-ua-blocklist.mjs": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "scripts/tests/ai-alt-text.test.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "scripts/tests/ai-moderate.test.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "scripts/tests/ai-smart-crop.test.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "scripts/tests/analytics.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/auth-oauth.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/auth-passkey.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/auto.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/batch.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/chat.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/health.test.js": {
+    "complexity": {
+      "count": 1
+    }
+  },
+  "scripts/tests/middleware.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/openapi-spec.test.js": {
+    "complexity": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 2
+    }
+  },
+  "scripts/tests/passkeys.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/pipeline.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/regression.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/shared.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/spec-sync.test.js": {
+    "complexity": {
+      "count": 1
+    },
+    "sonarjs/cognitive-complexity": {
+      "count": 1
+    }
+  },
+  "scripts/tests/storage-path.test.js": {
+    "complexity": {
+      "count": 1
+    },
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/storage.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  },
+  "scripts/tests/transform.test.js": {
+    "max-lines": {
+      "count": 1
+    }
+  }
+}
