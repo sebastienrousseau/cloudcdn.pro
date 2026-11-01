@@ -41,7 +41,7 @@
     "husky": "9.1.7",
     "tailwindcss": "4.3.3",
     "vitest": "5.0.5",
-    "wrangler": "4.151.0"
+    "wrangler": "4.152.0"
   },
   "dependencies": {
     "sharp": "0.35.5"

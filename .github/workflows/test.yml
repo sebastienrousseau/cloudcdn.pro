@@ -76,7 +76,7 @@ jobs:
           show-progress: false
 
       - name: Initialize CodeQL (actions)
-        uses: github/codeql-action/init@6f2ac81f5cd81fe351a197ba0b00d91d03cd2aee # v4.39.0
+        uses: github/codeql-action/init@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
         with:
           languages: actions
           # security-extended adds the GitHub Actions query pack for known
@@ -84,7 +84,7 @@ jobs:
           queries: security-extended
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@6f2ac81f5cd81fe351a197ba0b00d91d03cd2aee # v4.39.0
+        uses: github/codeql-action/analyze@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
         with:
           category: '/language:actions'
 
@@ -241,17 +241,18 @@ jobs:
           echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
           sudo apt-get update && sudo apt-get install -y k6
 
-      - name: Run k6 smoke test (10 VUs, 10s)
+      - name: Run k6 smoke test (2 VUs, 10s)
         # I_KNOW_THIS_HITS_PROD=1 is the explicit opt-in required by
         # the seatbelt added in scripts/tests/load.k6.js. CI legitimately
         # needs to verify the production edge — the seatbelt's job is
         # to catch DEVELOPERS typing `k6 run ...` thinking it's local,
-        # not to block CI.
+        # not to block CI. Keep VUs at 2 (~80 req/10s) so the smoke test
+        # stays below the Cloudflare 100 req/10s per-IP edge rate limit.
         run: |
           k6 run \
             -e BASE_URL=https://cloudcdn.pro \
             -e I_KNOW_THIS_HITS_PROD=1 \
-            --vus 10 \
+            --vus 2 \
             --duration 10s \
             --summary-trend-stats="avg,min,med,max,p(95),p(99)" \
             scripts/tests/load.k6.js
