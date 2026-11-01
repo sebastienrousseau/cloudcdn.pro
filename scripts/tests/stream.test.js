@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
 
-const { onRequestGet, onRequestOptions, SEGMENT_DURATION, SEGMENT_BYTES } =
+const { onRequestGet, onRequestOptions, SEGMENT_BYTES } =
   await import('../../functions/api/stream.js');
 
 const originalFetch = globalThis.fetch;

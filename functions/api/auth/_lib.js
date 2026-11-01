@@ -354,7 +354,7 @@ export async function auditEvent(env, { accountId, userId, action, request, meta
     } catch { /* swallow — audit must never break a user operation */ }
   }
   // Always mirror to the KV log too while we're in dual-write mode.
-  try { await legacyAuditLog(env, request, action, { accountId, userId, ...(meta || {}) }); } catch {}
+  try { await legacyAuditLog(env, request, action, { accountId, userId, ...(meta || {}) }); } catch { /* best-effort: legacy audit mirror */ }
 }
 
 // ── Turnstile siteverify ─────────────────────────────────────────

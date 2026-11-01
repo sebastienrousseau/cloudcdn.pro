@@ -179,7 +179,7 @@ function curatedResponse(message, remaining) {
 // ── Main handler ──
 
 export async function onRequestPost(context) {
-  const { AI, VECTOR_INDEX, RATE_KV, USAGE_METER, METRICS } = context.env;
+  const { AI, VECTOR_INDEX, USAGE_METER, METRICS } = context.env;
 
   // --- Bot blocklist (PR #108 hardening cohort) ---
   //
@@ -411,9 +411,9 @@ ${contextText || 'No relevant context found for this query.'}
     } catch {
       try {
         await writer.write(sseEvent('error', { error: 'Stream interrupted' }));
-      } /* v8 ignore next */ catch {}
+      } /* v8 ignore next */ catch { /* stream already closed by client */ }
     } finally {
-      try { await writer.close(); } /* v8 ignore next */ catch {}
+      try { await writer.close(); } /* v8 ignore next */ catch { /* stream already closed */ }
     }
   })();
 

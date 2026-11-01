@@ -8,7 +8,7 @@ const originalSetTimeout = globalThis.setTimeout;
 beforeEach(() => {
   // Stub setTimeout so the 5-second abort timer doesn't actually arm; we
   // still want clearTimeout to no-op cleanly.
-  globalThis.setTimeout = (cb, _ms) => { void cb; return 0; };
+  globalThis.setTimeout = (cb) => { void cb; return 0; };
 });
 afterEach(() => {
   globalThis.fetch = originalFetch;

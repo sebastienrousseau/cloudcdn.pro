@@ -50,7 +50,7 @@ function gitRm(filePath) {
     try {
       execSync(`git rm -f "${filePath}"`, { stdio: 'pipe' });
     } catch {
-      try { fs.unlinkSync(filePath); } catch {}
+      try { fs.unlinkSync(filePath); } catch { /* already removed */ }
     }
   }
 }

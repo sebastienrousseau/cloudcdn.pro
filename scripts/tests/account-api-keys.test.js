@@ -5,7 +5,7 @@
  */
 import { describe, it, expect, vi, afterEach } from 'vitest';
 
-const lib = await import('../../functions/api/auth/_lib.js');
+await import('../../functions/api/auth/_lib.js');
 const apiKeys = await import('../../functions/api/account/api-keys.js');
 const tokensModule = await import('../../functions/api/tokens.js');
 

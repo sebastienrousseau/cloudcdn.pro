@@ -19,7 +19,7 @@ afterEach(() => { globalThis.fetch = originalFetch; vi.restoreAllMocks(); });
 // chain D1 exposes. Per-test, override the resolver functions to
 // produce the rows the endpoint expects.
 function makeD1({ first = async () => null, run = async () => ({ success: true }), all = async () => ({ results: [] }), batch = async () => [] } = {}) {
-  const prepare = vi.fn((_sql) => {
+  const prepare = vi.fn(() => {
     const stmt = {
       bind: vi.fn(() => stmt),
       first: vi.fn(first),

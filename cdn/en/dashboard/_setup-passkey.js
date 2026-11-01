@@ -52,7 +52,7 @@ async function loadExisting() {
         container.appendChild(item);
       }
     }
-  } catch {}
+  } catch { /* best-effort: passkey list is optional UI */ }
 }
 
 async function registerPasskey() {

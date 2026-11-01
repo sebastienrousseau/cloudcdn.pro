@@ -447,7 +447,7 @@ export async function onRequestGet(context) {
       status: 200,
       headers,
     });
-  } catch (err) {
+  } catch {
     return legacyErrorJson(500, 'Failed to transform image');
   }
 }

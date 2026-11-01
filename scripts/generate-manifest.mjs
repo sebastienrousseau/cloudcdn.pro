@@ -19,7 +19,6 @@ export const getFiles = (dir, baseCwd = dir) => {
         const ext = path.extname(file).toLowerCase();
         if (!EXTS.has(ext)) continue;
         const rel = path.relative(baseCwd, full);
-        const parts = rel.split('/');
         // Strip clients/ prefix so paths reflect public URLs
         const publicPath = rel.startsWith('clients/') ? rel.slice('clients/'.length) : rel;
         const publicParts = publicPath.split('/');

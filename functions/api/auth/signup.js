@@ -44,7 +44,7 @@ import {
   sessionCookieHeader, loggedInIndicatorCookie, createApiKey,
   signRevealPayload, revealCookieHeader,
   POLICY_VERSION, SIGNUP_RATE_LIMIT, SIGNUP_RATE_WINDOW, AUTH_CORS,
-  jsonError, authJson,
+  jsonError,
 } from "./_lib.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -151,7 +151,7 @@ export async function onRequestPost(context) {
   let passwordHash;
   try {
     passwordHash = await hashPassword(env, password);
-  } catch (err) {
+  } catch {
     return jsonError(500, "internal", "Password hashing failed. Please retry.");
   }
 

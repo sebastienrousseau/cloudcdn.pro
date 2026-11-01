@@ -132,7 +132,6 @@
       let fullText = '';
       let sources = [];
       let confidence = 'low';
-      let remaining = null;
       let followUps = [];
       let streamStarted = false;
 
@@ -187,7 +186,6 @@
                 if (eventType === 'metadata') {
                   sources = parsed.sources || [];
                   confidence = parsed.confidence || 'low';
-                  remaining = parsed.remaining;
                 } else if (eventType === 'token') {
                   if (!streamStarted) {
                     streamStarted = true;
@@ -435,6 +433,7 @@
         .replace(/\n/g, '<br>');
 
       // Restore code blocks
+      // eslint-disable-next-line no-control-regex -- \x00 delimits code-block placeholders inserted above
       text = text.replace(/\x00CB(\d+)\x00/g, (_, i) => codeBlocks[parseInt(i)]);
 
       return text;

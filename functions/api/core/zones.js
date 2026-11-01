@@ -50,7 +50,7 @@ export async function onRequestGet(context) {
   try {
     const res = await env.ASSETS.fetch(new URL('/manifest.json', request.url));
     manifest = await res.json();
-  } catch {}
+  } catch { /* manifest missing: fall back to empty list */ }
 
   // Group by project (zone)
   const zones = {};

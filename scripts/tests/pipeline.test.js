@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 
 const { onRequestPost, onRequestOptions, sanitizeSvg } = await import('../../functions/api/pipeline.js');
 

@@ -537,7 +537,7 @@ function tagAndTrack(context, env, request, path, response) {
   const tag = buildCacheTag(path);
   const newResponse = new Response(response.body, response);
   newResponse.headers.set("Cache-Tag", tag);
-  try { context.waitUntil(trackRequest(env, request, newResponse, path)); } catch {}
+  try { context.waitUntil(trackRequest(env, request, newResponse, path)); } catch { /* best-effort: analytics must never fail the response */ }
   return newResponse;
 }
 

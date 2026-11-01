@@ -117,7 +117,7 @@ describe('OpenAPI Spec — Security Schemes', () => {
   });
 
   it('every authenticated endpoint references a security scheme', () => {
-    for (const [p, methods] of Object.entries(spec.paths)) {
+    for (const methods of Object.values(spec.paths)) {
       for (const [method, op] of Object.entries(methods)) {
         if (method === 'options') continue;
         // Public endpoints explicitly set security: []
@@ -145,8 +145,8 @@ describe('OpenAPI Spec — Code Samples', () => {
   });
 
   it('code samples have curl, javascript, and python', () => {
-    for (const [p, methods] of Object.entries(spec.paths)) {
-      for (const [method, op] of Object.entries(methods)) {
+    for (const methods of Object.values(spec.paths)) {
+      for (const op of Object.values(methods)) {
         const samples = op['x-codeSamples'];
         if (!samples) continue;
         const langs = samples.map(s => s.lang.toLowerCase());

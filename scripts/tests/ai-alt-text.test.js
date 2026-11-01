@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, afterEach, beforeEach } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 
 const handlers = await import('../../functions/api/ai/alt-text.js');
 const { onRequestGet, onRequestPost, onRequestOptions } = handlers;

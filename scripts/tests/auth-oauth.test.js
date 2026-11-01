@@ -23,7 +23,7 @@ function makeKv() {
   const store = new Map();
   return {
     get: vi.fn(async (k) => store.get(k) || null),
-    put: vi.fn(async (k, v, _opts) => { store.set(k, v); }),
+    put: vi.fn(async (k, v) => { store.set(k, v); }),
     delete: vi.fn(async (k) => { store.delete(k); }),
     _store: store,
   };
@@ -320,7 +320,7 @@ describe('OAuth callback — preflight + ACCOUNTS_DB guard', () => {
 describe('GET /api/auth/oauth/[provider]/callback', () => {
   beforeEach(() => {
     // Default fetch mock: Google token exchange + userinfo for a new user.
-    globalThis.fetch = vi.fn(async (urlOrReq, init) => {
+    globalThis.fetch = vi.fn(async (urlOrReq) => {
       const u = typeof urlOrReq === 'string' ? urlOrReq : urlOrReq.url;
       if (u === 'https://oauth2.googleapis.com/token') {
         return new Response(JSON.stringify({ access_token: 'at-google', token_type: 'Bearer' }), { status: 200 });

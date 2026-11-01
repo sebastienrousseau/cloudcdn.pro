@@ -8,6 +8,43 @@ Versioning is calendar-based on the **`apiVersion`** field returned by
 every API envelope (currently `2026-04-01`). This file groups commits
 into the *sprints* used during development.
 
+## [0.0.7]
+
+### Fixed
+
+- Assets load on other domains again. A Cloudflare zone Transform Rule
+  overrode the middleware's `Cross-Origin-Resource-Policy: cross-origin`
+  with `same-site`, and Hotlink Protection returned 403 for `.png`, `.jpg`,
+  `.gif` and `.ico` requested from other sites. Both are corrected in the
+  zone; `docs/cloudflare-zone.md` records the zone state the site depends
+  on.
+
+### Security
+
+- Hold @hono/node-server at 2.1.3 or later (GHSA-rmxm-3fg6-px4f) and qs
+  at 6.16.1 or later (GHSA-6pq8-jhm2-2vcw) in the MCP server, and
+  upgrade @modelcontextprotocol/sdk to 1.32.2.
+- Hold minimatch at 11.0.1 or later in the site (GHSA-g3hv-75wg-m249,
+  arrives through ESLint).
+
+### Added
+
+- `scripts/check-edge-headers.mjs` and the "Edge header check" workflow
+  request live assets as a cross-site browser would, daily and after
+  every deploy, and fail on a CORP, CORS, hotlink or security-header
+  regression.
+- ESLint with per-function complexity ceilings (cyclomatic 10, cognitive
+  15, Halstead difficulty 30, 60 lines; 500 lines per file), a local
+  Halstead rule, and a committed baseline of existing offenders
+  (`eslint-suppressions.json`) that may only shrink. Linting now runs in
+  CI.
+
+### Changed
+
+- Localised SEO descriptions meet the 120-character threshold in every
+  locale; the marketplace catalogue is refreshed.
+- wrangler and the GitHub Actions group are updated.
+
 ## [0.0.6]
 
 ### Security

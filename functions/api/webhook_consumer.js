@@ -92,7 +92,7 @@ async function deliver(envelope, env) {
  * Each message is the envelope produced by dispatchWebhook:
  *   { webhookId, event, body }
  */
-export async function webhookQueueHandler(batch, env, _ctx) {
+export async function webhookQueueHandler(batch, env) {
   for (const msg of batch.messages) {
     const envelope = msg.body;
     try {

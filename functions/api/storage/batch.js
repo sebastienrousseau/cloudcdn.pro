@@ -41,6 +41,7 @@ export function normalizeStoragePath(path) {
   const segments = decoded.split('/');
   if (segments.length < 2 || segments.some(segment => !segment || segment === '.' || segment === '..')) return null;
   if (!STORAGE_ROOTS.has(segments[0])) return null;
+  // eslint-disable-next-line no-control-regex -- rejects control characters in path segments
   if (segments.some(segment => /[\u0000-\u001f\u007f]/.test(segment))) return null;
   return segments.join('/');
 }

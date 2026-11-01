@@ -107,7 +107,7 @@ export async function onRequestPost(context) {
     try {
       const existing = await ghFetch(`https://api.github.com/repos/${repo}/contents/${file}`, { headers });
       if (existing.ok) sha = (await existing.json()).sha;
-    } catch {}
+    } catch { /* file may not exist yet; create without sha */ }
 
     const base64Content = btoa(unescape(encodeURIComponent(content)));
 

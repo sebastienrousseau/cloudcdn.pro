@@ -37,7 +37,7 @@ export function pruneFormats(manifestPath, dryRun = false) {
   let kept = 0, removed = 0, savedBytes = 0;
   const removedFiles = [];
 
-  for (const [base, files] of Object.entries(groups)) {
+  for (const files of Object.values(groups)) {
     if (files.length <= 1) {
       kept++;
       continue;
@@ -54,7 +54,7 @@ export function pruneFormats(manifestPath, dryRun = false) {
       removedFiles.push(files[i].path);
 
       if (!dryRun) {
-        try { fs.unlinkSync(filePath); } catch {}
+        try { fs.unlinkSync(filePath); } catch { /* already removed */ }
       }
     }
   }

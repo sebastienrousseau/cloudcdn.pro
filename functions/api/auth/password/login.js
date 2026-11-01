@@ -73,7 +73,7 @@ export async function onRequestPost(context) {
     // ahead of time so we don't pay 100ms encoding a random salt for
     // a deliberately-failed compare — a single static hash is fine
     // because we never actually accept it as valid.
-    try { await verifyPassword(env, password, "$argon2id$v=19$m=65536,t=3,p=1$AAAAAAAAAAAAAAAAAAAAAA$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"); } catch {}
+    try { await verifyPassword(env, password, "$argon2id$v=19$m=65536,t=3,p=1$AAAAAAAAAAAAAAAAAAAAAA$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"); } catch { /* timing equaliser only; result is irrelevant */ }
     return jsonError(401, "invalid_credentials", "Email or password incorrect.");
   }
 

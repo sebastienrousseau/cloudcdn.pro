@@ -11,16 +11,6 @@ const zoneModule = await import('../../functions/api/auth/onboarding/zone.js');
 const originalFetch = globalThis.fetch;
 afterEach(() => { globalThis.fetch = originalFetch; vi.restoreAllMocks(); });
 
-function makeD1({ first = async () => null, all = async () => ({ results: [] }) } = {}) {
-  const bind = vi.fn(() => ({
-    first: vi.fn(first),
-    all: vi.fn(all),
-    run: vi.fn().mockResolvedValue({ success: true }),
-  }));
-  const prepare = vi.fn(() => ({ bind }));
-  return { prepare, batch: vi.fn() };
-}
-
 function makeRequest({ method = 'POST', body, cookie = 'cdn_session=tok' } = {}) {
   const headers = new Headers();
   if (cookie) headers.set('cookie', cookie);

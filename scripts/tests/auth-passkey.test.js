@@ -6,7 +6,7 @@
  * the module level so we don't need real attestation bytes — we test the
  * dispatch paths around it (challenge, lookups, response shape).
  */
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 
 // IMPORTANT: vi.mock is hoisted; mock the source module the passkey
 // _lib re-exports verifyAssertion from.

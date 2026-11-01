@@ -29,10 +29,9 @@
  */
 
 import {
-  hasAccountsDB, getDB, getCurrentSession, sha256Hex, SESSION_COOKIE,
+  hasAccountsDB, getDB, getCurrentSession, sha256Hex,
   AUTH_CORS, jsonError,
 } from "../auth/_lib.js";
-import { parseCookies } from "../_shared.js";
 import { bridgeAvailable } from "./_workers_logs_bridge.js";
 
 /**
@@ -79,7 +78,7 @@ export async function onRequestGet(context) {
   const queryToken = url.searchParams.get("session");
   let current;
   if (queryToken) {
-    current = await sessionFromToken(env, queryToken, request);
+    current = await sessionFromToken(env, queryToken);
   } else {
     current = await getCurrentSession(env, request);
   }
@@ -110,7 +109,7 @@ export async function onRequestGet(context) {
 }
 
 // Look up a session by raw token (used for the `?session=` fallback).
-async function sessionFromToken(env, token, request) {
+async function sessionFromToken(env, token) {
   if (!token) return null;
   const tokenHash = await sha256Hex(token);
   const db = getDB(env);

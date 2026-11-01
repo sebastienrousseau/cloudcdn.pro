@@ -152,26 +152,6 @@ function tsScalar(schema) {
   }
 }
 
-/** Resolve to a Python type-hint scalar. Optional[X] is added by callers. */
-function pyScalar(schema) {
-  if (!schema) return "Any";
-  switch (schema.type) {
-    case "integer":
-      return "int";
-    case "number":
-      return "float";
-    case "boolean":
-      return "bool";
-    case "array":
-      return `list[${pyScalar(schema.items)}]`;
-    case "object":
-      return "dict";
-    case "string":
-    default:
-      return "str";
-  }
-}
-
 // ---------------------------------------------------------------------------
 // JavaScript generator
 // ---------------------------------------------------------------------------
@@ -1027,7 +1007,6 @@ function generateCurl(spec, ops) {
         w(`  local qs="\${${queryIdx}:-}"`);
         w('  [[ -n "$qs" ]] && url+="?$qs"');
       }
-      const verb = op.method === "GET" ? "" : `-X ${op.method} `;
       w("  curl -sS --fail-with-body \\");
       if (op.method !== "GET") {
         if (op.method === "HEAD") w("    -I \\");

@@ -79,14 +79,14 @@ describe('Middleware: onRequest', () => {
 
     it('passes /dashboard/ through to Functions middleware (context.next)', async () => {
       const ctx = makeContext('/dashboard/');
-      const res = await onRequest(ctx);
+      await onRequest(ctx);
       // Should call context.next(), not ASSETS.fetch
       expect(ctx.next).toHaveBeenCalled();
     });
 
     it('passes /dist/ through to Functions middleware (context.next)', async () => {
       const ctx = makeContext('/dist/');
-      const res = await onRequest(ctx);
+      await onRequest(ctx);
       expect(ctx.next).toHaveBeenCalled();
     });
 
@@ -265,7 +265,7 @@ describe('Middleware: onRequest', () => {
   describe('stocks pillar', () => {
     it('serves /stocks/ directly without rewrite', async () => {
       const ctx = makeContext('/stocks/videos/nature.mp4');
-      const res = await onRequest(ctx);
+      await onRequest(ctx);
       expect(ctx.next).toHaveBeenCalled();
     });
 
@@ -499,7 +499,7 @@ describe('Middleware: onRequest', () => {
     it('preserves query string on tenant rewrite', async () => {
       const ctx = makeContext('/project/images/logo.webp?v=2');
       ctx.request.url = 'https://cloudcdn.pro/project/images/logo.webp?v=2';
-      const res = await onRequest(ctx);
+      await onRequest(ctx);
       const fetchedUrl = ctx.env.ASSETS.fetch.mock.calls[0][0].url;
       expect(fetchedUrl).toContain('/clients/project/images/logo.webp');
       expect(fetchedUrl).toContain('v=2');
