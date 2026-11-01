@@ -31,7 +31,8 @@
     "prepare": "husky",
     "release:preflight": "node scripts/release/preflight.mjs",
     "lint": "eslint .",
-    "lint:prune": "eslint . --prune-suppressions"
+    "lint:prune": "eslint . --prune-suppressions",
+    "check:edge": "node scripts/check-edge-headers.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

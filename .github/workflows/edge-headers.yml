@@ -1,0 +1,46 @@
+name: Edge header check
+
+# Requests live cloudcdn.pro assets as a cross-site browser would and fails
+# if the edge stops serving them to other domains. Guards against zone-level
+# drift (Transform Rules, Hotlink Protection) that this repo cannot see; see
+# docs/CLOUDFLARE.md.
+
+on:
+  workflow_run:
+    workflows: ['Deploy to Cloudflare Pages']
+    types: [completed]
+  schedule:
+    # Daily 07:15 UTC; catches dashboard edits made outside a deploy.
+    - cron: '15 7 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: edge-headers
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v6
+        with:
+          node-version: '20'
+
+      - name: Check live edge headers
+        run: |
+          set -euo pipefail
+          status=0
+          node scripts/check-edge-headers.mjs > report.txt || status=$?
+          cat report.txt
+          { echo '## Edge header check'; echo '```'; cat report.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
