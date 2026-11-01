@@ -11,7 +11,6 @@
       // State
       let mode = 'client';
       let svgBase64 = null;
-      let svgFileName = null;
 
       // Mode toggle
       $$('.mode-btn').forEach((btn) => {
@@ -58,7 +57,6 @@
           alert('Only SVG files are accepted.');
           return;
         }
-        svgFileName = file.name;
         $('#filename').textContent = file.name;
         dropzone.classList.add('has-file');
 

@@ -25,13 +25,13 @@ function makeCtx(options = {}) {
 describe('Dist Auth Middleware', () => {
   it('allows on localhost without password', async () => {
     const ctx = makeCtx({ host: 'localhost:8788' });
-    const res = await onRequest(ctx);
+    await onRequest(ctx);
     expect(ctx.next).toHaveBeenCalled();
   });
 
   it('allows on 127.0.0.1 without password', async () => {
     const ctx = makeCtx({ host: '127.0.0.1:8788' });
-    const res = await onRequest(ctx);
+    await onRequest(ctx);
     expect(ctx.next).toHaveBeenCalled();
   });
 
@@ -50,7 +50,7 @@ describe('Dist Auth Middleware', () => {
     const cookie = `cdn_session=${futureExpiry}.${sig}`;
 
     const ctx = makeCtx({ secret, cookie });
-    const res = await onRequest(ctx);
+    await onRequest(ctx);
     expect(ctx.env.ASSETS.fetch).toHaveBeenCalled();
   });
 
@@ -119,7 +119,7 @@ describe('Dist Auth Middleware', () => {
     const cookie = `cdn_session=${futureExpiry}.${sig}`;
 
     const ctx = makeCtx({ password, cookie });
-    const res = await onRequest(ctx);
+    await onRequest(ctx);
     expect(ctx.env.ASSETS.fetch).toHaveBeenCalled();
   });
 
@@ -163,7 +163,7 @@ describe('Dist Auth Middleware', () => {
   it('allows localhost dev mode without secret', async () => {
     const ctx = makeCtx({});
     ctx.request.headers.set('host', 'localhost:8788');
-    const res = await onRequest(ctx);
+    await onRequest(ctx);
     expect(ctx.next).toHaveBeenCalled();
   });
 
@@ -180,7 +180,7 @@ describe('Dist Auth Middleware', () => {
     const sig = await hmacSign(secret, futureExpiry);
     const cookie = `other_cookie=foo; cdn_session=${futureExpiry}.${sig}; another=bar`;
     const ctx = makeCtx({ secret, cookie });
-    const res = await onRequest(ctx);
+    await onRequest(ctx);
     expect(ctx.env.ASSETS.fetch).toHaveBeenCalled();
   });
 });

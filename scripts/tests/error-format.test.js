@@ -9,8 +9,8 @@ import { clearManifestCache, errorResponse, legacyErrorJson } from '../../functi
 
 const zonesModule = await import('../../functions/api/core/zones.js');
 const zoneDetailModule = await import('../../functions/api/core/zones/[[id]].js');
-const statsModule = await import('../../functions/api/core/statistics.js');
-const rulesModule = await import('../../functions/api/core/rules.js');
+await import('../../functions/api/core/statistics.js');
+await import('../../functions/api/core/rules.js');
 const storageModule = await import('../../functions/api/storage/[[path]].js');
 const batchModule = await import('../../functions/api/storage/batch.js');
 const assetsModule = await import('../../functions/api/assets.js');

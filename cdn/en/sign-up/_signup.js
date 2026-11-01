@@ -306,7 +306,7 @@
       } else {
         setStatus(msg, 'error');
       }
-    } catch (err) {
+    } catch {
       setStatus('Network error — check your connection and retry.', 'error');
     } finally {
       submitBtn.disabled = false;

@@ -8,7 +8,7 @@
  * Creates logos, icons, and directory scaffolding via the GitHub Git Database API.
  */
 
-import { authenticateAccount, errorResponse, jsonResponse, fetchWithTimeout, log, cdnOrigin } from './_shared.js';
+import { authenticateAccount, errorResponse, fetchWithTimeout, log, cdnOrigin } from './_shared.js';
 import { authenticateWithScope } from './tokens.js';
 import { accountOwnsStoragePath } from './storage/_auth.js';
 
@@ -186,7 +186,7 @@ function stripOrphanClosers(s) {
     if (DISALLOWED_TAGS.has(name)) {
       out += s.slice(i, lt);
       const gt = s.indexOf('>', j);
-      if (gt === -1) { i = s.length; break; }
+      if (gt === -1) break;
       i = gt + 1;
     } else {
       out += s.slice(i, lt + 1);
@@ -304,7 +304,6 @@ function stripUnsafeUriValues(s) {
           }
           k = v + 1;
         } else {
-          const valStart = k;
           while (k < s.length && !/[\s>]/.test(s[k])) k++;
           out += s.slice(nameStart, k);
         }

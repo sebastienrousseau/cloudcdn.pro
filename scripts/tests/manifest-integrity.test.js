@@ -86,7 +86,6 @@ describe('Manifest Integrity — No duplicate paths', () => {
   });
 
   it('no duplicate name+project combinations with same format', () => {
-    const keys = manifest.map(e => `${e.project}/${e.name}`);
     // This checks that the same file does not appear twice
     // Note: same name with different format is allowed (logo.svg, logo.png)
     const pathSet = new Set(manifest.map(e => e.path));

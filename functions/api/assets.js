@@ -9,7 +9,7 @@
  *   - Constant memory via generator-based item yielding
  */
 
-import { getManifest, authenticateAccess, streamJsonArray, extractParams, checkRateLimit, errorResponse, rateLimitHeaders, CORS_JSON, headFromGet } from './_shared.js';
+import { getManifest, authenticateAccess, streamJsonArray, extractParams, checkRateLimit, errorResponse, rateLimitHeaders, headFromGet } from './_shared.js';
 import { authorizeWithScope } from './tokens.js';
 
 const CORS = {

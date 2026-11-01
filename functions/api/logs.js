@@ -10,7 +10,7 @@
  * writes a structured entry that this endpoint reads and streams.
  */
 
-import { authenticateAccount, log } from './_shared.js';
+import { authenticateAccount } from './_shared.js';
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -18,7 +18,6 @@ const CORS = {
 };
 
 const LOG_KEY_PREFIX = 'logs:';
-const MAX_ENTRIES_PER_READ = 100;
 
 /**
  * GET /api/logs — stream or query log entries.
@@ -37,7 +36,7 @@ export async function onRequestGet(context) {
   const tail = url.searchParams.get('tail') === 'true';
 
   if (tail) {
-    return streamLogs(kv, request);
+    return streamLogs(kv);
   }
 
   return queryLogs(kv, url);
@@ -46,7 +45,7 @@ export async function onRequestGet(context) {
 /**
  * SSE stream — polls KV every 2 seconds for new entries.
  */
-function streamLogs(kv, request) {
+function streamLogs(kv) {
   const encoder = new TextEncoder();
   const { readable, writable } = new TransformStream();
   const writer = writable.getWriter();
@@ -80,7 +79,7 @@ function streamLogs(kv, request) {
     } catch {
       // Client disconnected
     } finally {
-      try { await writer.close(); } catch {}
+      try { await writer.close(); } catch { /* stream already closed */ }
     }
   })();
 

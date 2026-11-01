@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 
 const mod = await import('../../functions/api/storage/[[path]].js');
 const { onRequestGet, onRequestPut, onRequestDelete, onRequestHead, onRequestOptions } = mod;
@@ -130,7 +130,6 @@ describe('Storage API', () => {
       const res = await onRequestGet(ctx);
       const entries = await res.json();
       const dirs = entries.filter(e => e.IsDirectory);
-      const files = entries.filter(e => !e.IsDirectory);
       // Should have subdirectories (logos, banners)
       expect(dirs.length).toBeGreaterThan(0);
     });

@@ -107,7 +107,7 @@ export function patchSpec(specPath) {
     };
   }
 
-  for (const [pathStr, methods] of Object.entries(spec.paths)) {
+  for (const methods of Object.values(spec.paths)) {
     for (const [method, op] of Object.entries(methods)) {
       if (method === 'options') continue;
       if (!op.responses) op.responses = {};

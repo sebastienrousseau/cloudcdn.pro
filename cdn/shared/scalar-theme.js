@@ -28,7 +28,7 @@
     var config = JSON.parse(raw);
     config.darkMode = (theme === 'dark');
     configScript.setAttribute('data-configuration', JSON.stringify(config));
-  } catch (e) {
+  } catch {
     /* Malformed config — leave it for Scalar to surface. */
   }
 })();

@@ -39,7 +39,7 @@ export async function onRequestDelete(context) {
   res.headers.append("Set-Cookie", clearedSessionCookieHeader());
   res.headers.append("Set-Cookie", clearedLoggedInIndicatorCookie());
   if (current) {
-    try { await revokeSession(env, current.session.tokenHash); } catch {}
+    try { await revokeSession(env, current.session.tokenHash); } catch { /* best-effort: cookie is cleared regardless */ }
     await auditEvent(env, {
       accountId: current.account?.id,
       userId: current.user.id,

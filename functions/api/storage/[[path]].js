@@ -25,7 +25,6 @@ const CORS_HEADERS = {
 
 const STORAGE_ZONE = 'cloudcdn';
 const MAX_UPLOAD_SIZE = 25 * 1024 * 1024; // 25 MB (Cloudflare Pages limit)
-const GITHUB_API_LIMIT = 50 * 1024 * 1024; // 50 MB (GitHub Contents API limit)
 
 function unauthorized() {
   return new Response(JSON.stringify({ HttpCode: 401, Message: 'Authentication required. Provide a valid API key in the request header. Use "AccessKey" for storage and asset operations, or "AccountKey" for zone management and analytics.' }), {
@@ -337,7 +336,7 @@ export async function onRequestPut(context) {
           const data = await existing.json();
           sha = data.sha;
         }
-      } catch {}
+      } catch { /* file may not exist yet; create without sha */ }
 
       const payload = {
         message: `chore: upload ${storagePath} via Storage API [skip ci]`,
@@ -382,7 +381,7 @@ export async function onRequestPut(context) {
       }
 
       // Dispatch webhook (best-effort, non-blocking)
-      try { context.waitUntil(dispatchWebhook(env, sha ? 'asset.updated' : 'asset.created', { path: storagePath, size: body.byteLength })); } catch {}
+      try { context.waitUntil(dispatchWebhook(env, sha ? 'asset.updated' : 'asset.created', { path: storagePath, size: body.byteLength })); } catch { /* best-effort: webhook dispatch must not fail the upload */ }
 
       return new Response(JSON.stringify({
         HttpCode: 201,
@@ -492,7 +491,7 @@ export async function onRequestDelete(context) {
     }
 
     // Dispatch webhook (best-effort, non-blocking)
-    try { context.waitUntil(dispatchWebhook(env, 'asset.deleted', { path: storagePath })); } catch {}
+    try { context.waitUntil(dispatchWebhook(env, 'asset.deleted', { path: storagePath })); } catch { /* best-effort: webhook dispatch must not fail the delete */ }
 
     return new Response(JSON.stringify({
       HttpCode: 200,

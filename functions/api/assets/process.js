@@ -131,7 +131,7 @@ export async function onRequestPost(context) {
   }
 
   // Eager mode: also invoke alt-text + smart-crop hints synchronously.
-  let aiAssisted = {};
+  let aiAssisted;
   if (mode === "eager") {
     aiAssisted = await invokeAiPair(env, sourceUrl, crops);
   } else {

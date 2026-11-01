@@ -65,7 +65,6 @@ describe('Storage Operations — Extended', () => {
       const res = await onRequestGet(ctx);
       const entries = await res.json();
       const files = entries.filter(e => !e.IsDirectory);
-      const dirs = entries.filter(e => e.IsDirectory);
       expect(files.length).toBeGreaterThanOrEqual(0);
     });
   });

@@ -32,7 +32,7 @@ describe('theme-toggle.js', () => {
     document.documentElement.removeAttribute('data-theme');
     document.head.innerHTML = '';
     document.body.innerHTML = '';
-    try { localStorage.clear(); } catch (e) { /* ignore */ }
+    try { localStorage.clear(); } catch { /* ignore */ }
   });
 
   it('initialises with the stored light theme and updates aria + meta', async () => {

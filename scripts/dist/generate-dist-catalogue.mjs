@@ -55,7 +55,7 @@ const PER_PKG_CONCURRENCY = 8;
 export function normaliseReleaseVersion(raw) {
   if (!raw) return null;
   const value = String(raw);
-  const semantic = value.match(/(?:^|[\/_-])v?(\d+(?:\.\d+)+(?:[-+][0-9A-Za-z.-]+)?)$/);
+  const semantic = value.match(/(?:^|[/_-])v?(\d+(?:\.\d+)+(?:[-+][0-9A-Za-z.-]+)?)$/);
   return semantic?.[1] ?? value.replace(/^v/, '');
 }
 

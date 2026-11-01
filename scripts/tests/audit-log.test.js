@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 const { appendAuditLog, queryAuditLog } = await import('../../functions/api/_shared.js');
 const auditLogsModule = await import('../../functions/api/core/audit-logs.js');

@@ -22,7 +22,7 @@
  */
 
 import {
-  hasAccountsDB, getDB, uuid, sha256Hex, getCurrentSession,
+  hasAccountsDB, getDB, sha256Hex, getCurrentSession,
   createApiKey, auditEvent, AUTH_CORS, jsonError, authJson,
 } from "../auth/_lib.js";
 

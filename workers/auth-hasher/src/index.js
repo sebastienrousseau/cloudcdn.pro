@@ -42,10 +42,6 @@ async function hashPassword(password) {
   return argon2id({ ...ARGON2_PARAMS, password, salt });
 }
 
-async function verifyPassword(password, hash) {
-  return argon2Verify({ password, hash });
-}
-
 async function handleHash(request) {
   let body;
   try { body = await request.json(); } catch { return json({ error: "invalid JSON body" }, 400); }

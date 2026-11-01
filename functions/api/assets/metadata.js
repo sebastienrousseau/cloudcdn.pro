@@ -4,7 +4,7 @@
  * GET /api/assets/metadata?path=akande/v1/logos/logo.svg
  */
 
-import { getManifest, authenticateAccess, formatBytes, extractParams, cdnOrigin, CORS_JSON, headFromGet } from '../_shared.js';
+import { getManifest, authenticateAccess, formatBytes, extractParams, cdnOrigin, headFromGet } from '../_shared.js';
 import { authorizeWithScope } from '../tokens.js';
 
 const CORS = {
