@@ -448,16 +448,16 @@
   },
   "functions/api/pipeline.js": {
     "complexity": {
-      "count": 3
+      "count": 2
     },
     "local/halstead-difficulty": {
-      "count": 4
+      "count": 3
     },
     "max-lines-per-function": {
       "count": 1
     },
     "sonarjs/cognitive-complexity": {
-      "count": 3
+      "count": 2
     }
   },
   "functions/api/purge.js": {

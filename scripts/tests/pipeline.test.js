@@ -79,6 +79,19 @@ describe('sanitizeSvg', () => {
     expect(out).toContain('src=""');
   });
 
+  it('neutralises unquoted javascript: URIs', () => {
+    expect(sanitizeSvg('<svg><a href=javascript:alert(1)><text>x</text></a></svg>'))
+      .toBe('<svg><a href=""><text>x</text></a></svg>');
+    expect(sanitizeSvg('<svg><a xlink:href=javascript:alert(1)>x</a></svg>'))
+      .toBe('<svg><a xlink:href="">x</a></svg>');
+    expect(sanitizeSvg('<svg><a href = vbscript:x>y</a></svg>')).toBe('<svg><a href="">y</a></svg>');
+    expect(sanitizeSvg('<svg><use href=javascript:x/></svg>')).toBe('<svg><use href=""/></svg>');
+  });
+
+  it('keeps safe unquoted URIs', () => {
+    expect(sanitizeSvg('<svg><a href=#target>x</a></svg>')).toBe('<svg><a href=#target>x</a></svg>');
+  });
+
   it('neutralises data:text/html URIs', () => {
     const out = sanitizeSvg('<a href="data:text/html,<script>x</script>"/>');
     expect(out).toContain('href=""');

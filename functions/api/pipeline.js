@@ -258,62 +258,66 @@ function stripEventHandlers(s) {
   return out;
 }
 
+// Sticky scanners for stripUnsafeUriValues. Each is used with an explicit
+// lastIndex, so the shared state never leaks between calls.
+const TAG_OPEN = /<\/?[a-zA-Z0-9:-]*/y;
+const ATTR_HEAD = /([a-zA-Z0-9:_-]+)(\s*)(=\s*)?/y;
+const ATTR_VALUE = /"([^"]*)"?|'([^']*)'?|([^\s>]*?)(?=\/>|[\s>]|$)/y;
+
+function stickyExec(re, s, at) {
+  re.lastIndex = at;
+  const match = re.exec(s);
+  return { match, end: re.lastIndex };
+}
+
+/**
+ * Rewrite one attribute (or one whitespace character) at `start`.
+ * Quoted and unquoted values get the same URI check. Returns
+ * { text, next }.
+ */
+function rewriteAttr(s, start) {
+  const head = stickyExec(ATTR_HEAD, s, start);
+  // Forward-progress guard — same rationale as in stripEventHandlers.
+  if (!head.match) return { text: s[start], next: start + 1 };
+  if (!head.match[3]) return { text: head.match[0], next: head.end };
+  const val = stickyExec(ATTR_VALUE, s, head.end);
+  const value = val.match[1] ?? val.match[2] ?? val.match[3];
+  const name = head.match[1];
+  // Normalize a cleared value to double-quoted "" — the canonical
+  // empty-attribute form, whatever quoting the payload used.
+  const unsafe = URI_ATTRS.has(name.toLowerCase()) && isUnsafeUriValue(value);
+  return { text: unsafe ? `${name}=""` : s.slice(start, val.end), next: val.end };
+}
+
+/** Rewrite the attributes of a tag from `at` up to (not including) `>`. */
+function rewriteTagAttrs(s, at) {
+  let text = '';
+  let j = at;
+  while (j < s.length && s[j] !== '>') {
+    const attr = rewriteAttr(s, j);
+    text += attr.text;
+    j = attr.next;
+  }
+  return { text, next: j };
+}
+
 /**
  * Replace javascript: and data:text/html URI values inside any URI-bearing
- * attribute with an empty string. Operates per-tag so we don't false-match
- * values in arbitrary text content.
+ * attribute with an empty string, whether the value is quoted or not.
+ * Operates per-tag so we don't false-match values in arbitrary text
+ * content.
  */
 function stripUnsafeUriValues(s) {
   let out = '';
   let i = 0;
   while (i < s.length) {
     const lt = s.indexOf('<', i);
-    if (lt === -1) { out += s.slice(i); break; }
-    out += s.slice(i, lt);
-    const tagStart = lt + (s[lt + 1] === '/' ? 2 : 1);
-    let j = tagStart;
-    while (j < s.length && /[a-zA-Z0-9:-]/.test(s[j])) j++;
-    out += s.slice(lt, j);
-    while (j < s.length && s[j] !== '>') {
-      if (/\s/.test(s[j])) { out += s[j]; j++; continue; }
-      const nameStart = j;
-      while (j < s.length && /[a-zA-Z0-9:_-]/.test(s[j])) j++;
-      // Forward-progress guard — same rationale as in stripEventHandlers.
-      if (j === nameStart) { out += s[j]; j++; continue; }
-      const attrName = s.slice(nameStart, j).toLowerCase();
-      let k = j;
-      while (k < s.length && /\s/.test(s[k])) k++;
-      if (s[k] === '=') {
-        k++;
-        while (k < s.length && /\s/.test(s[k])) k++;
-        if (s[k] === '"' || s[k] === "'") {
-          const q = s[k];
-          const valStart = k + 1;
-          let v = valStart;
-          while (v < s.length && s[v] !== q) v++;
-          const rawValue = s.slice(valStart, v);
-          const isUnsafe = URI_ATTRS.has(attrName) && isUnsafeUriValue(rawValue);
-          if (isUnsafe) {
-            // Normalize the cleared value to double-quoted "" — it's
-            // the canonical empty-attribute form and makes downstream
-            // diffing/assertions consistent regardless of whether the
-            // attacker payload used single or double quotes.
-            out += s.slice(nameStart, j) + '=""';
-          } else {
-            out += s.slice(nameStart, v + 1);
-          }
-          k = v + 1;
-        } else {
-          while (k < s.length && !/[\s>]/.test(s[k])) k++;
-          out += s.slice(nameStart, k);
-        }
-      } else {
-        out += s.slice(nameStart, k);
-      }
-      j = k;
-    }
-    if (j < s.length) { out += s[j]; j++; }
-    i = j;
+    if (lt === -1) return out + s.slice(i);
+    const tag = stickyExec(TAG_OPEN, s, lt);
+    const attrs = rewriteTagAttrs(s, tag.end);
+    const close = Math.min(attrs.next + 1, s.length);
+    out += s.slice(i, tag.end) + attrs.text + s.slice(attrs.next, close);
+    i = close;
   }
   return out;
 }
