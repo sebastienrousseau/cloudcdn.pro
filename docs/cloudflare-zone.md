@@ -15,6 +15,7 @@ Recorded 2026-11-01. Plan: Free.
 | Rules → Transform Rules → Response Header → "Security Headers" | `Cross-Origin-Resource-Policy: cross-origin` | The rule runs after the middleware and overwrites it. `same-site` makes Chrome block every asset on other domains (`ERR_BLOCKED_BY_RESPONSE.NotSameSite`). |
 | Scrape Shield → Hotlink Protection | Off | When on, any `.png`/`.jpg`/`.gif`/`.ico` requested with a foreign `Referer` gets a 403 HTML page. |
 | Security → Bots → Bot Fight Mode | Off | Cannot be skipped per path on Free; challenges image proxies and server-side fetchers. |
+| Security → Bots → JavaScript Detections | Off | When on, the edge injects an inline script into every HTML page, which the strict `script-src 'self'` CSP in `functions/_middleware.js` would block. |
 | Rate limiting rule | GET/HEAD, 100 per 10 s per IP, **excluding** `/stocks/`, `/clients/`, `/cdn/` | Cached assets cost nothing; offices behind one NAT would otherwise get broken images. |
 | SSL/TLS mode | Full (strict) | Origin is `cloudcdn-pro.pages.dev`, which has a valid certificate. |
 | DNSSEC | Active | Registrar is Cloudflare; the DS record is published automatically. |
