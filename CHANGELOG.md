@@ -8,6 +8,14 @@ Versioning is calendar-based on the **`apiVersion`** field returned by
 every API envelope (currently `2026-04-01`). This file groups commits
 into the *sprints* used during development.
 
+## [0.0.9]
+
+### Security
+
+- Public pages allow only same-origin scripts (`script-src 'self'`). The
+  CSP hash for Cloudflare's injected bot-detection script is removed now
+  that JavaScript Detections is off for the zone.
+
 ## [0.0.8]
 
 ### Security
