@@ -36,7 +36,7 @@ permissions:
 
 jobs:
   ci:
-    uses: sebastienrousseau/pipelines/.github/workflows/node-ci.yml@980375f1d96368885ff65cc4c7f1ff355a5a4095 # main 2026-10-01
+    uses: sebastienrousseau/pipelines/.github/workflows/node-ci.yml@83114142d0a14e9c6302a9ba9e716a0cc53e4e01 # main 2026-10-01
     with:
       node-version: '20'
       package-manager: 'npm'
@@ -48,7 +48,7 @@ jobs:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   security:
-    uses: sebastienrousseau/pipelines/.github/workflows/security.yml@980375f1d96368885ff65cc4c7f1ff355a5a4095 # main 2026-10-01
+    uses: sebastienrousseau/pipelines/.github/workflows/security.yml@83114142d0a14e9c6302a9ba9e716a0cc53e4e01 # main 2026-10-01
     with:
       language: node
       severity-threshold: high
