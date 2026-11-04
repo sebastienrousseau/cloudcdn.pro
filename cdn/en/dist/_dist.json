@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T06:25:20.911Z",
+  "generated_at": "2026-11-02T06:15:42.687Z",
   "featured": "stratos",
   "categories": [
     {
@@ -103,7 +103,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/cloudcdn.pro",
-          "version": "0.0.6",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/cloudcdn.pro/releases/latest",
           "error": null
@@ -127,7 +127,7 @@
         {
           "type": "pypi",
           "name": "pain001",
-          "version": "0.0.74",
+          "version": "0.0.76",
           "ok": true,
           "page": "https://pypi.org/project/pain001/",
           "error": null
@@ -135,7 +135,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001",
-          "version": "0.0.74",
+          "version": "0.0.76",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001/releases/latest",
           "error": null
@@ -145,7 +145,7 @@
         "pip": "pip install pain001",
         "pipx": "pipx install pain001"
       },
-      "primary_version": "0.0.74",
+      "primary_version": "0.0.76",
       "primary_registry": "pypi"
     },
     {
@@ -159,7 +159,7 @@
         {
           "type": "pypi",
           "name": "pacs008",
-          "version": "0.0.15",
+          "version": "0.0.16",
           "ok": true,
           "page": "https://pypi.org/project/pacs008/",
           "error": null
@@ -167,7 +167,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pacs008",
-          "version": "0.0.15",
+          "version": "0.0.16",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pacs008/releases/latest",
           "error": null
@@ -177,7 +177,7 @@
         "pip": "pip install pacs008",
         "pipx": "pipx install pacs008"
       },
-      "primary_version": "0.0.15",
+      "primary_version": "0.0.16",
       "primary_registry": "pypi"
     },
     {
@@ -191,7 +191,7 @@
         {
           "type": "pypi",
           "name": "acmt001",
-          "version": "0.0.13",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://pypi.org/project/acmt001/",
           "error": null
@@ -199,7 +199,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/acmt001",
-          "version": "0.0.13",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/acmt001/releases/latest",
           "error": null
@@ -209,7 +209,7 @@
         "pip": "pip install acmt001",
         "pipx": "pipx install acmt001"
       },
-      "primary_version": "0.0.13",
+      "primary_version": "0.0.15",
       "primary_registry": "pypi"
     },
     {
@@ -223,7 +223,7 @@
         {
           "type": "pypi",
           "name": "acmt001-lsp",
-          "version": "0.0.13",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://pypi.org/project/acmt001-lsp/",
           "error": null
@@ -231,7 +231,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/acmt001-lsp",
-          "version": "0.0.13",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/acmt001-lsp/releases/latest",
           "error": null
@@ -241,7 +241,7 @@
         "pip": "pip install acmt001-lsp",
         "pipx": "pipx install acmt001-lsp"
       },
-      "primary_version": "0.0.13",
+      "primary_version": "0.0.15",
       "primary_registry": "pypi"
     },
     {
@@ -255,7 +255,7 @@
         {
           "type": "pypi",
           "name": "acmt001-mcp",
-          "version": "0.0.13",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://pypi.org/project/acmt001-mcp/",
           "error": null
@@ -263,7 +263,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/acmt001-mcp",
-          "version": "0.0.13",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/acmt001-mcp/releases/latest",
           "error": null
@@ -273,7 +273,7 @@
         "pipx": "pipx install acmt001-mcp",
         "pip": "pip install acmt001-mcp"
       },
-      "primary_version": "0.0.13",
+      "primary_version": "0.0.15",
       "primary_registry": "pypi"
     },
     {
@@ -349,7 +349,7 @@
         {
           "type": "crates.io",
           "name": "kyberlib",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://crates.io/crates/kyberlib",
           "error": null
@@ -357,7 +357,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/kyberlib",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/kyberlib/releases/latest",
           "error": null
@@ -366,7 +366,7 @@
       "install": {
         "cargo": "cargo add kyberlib"
       },
-      "primary_version": "0.0.10",
+      "primary_version": "0.0.11",
       "primary_registry": "crates.io"
     },
     {
@@ -380,7 +380,7 @@
         {
           "type": "crates.io",
           "name": "kyberlib-wasm",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://crates.io/crates/kyberlib-wasm",
           "error": null
@@ -388,7 +388,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/kyberlib",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/kyberlib/releases/latest",
           "error": null
@@ -397,7 +397,7 @@
       "install": {
         "cargo": "cargo add kyberlib-wasm"
       },
-      "primary_version": "0.0.10",
+      "primary_version": "0.0.11",
       "primary_registry": "crates.io"
     },
     {
@@ -473,7 +473,7 @@
         {
           "type": "crates.io",
           "name": "ssg",
-          "version": "0.0.69",
+          "version": "0.0.72",
           "ok": true,
           "page": "https://crates.io/crates/ssg",
           "error": null
@@ -481,7 +481,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/static-site-generator",
-          "version": "0.0.69",
+          "version": "0.0.72",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/static-site-generator/releases/latest",
           "error": null
@@ -493,7 +493,7 @@
         "linux": "curl -sL https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.sh | bash",
         "windows": "irm https://github.com/sebastienrousseau/static-site-generator/releases/latest/download/ssg-installer.ps1 | iex"
       },
-      "primary_version": "0.0.69",
+      "primary_version": "0.0.72",
       "primary_registry": "crates.io"
     },
     {
@@ -506,7 +506,7 @@
         {
           "type": "crates.io",
           "name": "html-generator",
-          "version": "0.0.12",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://crates.io/crates/html-generator",
           "error": null
@@ -514,7 +514,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/html-generator",
-          "version": "0.0.13",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/html-generator/releases/latest",
           "error": null
@@ -523,7 +523,7 @@
       "install": {
         "cargo": "cargo add html-generator"
       },
-      "primary_version": "0.0.12",
+      "primary_version": "0.0.15",
       "primary_registry": "crates.io"
     },
     {
@@ -536,7 +536,7 @@
         {
           "type": "crates.io",
           "name": "mdx-gen",
-          "version": "0.0.6",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://crates.io/crates/mdx-gen",
           "error": null
@@ -544,7 +544,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/mdx-gen",
-          "version": "0.0.6",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/mdx-gen/releases/latest",
           "error": null
@@ -553,7 +553,7 @@
       "install": {
         "cargo": "cargo add mdx-gen"
       },
-      "primary_version": "0.0.6",
+      "primary_version": "0.0.7",
       "primary_registry": "crates.io"
     },
     {
@@ -566,7 +566,7 @@
         {
           "type": "crates.io",
           "name": "nucleusflow",
-          "version": "0.0.1",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://crates.io/crates/nucleusflow",
           "error": null
@@ -574,7 +574,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/nucleusflow",
-          "version": "0.0.2",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/nucleusflow/releases/latest",
           "error": null
@@ -583,7 +583,7 @@
       "install": {
         "cargo": "cargo add nucleusflow"
       },
-      "primary_version": "0.0.1",
+      "primary_version": "0.0.11",
       "primary_registry": "crates.io"
     },
     {
@@ -604,7 +604,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/frontmatter-gen",
-          "version": "0.0.13",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/frontmatter-gen/releases/latest",
           "error": null
@@ -626,7 +626,7 @@
         {
           "type": "crates.io",
           "name": "metadata-gen",
-          "version": "0.0.8",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://crates.io/crates/metadata-gen",
           "error": null
@@ -634,7 +634,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/metadata-gen",
-          "version": "0.0.8",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/metadata-gen/releases/latest",
           "error": null
@@ -643,7 +643,7 @@
       "install": {
         "cargo": "cargo add metadata-gen"
       },
-      "primary_version": "0.0.8",
+      "primary_version": "0.0.9",
       "primary_registry": "crates.io"
     },
     {
@@ -656,7 +656,7 @@
         {
           "type": "crates.io",
           "name": "sitemap-gen",
-          "version": "0.0.5",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://crates.io/crates/sitemap-gen",
           "error": null
@@ -664,7 +664,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/sitemap-gen",
-          "version": "0.0.6",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/sitemap-gen/releases/latest",
           "error": null
@@ -673,7 +673,7 @@
       "install": {
         "cargo": "cargo add sitemap-gen"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.7",
       "primary_registry": "crates.io"
     },
     {
@@ -686,7 +686,7 @@
         {
           "type": "crates.io",
           "name": "staticdatagen",
-          "version": "0.0.26",
+          "version": "0.0.30",
           "ok": true,
           "page": "https://crates.io/crates/staticdatagen",
           "error": null
@@ -694,7 +694,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/staticdatagen",
-          "version": "0.0.26",
+          "version": "0.0.30",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/staticdatagen/releases/latest",
           "error": null
@@ -703,7 +703,7 @@
       "install": {
         "cargo": "cargo add staticdatagen"
       },
-      "primary_version": "0.0.26",
+      "primary_version": "0.0.30",
       "primary_registry": "crates.io"
     },
     {
@@ -716,7 +716,7 @@
         {
           "type": "crates.io",
           "name": "staticweaver",
-          "version": "0.0.6",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://crates.io/crates/staticweaver",
           "error": null
@@ -724,7 +724,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/staticweaver",
-          "version": "0.0.7",
+          "version": "0.0.8",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/staticweaver/releases/latest",
           "error": null
@@ -733,7 +733,7 @@
       "install": {
         "cargo": "cargo add staticweaver"
       },
-      "primary_version": "0.0.6",
+      "primary_version": "0.0.8",
       "primary_registry": "crates.io"
     },
     {
@@ -871,7 +871,7 @@
         {
           "type": "pypi",
           "name": "akande",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://pypi.org/project/akande/",
           "error": null
@@ -879,7 +879,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/akande",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/akande/releases/latest",
           "error": null
@@ -889,7 +889,7 @@
         "pipx": "pipx install akande",
         "pip": "pip install akande"
       },
-      "primary_version": "0.0.10",
+      "primary_version": "0.0.11",
       "primary_registry": "pypi"
     },
     {
@@ -987,7 +987,7 @@
         {
           "type": "crates.io",
           "name": "cmn",
-          "version": "0.0.6",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://crates.io/crates/cmn",
           "error": null
@@ -995,7 +995,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/cmn",
-          "version": "0.0.6",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/cmn/releases/latest",
           "error": null
@@ -1004,7 +1004,7 @@
       "install": {
         "cargo": "cargo add cmn"
       },
-      "primary_version": "0.0.6",
+      "primary_version": "0.0.7",
       "primary_registry": "crates.io"
     },
     {
@@ -1026,7 +1026,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/dtt",
-          "version": "0.0.13",
+          "version": "0.0.14",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/dtt/releases/latest",
           "error": null
@@ -1048,7 +1048,7 @@
         {
           "type": "crates.io",
           "name": "http-handle",
-          "version": "0.0.7",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://crates.io/crates/http-handle",
           "error": null
@@ -1056,7 +1056,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/http-handle",
-          "version": "0.0.8",
+          "version": "0.0.10",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/http-handle/releases/latest",
           "error": null
@@ -1065,7 +1065,7 @@
       "install": {
         "cargo": "cargo add http-handle"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.10",
       "primary_registry": "crates.io"
     },
     {
@@ -1078,7 +1078,7 @@
         {
           "type": "crates.io",
           "name": "langweave",
-          "version": "0.0.2",
+          "version": "0.0.4",
           "ok": true,
           "page": "https://crates.io/crates/langweave",
           "error": null
@@ -1086,7 +1086,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/langweave",
-          "version": "0.0.3",
+          "version": "0.0.4",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/langweave/releases/latest",
           "error": null
@@ -1095,7 +1095,7 @@
       "install": {
         "cargo": "cargo add langweave"
       },
-      "primary_version": "0.0.2",
+      "primary_version": "0.0.4",
       "primary_registry": "crates.io"
     },
     {
@@ -1168,7 +1168,7 @@
         {
           "type": "crates.io",
           "name": "qrc",
-          "version": "0.0.6",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://crates.io/crates/qrc",
           "error": null
@@ -1176,7 +1176,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/qrc",
-          "version": "0.0.6",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/qrc/releases/latest",
           "error": null
@@ -1185,7 +1185,7 @@
       "install": {
         "cargo": "cargo add qrc"
       },
-      "primary_version": "0.0.6",
+      "primary_version": "0.0.7",
       "primary_registry": "crates.io"
     },
     {
@@ -1198,7 +1198,7 @@
         {
           "type": "crates.io",
           "name": "rlg",
-          "version": "0.0.15",
+          "version": "0.0.16",
           "ok": true,
           "page": "https://crates.io/crates/rlg",
           "error": null
@@ -1206,7 +1206,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/rlg",
-          "version": "0.0.15",
+          "version": "0.0.16",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/rlg/releases/latest",
           "error": null
@@ -1215,7 +1215,7 @@
       "install": {
         "cargo": "cargo add rlg"
       },
-      "primary_version": "0.0.15",
+      "primary_version": "0.0.16",
       "primary_registry": "crates.io"
     },
     {
@@ -1259,7 +1259,7 @@
         {
           "type": "crates.io",
           "name": "wiserone",
-          "version": "0.0.12",
+          "version": "0.0.19",
           "ok": true,
           "page": "https://crates.io/crates/wiserone",
           "error": null
@@ -1267,7 +1267,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/wiserone",
-          "version": "0.0.13",
+          "version": "0.0.19",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/wiserone/releases/latest",
           "error": null
@@ -1276,7 +1276,7 @@
       "install": {
         "cargo install": "cargo install wiserone"
       },
-      "primary_version": "0.0.12",
+      "primary_version": "0.0.19",
       "primary_registry": "crates.io"
     },
     {
@@ -1289,7 +1289,7 @@
         {
           "type": "crates.io",
           "name": "xtasks",
-          "version": "0.0.2",
+          "version": "0.0.4",
           "ok": true,
           "page": "https://crates.io/crates/xtasks",
           "error": null
@@ -1297,7 +1297,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/xtasks",
-          "version": "0.0.3",
+          "version": "0.0.4",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/xtasks/releases/latest",
           "error": null
@@ -1306,7 +1306,7 @@
       "install": {
         "cargo": "cargo add xtasks"
       },
-      "primary_version": "0.0.2",
+      "primary_version": "0.0.4",
       "primary_registry": "crates.io"
     },
     {
@@ -1383,7 +1383,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/dotfiles",
-          "version": "0.2.538",
+          "version": "0.2.541",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/dotfiles/releases/latest",
           "error": null
@@ -1393,7 +1393,7 @@
         "macos": "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash",
         "linux": "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash"
       },
-      "primary_version": "0.2.538",
+      "primary_version": "0.2.541",
       "primary_registry": "github-releases"
     },
     {
@@ -1453,7 +1453,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/askiso",
-          "version": "0.0.4",
+          "version": "0.0.5",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/askiso/releases/latest",
           "error": null
@@ -1462,7 +1462,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/askiso"
       },
-      "primary_version": "0.0.4",
+      "primary_version": "0.0.5",
       "primary_registry": "github-releases"
     },
     {
@@ -1821,7 +1821,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser.github.io",
-          "version": "0.0.5",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser.github.io/releases/latest",
           "error": null
@@ -1830,7 +1830,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser.github.io"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -1959,7 +1959,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/camt053",
-          "version": "0.0.23",
+          "version": "0.0.25",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/camt053/releases/latest",
           "error": null
@@ -1968,7 +1968,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/camt053"
       },
-      "primary_version": "0.0.23",
+      "primary_version": "0.0.25",
       "primary_registry": "github-releases"
     },
     {
@@ -1982,7 +1982,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/camt053-loader-mt940",
-          "version": "0.0.23",
+          "version": "0.0.25",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/camt053-loader-mt940/releases/latest",
           "error": null
@@ -1991,7 +1991,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/camt053-loader-mt940"
       },
-      "primary_version": "0.0.23",
+      "primary_version": "0.0.25",
       "primary_registry": "github-releases"
     },
     {
@@ -2005,7 +2005,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/camt053-lsp",
-          "version": "0.0.23",
+          "version": "0.0.25",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/camt053-lsp/releases/latest",
           "error": null
@@ -2014,7 +2014,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/camt053-lsp"
       },
-      "primary_version": "0.0.23",
+      "primary_version": "0.0.25",
       "primary_registry": "github-releases"
     },
     {
@@ -2028,7 +2028,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/camt053-mcp",
-          "version": "0.0.23",
+          "version": "0.0.25",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/camt053-mcp/releases/latest",
           "error": null
@@ -2037,7 +2037,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/camt053-mcp"
       },
-      "primary_version": "0.0.23",
+      "primary_version": "0.0.25",
       "primary_registry": "github-releases"
     },
     {
@@ -2051,7 +2051,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/camt053-writer-xlsx",
-          "version": "0.0.23",
+          "version": "0.0.25",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/camt053-writer-xlsx/releases/latest",
           "error": null
@@ -2060,7 +2060,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/camt053-writer-xlsx"
       },
-      "primary_version": "0.0.23",
+      "primary_version": "0.0.25",
       "primary_registry": "github-releases"
     },
     {
@@ -2120,7 +2120,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/commons",
-          "version": "0.0.5",
+          "version": "0.0.6",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/commons/releases/latest",
           "error": null
@@ -2129,7 +2129,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/commons --web"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.6",
       "primary_registry": "github-releases"
     },
     {
@@ -2212,7 +2212,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/corralctl",
-          "version": "0.0.52",
+          "version": "0.0.54",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/corralctl/releases/latest",
           "error": null
@@ -2221,7 +2221,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/corralctl"
       },
-      "primary_version": "0.0.52",
+      "primary_version": "0.0.54",
       "primary_registry": "github-releases"
     },
     {
@@ -2833,7 +2833,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/northlondonboxingtraining.github.io",
-          "version": "1.0.0",
+          "version": "0.0.1",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/northlondonboxingtraining.github.io/releases/latest",
           "error": null
@@ -2842,7 +2842,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/northlondonboxingtraining.github.io --web"
       },
-      "primary_version": "1.0.0",
+      "primary_version": "0.0.1",
       "primary_registry": "github-releases"
     },
     {
@@ -2971,7 +2971,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml",
-          "version": "0.0.11",
+          "version": "0.0.13",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml/releases/latest",
           "error": null
@@ -2980,7 +2980,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml --web"
       },
-      "primary_version": "0.0.11",
+      "primary_version": "0.0.13",
       "primary_registry": "github-releases"
     },
     {
@@ -2994,7 +2994,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-cli",
-          "version": "0.0.11",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-cli/releases/latest",
           "error": null
@@ -3003,7 +3003,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-cli --web"
       },
-      "primary_version": "0.0.11",
+      "primary_version": "0.0.15",
       "primary_registry": "github-releases"
     },
     {
@@ -3017,7 +3017,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-lsp",
-          "version": "0.0.11",
+          "version": "0.0.14",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-lsp/releases/latest",
           "error": null
@@ -3026,7 +3026,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-lsp --web"
       },
-      "primary_version": "0.0.11",
+      "primary_version": "0.0.14",
       "primary_registry": "github-releases"
     },
     {
@@ -3040,7 +3040,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-mcp",
-          "version": "0.0.11",
+          "version": "0.0.15",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-mcp/releases/latest",
           "error": null
@@ -3049,7 +3049,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-mcp --web"
       },
-      "primary_version": "0.0.11",
+      "primary_version": "0.0.15",
       "primary_registry": "github-releases"
     },
     {
@@ -3063,7 +3063,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-wasm",
-          "version": "0.0.11",
+          "version": "0.0.13",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-wasm/releases/latest",
           "error": null
@@ -3072,7 +3072,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-wasm --web"
       },
-      "primary_version": "0.0.11",
+      "primary_version": "0.0.13",
       "primary_registry": "github-releases"
     },
     {
@@ -3086,7 +3086,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pacs008-loader-mt103",
-          "version": "0.0.15",
+          "version": "0.0.16",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pacs008-loader-mt103/releases/latest",
           "error": null
@@ -3095,7 +3095,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pacs008-loader-mt103"
       },
-      "primary_version": "0.0.15",
+      "primary_version": "0.0.16",
       "primary_registry": "github-releases"
     },
     {
@@ -3109,7 +3109,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pacs008-mcp",
-          "version": "0.0.15",
+          "version": "0.0.16",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pacs008-mcp/releases/latest",
           "error": null
@@ -3118,7 +3118,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pacs008-mcp"
       },
-      "primary_version": "0.0.15",
+      "primary_version": "0.0.16",
       "primary_registry": "github-releases"
     },
     {
@@ -3132,7 +3132,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-loader-mt101",
-          "version": "0.0.74",
+          "version": "0.0.75",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-loader-mt101/releases/latest",
           "error": null
@@ -3141,7 +3141,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-loader-mt101"
       },
-      "primary_version": "0.0.74",
+      "primary_version": "0.0.75",
       "primary_registry": "github-releases"
     },
     {
@@ -3155,7 +3155,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-loader-xlsx",
-          "version": "0.0.74",
+          "version": "0.0.75",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-loader-xlsx/releases/latest",
           "error": null
@@ -3164,7 +3164,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-loader-xlsx"
       },
-      "primary_version": "0.0.74",
+      "primary_version": "0.0.75",
       "primary_registry": "github-releases"
     },
     {
@@ -3178,7 +3178,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-lsp",
-          "version": "0.0.74",
+          "version": "0.0.75",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-lsp/releases/latest",
           "error": null
@@ -3187,7 +3187,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-lsp"
       },
-      "primary_version": "0.0.74",
+      "primary_version": "0.0.75",
       "primary_registry": "github-releases"
     },
     {
@@ -3201,7 +3201,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-mcp",
-          "version": "0.0.74",
+          "version": "0.0.75",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-mcp/releases/latest",
           "error": null
@@ -3210,7 +3210,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-mcp"
       },
-      "primary_version": "0.0.74",
+      "primary_version": "0.0.75",
       "primary_registry": "github-releases"
     },
     {
@@ -3224,7 +3224,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001.github.io",
-          "version": "0.0.10",
+          "version": "0.0.13",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001.github.io/releases/latest",
           "error": null
@@ -3233,7 +3233,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001.github.io"
       },
-      "primary_version": "0.0.10",
+      "primary_version": "0.0.13",
       "primary_registry": "github-releases"
     },
     {
@@ -3477,7 +3477,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pipelines",
-          "version": "0.0.2",
+          "version": "0.0.3",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pipelines/releases/latest",
           "error": null
@@ -3486,7 +3486,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/pipelines --web"
       },
-      "primary_version": "0.0.2",
+      "primary_version": "0.0.3",
       "primary_registry": "github-releases"
     },
     {
@@ -3707,7 +3707,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/rssgen",
-          "version": "0.0.12",
+          "version": "0.0.13",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/rssgen/releases/latest",
           "error": null
@@ -3716,7 +3716,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/rssgen"
       },
-      "primary_version": "0.0.12",
+      "primary_version": "0.0.13",
       "primary_registry": "github-releases"
     },
     {
@@ -3799,7 +3799,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/sebastienrousseau.github.io",
-          "version": "0.0.24",
+          "version": "0.0.26",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/sebastienrousseau.github.io/releases/latest",
           "error": null
@@ -3808,7 +3808,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/sebastienrousseau.github.io --web"
       },
-      "primary_version": "0.0.24",
+      "primary_version": "0.0.26",
       "primary_registry": "github-releases"
     },
     {
@@ -4121,7 +4121,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/uon",
-          "version": "0.0.6",
+          "version": "0.0.7",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/uon/releases/latest",
           "error": null
@@ -4130,7 +4130,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/uon --web"
       },
-      "primary_version": "0.0.6",
+      "primary_version": "0.0.7",
       "primary_registry": "github-releases"
     },
     {
@@ -4167,7 +4167,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/WiserOneApp",
-          "version": "0.0.3",
+          "version": "0.0.4",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/WiserOneApp/releases/latest",
           "error": null
@@ -4176,7 +4176,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/WiserOneApp"
       },
-      "primary_version": "0.0.3",
+      "primary_version": "0.0.4",
       "primary_registry": "github-releases"
     },
     {
@@ -4190,7 +4190,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/xmlschema",
-          "version": "0.0.11",
+          "version": "0.0.14",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/xmlschema/releases/latest",
           "error": null
@@ -4199,7 +4199,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/xmlschema --web"
       },
-      "primary_version": "0.0.11",
+      "primary_version": "0.0.14",
       "primary_registry": "github-releases"
     },
     {
@@ -4236,7 +4236,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxml-json",
-          "version": "0.0.11",
+          "version": "0.0.13",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxml-json/releases/latest",
           "error": null
@@ -4245,7 +4245,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxml-json --web"
       },
-      "primary_version": "0.0.11",
+      "primary_version": "0.0.13",
       "primary_registry": "github-releases"
     },
     {
@@ -4305,7 +4305,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/akande.github.io",
-          "version": "0.0.1",
+          "version": "0.0.2",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/akande.github.io/releases/latest",
           "error": null
@@ -4314,7 +4314,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/akande.github.io --web"
       },
-      "primary_version": "0.0.1",
+      "primary_version": "0.0.2",
       "primary_registry": "github-releases"
     },
     {
@@ -4374,7 +4374,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/camt053-loader-mt942",
-          "version": "0.0.23",
+          "version": "0.0.25",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/camt053-loader-mt942/releases/latest",
           "error": null
@@ -4383,7 +4383,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/camt053-loader-mt942 --web"
       },
-      "primary_version": "0.0.23",
+      "primary_version": "0.0.25",
       "primary_registry": "github-releases"
     },
     {
@@ -4489,7 +4489,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-fast",
-          "version": "0.0.1",
+          "version": "0.0.2",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-fast/releases/latest",
           "error": null
@@ -4498,7 +4498,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/pain001-fast --web"
       },
-      "primary_version": "0.0.1",
+      "primary_version": "0.0.2",
       "primary_registry": "github-releases"
     },
     {
@@ -4589,6 +4589,75 @@
       ],
       "install": {
         "github": "gh release view --repo sebastienrousseau/PumkinRaidApp --web"
+      },
+      "primary_version": "0.0.2",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "frontmatter-gen.github.io",
+      "slug": "frontmatter-gen-github-io",
+      "category": "web",
+      "tagline": "Official static documentation portal for frontmatter-gen: zero-copy YAML 1.2, TOML 1.1 & JSON frontmatter parser and HTML meta generator in Rust.",
+      "repo": "sebastienrousseau/frontmatter-gen.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/frontmatter-gen.github.io",
+          "version": "0.0.2",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/frontmatter-gen.github.io/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/frontmatter-gen.github.io"
+      },
+      "primary_version": "0.0.2",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "nucleusflow.github.io",
+      "slug": "nucleusflow-github-io",
+      "category": "web",
+      "tagline": "Official documentation website for NucleusFlow, a deterministic Rust workflow automation and DAG execution engine.",
+      "repo": "sebastienrousseau/nucleusflow.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/nucleusflow.github.io",
+          "version": "0.0.1",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/nucleusflow.github.io/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/nucleusflow.github.io"
+      },
+      "primary_version": "0.0.1",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "whitecollarboxingtraining.github.io",
+      "slug": "whitecollarboxingtraining-github-io",
+      "category": "web",
+      "tagline": "🥊 whitecollarboxingtraining.com website template",
+      "repo": "sebastienrousseau/whitecollarboxingtraining.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/whitecollarboxingtraining.github.io",
+          "version": "0.0.2",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/whitecollarboxingtraining.github.io/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/whitecollarboxingtraining.github.io"
       },
       "primary_version": "0.0.2",
       "primary_registry": "github-releases"

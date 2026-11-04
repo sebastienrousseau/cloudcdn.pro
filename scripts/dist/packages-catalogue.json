@@ -3330,6 +3330,57 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/PumkinRaidApp --web"
       }
+    },
+    {
+      "name": "frontmatter-gen.github.io",
+      "slug": "frontmatter-gen-github-io",
+      "category": "web",
+      "tagline": "Official static documentation portal for frontmatter-gen: zero-copy YAML 1.2, TOML 1.1 & JSON frontmatter parser and HTML meta generator in Rust.",
+      "repo": "sebastienrousseau/frontmatter-gen.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/frontmatter-gen.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/frontmatter-gen.github.io"
+      }
+    },
+    {
+      "name": "nucleusflow.github.io",
+      "slug": "nucleusflow-github-io",
+      "category": "web",
+      "tagline": "Official documentation website for NucleusFlow, a deterministic Rust workflow automation and DAG execution engine.",
+      "repo": "sebastienrousseau/nucleusflow.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/nucleusflow.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/nucleusflow.github.io"
+      }
+    },
+    {
+      "name": "whitecollarboxingtraining.github.io",
+      "slug": "whitecollarboxingtraining-github-io",
+      "category": "web",
+      "tagline": "🥊 whitecollarboxingtraining.com website template",
+      "repo": "sebastienrousseau/whitecollarboxingtraining.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/whitecollarboxingtraining.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/whitecollarboxingtraining.github.io"
+      }
     }
   ]
 }
