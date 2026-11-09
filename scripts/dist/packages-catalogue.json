@@ -3381,6 +3381,125 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/whitecollarboxingtraining.github.io"
       }
+    },
+    {
+      "name": "agtmls-core",
+      "slug": "agtmls-core",
+      "category": "ai",
+      "tagline": "Rust engine for the AgtMLS agent skills registry: content-addressed digests, static security analysis, index signatures, advisories and in-toto attestations,...",
+      "repo": "sebastienrousseau/agtmls-core",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/agtmls-core"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/agtmls-core"
+      }
+    },
+    {
+      "name": "agtmls-lsp",
+      "slug": "agtmls-lsp",
+      "category": "ai",
+      "tagline": "Language Server Protocol implementation for AgtMLS agent skills: live security diagnostics, frontmatter completion, capability-narrowing code actions.",
+      "repo": "sebastienrousseau/agtmls-lsp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/agtmls-lsp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/agtmls-lsp"
+      }
+    },
+    {
+      "name": "code-portfolio-compliance",
+      "slug": "code-portfolio-compliance",
+      "category": "apps",
+      "tagline": "Static audit of workspace repositories against the portfolio compliance matrix",
+      "repo": "sebastienrousseau/code-portfolio-compliance",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/code-portfolio-compliance"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/code-portfolio-compliance"
+      }
+    },
+    {
+      "name": "mcp-serve",
+      "slug": "mcp-serve",
+      "category": "ai",
+      "tagline": "The transport half of a Rust MCP server: stdio, streamable HTTP and legacy HTTP+SSE behind one command line, hardened once.",
+      "repo": "sebastienrousseau/mcp-serve",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/mcp-serve"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/mcp-serve"
+      }
+    },
+    {
+      "name": "pain001-mockbank",
+      "slug": "pain001-mockbank",
+      "category": "iso20022",
+      "tagline": "Synthetic SFTP pain.001 to pain.002 integration-test service",
+      "repo": "sebastienrousseau/pain001-mockbank",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/pain001-mockbank"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/pain001-mockbank"
+      }
+    },
+    {
+      "name": "sebastienrousseau",
+      "slug": "sebastienrousseau",
+      "category": "iso20022",
+      "tagline": "Securing the future of banking. Applied AI, ISO 20022 payments and post-quantum cryptography.",
+      "repo": "sebastienrousseau/sebastienrousseau",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/sebastienrousseau"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/sebastienrousseau"
+      }
+    },
+    {
+      "name": "tunnelward",
+      "slug": "tunnelward",
+      "category": "rust-libs",
+      "tagline": "Serve AI agents from behind a firewall: services dial out to a gateway, prove what they are, and need no inbound port. Post-quantum TLS, Rust.",
+      "repo": "sebastienrousseau/tunnelward",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/tunnelward"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/tunnelward"
+      }
     }
   ]
 }
