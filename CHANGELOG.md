@@ -8,6 +8,25 @@ Versioning is calendar-based on the **`apiVersion`** field returned by
 every API envelope (currently `2026-04-01`). This file groups commits
 into the *sprints* used during development.
 
+## [0.0.10]
+
+### Security
+
+- The MCP server (`mcp/`) now requires hono 4.13.16 or later and
+  @hono/node-server 2.1.8 or later, so no version affected by
+  GHSA-46wx-v44x-9hh2, GHSA-4m76-xfj5-7975, GHSA-3gg2-335m-rxc6,
+  GHSA-h7mg-cq63-vhpq, GHSA-4h7h-rv7c-7m2v, GHSA-qv5m-9pm6-hqp3 or
+  GHSA-jpvv-r467-5p4w can resolve.
+
+### Changed
+
+- The marketplace catalogue lists newly published repositories and
+  their latest npm, crates.io, PyPI and GitHub release versions.
+- Dependencies: @playwright/test 1.65.0, tailwindcss 4.3.4, vitest and
+  @vitest/coverage-v8 5.1.0, wrangler 4.158.0; CI actions
+  (create-pull-request, codeql-action 4.39.3, the shared pipelines),
+  all still pinned by commit SHA.
+
 ## [0.0.9]
 
 ### Security
