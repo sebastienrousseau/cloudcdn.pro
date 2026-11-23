@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T06:15:31.893Z",
+  "generated_at": "2026-11-23T06:14:39.407Z",
   "featured": "stratos",
   "categories": [
     {
@@ -127,7 +127,7 @@
         {
           "type": "pypi",
           "name": "pain001",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://pypi.org/project/pain001/",
           "error": null
@@ -135,7 +135,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001/releases/latest",
           "error": null
@@ -145,7 +145,7 @@
         "pip": "pip install pain001",
         "pipx": "pipx install pain001"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "pypi"
     },
     {
@@ -287,7 +287,7 @@
         {
           "type": "pypi",
           "name": "bankstatementparser",
-          "version": "0.0.29",
+          "version": "0.0.34",
           "ok": true,
           "page": "https://pypi.org/project/bankstatementparser/",
           "error": null
@@ -295,7 +295,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser",
-          "version": "0.0.29",
+          "version": "0.0.34",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser/releases/latest",
           "error": null
@@ -305,7 +305,7 @@
         "pip": "pip install bankstatementparser",
         "pipx": "pipx install bankstatementparser"
       },
-      "primary_version": "0.0.29",
+      "primary_version": "0.0.34",
       "primary_registry": "pypi"
     },
     {
@@ -450,7 +450,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/password-generator",
-          "version": "0.0.20",
+          "version": "0.0.24",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/password-generator/releases/latest",
           "error": null
@@ -747,7 +747,7 @@
         {
           "type": "crates.io",
           "name": "noyalib",
-          "version": "0.0.60",
+          "version": "0.0.63",
           "ok": true,
           "page": "https://crates.io/crates/noyalib",
           "error": null
@@ -755,7 +755,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib",
-          "version": "0.0.60",
+          "version": "0.0.63",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib/releases/latest",
           "error": null
@@ -764,7 +764,7 @@
       "install": {
         "cargo": "cargo add noyalib"
       },
-      "primary_version": "0.0.60",
+      "primary_version": "0.0.63",
       "primary_registry": "crates.io"
     },
     {
@@ -778,7 +778,7 @@
         {
           "type": "crates.io",
           "name": "noya-cli",
-          "version": "0.0.60",
+          "version": "0.0.63",
           "ok": true,
           "page": "https://crates.io/crates/noya-cli",
           "error": null
@@ -786,7 +786,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noya-cli",
-          "version": "0.0.60",
+          "version": "0.0.63",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noya-cli/releases/latest",
           "error": null
@@ -795,7 +795,7 @@
       "install": {
         "cargo install": "cargo install noya-cli"
       },
-      "primary_version": "0.0.60",
+      "primary_version": "0.0.63",
       "primary_registry": "crates.io"
     },
     {
@@ -809,7 +809,7 @@
         {
           "type": "crates.io",
           "name": "noyalib-mcp",
-          "version": "0.0.59",
+          "version": "0.0.63",
           "ok": true,
           "page": "https://crates.io/crates/noyalib-mcp",
           "error": null
@@ -817,7 +817,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-mcp",
-          "version": "0.0.59",
+          "version": "0.0.63",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-mcp/releases/latest",
           "error": null
@@ -826,7 +826,7 @@
       "install": {
         "cargo install": "cargo install noyalib-mcp"
       },
-      "primary_version": "0.0.59",
+      "primary_version": "0.0.63",
       "primary_registry": "crates.io"
     },
     {
@@ -840,7 +840,7 @@
         {
           "type": "crates.io",
           "name": "noyalib-lsp",
-          "version": "0.0.60",
+          "version": "0.0.63",
           "ok": true,
           "page": "https://crates.io/crates/noyalib-lsp",
           "error": null
@@ -848,7 +848,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-lsp",
-          "version": "0.0.60",
+          "version": "0.0.63",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-lsp/releases/latest",
           "error": null
@@ -857,7 +857,7 @@
       "install": {
         "cargo install": "cargo install noyalib-lsp"
       },
-      "primary_version": "0.0.60",
+      "primary_version": "0.0.63",
       "primary_registry": "crates.io"
     },
     {
@@ -1360,7 +1360,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/crypto-service",
-          "version": "0.0.39",
+          "version": "0.0.40",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/crypto-service/releases/latest",
           "error": null
@@ -1383,7 +1383,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/dotfiles",
-          "version": "0.2.546",
+          "version": "0.2.550",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/dotfiles/releases/latest",
           "error": null
@@ -1393,7 +1393,7 @@
         "macos": "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash",
         "linux": "curl -fsSL https://raw.githubusercontent.com/sebastienrousseau/dotfiles/main/install.sh | bash"
       },
-      "primary_version": "0.2.546",
+      "primary_version": "0.2.550",
       "primary_registry": "github-releases"
     },
     {
@@ -1407,7 +1407,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/agtmls",
-          "version": "0.0.29",
+          "version": "0.0.35",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/agtmls/releases/latest",
           "error": null
@@ -1416,7 +1416,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/agtmls"
       },
-      "primary_version": "0.0.29",
+      "primary_version": "0.0.35",
       "primary_registry": "github-releases"
     },
     {
@@ -1453,7 +1453,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/askiso",
-          "version": "0.0.5",
+          "version": "0.0.6",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/askiso/releases/latest",
           "error": null
@@ -1462,7 +1462,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/askiso"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.6",
       "primary_registry": "github-releases"
     },
     {
@@ -1545,7 +1545,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser-loader-bai2",
-          "version": "0.0.28",
+          "version": "0.0.34",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser-loader-bai2/releases/latest",
           "error": null
@@ -1554,7 +1554,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser-loader-bai2"
       },
-      "primary_version": "0.0.28",
+      "primary_version": "0.0.34",
       "primary_registry": "github-releases"
     },
     {
@@ -1614,7 +1614,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser-loader-mt942",
-          "version": "0.0.28",
+          "version": "0.0.34",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser-loader-mt942/releases/latest",
           "error": null
@@ -1623,7 +1623,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser-loader-mt942"
       },
-      "primary_version": "0.0.28",
+      "primary_version": "0.0.34",
       "primary_registry": "github-releases"
     },
     {
@@ -1660,7 +1660,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser-lsp",
-          "version": "0.0.28",
+          "version": "0.0.34",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser-lsp/releases/latest",
           "error": null
@@ -1669,7 +1669,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser-lsp"
       },
-      "primary_version": "0.0.28",
+      "primary_version": "0.0.34",
       "primary_registry": "github-releases"
     },
     {
@@ -1683,7 +1683,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser-mcp",
-          "version": "0.0.28",
+          "version": "0.0.34",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser-mcp/releases/latest",
           "error": null
@@ -1692,7 +1692,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser-mcp"
       },
-      "primary_version": "0.0.28",
+      "primary_version": "0.0.34",
       "primary_registry": "github-releases"
     },
     {
@@ -1798,7 +1798,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/bankstatementparser-writer-xlsx",
-          "version": "0.0.28",
+          "version": "0.0.34",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/bankstatementparser-writer-xlsx/releases/latest",
           "error": null
@@ -1807,7 +1807,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/bankstatementparser-writer-xlsx"
       },
-      "primary_version": "0.0.28",
+      "primary_version": "0.0.34",
       "primary_registry": "github-releases"
     },
     {
@@ -1844,7 +1844,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/biome-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/biome-config/releases/latest",
           "error": null
@@ -1853,7 +1853,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/biome-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -1867,7 +1867,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/browserslist-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/browserslist-config/releases/latest",
           "error": null
@@ -1876,7 +1876,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/browserslist-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -1890,7 +1890,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/c-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/c-config/releases/latest",
           "error": null
@@ -1899,7 +1899,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/c-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -1913,7 +1913,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/c8-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/c8-config/releases/latest",
           "error": null
@@ -1922,7 +1922,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/c8-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2097,7 +2097,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/commitlint-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/commitlint-config/releases/latest",
           "error": null
@@ -2106,7 +2106,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/commitlint-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2143,7 +2143,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/config",
-          "version": "0.0.8",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/config/releases/latest",
           "error": null
@@ -2152,7 +2152,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/config --web"
       },
-      "primary_version": "0.0.8",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2166,7 +2166,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/config-kit",
-          "version": "0.0.8",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/config-kit/releases/latest",
           "error": null
@@ -2175,7 +2175,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/config-kit --web"
       },
-      "primary_version": "0.0.8",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2235,7 +2235,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/cpp-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/cpp-config/releases/latest",
           "error": null
@@ -2244,7 +2244,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/cpp-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2258,7 +2258,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/csharp-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/csharp-config/releases/latest",
           "error": null
@@ -2267,7 +2267,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/csharp-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2281,7 +2281,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/dart-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/dart-config/releases/latest",
           "error": null
@@ -2290,7 +2290,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/dart-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2327,7 +2327,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/docker-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/docker-config/releases/latest",
           "error": null
@@ -2336,7 +2336,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/docker-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2373,7 +2373,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/draft",
-          "version": "0.0.46",
+          "version": "0.0.50",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/draft/releases/latest",
           "error": null
@@ -2382,7 +2382,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/draft"
       },
-      "primary_version": "0.0.46",
+      "primary_version": "0.0.50",
       "primary_registry": "github-releases"
     },
     {
@@ -2396,7 +2396,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/eslint-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/eslint-config/releases/latest",
           "error": null
@@ -2405,7 +2405,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/eslint-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2419,7 +2419,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/euxis",
-          "version": "0.1.3",
+          "version": "0.0.16",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/euxis/releases/latest",
           "error": null
@@ -2428,7 +2428,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/euxis"
       },
-      "primary_version": "0.1.3",
+      "primary_version": "0.0.16",
       "primary_registry": "github-releases"
     },
     {
@@ -2488,7 +2488,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/go-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/go-config/releases/latest",
           "error": null
@@ -2497,7 +2497,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/go-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2603,7 +2603,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/java-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/java-config/releases/latest",
           "error": null
@@ -2612,7 +2612,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/java-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2626,7 +2626,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/jsdoc-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/jsdoc-config/releases/latest",
           "error": null
@@ -2635,7 +2635,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/jsdoc-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2649,7 +2649,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/knip-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/knip-config/releases/latest",
           "error": null
@@ -2658,7 +2658,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/knip-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2672,7 +2672,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/kotlin-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/kotlin-config/releases/latest",
           "error": null
@@ -2681,7 +2681,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/kotlin-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2695,7 +2695,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/lefthook-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/lefthook-config/releases/latest",
           "error": null
@@ -2704,7 +2704,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/lefthook-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2718,7 +2718,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/lua-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/lua-config/releases/latest",
           "error": null
@@ -2727,7 +2727,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/lua-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2764,7 +2764,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/markdownlint-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/markdownlint-config/releases/latest",
           "error": null
@@ -2773,7 +2773,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/markdownlint-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2787,7 +2787,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/mocha-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/mocha-config/releases/latest",
           "error": null
@@ -2796,7 +2796,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/mocha-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -2856,7 +2856,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-serde-yaml",
-          "version": "0.0.60",
+          "version": "0.0.63",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-serde-yaml/releases/latest",
           "error": null
@@ -2865,7 +2865,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/noyalib-serde-yaml"
       },
-      "primary_version": "0.0.60",
+      "primary_version": "0.0.63",
       "primary_registry": "github-releases"
     },
     {
@@ -2879,7 +2879,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/noyalib-wasm",
-          "version": "0.0.60",
+          "version": "0.0.63",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/noyalib-wasm/releases/latest",
           "error": null
@@ -2888,7 +2888,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/noyalib-wasm"
       },
-      "primary_version": "0.0.60",
+      "primary_version": "0.0.63",
       "primary_registry": "github-releases"
     },
     {
@@ -2948,7 +2948,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/oxlint-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/oxlint-config/releases/latest",
           "error": null
@@ -2957,7 +2957,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/oxlint-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3132,7 +3132,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-loader-mt101",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-loader-mt101/releases/latest",
           "error": null
@@ -3141,7 +3141,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-loader-mt101"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -3155,7 +3155,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-loader-xlsx",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-loader-xlsx/releases/latest",
           "error": null
@@ -3164,7 +3164,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-loader-xlsx"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -3178,7 +3178,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-lsp",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-lsp/releases/latest",
           "error": null
@@ -3187,7 +3187,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-lsp"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -3201,7 +3201,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-mcp",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-mcp/releases/latest",
           "error": null
@@ -3210,7 +3210,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-mcp"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -3224,7 +3224,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001.github.io",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001.github.io/releases/latest",
           "error": null
@@ -3233,7 +3233,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001.github.io"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -3454,7 +3454,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/php-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/php-config/releases/latest",
           "error": null
@@ -3463,7 +3463,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/php-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3500,7 +3500,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/playwright-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/playwright-config/releases/latest",
           "error": null
@@ -3509,7 +3509,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/playwright-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3546,7 +3546,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/prettier-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/prettier-config/releases/latest",
           "error": null
@@ -3555,7 +3555,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/prettier-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3592,7 +3592,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/python-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/python-config/releases/latest",
           "error": null
@@ -3601,7 +3601,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/python-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3615,7 +3615,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/r-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/r-config/releases/latest",
           "error": null
@@ -3624,7 +3624,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/r-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3661,7 +3661,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/remark-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/remark-config/releases/latest",
           "error": null
@@ -3670,7 +3670,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/remark-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3730,7 +3730,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/ruby-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/ruby-config/releases/latest",
           "error": null
@@ -3739,7 +3739,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/ruby-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3753,7 +3753,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/rust-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/rust-config/releases/latest",
           "error": null
@@ -3762,7 +3762,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/rust-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3799,7 +3799,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/sebastienrousseau.github.io",
-          "version": "0.0.40",
+          "version": "0.0.44",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/sebastienrousseau.github.io/releases/latest",
           "error": null
@@ -3808,7 +3808,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/sebastienrousseau.github.io --web"
       },
-      "primary_version": "0.0.40",
+      "primary_version": "0.0.44",
       "primary_registry": "github-releases"
     },
     {
@@ -3822,7 +3822,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/semantic-release-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/semantic-release-config/releases/latest",
           "error": null
@@ -3831,7 +3831,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/semantic-release-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3845,7 +3845,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/shell-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/shell-config/releases/latest",
           "error": null
@@ -3854,7 +3854,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/shell-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3891,7 +3891,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/size-limit-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/size-limit-config/releases/latest",
           "error": null
@@ -3900,7 +3900,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/size-limit-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -3937,7 +3937,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/sql-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/sql-config/releases/latest",
           "error": null
@@ -3946,7 +3946,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/sql-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -4029,7 +4029,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/stylelint-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/stylelint-config/releases/latest",
           "error": null
@@ -4038,7 +4038,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/stylelint-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -4052,7 +4052,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/swift-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/swift-config/releases/latest",
           "error": null
@@ -4061,7 +4061,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/swift-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -4075,7 +4075,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/tailwindcss-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/tailwindcss-config/releases/latest",
           "error": null
@@ -4084,7 +4084,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/tailwindcss-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -4098,7 +4098,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/tsconfig-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/tsconfig-config/releases/latest",
           "error": null
@@ -4107,7 +4107,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/tsconfig-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -4144,7 +4144,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/vitest-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/vitest-config/releases/latest",
           "error": null
@@ -4153,7 +4153,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/vitest-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -4213,7 +4213,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/zig-config",
-          "version": "0.0.7",
+          "version": "0.0.9",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/zig-config/releases/latest",
           "error": null
@@ -4222,7 +4222,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/zig-config --web"
       },
-      "primary_version": "0.0.7",
+      "primary_version": "0.0.9",
       "primary_registry": "github-releases"
     },
     {
@@ -4259,7 +4259,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/agtmls-action",
-          "version": "0.0.3",
+          "version": "0.0.35",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/agtmls-action/releases/latest",
           "error": null
@@ -4268,7 +4268,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/agtmls-action --web"
       },
-      "primary_version": "0.0.3",
+      "primary_version": "0.0.35",
       "primary_registry": "github-releases"
     },
     {
@@ -4282,7 +4282,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/agtmls-mcp",
-          "version": "0.0.3",
+          "version": "0.0.35",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/agtmls-mcp/releases/latest",
           "error": null
@@ -4291,7 +4291,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/agtmls-mcp --web"
       },
-      "primary_version": "0.0.3",
+      "primary_version": "0.0.35",
       "primary_registry": "github-releases"
     },
     {
@@ -4466,7 +4466,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/jspassgen",
-          "version": "0.0.20",
+          "version": "0.0.24",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/jspassgen/releases/latest",
           "error": null
@@ -4475,7 +4475,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/jspassgen --web"
       },
-      "primary_version": "0.0.20",
+      "primary_version": "0.0.24",
       "primary_registry": "github-releases"
     },
     {
@@ -4489,7 +4489,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-fast",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-fast/releases/latest",
           "error": null
@@ -4498,7 +4498,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/pain001-fast --web"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -4673,7 +4673,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/agtmls-core",
-          "version": "0.0.5",
+          "version": "0.0.35",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/agtmls-core/releases/latest",
           "error": null
@@ -4682,7 +4682,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/agtmls-core"
       },
-      "primary_version": "0.0.5",
+      "primary_version": "0.0.35",
       "primary_registry": "github-releases"
     },
     {
@@ -4696,7 +4696,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/agtmls-lsp",
-          "version": "0.0.3",
+          "version": "0.0.35",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/agtmls-lsp/releases/latest",
           "error": null
@@ -4705,7 +4705,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/agtmls-lsp"
       },
-      "primary_version": "0.0.3",
+      "primary_version": "0.0.35",
       "primary_registry": "github-releases"
     },
     {
@@ -4719,7 +4719,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/agtmls-scorecard",
-          "version": "0.0.3",
+          "version": "0.0.35",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/agtmls-scorecard/releases/latest",
           "error": null
@@ -4728,7 +4728,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/agtmls-scorecard"
       },
-      "primary_version": "0.0.3",
+      "primary_version": "0.0.35",
       "primary_registry": "github-releases"
     },
     {
@@ -4742,7 +4742,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/agtmls-spec",
-          "version": "0.0.3",
+          "version": "0.0.35",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/agtmls-spec/releases/latest",
           "error": null
@@ -4751,7 +4751,7 @@
       "install": {
         "github": "gh release view --repo sebastienrousseau/agtmls-spec --web"
       },
-      "primary_version": "0.0.3",
+      "primary_version": "0.0.35",
       "primary_registry": "github-releases"
     },
     {
@@ -4765,7 +4765,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/agtmls-wasm",
-          "version": "0.0.6",
+          "version": "0.0.35",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/agtmls-wasm/releases/latest",
           "error": null
@@ -4774,7 +4774,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/agtmls-wasm"
       },
-      "primary_version": "0.0.6",
+      "primary_version": "0.0.35",
       "primary_registry": "github-releases"
     },
     {
@@ -4834,7 +4834,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-mockbank",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-mockbank/releases/latest",
           "error": null
@@ -4843,7 +4843,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-mockbank"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -4857,7 +4857,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-plugin-template",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-plugin-template/releases/latest",
           "error": null
@@ -4866,7 +4866,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-plugin-template"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -4880,7 +4880,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-sdk-cpp",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-sdk-cpp/releases/latest",
           "error": null
@@ -4889,7 +4889,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-sdk-cpp"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -4903,7 +4903,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-sdk-dotnet",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-sdk-dotnet/releases/latest",
           "error": null
@@ -4912,7 +4912,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-sdk-dotnet"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -4926,7 +4926,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-sdk-go",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-sdk-go/releases/latest",
           "error": null
@@ -4935,7 +4935,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-sdk-go"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -4949,7 +4949,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-sdk-java",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-sdk-java/releases/latest",
           "error": null
@@ -4958,7 +4958,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-sdk-java"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -4972,7 +4972,7 @@
         {
           "type": "github-releases",
           "repo": "sebastienrousseau/pain001-sdk-rust",
-          "version": "0.0.88",
+          "version": "0.0.90",
           "ok": true,
           "page": "https://github.com/sebastienrousseau/pain001-sdk-rust/releases/latest",
           "error": null
@@ -4981,7 +4981,7 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/pain001-sdk-rust"
       },
-      "primary_version": "0.0.88",
+      "primary_version": "0.0.90",
       "primary_registry": "github-releases"
     },
     {
@@ -5166,6 +5166,351 @@
         "github": "gh release download --repo sebastienrousseau/tunnelward"
       },
       "primary_version": "0.0.14",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "crypto-service-sdk-cpp",
+      "slug": "crypto-service-sdk-cpp",
+      "category": "cli",
+      "tagline": "C++ SDK for Crypto Service: a thin async-first client for the crypto-server REST API.",
+      "repo": "sebastienrousseau/crypto-service-sdk-cpp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service-sdk-cpp",
+          "version": "0.0.40",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/crypto-service-sdk-cpp/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/crypto-service-sdk-cpp"
+      },
+      "primary_version": "0.0.40",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "crypto-service-sdk-dotnet",
+      "slug": "crypto-service-sdk-dotnet",
+      "category": "apps",
+      "tagline": ".NET SDK for Crypto Service: a thin async-first client for the crypto-server REST API.",
+      "repo": "sebastienrousseau/crypto-service-sdk-dotnet",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service-sdk-dotnet",
+          "version": "0.0.40",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/crypto-service-sdk-dotnet/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/crypto-service-sdk-dotnet"
+      },
+      "primary_version": "0.0.40",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "crypto-service-sdk-go",
+      "slug": "crypto-service-sdk-go",
+      "category": "cli",
+      "tagline": "Go SDK for Crypto Service: a thin async-first client for the crypto-server REST API.",
+      "repo": "sebastienrousseau/crypto-service-sdk-go",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service-sdk-go",
+          "version": "0.0.40",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/crypto-service-sdk-go/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/crypto-service-sdk-go"
+      },
+      "primary_version": "0.0.40",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "crypto-service-sdk-java",
+      "slug": "crypto-service-sdk-java",
+      "category": "apps",
+      "tagline": "Java SDK for Crypto Service: a thin async-first client for the crypto-server REST API.",
+      "repo": "sebastienrousseau/crypto-service-sdk-java",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service-sdk-java",
+          "version": "0.0.40",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/crypto-service-sdk-java/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/crypto-service-sdk-java"
+      },
+      "primary_version": "0.0.40",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "crypto-service-sdk-python",
+      "slug": "crypto-service-sdk-python",
+      "category": "apps",
+      "tagline": "Python SDK for Crypto Service: a thin async-first client for the crypto-server REST API.",
+      "repo": "sebastienrousseau/crypto-service-sdk-python",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service-sdk-python",
+          "version": "0.0.40",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/crypto-service-sdk-python/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/crypto-service-sdk-python"
+      },
+      "primary_version": "0.0.40",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "crypto-service-sdk-rust",
+      "slug": "crypto-service-sdk-rust",
+      "category": "rust-libs",
+      "tagline": "Rust SDK for Crypto Service: a thin async-first client for the crypto-server REST API.",
+      "repo": "sebastienrousseau/crypto-service-sdk-rust",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service-sdk-rust",
+          "version": "0.0.40",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/crypto-service-sdk-rust/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/crypto-service-sdk-rust"
+      },
+      "primary_version": "0.0.40",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "jspassgen-cli",
+      "slug": "jspassgen-cli",
+      "category": "web",
+      "tagline": "Command-line generator built on @sebastienrousseau/jspassgen.",
+      "repo": "sebastienrousseau/jspassgen-cli",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-cli",
+          "version": "0.0.24",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/jspassgen-cli/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-cli"
+      },
+      "primary_version": "0.0.24",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "jspassgen-lsp",
+      "slug": "jspassgen-lsp",
+      "category": "web",
+      "tagline": "Language server flagging weak literal secrets in configuration and .env files, with a replace-with-generated code action.",
+      "repo": "sebastienrousseau/jspassgen-lsp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-lsp",
+          "version": "0.0.24",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/jspassgen-lsp/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-lsp"
+      },
+      "primary_version": "0.0.24",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "jspassgen-mcp",
+      "slug": "jspassgen-mcp",
+      "category": "ai",
+      "tagline": "Local stdio MCP server: generate passwords and passphrases, estimate entropy, analyse strength.",
+      "repo": "sebastienrousseau/jspassgen-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-mcp",
+          "version": "0.0.24",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/jspassgen-mcp/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-mcp"
+      },
+      "primary_version": "0.0.24",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "jspassgen-sdk-cpp",
+      "slug": "jspassgen-sdk-cpp",
+      "category": "cli",
+      "tagline": "Native C++17 port of the core on the OS CSPRNG, proven by the conformance kit.",
+      "repo": "sebastienrousseau/jspassgen-sdk-cpp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-sdk-cpp",
+          "version": "0.0.24",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/jspassgen-sdk-cpp/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-sdk-cpp"
+      },
+      "primary_version": "0.0.24",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "jspassgen-sdk-dotnet",
+      "slug": "jspassgen-sdk-dotnet",
+      "category": "apps",
+      "tagline": "Native .NET port of the core on RandomNumberGenerator, proven by the conformance kit.",
+      "repo": "sebastienrousseau/jspassgen-sdk-dotnet",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-sdk-dotnet",
+          "version": "0.0.24",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/jspassgen-sdk-dotnet/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-sdk-dotnet"
+      },
+      "primary_version": "0.0.24",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "jspassgen-sdk-java",
+      "slug": "jspassgen-sdk-java",
+      "category": "apps",
+      "tagline": "Native Java port of the core on SecureRandom, proven by the conformance kit.",
+      "repo": "sebastienrousseau/jspassgen-sdk-java",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-sdk-java",
+          "version": "0.0.24",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/jspassgen-sdk-java/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-sdk-java"
+      },
+      "primary_version": "0.0.24",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "jspassgen-sdk-python",
+      "slug": "jspassgen-sdk-python",
+      "category": "apps",
+      "tagline": "Native Python port of the core on the secrets module, proven by the conformance kit.",
+      "repo": "sebastienrousseau/jspassgen-sdk-python",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-sdk-python",
+          "version": "0.0.24",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/jspassgen-sdk-python/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-sdk-python"
+      },
+      "primary_version": "0.0.24",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "jspassgen-sdk-rust",
+      "slug": "jspassgen-sdk-rust",
+      "category": "rust-libs",
+      "tagline": "Native Rust port of the core on the OS CSPRNG, proven by the conformance kit.",
+      "repo": "sebastienrousseau/jspassgen-sdk-rust",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-sdk-rust",
+          "version": "0.0.24",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/jspassgen-sdk-rust/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-sdk-rust"
+      },
+      "primary_version": "0.0.24",
+      "primary_registry": "github-releases"
+    },
+    {
+      "name": "jspassgen.github.io",
+      "slug": "jspassgen-github-io",
+      "category": "web",
+      "tagline": "Official website and documentation for jspassgen (jspassgen.com): zero-dependency cryptographic password and EFF diceware passphrase generator for Node.js an...",
+      "repo": "sebastienrousseau/jspassgen.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen.github.io",
+          "version": "0.0.24",
+          "ok": true,
+          "page": "https://github.com/sebastienrousseau/jspassgen.github.io/releases/latest",
+          "error": null
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen.github.io"
+      },
+      "primary_version": "0.0.24",
       "primary_registry": "github-releases"
     }
   ]

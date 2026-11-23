@@ -26,6 +26,8 @@ into the *sprints* used during development.
   @vitest/coverage-v8 5.1.0, wrangler 4.158.0; CI actions
   (create-pull-request, codeql-action 4.39.3, the shared pipelines),
   all still pinned by commit SHA.
+- Dependencies: @playwright/test 1.65.1, @tailwindcss/cli and
+  tailwindcss 4.3.5, eslint 10.15.0 (from Dependabot #224).
 
 ## [0.0.9]
 
