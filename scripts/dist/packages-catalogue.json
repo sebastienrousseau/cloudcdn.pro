@@ -3755,6 +3755,261 @@
       "install": {
         "github": "gh release download --repo sebastienrousseau/tunnelward"
       }
+    },
+    {
+      "name": "crypto-service-sdk-cpp",
+      "slug": "crypto-service-sdk-cpp",
+      "category": "cli",
+      "tagline": "C++ SDK for Crypto Service: a thin async-first client for the crypto-server REST API.",
+      "repo": "sebastienrousseau/crypto-service-sdk-cpp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service-sdk-cpp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/crypto-service-sdk-cpp"
+      }
+    },
+    {
+      "name": "crypto-service-sdk-dotnet",
+      "slug": "crypto-service-sdk-dotnet",
+      "category": "apps",
+      "tagline": ".NET SDK for Crypto Service: a thin async-first client for the crypto-server REST API.",
+      "repo": "sebastienrousseau/crypto-service-sdk-dotnet",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service-sdk-dotnet"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/crypto-service-sdk-dotnet"
+      }
+    },
+    {
+      "name": "crypto-service-sdk-go",
+      "slug": "crypto-service-sdk-go",
+      "category": "cli",
+      "tagline": "Go SDK for Crypto Service: a thin async-first client for the crypto-server REST API.",
+      "repo": "sebastienrousseau/crypto-service-sdk-go",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service-sdk-go"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/crypto-service-sdk-go"
+      }
+    },
+    {
+      "name": "crypto-service-sdk-java",
+      "slug": "crypto-service-sdk-java",
+      "category": "apps",
+      "tagline": "Java SDK for Crypto Service: a thin async-first client for the crypto-server REST API.",
+      "repo": "sebastienrousseau/crypto-service-sdk-java",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service-sdk-java"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/crypto-service-sdk-java"
+      }
+    },
+    {
+      "name": "crypto-service-sdk-python",
+      "slug": "crypto-service-sdk-python",
+      "category": "apps",
+      "tagline": "Python SDK for Crypto Service: a thin async-first client for the crypto-server REST API.",
+      "repo": "sebastienrousseau/crypto-service-sdk-python",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service-sdk-python"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/crypto-service-sdk-python"
+      }
+    },
+    {
+      "name": "crypto-service-sdk-rust",
+      "slug": "crypto-service-sdk-rust",
+      "category": "rust-libs",
+      "tagline": "Rust SDK for Crypto Service: a thin async-first client for the crypto-server REST API.",
+      "repo": "sebastienrousseau/crypto-service-sdk-rust",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/crypto-service-sdk-rust"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/crypto-service-sdk-rust"
+      }
+    },
+    {
+      "name": "jspassgen-cli",
+      "slug": "jspassgen-cli",
+      "category": "web",
+      "tagline": "Command-line generator built on @sebastienrousseau/jspassgen.",
+      "repo": "sebastienrousseau/jspassgen-cli",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-cli"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-cli"
+      }
+    },
+    {
+      "name": "jspassgen-lsp",
+      "slug": "jspassgen-lsp",
+      "category": "web",
+      "tagline": "Language server flagging weak literal secrets in configuration and .env files, with a replace-with-generated code action.",
+      "repo": "sebastienrousseau/jspassgen-lsp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-lsp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-lsp"
+      }
+    },
+    {
+      "name": "jspassgen-mcp",
+      "slug": "jspassgen-mcp",
+      "category": "ai",
+      "tagline": "Local stdio MCP server: generate passwords and passphrases, estimate entropy, analyse strength.",
+      "repo": "sebastienrousseau/jspassgen-mcp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-mcp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-mcp"
+      }
+    },
+    {
+      "name": "jspassgen-sdk-cpp",
+      "slug": "jspassgen-sdk-cpp",
+      "category": "cli",
+      "tagline": "Native C++17 port of the core on the OS CSPRNG, proven by the conformance kit.",
+      "repo": "sebastienrousseau/jspassgen-sdk-cpp",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-sdk-cpp"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-sdk-cpp"
+      }
+    },
+    {
+      "name": "jspassgen-sdk-dotnet",
+      "slug": "jspassgen-sdk-dotnet",
+      "category": "apps",
+      "tagline": "Native .NET port of the core on RandomNumberGenerator, proven by the conformance kit.",
+      "repo": "sebastienrousseau/jspassgen-sdk-dotnet",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-sdk-dotnet"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-sdk-dotnet"
+      }
+    },
+    {
+      "name": "jspassgen-sdk-java",
+      "slug": "jspassgen-sdk-java",
+      "category": "apps",
+      "tagline": "Native Java port of the core on SecureRandom, proven by the conformance kit.",
+      "repo": "sebastienrousseau/jspassgen-sdk-java",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-sdk-java"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-sdk-java"
+      }
+    },
+    {
+      "name": "jspassgen-sdk-python",
+      "slug": "jspassgen-sdk-python",
+      "category": "apps",
+      "tagline": "Native Python port of the core on the secrets module, proven by the conformance kit.",
+      "repo": "sebastienrousseau/jspassgen-sdk-python",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-sdk-python"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-sdk-python"
+      }
+    },
+    {
+      "name": "jspassgen-sdk-rust",
+      "slug": "jspassgen-sdk-rust",
+      "category": "rust-libs",
+      "tagline": "Native Rust port of the core on the OS CSPRNG, proven by the conformance kit.",
+      "repo": "sebastienrousseau/jspassgen-sdk-rust",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen-sdk-rust"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen-sdk-rust"
+      }
+    },
+    {
+      "name": "jspassgen.github.io",
+      "slug": "jspassgen-github-io",
+      "category": "web",
+      "tagline": "Official website and documentation for jspassgen (jspassgen.com): zero-dependency cryptographic password and EFF diceware passphrase generator for Node.js an...",
+      "repo": "sebastienrousseau/jspassgen.github.io",
+      "archived": false,
+      "registries": [
+        {
+          "type": "github-releases",
+          "repo": "sebastienrousseau/jspassgen.github.io"
+        }
+      ],
+      "install": {
+        "github": "gh release download --repo sebastienrousseau/jspassgen.github.io"
+      }
     }
   ]
 }
