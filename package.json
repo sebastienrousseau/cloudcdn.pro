@@ -47,7 +47,7 @@
     "happy-dom": "21.0.4",
     "husky": "9.1.7",
     "tailwindcss": "4.3.5",
-    "vitest": "5.1.0",
+    "vitest": "5.1.1",
     "wrangler": "4.165.0"
   },
   "dependencies": {
