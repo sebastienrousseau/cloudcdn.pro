@@ -8,6 +8,16 @@ Versioning is calendar-based on the **`apiVersion`** field returned by
 every API envelope (currently `2026-04-01`). This file groups commits
 into the *sprints* used during development.
 
+## [Unreleased]
+
+### Changed
+
+- The k6 edge smoke test runs after each production deploy and daily
+  (`edge-load-smoke.yml`) instead of on pull requests. A PR is not
+  deployed, so the PR-time run measured production, not the change, and
+  failed PRs on unrelated edge blips. Budget failures still fail the
+  workflow.
+
 ## [0.0.10]
 
 ### Security
