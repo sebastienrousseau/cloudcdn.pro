@@ -11,6 +11,11 @@ updates:
       timezone: "UTC"
     open-pull-requests-limit: 10
     groups:
+      # vitest and @vitest/* peer-pin each other exactly; bump them together.
+      vitest:
+        patterns:
+          - "vitest"
+          - "@vitest/*"
       minor-and-patch:
         update-types:
           - minor
